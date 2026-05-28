@@ -643,7 +643,9 @@
     @media (max-width: 600px) {
       .nav-logo-sub  { display: none; }
       .nav-address   { display: none; }
-      .lang-switcher { display: none; }
+      .lang-switcher { display: inline-block; }
+      .lang-btn      { padding: 4px 8px; font-size: 11px; }
+      .lang-switcher:hover .lang-btn { position: static; width: auto; display: inline-block; margin-right: 2px; }
       .nav-phone     { display: none; }
       .nav-call      { padding: 6px 12px; font-size: 12px; }
       .nav-logo-name { font-size: 13px; }
@@ -720,7 +722,7 @@
         <span class="hero-ornament-star">✦</span>
         <span class="hero-ornament-line hero-ornament-r"></span>
       </div>
-      <p class="hero-desc" data-t="hero_desc">Praktický lékař pro dospělé. Rychlé objednání, příjemná péče, všechny pojišťovny.</p>
+      <p class="hero-desc" data-t="hero_desc">Praktický lékař pro dospělé. Rychlé objednání, kvalitní péče, všechny pojišťovny.</p>
       <div class="hero-btns">
         <a href="tel:+420606755784" class="btn-gold">📞 +420 606 755 784</a>
         <a href="#contact" class="btn-outline" data-t="hero_map">🗺 Jak se dostat</a>
@@ -973,7 +975,7 @@ const T = {
   cs:{
     nav_sub:"Zdravotní středisko",
     hero_badge:"Přijímáme nové pacienty", hero_location:"Ústí nad Labem – Předlice",
-    hero_desc:"Praktický lékař pro dospělé. Rychlé objednání, příjemná péče, všechny pojišťovny.",
+    hero_desc:"Praktický lékař pro dospělé. Rychlé objednání, kvalitní péče, všechny pojišťovny.",
     hero_map:"🗺 Jak se dostat",
     hl1_h:"Praktický lékař pro dospělé", hl1_p:"Komplexní péče v češtině, ruštině, ukrajinské a angličtině",
     hl2_h:"Všechny pojišťovny",       hl2_p:"VZP, OZP, VoZP, ZP MV, RBP, ČPZP, PVZP",
