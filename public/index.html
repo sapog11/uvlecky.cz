@@ -534,6 +534,51 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .js .reveal.in{ opacity:1; transform:none; }
 .reveal.d1{ transition-delay:.1s; } .reveal.d2{ transition-delay:.2s; } .reveal.d3{ transition-delay:.3s; }
 
+/* ===================== PROMO CAROUSEL ===================== */
+.promo-carousel-section { padding: 0; }
+.promo-carousel {
+  position: relative; height: 300px; overflow: hidden;
+  background: var(--blue-mist2); border-radius: 0;
+}
+.promo-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 0.8s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.promo-slide.active { opacity: 1; }
+.promo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(28,43,74,0.7) 0%, rgba(62,107,160,0.5) 100%);
+}
+.promo-content {
+  position: relative; z-index: 2; text-align: center;
+  color: var(--white); max-width: 800px; padding: 40px;
+}
+.promo-content h3 {
+  font-family: var(--display); font-size: clamp(28px,5vw,42px);
+  color: var(--white); margin-bottom: 12px; font-weight: 600;
+}
+.promo-content p {
+  font-size: clamp(14px,2vw,16px); color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+.promo-dots {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 3;
+}
+.promo-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.5); cursor: pointer;
+  transition: background 0.3s ease;
+}
+.promo-dot.active { background: var(--white); }
+
+@media (max-width:760px) {
+  .promo-carousel { height: 200px; }
+  .promo-content { padding: 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -628,6 +673,22 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 
 <!-- ============ PAGE (overlaps hero) ============ -->
 <main class="page">
+
+  <!-- NEWS & PROMO CAROUSEL -->
+  <section class="section promo-carousel-section" id="promo">
+    <div class="container">
+      <div class="promo-carousel">
+        <div class="promo-slide active" style="background-image:url('/images/promo1.jpg')">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <h3 data-lang-cs="Pracovně lékařské služby" data-lang-ru="Профессиональные медицинские услуги" data-lang-ua="Професійні медичні послуги" data-lang-en="Occupational Health Services">Pracovně lékařské služby</h3>
+            <p data-lang-cs="Komplexní péče o zdraví vašich zaměstnanců v souladu s platnou legislativou." data-lang-ru="Комплексная медицинская помощь вашим сотрудникам в соответствии с действующим законодательством." data-lang-ua="Комплексна медична допомога вашим працівникам відповідно до чинного законодавства." data-lang-en="Comprehensive health care for your employees in accordance with current legislation.">Komplexní péče o zdraví vašich zaměstnanců</p>
+          </div>
+        </div>
+      </div>
+      <div class="promo-dots" id="promoDots"></div>
+    </div>
+  </section>
 
   <!-- QUICK BENEFITS -->
   <section class="section" id="vyhody">
@@ -1108,6 +1169,43 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
       i = (i + 1) % slides.length;
       slides[i].classList.add('active');
     }, 4000);
+  })();
+
+  // promo carousel
+  (function(){
+    var slides = document.querySelectorAll('.promo-slide');
+    var dotsContainer = document.getElementById('promoDots');
+    if (slides.length === 0) return;
+
+    // create dots
+    for (var i = 0; i < slides.length; i++){
+      var dot = document.createElement('div');
+      dot.className = 'promo-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-index', i);
+      dotsContainer.appendChild(dot);
+    }
+
+    var dots = document.querySelectorAll('.promo-dot');
+    var currentSlide = 0;
+
+    function showSlide(n){
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    dots.forEach(function(dot){
+      dot.addEventListener('click', function(){
+        showSlide(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+
+    // auto-rotate every 6s
+    setInterval(function(){
+      showSlide(currentSlide + 1);
+    }, 6000);
   })();
 </script>
 
