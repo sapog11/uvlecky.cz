@@ -540,7 +540,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .promo-carousel {
   position: relative; height: 280px; overflow: hidden;
   background: var(--blue-mist2); border-radius: 0;
-  width: 100%; z-index: 10;
+  width: 100%; z-index: 1;
 }
 .promo-slide {
   position: absolute; inset: 0;
@@ -676,22 +676,6 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <!-- ============ PAGE (overlaps hero) ============ -->
 <main class="page">
 
-  <!-- NEWS & PROMO CAROUSEL -->
-  <section class="section promo-carousel-section" id="promo">
-    <div class="container">
-      <div class="promo-carousel">
-        <div class="promo-slide active" style="background-image:url('/images/promo1.jpg')">
-          <div class="promo-overlay"></div>
-          <div class="promo-content">
-            <h3 data-lang-cs="Pracovně lékařské služby" data-lang-ru="Профессиональные медицинские услуги" data-lang-ua="Valencià медичні послуги" data-lang-en="Occupational Health Services">Pracovně lékařské služby</h3>
-            <p data-lang-cs="Komplexní péče o zdraví vašich zaměstnanců v souladu s platnou legislativou." data-lang-ru="Комплексная медицинская помощь вашим сотрудникам в соответствии с действующим законодательством." data-lang-ua="Комплексна медична допомога вашим працівникам відповідно до чинного законодавства." data-lang-en="Comprehensive health care for your employees in accordance with current legislation.">Komplexní péče o zdraví vašich zaměstnanců</p>
-          </div>
-        </div>
-      </div>
-      <div class="promo-dots" id="promoDots"></div>
-    </div>
-  </section>
-
   <!-- QUICK BENEFITS -->
   <section class="section" id="vyhody">
     <div class="container">
@@ -801,6 +785,22 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
           <p><strong>Brzy otevírá!</strong> Nová ordinace gynekologa od září 2026. Lékař bude brzy potvrzen.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- NEWS & PROMO CAROUSEL -->
+  <section class="section promo-carousel-section" id="promo">
+    <div class="container">
+      <div class="promo-carousel">
+        <div class="promo-slide active" style="background-image:url('/images/promo1.jpg')">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <h3 data-lang-cs="Pracovně lékařské služby" data-lang-ru="Профессиональные медицинские услуги" data-lang-ua="Valencià медичні послуги" data-lang-en="Occupational Health Services">Pracovně lékařské služby</h3>
+            <p data-lang-cs="Komplexní péče o zdraví vašich zaměstnanců v souladu s platnou legislativou." data-lang-ru="Комплексная медицинская помощь вашим сотрудникам в соответствии с действующим законодательством." data-lang-ua="Комплексна медична допомога вашим працівникам відповідно до чинного законодавства." data-lang-en="Comprehensive health care for your employees in accordance with current legislation.">Komplexní péče o zdraví vašich zaměstnanců</p>
+          </div>
+        </div>
+      </div>
+      <div class="promo-dots" id="promoDots"></div>
     </div>
   </section>
 
@@ -1082,15 +1082,26 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
     var open = lang.classList.toggle('open');
     langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+  function updateLanguage(langCode){
+    var langMap = { 'CS': 'cs', 'RU': 'ru', 'UA': 'ua', 'EN': 'en' };
+    var langKey = 'data-lang-' + langMap[langCode];
+    document.querySelectorAll('[data-lang-cs]').forEach(function(el){
+      var text = el.getAttribute(langKey);
+      if (text) el.textContent = text;
+    });
+  }
   lang.querySelectorAll('.lang-menu button').forEach(function(b){
     b.addEventListener('click', function(){
       lang.querySelectorAll('.lang-menu button').forEach(function(x){ x.classList.remove('active'); });
       b.classList.add('active');
-      langCur.textContent = b.getAttribute('data-lang');
+      var selectedLang = b.getAttribute('data-lang');
+      langCur.textContent = selectedLang;
+      updateLanguage(selectedLang);
       lang.classList.remove('open');
       langBtn.setAttribute('aria-expanded','false');
     });
   });
+  updateLanguage('CS');
   document.addEventListener('click', function(){ lang.classList.remove('open'); langBtn.setAttribute('aria-expanded','false'); });
 
   // back to top + cookie
