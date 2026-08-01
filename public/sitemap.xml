@@ -26,6 +26,11 @@
       <image:title>Medigma PLS - Pracovně lékařské služby</image:title>
       <image:caption>Zdravotní prohlídky do práce - profesionální medicínský osm</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://uvlecky-f9d20.web.app/logo.svg</image:loc>
+      <image:title>Poliklinika U Vlečky - Logo</image:title>
+      <image:caption>Logo kliniky Poliklinika U Vlečky s medicínským křížem</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://uvlecky-f9d20.web.app#sluzby</loc>
