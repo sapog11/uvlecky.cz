@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Square background with rounded corners -->
+  <rect width="200" height="200" fill="#1C2B4A" rx="40" stroke="#3E6BA0" stroke-width="2"/>
+
+  <!-- Medical cross (white) - centered and proportional -->
+  <g fill="white">
+    <!-- Vertical bar -->
+    <rect x="85" y="40" width="30" height="120" rx="3"/>
+    <!-- Horizontal bar -->
+    <rect x="40" y="85" width="120" height="30" rx="3"/>
+  </g>
+
+  <!-- Subtle accent border -->
+  <rect width="200" height="200" fill="none" stroke="#6F9A85" stroke-width="1.5" rx="40" opacity="0.6"/>
+</svg>
