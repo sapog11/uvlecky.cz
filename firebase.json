@@ -2,7 +2,9 @@
   "hosting": {
     "public": "public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [{ "source": "**", "destination": "/index.html" }],
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ],
     "headers": [
       {
         "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico)",
@@ -11,6 +13,20 @@
       {
         "source": "**/*.html",
         "headers": [{ "key": "Cache-Control", "value": "max-age=0, must-revalidate" }]
+      },
+      {
+        "source": "/sitemap.xml",
+        "headers": [
+          { "key": "Content-Type", "value": "application/xml" },
+          { "key": "Cache-Control", "value": "max-age=86400" }
+        ]
+      },
+      {
+        "source": "/robots.txt",
+        "headers": [
+          { "key": "Content-Type", "value": "text/plain" },
+          { "key": "Cache-Control", "value": "max-age=86400" }
+        ]
       }
     ]
   }

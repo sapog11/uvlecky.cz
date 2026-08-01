@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /sitemap.xml
+
+# Disallow crawling of admin and private pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Sitemap location
+Sitemap: https://uvlecky-f9d20.web.app/sitemap.xml
+
+# Crawl delay (ms)
+Crawl-delay: 0
+
+# Google Search Console verification
+# google-site-verification: [to be added]
