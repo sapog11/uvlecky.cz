@@ -633,9 +633,9 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   <section class="section" id="vyhody">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Přehledně</span>
+        <span class="eyebrow" data-lang-cs="Přehledně" data-lang-ru="Кратко" data-lang-ua="Коротко" data-lang-en="At a Glance">Přehledně</span>
         <div class="ornament" aria-hidden="true"><i></i></div>
-        <h2>To nejdůležitější <em>na první pohled</em></h2>
+        <h2 data-lang-cs="To nejdůležitější na první pohled" data-lang-ru="Самое важное с первого взгляда" data-lang-ua="Найважливіше з першого погляду" data-lang-en="The most important <em>at a glance</em>">To nejdůležitější <em>na první pohled</em></h2>
       </div>
       <div class="benefit-grid">
         <div class="card benefit-card reveal">
@@ -1019,11 +1019,27 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
     var open = lang.classList.toggle('open');
     langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+  function updateLanguage(langCode){
+    var langMap = { 'CS': 'cs', 'RU': 'ru', 'UA': 'ua', 'EN': 'en' };
+    var langKey = 'data-lang-' + langMap[langCode];
+    document.querySelectorAll('[data-lang-cs]').forEach(function(el){
+      var text = el.getAttribute(langKey);
+      if (text) {
+        if (el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P') {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+      }
+    });
+  }
   lang.querySelectorAll('.lang-menu button').forEach(function(b){
     b.addEventListener('click', function(){
       lang.querySelectorAll('.lang-menu button').forEach(function(x){ x.classList.remove('active'); });
       b.classList.add('active');
-      langCur.textContent = b.getAttribute('data-lang');
+      var selectedLang = b.getAttribute('data-lang');
+      langCur.textContent = selectedLang;
+      updateLanguage(selectedLang);
       lang.classList.remove('open');
       langBtn.setAttribute('aria-expanded','false');
     });
