@@ -11,7 +11,7 @@ Disallow: /*.css$
 Disallow: /*.js$
 
 # Sitemap location
-Sitemap: https://uvlecky-f9d20.web.app/sitemap.xml
+Sitemap: https://uvlecky.cz/sitemap.xml
 
 # Crawl delay (ms)
 Crawl-delay: 0
