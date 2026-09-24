@@ -1,65 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
-    <loc>https://uvlecky.cz</loc>
-    <lastmod>2026-08-01</lastmod>
+    <loc>https://uvlecky.cz/</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://uvlecky.cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://uvlecky.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://uvlecky.cz/ua/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://uvlecky.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uvlecky.cz/"/>
     <image:image>
       <image:loc>https://uvlecky.cz/images/building.jpg</image:loc>
-      <image:title>Poliklinika U Vlečky - budova v Ústí nad Labem</image:title>
-      <image:caption>Budova polikliniky U Vlečky na adrese U Vlečky 3086/6</image:caption>
+      <image:title>Poliklinika U Vlečky - Ústí nad Labem</image:title>
     </image:image>
     <image:image>
       <image:loc>https://uvlecky.cz/images/corridor.jpg</image:loc>
-      <image:title>Koridor polikliniky U Vlečky</image:title>
-      <image:caption>Vnitřní prostory ordinace v Ústí nad Labem - Předlice</image:caption>
+      <image:title>Interiér polikliniky U Vlečky</image:title>
     </image:image>
     <image:image>
       <image:loc>https://uvlecky.cz/images/cabinet.jpg</image:loc>
-      <image:title>Ordinační místnost polikliniky U Vlečky</image:title>
-      <image:caption>Kabinet pro medicínské procedury a vyšetření pacientů</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://uvlecky.cz/images/promo1.jpg</image:loc>
-      <image:title>Medigma PLS - Pracovně lékařské služby</image:title>
-      <image:caption>Zdravotní prohlídky do práce - profesionální medicínský osm</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://uvlecky.cz/logo.svg</image:loc>
-      <image:title>Poliklinika U Vlečky - Logo</image:title>
-      <image:caption>Logo kliniky Poliklinika U Vlečky s medicínským křížem</image:caption>
+      <image:title>Ordinace praktického lékaře</image:title>
     </image:image>
   </url>
+
   <url>
-    <loc>https://uvlecky.cz#sluzby</loc>
-    <lastmod>2026-08-01</lastmod>
+    <loc>https://uvlecky.cz/ru/</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://uvlecky.cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://uvlecky.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://uvlecky.cz/ua/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://uvlecky.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uvlecky.cz/"/>
   </url>
+
   <url>
-    <loc>https://uvlecky.cz#lekar</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://uvlecky.cz#informace</loc>
-    <lastmod>2026-08-01</lastmod>
+    <loc>https://uvlecky.cz/ua/</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://uvlecky.cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://uvlecky.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://uvlecky.cz/ua/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://uvlecky.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uvlecky.cz/"/>
   </url>
+
   <url>
-    <loc>https://uvlecky.cz#kontakt</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://uvlecky.cz#partneri</loc>
-    <lastmod>2026-08-01</lastmod>
+    <loc>https://uvlecky.cz/en/</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://uvlecky.cz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://uvlecky.cz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://uvlecky.cz/ua/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://uvlecky.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uvlecky.cz/"/>
   </url>
+
+  <url>
+    <loc>https://uvlecky.cz/gdpr.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

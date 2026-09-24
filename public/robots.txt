@@ -1,20 +1,11 @@
 User-agent: *
 Allow: /
-Allow: /images/
-Allow: /sitemap.xml
 
-# Disallow crawling of admin and private pages
+# Neveřejné sekce
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
-Disallow: /*.css$
-Disallow: /*.js$
 
-# Sitemap location
+# CSS a JS musí zůstat přístupné – Google bez nich nedokáže
+# stránku vykreslit a posoudit mobilní verzi.
+
 Sitemap: https://uvlecky.cz/sitemap.xml
-
-# Crawl delay (ms)
-Crawl-delay: 0
-
-# Google Search Console verification
-# google-site-verification: [to be added]
