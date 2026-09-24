@@ -649,6 +649,9 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   display:flex; align-items:center; justify-content:center;
 }
 .doc-icon{ width:80px; height:80px; color:rgba(255,255,255,0.6); }
+.doc-photo.has-img{ background:#E9EEF4; }
+.doc-photo.has-img picture{ position:absolute; inset:0; }
+.doc-photo.has-img img{ width:100%; height:100%; object-fit:cover; object-position:50% 12%; }
 .doc-body{ display:flex; flex-direction:column; flex:1; padding:18px 20px 20px; }
 .doc-body .eyebrow{ display:block; margin:0 0 10px; }
 .doc-name{ font-family:var(--display); font-size:21px; font-weight:600; line-height:1.1; color:var(--navy); margin-bottom:5px; }
@@ -1136,10 +1139,11 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 </article>
 <!-- DOCTOR 4: Odběrová místnost - DIAGNOSTIKA -->
 <article class="doc-card reveal d3">
-<div class="doc-photo">
-<svg class="doc-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
-<path d="M6 9l12 0M9 6v6M15 6v6M5 15h14M5 19h14"></path>
-</svg>
+<div class="doc-photo has-img">
+<picture>
+<source srcset="/images/odber-mistnost.webp" type="image/webp"/>
+<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="780" loading="lazy" src="/images/odber-mistnost.jpg" width="960"/>
+</picture>
 </div>
 <div class="doc-body">
 <h3 class="doc-name" data-lang-cs="Odběrová místnost" data-lang-en="Sample collection room" data-lang-ru="Процедурный кабинет" data-lang-ua="Процедурний кабінет">Odběrová místnost</h3>
