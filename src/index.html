@@ -198,6 +198,14 @@
     },
     {
       "@type": "Question",
+      "name": "Přijel jsem do České republiky nedávno a nemám zde žádného lékaře. Mohu se zaregistrovat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, právě pro tyto situace jsme tu. Nepotřebujete předchozího českého lékaře ani doporučení. Stačí pas nebo průkaz o povolení k pobytu a doklad o pojištění — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Mohu se zaregistrovat, když bydlím v Děčíně, Teplicích, Litoměřicích nebo jinde v kraji?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -206,10 +214,18 @@
     },
     {
       "@type": "Question",
-      "name": "Jaké pojišťovny přijímáte?",
+      "name": "Jaké pojišťovny přijímáte? Berete i PVZP?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Přijímáme pacienty všech zdravotních pojišťoven — VZP, OZP, VoZP, ZP MV, RBP, ČPZP i PVZP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mluví lékař rusky nebo ukrajinsky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. Ordinace funguje v češtině, ruštině, ukrajinštině a angličtině. Nepotřebujete tlumočníka."
       }
     },
     {
@@ -926,7 +942,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <p data-lang-cs="Přijímáme nové pacienty ze všech pojišťoven. Zavolejte — objednáme vás přímo po telefonu. Najdete nás na adrese U Vlečky 3086/6, Ústí nad Labem." data-lang-en="We accept patients with all major Czech health insurance. Call - we'll book you right over the phone. You will find us at U Vlečky 3086/6, Ústí nad Labem." data-lang-ru="Принимаем новых пациентов со всеми страховками. Позвоните — запишем Вас прямо по телефону. Приходите по адресу: U Vlečky 3086/6, Ústí nad Labem." data-lang-ua="Приймаємо нових пацієнтів з усіма страховками. Зателефонуйте — запишемо Вас прямо по телефону. Приходьте за адресою: U Vlečky 3086/6, Ústí nad Labem.">Přijímáme nové pacienty ze všech pojišťoven. Zavolejte — objednáme vás přímo po telefonu.</p>
 <ul class="reg-list">
 <li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Přijímáme nové pacienty ihned" data-lang-en="Accepting new patients right away" data-lang-ru="Принимаем новых пациентов сразу" data-lang-ua="Приймаємо нових пацієнтів одразу">Přijímáme nové pacienty ihned</span></li>
-
+<li data-only="tr"><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Ordinace v češtině, ruštině, ukrajinštině a angličtině" data-lang-en="Consultations in Czech, Russian, Ukrainian and English" data-lang-ru="Приём на чешском, русском, украинском и английском языках" data-lang-ua="Прийом чеською, російською, українською та англійською мовами">Ordinace v češtině, ruštině, ukrajinštině a angličtině</span></li>
 <li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Všechny zdravotní pojišťovny" data-lang-en="All insurance companies including PVZP" data-lang-ru="Все страховые компании, включая PVZP" data-lang-ua="Усі страхові компанії, включно з PVZP">Všechny zdravotní pojišťovny</span></li>
 <li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Velké parkoviště v areálu" data-lang-en="Ample parking on site" data-lang-ru="Большая парковка на территории" data-lang-ua="Велика парковка на території">Velké parkoviště v areálu</span></li>
 <li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Laboratorní vyšetření přímo v ordinaci" data-lang-en="Laboratory tests on the premises" data-lang-ru="Лабораторные анализы прямо в клинике" data-lang-ua="Лабораторні аналізи прямо в клініці">Laboratorní vyšetření přímo v ordinaci</span></li>
@@ -976,7 +992,30 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 </div>
 </section>
 <!-- CIZINCI: pojisteni VZP/PVZP, jazyky, doklady -->
-
+<section class="section" data-only="tr" id="cizinci">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Pro cizince" data-lang-en="For foreigners" data-lang-ru="Иностранцам" data-lang-ua="Іноземцям">Pro cizince</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="Lékař pro cizince — &lt;em&gt;registrace bez bariér&lt;/em&gt;" data-lang-en="Doctor for foreigners — &lt;em&gt;registration without barriers&lt;/em&gt;" data-lang-ru="Врач для иностранцев — &lt;em&gt;регистрация без барьеров&lt;/em&gt;" data-lang-ua="Лікар для іноземців — &lt;em&gt;реєстрація без бар'єрів&lt;/em&gt;">Lékař pro cizince — <em>registrace bez bariér</em></h2>
+</div>
+<p class="region-intro reveal" data-lang-cs="Přijeli jste do České republiky nedávno a nemáte ještě svého praktického lékaře? Registrujeme cizince s veřejným i komerčním pojištěním a v ordinaci se domluvíte anglicky, rusky i ukrajinsky. Praktický lékař pro cizince v Ústí nad Labem a v celém Ústeckém kraji." data-lang-en="New to the Czech Republic and don't have a GP yet? We register foreigners with both public and commercial insurance, and you can speak English, Russian or Ukrainian at the practice. An English-speaking doctor in Ústí nad Labem and across the Ústí Region." data-lang-ru="Недавно в Чехии и ещё нет своего терапевта? Регистрируем иностранцев с государственной и коммерческой страховкой, в клинике можно говорить по-русски, по-украински и по-английски. Русскоговорящий врач для иностранцев в Усти-над-Лабем и по всему Устецкому краю." data-lang-ua="Нещодавно в Чехії і ще немає свого сімейного лікаря? Реєструємо іноземців з державною та комерційною страховкою, у клініці можна говорити українською, російською та англійською. Україномовний лікар для іноземців в Усті-над-Лабем і по всьому Устецькому краю.">Přijeli jste do České republiky nedávno a nemáte ještě svého praktického lékaře? Registrujeme cizince s veřejným i komerčním pojištěním a v ordinaci se domluvíte anglicky, rusky i ukrajinsky. Praktický lékař pro cizince v Ústí nad Labem a v celém Ústeckém kraji.</p>
+<div class="info-grid">
+<div class="card info-card reveal">
+<h3 data-lang-cs="Pojištění: VZP i PVZP" data-lang-en="Insurance: VZP and PVZP" data-lang-ru="Страховка: VZP и PVZP" data-lang-ua="Страховка: VZP і PVZP"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 2 4 5v6c0 5.25 3.4 10.15 8 11 4.6-.85 8-5.75 8-11V5l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>Pojištění: VZP i PVZP</h3>
+<p data-lang-cs="Přijímáme pacienty všech veřejných zdravotních pojišťoven (VZP, OZP, VoZP, ZP MV, RBP, ČPZP) i klienty komerčního pojištění cizinců PVZP — včetně komplexního zdravotního pojištění vyžadovaného pro dlouhodobý pobyt." data-lang-en="We accept all public health insurance companies (VZP, OZP, VoZP, ZP MV, RBP, ČPZP) as well as PVZP commercial insurance for foreigners — including the comprehensive health insurance required for long-term residence." data-lang-ru="Принимаем все государственные страховые (VZP, OZP, VoZP, ZP MV, RBP, ČPZP) и коммерческую страховку для иностранцев PVZP — включая комплексное медицинское страхование, необходимое для долгосрочного пребывания." data-lang-ua="Приймаємо всі державні страхові (VZP, OZP, VoZP, ZP MV, RBP, ČPZP) та комерційну страховку для іноземців PVZP — включно з комплексним медичним страхуванням, потрібним для довгострокового перебування.">Přijímáme pacienty všech veřejných zdravotních pojišťoven (VZP, OZP, VoZP, ZP MV, RBP, ČPZP) i klienty komerčního pojištění cizinců PVZP — včetně komplexního zdravotního pojištění vyžadovaného pro dlouhodobý pobyt.</p>
+</div>
+<div class="card info-card reveal d1">
+<h3 data-lang-cs="Bez tlumočníka" data-lang-en="No interpreter needed" data-lang-ru="Без переводчика" data-lang-ua="Без перекладача"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>Bez tlumočníka</h3>
+<p data-lang-cs="V ordinaci se domluvíte česky, anglicky, rusky a ukrajinsky. Diagnózu, léčbu i potřebné dokumenty vám vysvětlíme v jazyce, kterému rozumíte." data-lang-en="You can communicate in Czech, English, Russian and Ukrainian at the practice. We explain your diagnosis, treatment and paperwork in a language you understand." data-lang-ru="В клинике можно говорить по-чешски, по-английски, по-русски и по-украински. Диагноз, лечение и нужные документы объясним на понятном вам языке." data-lang-ua="У клініці можна говорити чеською, англійською, російською та українською. Діагноз, лікування й потрібні документи пояснимо зрозумілою вам мовою.">V ordinaci se domluvíte česky, anglicky, rusky a ukrajinsky. Diagnózu, léčbu i potřebné dokumenty vám vysvětlíme v jazyce, kterému rozumíte.</p>
+</div>
+<div class="card info-card reveal d2">
+<h3 data-lang-cs="Co potřebujete k registraci" data-lang-en="What you need to register" data-lang-ru="Что нужно для регистрации" data-lang-ua="Що потрібно для реєстрації"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><circle cx="8.5" cy="11" r="2.5"></circle><path d="M14 9h5M14 13h5M4.5 18c.6-1.8 2.1-3 4-3s3.4 1.2 4 3"></path></svg>Co potřebujete k registraci</h3>
+<p data-lang-cs="Pas nebo průkaz o povolení k pobytu a průkaz pojištěnce (u PVZP doklad o sjednaném pojištění). Výpis od předchozího lékaře vezměte s sebou, pokud ho máte — jinak si ho vyžádáme sami." data-lang-en="Passport or residence permit card and your insurance card (for PVZP, proof of insurance). Bring records from your previous doctor if you have them — otherwise we will request them ourselves." data-lang-ru="Паспорт или карту ВНЖ и карточку страховой (для PVZP — подтверждение страховки). Выписку от прежнего врача возьмите с собой, если есть — иначе запросим сами." data-lang-ua="Паспорт або картку посвідки на проживання та картку страхової (для PVZP — підтвердження страховки). Виписку від попереднього лікаря візьміть із собою, якщо є — інакше запитаємо самі.">Pas nebo průkaz o povolení k pobytu a průkaz pojištěnce (u PVZP doklad o sjednaném pojištění). Výpis od předchozího lékaře vezměte s sebou, pokud ho máte — jinak si ho vyžádáme sami.</p>
+</div>
+</div>
+</div>
+</section>
 <!-- SERVICES -->
 <section class="section" id="sluzby">
 <div class="container">
@@ -1132,8 +1171,10 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 </article>
 </div>
 <div class="doctor-shared reveal">
-
-
+<span class="lang-label" data-only="tr" data-lang-cs="Mluvíme i cizími jazyky" data-lang-en="Languages spoken" data-lang-ru="Говорим и на иностранных языках" data-lang-ua="Розмовляємо іноземними мовами">Mluvíme i cizími jazyky</span>
+<div class="lang-badges" data-only="tr">
+<span>CZ Česky</span><span>RU Русский</span><span>UA Українська</span><span>GB English</span>
+</div>
 <a class="hero-phone" href="tel:+420606755784">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>
           +420 606 755 784
@@ -1201,7 +1242,10 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <summary data-lang-cs="Přijímáte nové pacienty?" data-lang-en="Are you accepting new patients?" data-lang-ru="Принимаете ли новых пациентов?" data-lang-ua="Чи приймаєте нових пацієнтів?">Přijímáte nové pacienty?</summary>
 <p data-lang-cs="Ano, registrujeme nové pacienty průběžně, bez čekací listiny. Zaregistrovat se můžete i v den návštěvy — doporučujeme ale předem zavolat na +420 606 755 784, aby si na vás lékař vyhradil čas." data-lang-en="Yes, we register new patients on an ongoing basis, with no waiting list. You can register on the day of your visit — but we recommend calling +420 606 755 784 in advance so the doctor can set aside time for you." data-lang-ru="Да, регистрируем новых пациентов постоянно, без листа ожидания. Зарегистрироваться можно и в день визита — но лучше заранее позвонить по +420 606 755 784, чтобы врач выделил на Вас время." data-lang-ua="Так, реєструємо нових пацієнтів постійно, без листа очікування. Зареєструватися можна і в день візиту — але краще заздалегідь зателефонувати за +420 606 755 784, щоб лікар виділив на Вас час.">Ano, registrujeme nové pacienty průběžně, bez čekací listiny. Zaregistrovat se můžete i v den návštěvy — doporučujeme ale předem zavolat na +420 606 755 784, aby si na vás lékař vyhradil čas.</p>
 </details>
-
+<details class="faq-item" data-only="tr">
+<summary data-lang-cs="Přijel jsem do České republiky nedávno a nemám zde žádného lékaře. Mohu se zaregistrovat?" data-lang-en="I recently arrived in the Czech Republic and have no doctor here. Can I register?" data-lang-ru="Я недавно приехал в Чехию, врача здесь ещё нет. Могу зарегистрироваться?" data-lang-ua="Я нещодавно приїхав до Чехії, лікаря тут ще немає. Чи можу зареєструватися?">Přijel jsem do České republiky nedávno a nemám zde žádného lékaře. Mohu se zaregistrovat?</summary>
+<p data-lang-cs="Ano, právě pro tyto situace jsme tu. Nepotřebujete předchozího českého lékaře ani doporučení. Stačí pas nebo průkaz o povolení k pobytu a doklad o pojištění — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu." data-lang-en="Yes — this is exactly what we are here for. You don't need a previous Czech doctor or a referral. Just bring your passport or residence card and proof of insurance — public (VZP and others) or commercial PVZP. We will register you and arrange your first visit straight away." data-lang-ru="Да, именно для таких ситуаций мы и работаем. Не нужен ни предыдущий чешский врач, ни направление. Достаточно паспорта или карты ВНЖ и подтверждения страховки — государственной (VZP и другие) или коммерческой PVZP. Зарегистрируем и сразу договоримся о первом визите." data-lang-ua="Так — саме для таких ситуацій ми й працюємо. Не потрібен ані попередній чеський лікар, ані направлення. Достатньо паспорта або картки посвідки та підтвердження страховки — державної (VZP та інші) або комерційної PVZP. Зареєструємо і одразу домовимося про перший візит.">Ano, právě pro tyto situace jsme tu. Nepotřebujete předchozího českého lékaře ani doporučení. Stačí pas nebo průkaz o povolení k pobytu a doklad o pojištění — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu.</p>
+</details>
 <details class="faq-item">
 <summary data-lang-cs="Mohu se zaregistrovat, když bydlím v Děčíně, Teplicích, Litoměřicích nebo jinde v kraji?" data-lang-en="Can I register if I live in Děčín, Teplice, Litoměřice or elsewhere in the region?" data-lang-ru="Могу ли я зарегистрироваться, если живу в Дечине, Теплице, Литомержице или другом городе края?" data-lang-ua="Чи можу я зареєструватися, якщо мешкаю в Дечіні, Тепліце, Літомержице або іншому місті краю?">Mohu se zaregistrovat, když bydlím v Děčíně, Teplicích, Litoměřicích nebo jinde v kraji?</summary>
 <p data-lang-cs="Ano. Registrace k praktickému lékaři není vázána na místo bydliště. Pravidelně k nám dojíždějí pacienti z celého Ústeckého kraje — z Děčína, Litoměřic, Teplic, Lovosic, Mostu, Chomutova i Loun." data-lang-en="Yes. Registration with a GP is not tied to your place of residence. Patients regularly travel to us from across the Ústí Region — Děčín, Litoměřice, Teplice, Lovosice, Most, Chomutov and Louny." data-lang-ru="Да. Регистрация к терапевту не привязана к месту жительства. К нам регулярно приезжают пациенты со всего Устецкого края — из Дечина, Литомержице, Теплице, Ловосице, Моста, Хомутова и Лоуни." data-lang-ua="Так. Реєстрація до сімейного лікаря не прив'язана до місця проживання. До нас регулярно приїжджають пацієнти з усього Устецького краю — з Дечіна, Літомержице, Тепліце, Ловосіце, Моста, Хомутова та Лоуни.">Ano. Registrace k praktickému lékaři není vázána na místo bydliště. Pravidelně k nám dojíždějí pacienti z celého Ústeckého kraje — z Děčína, Litoměřic, Teplic, Lovosic, Mostu, Chomutova i Loun.</p>
@@ -1210,7 +1254,10 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <summary data-lang-cs="Jaké pojišťovny přijímáte?" data-lang-en="Which insurance companies do you accept? Do you take PVZP?" data-lang-ru="Какие страховые принимаете? Берёте ли PVZP?" data-lang-ua="Які страхові приймаєте? Чи берете PVZP?">Jaké pojišťovny přijímáte?</summary>
 <p data-lang-cs="Přijímáme pacienty všech zdravotních pojišťoven — VZP, OZP, VoZP, ZP MV, RBP, ČPZP i PVZP." data-lang-en="We accept patients from all health insurance companies — VZP, OZP, VoZP, ZP MV, RBP, ČPZP — and also PVZP (Pojišťovna VZP), which foreigners on long-term residence usually have." data-lang-ru="Принимаем пациентов всех страховых компаний — VZP, OZP, VoZP, ZP MV, RBP, ČPZP — а также PVZP (Pojišťovna VZP), которая обычно у иностранцев с долгосрочным пребыванием." data-lang-ua="Приймаємо пацієнтів усіх страхових компаній — VZP, OZP, VoZP, ZP MV, RBP, ČPZP — а також PVZP (Pojišťovna VZP), яка зазвичай у іноземців з довгостроковим перебуванням.">Přijímáme pacienty všech zdravotních pojišťoven — VZP, OZP, VoZP, ZP MV, RBP, ČPZP i PVZP.</p>
 </details>
-
+<details class="faq-item" data-only="tr">
+<summary data-lang-cs="Mluví lékař rusky nebo ukrajinsky?" data-lang-en="Does the doctor speak Russian or Ukrainian?" data-lang-ru="Врач говорит по-русски или по-украински?" data-lang-ua="Чи говорить лікар російською або українською?">Mluví lékař rusky nebo ukrajinsky?</summary>
+<p data-lang-cs="Ano. Ordinace funguje v češtině, ruštině, ukrajinštině a angličtině. Nepotřebujete tlumočníka." data-lang-en="Yes. The practice operates in Czech, Russian, Ukrainian and English. No interpreter needed." data-lang-ru="Да. Приём ведётся на чешском, русском, украинском и английском. Переводчик не нужен." data-lang-ua="Так. Прийом ведеться чеською, російською, українською та англійською. Перекладач не потрібен.">Ano. Ordinace funguje v češtině, ruštině, ukrajinštině a angličtině. Nepotřebujete tlumočníka.</p>
+</details>
 <details class="faq-item">
 <summary data-lang-cs="Co si mám vzít s sebou na registraci?" data-lang-en="What should I bring to register?" data-lang-ru="Что взять с собой на регистрацию?" data-lang-ua="Що взяти з собою на реєстрацію?">Co si mám vzít s sebou na registraci?</summary>
 <p data-lang-cs="Průkaz pojištěnce a doklad totožnosti (občanský průkaz, pas nebo průkaz o povolení k pobytu). Pokud máte výpis ze zdravotní dokumentace od předchozího lékaře, vezměte ho s sebou — pokud ne, vyžádáme si ho sami." data-lang-en="Your insurance card (kartička pojištěnce) and an ID (občanský průkaz, passport or residence permit card). If you have a medical records extract from your previous doctor (výpis ze zdravotní dokumentace), bring it — if not, we will request it ourselves." data-lang-ru="Карточку страховой (kartička pojištěnce) и документ, удостоверяющий личность (občanský průkaz, паспорт или карту ВНЖ). Если есть выписка из медкарты от прежнего врача (výpis ze zdravotní dokumentace) — возьмите с собой; если нет, мы запросим её сами." data-lang-ua="Картку страхової (kartička pojištěnce) та документ, що посвідчує особу (občanský průkaz, паспорт або картку посвідки на проживання). Якщо є виписка з медкартки від попереднього лікаря (výpis ze zdravotní dokumentace) — візьміть із собою; якщо ні, ми запитаємо її самі.">Průkaz pojištěnce a doklad totožnosti (občanský průkaz, pas nebo průkaz o povolení k pobytu). Pokud máte výpis ze zdravotní dokumentace od předchozího lékaře, vezměte ho s sebou — pokud ne, vyžádáme si ho sami.</p>

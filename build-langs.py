@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Generuje jazykové mutace webu z českého originálu public/index.html.
+Generuje všechny jazykové verze webu ze společného zdroje src/index.html.
 
 Překlady jsou v atributech data-lang-ru / data-lang-ua / data-lang-en.
 Tento skript je "zapeče" přímo do HTML, aby je Googlebot viděl jako
 skutečný text stránky (atributy se neindexují).
 
-Výstup: public/ru/index.html, public/ua/index.html, public/en/index.html
+Prvky s data-only="tr" (témata pro cizince) jsou jen v překladech,
+z české verze se vypustí; data-only="cs" naopak jen v české.
 
-Spuštění po každé změně public/index.html:
+Výstup: public/index.html (cs), public/ru/, public/ua/, public/en/
+
+Spuštění po každé změně src/index.html (public/index.html needitovat,
+přepíše se):
     python build-langs.py
 """
 
@@ -19,7 +23,8 @@ from bs4 import BeautifulSoup
 
 ROOT   = os.path.dirname(os.path.abspath(__file__))
 PUBLIC = os.path.join(ROOT, "public")
-MASTER = os.path.join(PUBLIC, "index.html")
+MASTER = os.path.join(ROOT, "src", "index.html")
+CS_OUT = os.path.join(PUBLIC, "index.html")
 SITE   = "https://uvlecky.cz"
 
 # kód v data-lang-* -> (adresář, hreflang, html lang)
@@ -140,6 +145,18 @@ def make_switcher_links(soup, current):
         cur.string = current
 
 
+def apply_only(soup, keep):
+    """Vypustí prvky určené jen pro druhou skupinu jazyků (data-only="cs"|"tr")."""
+    removed = 0
+    for el in soup.select("[data-only]"):
+        if el.get("data-only") != keep:
+            el.decompose()
+            removed += 1
+        else:
+            del el["data-only"]
+    return removed
+
+
 def bake_translations(soup, lang):
     """Nahradí obsah prvků překladem z data-lang-<lang>."""
     attr = "data-lang-" + lang
@@ -214,6 +231,7 @@ def build(lang, master_html):
     subdir = LANGS[lang][0]
     canonical = "%s/%s/" % (SITE, subdir)
 
+    apply_only(soup, "tr")
     n = bake_translations(soup, lang)
     fix_head(soup, lang, canonical)
     make_switcher_links(soup, {"ru": "RU", "ua": "UA", "en": "EN"}[lang])
@@ -228,15 +246,16 @@ def build(lang, master_html):
 
 
 def rebuild_master(master_html):
-    """Český originál: opravit hreflang + přepínač na odkazy."""
+    """Česká verze: bez témat pro cizince, hreflang + přepínač na odkazy."""
     soup = BeautifulSoup(master_html, "html.parser")
+    dropped = apply_only(soup, "cs")
     fix_head(soup, None, SITE + "/")
     make_switcher_links(soup, "CS")
     tag_schema_entity(soup)
     faq = inject_faq_schema(soup)
-    with open(MASTER, "w", encoding="utf-8") as f:
+    with open(CS_OUT, "w", encoding="utf-8") as f:
         f.write(str(soup))
-    print("  /      -> hreflang + prepinac aktualizovan, FAQ %d otazek" % faq)
+    print("  /      -> cestina, vypusteno %d prvku pro cizince, FAQ %d otazek" % (dropped, faq))
 
 
 if __name__ == "__main__":
