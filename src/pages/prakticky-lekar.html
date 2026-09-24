@@ -1,0 +1,186 @@
+<!--
+  Praktická lékařka MUDr. Éva Bojčuk — vnitřní stránka (odkaz z banneru a
+  z karty lékařky). Šablonu bere build-langs.py ze src/index.html.
+  Blok pro cizince (komerční pojištění) je data-only="tr": v češtině se nezobrazí.
+-->
+<script type="application/json" id="page-meta">
+{
+  "title": {
+    "cs": "Praktická lékařka Ústí nad Labem — volná místa, registrace nových pacientů | U Vlečky",
+    "ru": "Терапевт в Усти-над-Лабем — свободные места, регистрация, иностранцы с коммерческой страховкой | U Vlečky",
+    "ua": "Терапевт в Усті-над-Лабем — вільні місця, реєстрація, іноземці з комерційною страховкою | U Vlečky",
+    "en": "GP in Ústí nad Labem — free places, registration, foreigners with commercial insurance | U Vlečky"
+  },
+  "description": {
+    "cs": "MUDr. Éva Bojčuk registruje nové pacienty z Ústí nad Labem i okolních měst — Děčín, Teplice, Litoměřice, Most a další. Všechny zdravotní pojišťovny. Volejte +420 606 755 784.",
+    "ru": "MUDr. Éva Bojčuk регистрирует новых пациентов из Усти-над-Лабем и соседних городов, принимает иностранцев с коммерческой страховкой (PVZP). Говорим по-русски. +420 606 755 784.",
+    "ua": "MUDr. Éva Bojčuk реєструє нових пацієнтів з Усті-над-Лабем і сусідніх міст, приймає іноземців з комерційною страховкою (PVZP). Говоримо українською. +420 606 755 784.",
+    "en": "MUDr. Éva Bojčuk registers new patients from Ústí nad Labem and nearby towns and accepts foreigners with commercial health insurance (PVZP). English spoken. +420 606 755 784."
+  }
+}
+</script>
+
+<style id="page-style">
+/* ===================== SUBPAGE: PRAKTICKÝ LÉKAŘ ===================== */
+.sub-hero{ padding:clamp(118px,15vh,150px) 0 56px; background:linear-gradient(180deg,#E7F1FB 0%,#F4F9FD 100%); }
+.sub-hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:center; }
+.sub-hero .eyebrow{ display:block; margin-bottom:16px; }
+.sub-hero h1{ font-family:var(--display); font-size:clamp(38px,5.2vw,62px); line-height:1.02; letter-spacing:-0.01em; font-weight:600; }
+.sub-hero h1 em{ display:block; font-style:italic; font-weight:500; color:var(--blue); font-size:0.62em; margin-top:10px; }
+.sub-lead{ font-size:clamp(16px,1.7vw,18.5px); color:var(--ink-soft); max-width:52ch; margin-top:20px; }
+.sub-lead strong{ color:var(--navy); }
+.sub-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+.sub-facts{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:34px; }
+.sub-fact{ background:var(--white); border-radius:18px; padding:14px 16px; }
+.sub-fact .k{ font-size:10.5px; text-transform:uppercase; letter-spacing:0.16em; color:var(--blue); font-weight:600; }
+.sub-fact .v{ font-size:14.5px; font-weight:600; color:var(--navy); margin-top:4px; line-height:1.35; }
+.sub-photo{ position:relative; border-radius:32px; overflow:hidden; aspect-ratio:1/1; background:#EEF4FB; }
+.sub-photo img{ width:100%; height:100%; object-fit:cover; }
+.sub-photo .tag{ position:absolute; left:16px; right:16px; bottom:16px; padding:14px 18px; border-radius:18px; background:rgba(255,255,255,0.92); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); font-size:13.5px; color:var(--ink-soft); }
+.sub-photo .tag strong{ display:block; color:var(--navy); font-size:15px; }
+@media (max-width:900px){ .sub-hero-grid{ grid-template-columns:1fr; } .sub-photo{ max-width:440px; } .sub-facts{ grid-template-columns:1fr 1fr; } }
+
+.care-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.care-card{ padding:28px 24px; }
+.care-card h3{ font-family:var(--body); font-size:16.5px; font-weight:700; margin:14px 0 8px; }
+.care-card p{ font-size:14px; color:var(--ink-soft); }
+.care-ic{ width:48px; height:48px; border-radius:50%; border:1.6px solid var(--navy); color:var(--navy); display:flex; align-items:center; justify-content:center; }
+.care-ic svg{ width:24px; height:24px; }
+@media (max-width:900px){ .care-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .care-grid{ grid-template-columns:1fr; } }
+
+.steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:step; }
+.step{ padding:28px 24px; background:var(--white); border-radius:28px; position:relative; }
+.step::before{ counter-increment:step; content:counter(step); display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--navy); color:var(--white); font-family:var(--display); font-size:22px; font-weight:600; margin-bottom:14px; }
+.step h3{ font-family:var(--body); font-size:16.5px; font-weight:700; margin-bottom:6px; }
+.step p{ font-size:14px; color:var(--ink-soft); }
+@media (max-width:900px){ .steps{ grid-template-columns:1fr; } }
+
+.foreign{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.foreign .card{ padding:30px 28px; }
+.foreign h3{ font-family:var(--display); font-size:24px; margin-bottom:10px; }
+.foreign p{ font-size:14.5px; color:var(--ink-soft); }
+.foreign .badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.foreign .badges span{ padding:8px 14px; border-radius:999px; background:var(--blue-mist); color:var(--navy); font-weight:600; font-size:13px; }
+@media (max-width:900px){ .foreign{ grid-template-columns:1fr; } }
+.cta-band{ margin-top:34px; text-align:center; }
+.cta-band .btn{ margin:6px; }
+</style>
+
+<div id="page-main">
+
+<!-- HERO -->
+<section class="sub-hero" aria-labelledby="gp-h1">
+<div class="container sub-hero-grid">
+<div>
+<span class="eyebrow" data-lang-cs="Praktická lékařka pro dospělé · Ústí nad Labem" data-lang-en="General practitioner for adults · Ústí nad Labem" data-lang-ru="Терапевт для взрослых · Усти-над-Лабем" data-lang-ua="Терапевт для дорослих · Усті-над-Лабем">Praktická lékařka pro dospělé · Ústí nad Labem</span>
+<h1 id="gp-h1" data-lang-cs="Máme volná místa pro nové pacienty &lt;em&gt;MUDr. Éva Bojčuk&lt;/em&gt;" data-lang-en="We have free places for new patients &lt;em&gt;MUDr. Éva Bojčuk&lt;/em&gt;" data-lang-ru="Есть свободные места для новых пациентов &lt;em&gt;MUDr. Éva Bojčuk&lt;/em&gt;" data-lang-ua="Є вільні місця для нових пацієнтів &lt;em&gt;MUDr. Éva Bojčuk&lt;/em&gt;">Máme volná místa pro nové pacienty <em>MUDr. Éva Bojčuk</em></h1>
+<p class="sub-lead" data-lang-cs="Hledáte praktického lékaře? &lt;strong&gt;Registrujeme nové pacienty&lt;/strong&gt; z Ústí nad Labem i z okolních měst. Stačí zavolat — registraci i první návštěvu domluvíme po telefonu." data-lang-en="Looking for a GP? &lt;strong&gt;We register new patients&lt;/strong&gt; from Ústí nad Labem and the surrounding towns, &lt;strong&gt;including foreigners with commercial health insurance&lt;/strong&gt;. Just call — we arrange the registration and your first visit over the phone." data-lang-ru="Ищете терапевта? &lt;strong&gt;Регистрируем новых пациентов&lt;/strong&gt; из Усти-над-Лабем и соседних городов, &lt;strong&gt;в том числе иностранцев с коммерческой страховкой&lt;/strong&gt;. Просто позвоните — регистрацию и первый приём договоримся по телефону." data-lang-ua="Шукаєте терапевта? &lt;strong&gt;Реєструємо нових пацієнтів&lt;/strong&gt; з Усті-над-Лабем і сусідніх міст, &lt;strong&gt;зокрема іноземців з комерційною страховкою&lt;/strong&gt;. Просто зателефонуйте — реєстрацію і перший прийом домовимося телефоном.">Hledáte praktického lékaře? <strong>Registrujeme nové pacienty</strong> z Ústí nad Labem i z okolních měst. Stačí zavolat — registraci i první návštěvu domluvíme po telefonu.</p>
+<div class="sub-cta">
+<a class="btn btn-primary" href="tel:+420606755784"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>+420 606 755 784</a>
+<a class="btn btn-outline" href="/odbery/"><span data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests without referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Odběry krve bez žádanky</span></a>
+</div>
+<div class="sub-facts">
+<div class="sub-fact"><div class="k" data-lang-cs="Kapacita" data-lang-en="Capacity" data-lang-ru="Места" data-lang-ua="Місця">Kapacita</div><div class="v" data-lang-cs="Volná místa" data-lang-en="Free places" data-lang-ru="Есть свободные" data-lang-ua="Є вільні">Volná místa</div></div>
+<div class="sub-fact"><div class="k" data-lang-cs="Pojišťovny" data-lang-en="Insurance" data-lang-ru="Страховки" data-lang-ua="Страховки">Pojišťovny</div><div class="v" data-lang-cs="Všechny zdravotní" data-lang-en="All public + PVZP" data-lang-ru="Все, включая PVZP" data-lang-ua="Усі, зокрема PVZP">Všechny zdravotní</div></div>
+<div class="sub-fact"><div class="k" data-lang-cs="Odkud" data-lang-en="From" data-lang-ru="Откуда" data-lang-ua="Звідки">Odkud</div><div class="v" data-lang-cs="Celý Ústecký kraj" data-lang-en="The whole Ústí Region" data-lang-ru="Весь Устецкий край" data-lang-ua="Увесь Устецький край">Celý Ústecký kraj</div></div>
+<div class="sub-fact"><div class="k" data-lang-cs="Parkování" data-lang-en="Parking" data-lang-ru="Парковка" data-lang-ua="Парковка">Parkování</div><div class="v" data-lang-cs="Přímo v areálu" data-lang-en="On site" data-lang-ru="Прямо на территории" data-lang-ua="Прямо на території">Přímo v areálu</div></div>
+</div>
+</div>
+<figure class="sub-photo">
+<picture>
+<source srcset="/images/bojcuk-ilustrace.webp" type="image/webp"/>
+<img alt="MUDr. Éva Bojčuk — praktická lékařka pro dospělé" data-lang-en-alt="MUDr. Éva Bojčuk — general practitioner" data-lang-ru-alt="MUDr. Éva Bojčuk — врач-терапевт" data-lang-ua-alt="MUDr. Éva Bojčuk — лікар-терапевт" height="720" src="/images/bojcuk-ilustrace.jpg" width="720"/>
+</picture>
+<figcaption class="tag"><strong>MUDr. Éva Bojčuk</strong><span data-lang-cs="DIAGNOSTIKA s.r.o. · Poliklinika U Vlečky" data-lang-en="DIAGNOSTIKA s.r.o. · Poliklinika U Vlečky" data-lang-ru="DIAGNOSTIKA s.r.o. · поликлиника U Vlečky" data-lang-ua="DIAGNOSTIKA s.r.o. · поліклініка U Vlečky">DIAGNOSTIKA s.r.o. · Poliklinika U Vlečky</span></figcaption>
+</figure>
+</div>
+</section>
+
+<!-- CARE -->
+<section class="section" style="background:linear-gradient(180deg,#F4F9FD 0%,#EAF3FB 100%);">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Komplexní péče" data-lang-en="Complete care" data-lang-ru="Комплексная помощь" data-lang-ua="Комплексна допомога">Komplexní péče</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="S čím vám &lt;em&gt;pomůžeme&lt;/em&gt;" data-lang-en="How we &lt;em&gt;can help&lt;/em&gt;" data-lang-ru="Чем мы &lt;em&gt;поможем&lt;/em&gt;" data-lang-ua="Чим ми &lt;em&gt;допоможемо&lt;/em&gt;">S čím vám <em>pomůžeme</em></h2>
+</div>
+<div class="care-grid">
+<div class="card care-card reveal"><div class="care-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="17" rx="2" width="14" x="5" y="4"></rect><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"></path></svg></div><h3 data-lang-cs="Preventivní prohlídky" data-lang-en="Preventive check-ups" data-lang-ru="Профилактические осмотры" data-lang-ua="Профілактичні огляди">Preventivní prohlídky</h3><p data-lang-cs="Pravidelné prohlídky hrazené pojišťovnou, krevní tlak, laboratoř, doporučení ke specialistům." data-lang-en="Regular insurance-covered check-ups, blood pressure, lab tests, referrals to specialists." data-lang-ru="Регулярные осмотры по страховке, давление, анализы, направления к специалистам." data-lang-ua="Регулярні огляди за страховкою, тиск, аналізи, направлення до фахівців.">Pravidelné prohlídky hrazené pojišťovnou, krevní tlak, laboratoř, doporučení ke specialistům.</p></div>
+<div class="card care-card reveal d1"><div class="care-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg></div><h3 data-lang-cs="Akutní i chronická onemocnění" data-lang-en="Acute and chronic illness" data-lang-ru="Острые и хронические заболевания" data-lang-ua="Гострі та хронічні захворювання">Akutní i chronická onemocnění</h3><p data-lang-cs="Nachlazení, bolesti, tlak, cukrovka, štítná žláza — léčba i dlouhodobé sledování." data-lang-en="Colds, pain, blood pressure, diabetes, thyroid — treatment and long-term follow-up." data-lang-ru="Простуда, боли, давление, диабет, щитовидка — лечение и долгосрочное наблюдение." data-lang-ua="Застуда, болі, тиск, діабет, щитоподібна — лікування і тривале спостереження.">Nachlazení, bolesti, tlak, cukrovka, štítná žláza — léčba i dlouhodobé sledování.</p></div>
+<div class="card care-card reveal d2"><div class="care-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-.7.3H4.4v-3.6a1 1 0 0 1 .3-.7L15 5M9 11l4 4M2 22l2.4-2.4"></path></svg></div><h3 data-lang-cs="Očkování" data-lang-en="Vaccination" data-lang-ru="Прививки" data-lang-ua="Щеплення">Očkování</h3><p data-lang-cs="Povinná i doporučená očkování dospělých — tetanus, chřipka, klíšťová encefalitida a další." data-lang-en="Mandatory and recommended adult vaccines — tetanus, flu, tick-borne encephalitis and more." data-lang-ru="Обязательные и рекомендуемые прививки для взрослых — столбняк, грипп, клещевой энцефалит и др." data-lang-ua="Обовʼязкові та рекомендовані щеплення дорослих — правець, грип, кліщовий енцефаліт та ін.">Povinná i doporučená očkování dospělých — tetanus, chřipka, klíšťová encefalitida a další.</p></div>
+<div class="card care-card reveal"><div class="care-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"></path></svg></div><h3>EKG</h3><p data-lang-cs="Záznam srdeční činnosti přímo v ordinaci, bez dalšího objednávání." data-lang-en="Heart tracing right in the practice, no separate appointment." data-lang-ru="ЭКГ прямо в кабинете, без отдельной записи." data-lang-ua="ЕКГ прямо в кабінеті, без окремого запису.">Záznam srdeční činnosti přímo v ordinaci, bez dalšího objednávání.</p></div>
+<div class="card care-card reveal d1"><div class="care-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3M7.5 14h9"></path></svg></div><h3 data-lang-cs="Odběry a laboratoř" data-lang-en="Blood tests and lab" data-lang-ru="Анализы и лаборатория" data-lang-ua="Аналізи та лабораторія">Odběry a laboratoř</h3><p data-lang-cs="Odběry v budově, zpracuje laboratoř diag.cz. Výsledky máme rychle k dispozici." data-lang-en="Sampling in the building, processed by the diag.cz laboratory. Results come back quickly." data-lang-ru="Забор в здании, обрабатывает лаборатория diag.cz. Результаты приходят быстро." data-lang-ua="Забір у будівлі, обробляє лабораторія diag.cz. Результати надходять швидко.">Odběry v budově, zpracuje laboratoř diag.cz. Výsledky máme rychle k dispozici.</p></div>
+<div class="card care-card reveal d2"><div class="care-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20c0-3 3-5 6-5s6 2 6 5M14 15.5c.6-.3 1.3-.5 2-.5 3 0 6 2 6 5"></path></svg></div><h3 data-lang-cs="Individuální přístup" data-lang-en="Personal approach" data-lang-ru="Индивидуальный подход" data-lang-ua="Індивідуальний підхід">Individuální přístup</h3><p data-lang-cs="Na pacienta si uděláme čas. Diagnózu i léčbu vysvětlíme srozumitelně." data-lang-en="We take time for each patient and explain the diagnosis and treatment clearly." data-lang-ru="Уделяем время каждому пациенту, понятно объясняем диагноз и лечение." data-lang-ua="Приділяємо час кожному пацієнту, зрозуміло пояснюємо діагноз і лікування.">Na pacienta si uděláme čas. Diagnózu i léčbu vysvětlíme srozumitelně.</p></div>
+</div>
+</div>
+</section>
+
+<!-- REGISTRATION STEPS -->
+<section class="section" style="background:#FFFFFF;">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація">Registrace</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="Registrace &lt;em&gt;ve třech krocích&lt;/em&gt;" data-lang-en="Registration &lt;em&gt;in three steps&lt;/em&gt;" data-lang-ru="Регистрация &lt;em&gt;в три шага&lt;/em&gt;" data-lang-ua="Реєстрація &lt;em&gt;у три кроки&lt;/em&gt;">Registrace <em>ve třech krocích</em></h2>
+</div>
+<div class="steps">
+<div class="step reveal"><h3 data-lang-cs="Zavolejte nám" data-lang-en="Call us" data-lang-ru="Позвоните нам" data-lang-ua="Зателефонуйте нам">Zavolejte nám</h3><p data-lang-cs="Na +420 606 755 784 vám potvrdíme volné místo a domluvíme termín první návštěvy." data-lang-en="On +420 606 755 784 we confirm a free place and arrange your first visit." data-lang-ru="По номеру +420 606 755 784 подтвердим свободное место и договоримся о первом приёме." data-lang-ua="За номером +420 606 755 784 підтвердимо вільне місце і домовимося про перший прийом.">Na +420 606 755 784 vám potvrdíme volné místo a domluvíme termín první návštěvy.</p></div>
+<div class="step reveal d1"><h3 data-lang-cs="Přineste doklady" data-lang-en="Bring your documents" data-lang-ru="Возьмите документы" data-lang-ua="Візьміть документи">Přineste doklady</h3><p data-lang-cs="Průkaz pojištěnce a doklad totožnosti. Výpis od předchozího lékaře, pokud ho máte." data-lang-en="Your insurance card and an ID or passport. Records from your previous doctor, if you have them." data-lang-ru="Карточку страховки и документ (паспорт, вид на жительство). Выписку от прежнего врача, если есть." data-lang-ua="Картку страховки та документ (паспорт, посвідку на проживання). Виписку від попереднього лікаря, якщо є.">Průkaz pojištěnce a doklad totožnosti. Výpis od předchozího lékaře, pokud ho máte.</p></div>
+<div class="step reveal d2"><h3 data-lang-cs="O zbytek se postaráme" data-lang-en="We handle the rest" data-lang-ru="Остальное сделаем мы" data-lang-ua="Решту зробимо ми">O zbytek se postaráme</h3><p data-lang-cs="Nemáte výpis? Vyžádáme si dokumentaci od předchozího lékaře sami." data-lang-en="No records? We request them from your previous doctor ourselves." data-lang-ru="Нет выписки? Запросим документацию у прежнего врача сами." data-lang-ua="Немає виписки? Запитаємо документацію в попереднього лікаря самі.">Nemáte výpis? Vyžádáme si dokumentaci od předchozího lékaře sami.</p></div>
+</div>
+</div>
+</section>
+
+<!-- REGION -->
+<section class="section" style="background:linear-gradient(180deg,#EAF3FB 0%,#E0ECF7 100%);">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Pacienti z okolí" data-lang-en="Patients from nearby" data-lang-ru="Пациенты из окрестностей" data-lang-ua="Пацієнти з околиць">Pacienti z okolí</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="Registrujeme i pacienty &lt;em&gt;z okolních měst&lt;/em&gt;" data-lang-en="We also register patients &lt;em&gt;from nearby towns&lt;/em&gt;" data-lang-ru="Регистрируем и пациентов &lt;em&gt;из соседних городов&lt;/em&gt;" data-lang-ua="Реєструємо й пацієнтів &lt;em&gt;із сусідніх міст&lt;/em&gt;">Registrujeme i pacienty <em>z okolních měst</em></h2>
+<p data-lang-cs="Ve vašem městě nemá praktický lékař volno? K nám se dojíždí snadno a parkovat můžete přímo v areálu polikliniky." data-lang-en="No GP with free places in your town? We are easy to reach, and you can park right at the clinic." data-lang-ru="В вашем городе у терапевтов нет мест? До нас удобно доехать, а парковка — прямо на территории поликлиники." data-lang-ua="У вашому місті в терапевтів немає місць? До нас зручно доїхати, а парковка — прямо на території поліклініки.">Ve vašem městě nemá praktický lékař volno? K nám se dojíždí snadno a parkovat můžete přímo v areálu polikliniky.</p>
+</div>
+<ul class="region-towns reveal">
+<li>Ústí nad Labem</li><li>Děčín</li><li>Litoměřice</li><li>Teplice</li><li>Lovosice</li><li>Roudnice nad Labem</li><li>Most</li><li>Louny</li><li>Chomutov</li><li>Žatec</li><li>Bílina</li>
+</ul>
+</div>
+</section>
+
+<!-- FOREIGNERS — only in ru/ua/en -->
+<section class="section" data-only="tr" style="background:#FFFFFF;">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Pro cizince" data-lang-en="For foreigners" data-lang-ru="Иностранцам" data-lang-ua="Іноземцям">Pro cizince</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="Cizinci &lt;em&gt;s komerčním pojištěním&lt;/em&gt;" data-lang-en="Foreigners &lt;em&gt;with commercial insurance&lt;/em&gt;" data-lang-ru="Иностранцы &lt;em&gt;с коммерческой страховкой&lt;/em&gt;" data-lang-ua="Іноземці &lt;em&gt;з комерційною страховкою&lt;/em&gt;">Cizinci <em>s komerčním pojištěním</em></h2>
+</div>
+<div class="foreign">
+<div class="card reveal" style="background:#F5F8FC;"><h3 data-lang-cs="Komerční pojištění" data-lang-en="Commercial insurance" data-lang-ru="Коммерческая страховка" data-lang-ua="Комерційна страховка">Komerční pojištění</h3><p data-lang-cs="Registrujeme cizince s komerčním zdravotním pojištěním, včetně komplexního pojištění PVZP pro dlouhodobý pobyt. Máte jinou pojišťovnu? Zavolejte, ověříme to." data-lang-en="We register foreigners with commercial health insurance, including PVZP comprehensive cover for long-term residence. Different insurer? Call us and we will check." data-lang-ru="Регистрируем иностранцев с коммерческой медицинской страховкой, в том числе с комплексной страховкой PVZP для долгосрочного пребывания. Другая страховая? Позвоните — проверим." data-lang-ua="Реєструємо іноземців з комерційною медичною страховкою, зокрема з комплексною страховкою PVZP для довгострокового перебування. Інша страхова? Зателефонуйте — перевіримо.">Registrujeme cizince s komerčním zdravotním pojištěním.</p><div class="badges"><span>PVZP</span><span>VZP</span><span>OZP</span><span>VoZP</span><span>ZP MV</span><span>RBP</span><span>ČPZP</span></div></div>
+<div class="card reveal d1" style="background:#F5F8FC;"><h3 data-lang-cs="Bez tlumočníka" data-lang-en="No interpreter needed" data-lang-ru="Без переводчика" data-lang-ua="Без перекладача">Bez tlumočníka</h3><p data-lang-cs="Domluvíte se česky, rusky, ukrajinsky i anglicky." data-lang-en="We speak Czech, Russian, Ukrainian and English. The diagnosis, treatment and paperwork are explained in a language you understand." data-lang-ru="Говорим по-чешски, по-русски, по-украински и по-английски. Диагноз, лечение и документы объясним на понятном вам языке." data-lang-ua="Говоримо чеською, російською, українською та англійською. Діагноз, лікування і документи пояснимо зрозумілою вам мовою.">Domluvíte se česky, rusky, ukrajinsky i anglicky.</p><div class="badges"><span>CZ</span><span>RU</span><span>UA</span><span>EN</span></div></div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:linear-gradient(180deg,#FFFFFF 0%,#EAF2EE 100%);">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Časté dotazy" data-lang-en="FAQ" data-lang-ru="Частые вопросы" data-lang-ua="Часті запитання">Časté dotazy</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="Na co se &lt;em&gt;ptáte&lt;/em&gt;" data-lang-en="What you &lt;em&gt;ask us&lt;/em&gt;" data-lang-ru="О чём &lt;em&gt;спрашивают&lt;/em&gt;" data-lang-ua="Про що &lt;em&gt;питають&lt;/em&gt;">Na co se <em>ptáte</em></h2>
+</div>
+<div class="faq-list reveal">
+<details class="faq-item"><summary data-lang-cs="Opravdu máte volná místa?" data-lang-en="Do you really have free places?" data-lang-ru="Правда есть свободные места?" data-lang-ua="Справді є вільні місця?">Opravdu máte volná místa?</summary><p data-lang-cs="Ano, MUDr. Éva Bojčuk přijímá nové registrace. Zavolejte na +420 606 755 784 a domluvíme vše potřebné." data-lang-en="Yes, MUDr. Éva Bojčuk is accepting new registrations. Call +420 606 755 784 and we will arrange everything." data-lang-ru="Да, MUDr. Éva Bojčuk принимает новые регистрации. Позвоните на +420 606 755 784 — всё организуем." data-lang-ua="Так, MUDr. Éva Bojčuk приймає нові реєстрації. Зателефонуйте на +420 606 755 784 — все організуємо.">Ano, MUDr. Éva Bojčuk přijímá nové registrace. Zavolejte na +420 606 755 784 a domluvíme vše potřebné.</p></details>
+<details class="faq-item"><summary data-lang-cs="Mohu se registrovat, když bydlím mimo Ústí?" data-lang-en="Can I register if I live outside Ústí?" data-lang-ru="Можно ли зарегистрироваться, если я живу не в Усти?" data-lang-ua="Чи можна зареєструватися, якщо я живу не в Усті?">Mohu se registrovat, když bydlím mimo Ústí?</summary><p data-lang-cs="Ano. Praktického lékaře si můžete vybrat svobodně, bez ohledu na bydliště. Registrujeme pacienty z celého Ústeckého kraje." data-lang-en="Yes. You are free to choose your GP regardless of where you live. We register patients from the whole Ústí Region." data-lang-ru="Да. Терапевта можно выбрать свободно, независимо от места жительства. Регистрируем пациентов со всего Устецкого края." data-lang-ua="Так. Терапевта можна обрати вільно, незалежно від місця проживання. Реєструємо пацієнтів з усього Устецького краю.">Ano. Praktického lékaře si můžete vybrat svobodně, bez ohledu na bydliště. Registrujeme pacienty z celého Ústeckého kraje.</p></details>
+<details class="faq-item"><summary data-lang-cs="Jak přejdu od současného lékaře?" data-lang-en="How do I switch from my current doctor?" data-lang-ru="Как перейти от нынешнего врача?" data-lang-ua="Як перейти від нинішнього лікаря?">Jak přejdu od současného lékaře?</summary><p data-lang-cs="Stačí se u nás zaregistrovat. Změnu lékaře lze provést jednou za tři měsíce a dokumentaci si od předchozího lékaře vyžádáme sami." data-lang-en="Simply register with us. You can change GP once every three months, and we request your records from your previous doctor ourselves." data-lang-ru="Достаточно зарегистрироваться у нас. Сменить врача можно раз в три месяца, документацию у прежнего врача запросим сами." data-lang-ua="Достатньо зареєструватися в нас. Змінити лікаря можна раз на три місяці, документацію в попереднього лікаря запитаємо самі.">Stačí se u nás zaregistrovat. Změnu lékaře lze provést jednou za tři měsíce a dokumentaci si od předchozího lékaře vyžádáme sami.</p></details>
+<details class="faq-item" data-only="tr"><summary data-lang-cs="Přijímáte cizince s komerčním pojištěním?" data-lang-en="Do you accept foreigners with commercial insurance?" data-lang-ru="Принимаете иностранцев с коммерческой страховкой?" data-lang-ua="Чи приймаєте іноземців з комерційною страховкою?">Přijímáte cizince s komerčním pojištěním?</summary><p data-lang-cs="Ano, včetně PVZP." data-lang-en="Yes, including PVZP comprehensive health insurance for foreigners. If you have a different commercial insurer, call us and we will check whether we can register you." data-lang-ru="Да, в том числе с комплексной страховкой PVZP для иностранцев. Если у вас другая коммерческая страховая — позвоните, проверим, можем ли вас зарегистрировать." data-lang-ua="Так, зокрема з комплексною страховкою PVZP для іноземців. Якщо у вас інша комерційна страхова — зателефонуйте, перевіримо, чи можемо вас зареєструвати.">Ano, včetně PVZP.</p></details>
+</div>
+<div class="cta-band">
+<a class="btn btn-primary" href="tel:+420606755784">+420 606 755 784</a>
+<a class="btn btn-outline" href="/#informace"><span data-lang-cs="Ordinační hodiny" data-lang-en="Opening hours" data-lang-ru="Часы приёма" data-lang-ua="Години прийому">Ordinační hodiny</span></a>
+</div>
+</div>
+</section>
+
+</div>

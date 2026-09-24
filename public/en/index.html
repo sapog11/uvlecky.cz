@@ -814,6 +814,65 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .js .reveal.in{ opacity:1; transform:none; }
 .reveal.d1{ transition-delay:.1s; } .reveal.d2{ transition-delay:.2s; } .reveal.d3{ transition-delay:.3s; }
 
+/* ===================== SMALL ACTIONS + ZORYX BOOKING MODAL ===================== */
+.btn-sm{ padding:9px 15px; font-size:13px; border-radius:12px; gap:7px; }
+.btn-sm svg{ width:15px; height:15px; }
+.doc-actions{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.card-link{ display:inline-flex; margin-top:12px; font-size:13.5px; font-weight:600; color:var(--blue); border-bottom:1px solid currentColor; }
+.card-link:hover{ color:var(--navy); }
+a.pb-slide{ display:block; }
+.zx-modal{ position:fixed; inset:0; z-index:300; display:flex; align-items:center; justify-content:center; padding:16px; }
+.zx-modal[hidden]{ display:none; }
+.zx-backdrop{ position:absolute; inset:0; background:rgba(15,20,40,0.55); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); }
+.zx-sheet{ position:relative; width:100%; max-width:560px; max-height:calc(100dvh - 32px); overflow:auto; border-radius:24px; background:#0f0e27; }
+.zx-head{ position:sticky; top:0; z-index:1; display:flex; align-items:center; justify-content:space-between; padding:12px 12px 12px 20px; background:var(--navy); color:var(--white); font-weight:600; font-size:14px; }
+.zx-close{ width:36px; height:36px; border:0; border-radius:12px; background:rgba(255,255,255,0.12); color:var(--white); display:flex; align-items:center; justify-content:center; }
+.zx-close svg{ width:18px; height:18px; }
+#zxFrame{ display:block; width:100%; height:560px; border:0; }
+#zxFrame[hidden]{ display:none; }
+.zx-fallback{ padding:28px 22px; text-align:center; background:var(--white); }
+.zx-fallback p{ color:var(--ink-soft); margin-bottom:16px; }
+@media (max-width:520px){ .zx-modal{ padding:0; align-items:flex-end; } .zx-sheet{ max-height:94dvh; border-radius:24px 24px 0 0; } }
+/* ===================== FLOATING BOOKING BUTTON ===================== */
+.fab{ position:fixed; right:22px; bottom:22px; z-index:96; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.fab-btn{
+  width:84px; height:84px; border:0; padding:0;
+  border-radius:30px 30px 30px 10px;
+  background:linear-gradient(150deg, var(--blue) 0%, var(--navy) 70%);
+  color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  font-size:11.5px; font-weight:700; letter-spacing:0.02em; line-height:1.1; text-align:center;
+  box-shadow:0 12px 28px rgba(28,43,74,0.28);
+  transition:transform .2s ease, border-radius .3s ease;
+  animation:fabPulse 3.2s ease-in-out infinite;
+}
+.fab-btn svg{ width:26px; height:26px; color:var(--blue-pale); }
+.fab-btn:hover{ transform:translateY(-3px); border-radius:30px 10px 30px 30px; }
+.fab.open .fab-btn{ border-radius:10px 30px 30px 30px; animation:none; }
+@keyframes fabPulse{ 0%,100%{ box-shadow:0 12px 28px rgba(28,43,74,0.28), 0 0 0 0 rgba(104,161,214,0.45); } 50%{ box-shadow:0 12px 28px rgba(28,43,74,0.28), 0 0 0 12px rgba(104,161,214,0); } }
+.fab-menu{ width:min(300px, calc(100vw - 44px)); background:var(--white); border-radius:24px; padding:8px; box-shadow:0 18px 40px rgba(28,43,74,0.22); display:flex; flex-direction:column; gap:4px; }
+.fab-menu[hidden]{ display:none; }
+.fab-item{ display:flex; align-items:center; gap:12px; width:100%; padding:12px; border:0; border-radius:16px; background:none; text-align:left; color:var(--navy); font:inherit; }
+.fab-item:hover{ background:var(--blue-mist); }
+.fab-item strong{ display:block; font-size:14.5px; }
+.fab-item small{ display:block; font-size:12.5px; color:var(--ink-soft); }
+.fab-ic{ flex:none; width:40px; height:40px; border-radius:14px; background:var(--blue-mist); color:var(--navy); display:flex; align-items:center; justify-content:center; }
+.fab-ic svg{ width:20px; height:20px; }
+.to-top{ bottom:118px; }
+body.has-cart .fab{ bottom:112px; }
+body.has-cart .to-top{ bottom:208px; }
+@media (max-width:600px){
+  .fab{ right:14px; bottom:14px; }
+  .fab-btn{ width:70px; height:70px; font-size:10.5px; border-radius:26px 26px 26px 9px; }
+  .fab-btn svg{ width:22px; height:22px; }
+  .to-top{ right:18px; bottom:96px; width:44px; height:44px; }
+  body.has-cart .fab{ bottom:150px; }
+  body.has-cart .to-top{ bottom:232px; }
+}
+.book-link{ color:var(--blue); font-weight:600; border-bottom:1px solid currentColor; }
+/* square portraits in the doctor cards */
+.doc-photo{ height:auto; aspect-ratio:1 / 1; }
+.doc-photo.has-img img{ object-position:50% 30%; }
+@media (min-width:1001px){ .doctor-cards{ grid-template-columns:repeat(3,1fr); } }
 </style>
 </head>
 <body>
@@ -1045,6 +1104,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M9 3h6v3H9z"></path><rect height="12" rx="1" ry="1" width="8" x="8" y="6"></rect><line x1="12" x2="12" y1="6" y2="18"></line><circle cx="12" cy="12" fill="currentColor" r="2"></circle></svg></div>
 <h3 data-lang-cs="Laboratorní testy" data-lang-en="Laboratory tests" data-lang-ru="Лабораторные тесты" data-lang-ua="Лабораторні тести">Laboratory tests</h3>
 <p data-lang-cs="Krevní testy a analýzy. Pro pojištěnce a samoplátce." data-lang-en="Blood tests and lab work. For insured and private patients." data-lang-ru="Анализ крови и тесты. Для застрахованных и платных пациентов. Проверьте здоровье у нас!" data-lang-ua="Аналіз крові та тести. Для застрахованих та платних пацієнтів. Перевірте здоров'я у нас!">Blood tests and lab work. For insured and private patients.</p>
+<a class="card-link" data-lang-cs="Ceník a kalkulačka" data-lang-en="Price list and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор" href="/en/odbery/">Price list and calculator</a>
 </div>
 <div class="card service-card reveal" style="grid-column: span 2; opacity: 0.65;">
 <div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="8" cy="8" r="2.5"></circle><circle cx="16" cy="8" r="2.5"></circle><path d="M12 10v6M8 10l4-2 4 2"></path><path d="M12 16c-2.5 0-4 1-4 3s1.5 3 4 3 4-1 4-3-1.5-3-4-3z"></path></svg></div>
@@ -1066,9 +1126,9 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <div class="pb-slide active">
 <img alt="Medigma PLS - Pracovně lékařské služby. Zdravotní prohlídky do práce v Ústí nad Labem" src="/banner-pracovne-lekarske.png"/>
 </div>
-<div class="pb-slide">
+<a class="pb-slide" href="/en/prakticky-lekar/">
 <img alt="MUDr. Éva Bojčuk - praktický lékař pro dospělé, Diagnostika s.r.o. Registrujeme nové pacienty v Ústí nad Labem" src="/banner-diagnostika-bojcuk-v2.png"/>
-</div>
+</a>
 <div class="pb-dots">
 <button aria-label="1" class="pb-dot active" type="button"></button>
 <button aria-label="2" class="pb-dot" type="button"></button>
@@ -1087,10 +1147,11 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <div class="doctor-cards">
 <!-- DOCTOR 1: Praktický lékař - DIAGNOSTIKA -->
 <article class="doc-card reveal">
-<div class="doc-photo">
-<svg class="doc-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
-<circle cx="12" cy="8" r="4"></circle><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
-</svg>
+<div class="doc-photo has-img">
+<picture>
+<source srcset="/images/bojcuk-ilustrace.webp" type="image/webp"/>
+<img alt="MUDr. Éva Bojčuk — general practitioner" data-lang-en-alt="MUDr. Éva Bojčuk — general practitioner" data-lang-ru-alt="MUDr. Éva Bojčuk — врач-терапевт" data-lang-ua-alt="MUDr. Éva Bojčuk — лікар-терапевт" height="720" loading="lazy" src="/images/bojcuk-ilustrace.jpg" width="720"/>
+</picture>
 </div>
 <div class="doc-body">
 <h3 class="doc-name">MUDr. Éva Bojčuk</h3>
@@ -1099,6 +1160,9 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <div class="doc-tags" data-lang-cs="Po–Pá: 8:00–14:00" data-lang-en="Mon–Fri: 8:00–14:00" data-lang-ru="Пн–Пт: 8:00–14:00" data-lang-ua="Пн–Пт: 8:00–14:00">Mon–Fri: 8:00–14:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
 <strong data-lang-cs="Objednání:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Booking:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">+420 606 755 784</a>
+</div>
+<div class="doc-actions">
+<a class="btn btn-outline btn-sm" href="/en/prakticky-lekar/"><span data-lang-cs="Registrace a volná místa" data-lang-en="Registration and free places" data-lang-ru="Регистрация и свободные места" data-lang-ua="Реєстрація та вільні місця">Registration and free places</span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 </article>
@@ -1141,17 +1205,20 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <article class="doc-card reveal d3">
 <div class="doc-photo has-img">
 <picture>
-<source srcset="/images/odber-mistnost.webp" type="image/webp"/>
-<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="780" loading="lazy" src="/images/odber-mistnost.jpg" width="960"/>
+<source srcset="/images/odber-ctverec.webp" type="image/webp"/>
+<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec.jpg" width="720"/>
 </picture>
 </div>
 <div class="doc-body">
 <h3 class="doc-name" data-lang-cs="Odběrová místnost" data-lang-en="Sample collection room" data-lang-ru="Процедурный кабинет" data-lang-ua="Процедурний кабінет">Sample collection room</h3>
 <span class="eyebrow" data-lang-cs="Laboratorní testy" data-lang-en="Laboratory tests" data-lang-ru="Лабораторные тесты" data-lang-ua="Лабораторні тести">Laboratory tests</span>
 <p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Blood and biological sample collection. Laboratory testing. Professional approach." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Сбор крови и биологических образцов. Лабораторные тесты. Профессиональный подход." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Збір крові та біологічних зразків. Лабораторні тести. Професійний підхід."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Blood and biological sample collection. Laboratory testing. Professional approach.</p>
-<div class="doc-tags" data-lang-cs="Po–Pá: 8:00–14:00" data-lang-en="Mon–Fri: 8:00–14:00" data-lang-ru="Пн–Пт: 8:00–14:00" data-lang-ua="Пн–Пт: 8:00–14:00">Mon–Fri: 8:00–14:00</div>
+<div class="doc-tags" data-lang-cs="Odběry Po–Pá: 8:00–11:00" data-lang-en="Sampling Mon–Fri: 8:00–11:00" data-lang-ru="Забор Пн–Пт: 8:00–11:00" data-lang-ua="Забір Пн–Пт: 8:00–11:00">Sampling Mon–Fri: 8:00–11:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Objednání:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Booking:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">+420 606 755 784</a>
+<strong data-lang-cs="Objednání:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Booking:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">+420 606 755 784</a> <span aria-hidden="true">·</span> <a class="book-link" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti"><span data-lang-cs="online rezervace" data-lang-en="book online" data-lang-ru="онлайн-запись" data-lang-ua="онлайн-запис">book online</span></a>
+</div>
+<div class="doc-actions">
+<a class="btn btn-outline btn-sm" href="/en/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Prices and calculator</span></a>
 </div>
 </div>
 </article>
@@ -1343,6 +1410,42 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 <button class="c-accept" data-lang-cs="Přijmout" data-lang-en="Accept" data-lang-ru="Принять" data-lang-ua="Прийняти" id="cAccept">Accept</button>
 </div>
 </div>
+<!-- floating booking button (same idea as mencare.cz, in U Vlečky colours) -->
+<div class="fab" id="fab">
+<div class="fab-menu" hidden="" id="fabMenu" role="menu">
+<button class="fab-item" data-zoryx-book="odbery_usti" role="menuitem" type="button">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"></path><path d="M7.5 14h9"></path></svg></span>
+<span><strong data-lang-cs="Odběry krve" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Blood tests</strong><small data-lang-cs="Online rezervace · Po–Pá 8–11" data-lang-en="Book online · Mon–Fri 8–11" data-lang-ru="Онлайн-запись · Пн–Пт 8–11" data-lang-ua="Онлайн-запис · Пн–Пт 8–11">Book online · Mon–Fri 8–11</small></span>
+</button>
+<a class="fab-item" href="tel:+420606755784" role="menuitem">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
+<span><strong data-lang-cs="Registrace k lékařce" data-lang-en="Register with the GP" data-lang-ru="Регистрация к терапевту" data-lang-ua="Реєстрація до терапевта">Register with the GP</strong><small>+420 606 755 784</small></span>
+</a>
+<a class="fab-item" href="/en/prakticky-lekar/" role="menuitem">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4M12 16h.01"></path></svg></span>
+<span><strong data-lang-cs="Volná místa u lékařky" data-lang-en="Free places with our GP" data-lang-ru="Свободные места у терапевта" data-lang-ua="Вільні місця у терапевта">Free places with our GP</strong><small data-lang-cs="Pacienti z celého kraje" data-lang-en="Patients from the whole region" data-lang-ru="Пациенты со всего края" data-lang-ua="Пацієнти з усього краю">Patients from the whole region</small></span>
+</a>
+</div>
+<button aria-controls="fabMenu" aria-expanded="false" class="fab-btn" id="fabBtn" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="17" rx="2.5" width="18" x="3" y="4.5"></rect><path d="M3 9.5h18M8 3v3M16 3v3M9 14.5l2 2 4-4"></path></svg>
+<span data-lang-cs="Objednat se" data-lang-en="Book" data-lang-ru="Записаться" data-lang-ua="Записатися">Book</span>
+</button>
+</div>
+<!-- ZORYX booking — one modal for every "book" button on the site -->
+<div aria-modal="true" class="zx-modal" hidden="" id="zxModal" role="dialog">
+<div class="zx-backdrop" data-zx-close=""></div>
+<div class="zx-sheet">
+<div class="zx-head">
+<span data-lang-cs="Online objednání" data-lang-en="Online booking" data-lang-ru="Онлайн-запись" data-lang-ua="Онлайн-запис">Online booking</span>
+<button aria-label="Close" class="zx-close" data-lang-en-aria-label="Close" data-lang-ru-aria-label="Закрыть" data-lang-ua-aria-label="Закрити" data-zx-close="" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+<iframe id="zxFrame" referrerpolicy="no-referrer-when-downgrade" title="ZORYX"></iframe>
+<div class="zx-fallback" hidden="" id="zxFallback">
+<p data-lang-cs="Rezervační kalendář se otevře v novém okně." data-lang-en="The booking calendar opens in a new window." data-lang-ru="Календарь записи откроется в новом окне." data-lang-ua="Календар запису відкриється в новому вікні.">The booking calendar opens in a new window.</p>
+<a class="btn btn-primary" href="https://zoryx.app" id="zxLink" rel="noopener" target="_blank"><span data-lang-cs="Otevřít rezervaci" data-lang-en="Open booking" data-lang-ru="Открыть запись" data-lang-ua="Відкрити запис">Open booking</span></a>
+</div>
+</div>
+</div>
 <script>
   // enable JS-only styles (reveal animation). If any later error occurs, content still shows via the scroll reveal below.
   document.documentElement.className = document.documentElement.className.replace('no-js','js');
@@ -1516,6 +1619,69 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
       })(d);
     }
     start();
+  })();
+
+  // ZORYX booking modal. Any [data-zoryx-book="<clinicId>"] opens it; a page
+  // with a price calculator exposes window.uvBookingNotes() and the picked
+  // tests travel into the booking's reason field.
+  (function(){
+    var modal = document.getElementById('zxModal');
+    if (!modal) return;
+    var frame = document.getElementById('zxFrame');
+    var fallback = document.getElementById('zxFallback');
+    var link = document.getElementById('zxLink');
+    var lang = ({ cs:'cs', ru:'ru', uk:'uk', en:'en' })[document.documentElement.lang] || 'cs';
+    var clinic = null, alive = false, timer = null;
+
+    function open(clinicId, notes){
+      var url = 'https://zoryx.app/clinic/embed/' + clinicId + '?lang=' + lang +
+                (notes ? '&notes=' + encodeURIComponent(notes) : '');
+      clinic = clinicId; alive = false;
+      link.href = url;
+      fallback.hidden = true; frame.hidden = false;
+      frame.style.height = '560px';
+      frame.src = url;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      clearTimeout(timer);
+      timer = setTimeout(function(){ if (!alive){ frame.hidden = true; fallback.hidden = false; } }, 9000);
+    }
+    function close(){
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      frame.src = 'about:blank';
+      clearTimeout(timer);
+    }
+    window.uvOpenBooking = open;
+
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest && e.target.closest('[data-zoryx-book]');
+      if (btn){
+        e.preventDefault();
+        var notes = (btn.hasAttribute('data-with-picks') && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
+        open(btn.getAttribute('data-zoryx-book'), notes);
+        return;
+      }
+      if (e.target.closest && e.target.closest('[data-zx-close]')) close();
+    });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) close(); });
+    window.addEventListener('message', function(e){
+      if (!e.data || e.data.type !== 'zoryx-embed-resize' || e.data.clinicId !== clinic) return;
+      if (e.source !== frame.contentWindow) return;
+      alive = true;
+      frame.style.height = Math.max(e.data.height, 360) + 'px';
+    });
+  })();
+
+  // floating booking button
+  (function(){
+    var fab = document.getElementById('fab'), btn = document.getElementById('fabBtn'), menu = document.getElementById('fabMenu');
+    if (!fab) return;
+    function set(open){ menu.hidden = !open; fab.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); }
+    btn.addEventListener('click', function(e){ e.stopPropagation(); set(menu.hidden); });
+    menu.addEventListener('click', function(){ set(false); });
+    document.addEventListener('click', function(e){ if (!fab.contains(e.target)) set(false); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') set(false); });
   })();
 </script>
 </body>

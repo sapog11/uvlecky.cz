@@ -23,6 +23,14 @@ URLS = [
     "https://uvlecky.cz/ru/",
     "https://uvlecky.cz/ua/",
     "https://uvlecky.cz/en/",
+    "https://uvlecky.cz/odbery/",
+    "https://uvlecky.cz/ru/odbery/",
+    "https://uvlecky.cz/ua/odbery/",
+    "https://uvlecky.cz/en/odbery/",
+    "https://uvlecky.cz/prakticky-lekar/",
+    "https://uvlecky.cz/ru/prakticky-lekar/",
+    "https://uvlecky.cz/ua/prakticky-lekar/",
+    "https://uvlecky.cz/en/prakticky-lekar/",
     "https://uvlecky.cz/sitemap.xml",
 ]
 
