@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Praktická lékařka Ústí nad Labem — volná místa, registrace nových pacientů | U Vlečky</title>
 <meta content="MUDr. Éva Bojčuk registruje nové pacienty z Ústí nad Labem i okolních měst — Děčín, Teplice, Litoměřice, Most a další. Všechny zdravotní pojišťovny. Volejte +420 606 755 784." name="description"/>
-<meta content="praktický lékař Ústí nad Labem, poliklinika U Vlečky, uvlecky, terapeut Ústí, терапевт Усти над Лабем, lékař Ústí nad Labem, stomatolog Ústí, odběry krve Ústí, odběr krve bez žádanky Ústí nad Labem, krevní testy samoplátce, laboratorní vyšetření Ústí, анализы крови Усти-над-Лабем, zdravotní prohlídky Ústí" name="keywords"/>
+<meta content="praktický lékař Ústí nad Labem, poliklinika U Vlečky, uvlecky, terapeut Ústí, терапевт Усти над Лабем, lékař Ústí nad Labem, stomatolog Ústí, odběry krve Ústí, odběr krve bez žádanky Ústí nad Labem, krevní testy samoplátce, laboratorní vyšetření Ústí, анализы крови Усти-над-Лабем, prevence krevní testy, longevity testy Ústí, долголетие анализы, zdravotní prohlídky Ústí" name="keywords"/>
 <meta content="" name="google-site-verification"/>
 <meta content="" name="yandex-verification"/>
 <meta content="ehhRpoZnbT9NoiPdcMqnUcle4HVPyCWX" name="seznam-wmt"/>
@@ -935,6 +935,7 @@ body.has-cart .to-top{ bottom:208px; }
 .fab-item.fab-blood small{ color:rgba(255,255,255,.85); }
 .fab-item.fab-blood:hover{ filter:brightness(1.06); }
 .fab-btn{ background:linear-gradient(135deg,#E8466B 0%,#9E1239 100%) !important; box-shadow:0 14px 30px -12px rgba(226,61,99,.8) !important; }
+.btn-app{ background:linear-gradient(135deg,#622ADA 0%,#0070BB 100%) !important; color:#fff !important; }
 </style>
 <style>
 /* ===================== SUBPAGE: PRAKTICKÝ LÉKAŘ ===================== */
@@ -1014,7 +1015,7 @@ body.has-cart .to-top{ bottom:208px; }
 <a href="/en/prakticky-lekar/" hreflang="en" role="menuitem">English</a>
 </div>
 </div>
-<a class="btn btn-primary" data-lang-cs="Zaregistrovat se" data-lang-en="Register" data-lang-ru="Записаться" data-lang-ua="Записатися" href="/#registrace">Zaregistrovat se</a>
+<a class="btn btn-primary btn-app" data-app-link="" data-lang-cs="Stáhnout ZORYX" data-lang-en="Get ZORYX app" data-lang-ru="Скачать ZORYX" data-lang-ua="Завантажити ZORYX" href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank">Stáhnout ZORYX</a>
 <button aria-expanded="false" aria-label="Menu" class="menu-toggle" id="menuToggle">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
 </button>
@@ -1029,7 +1030,7 @@ body.has-cart .to-top{ bottom:208px; }
 <a class="mlink" data-lang-cs="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="/#kontakt">Kontakt</a>
 <div class="mrow">
 <a class="btn btn-outline btn-block" data-lang-cs="Zavolat" data-lang-en="Call" data-lang-ru="Позвонить" data-lang-ua="Зателефонувати" href="tel:+420606755784">Zavolat</a>
-<a class="btn btn-primary btn-block" data-lang-cs="Zaregistrovat se" data-lang-en="Register" data-lang-ru="Записаться" data-lang-ua="Записатися" href="/#registrace">Zaregistrovat se</a>
+<a class="btn btn-primary btn-block btn-app" data-app-link="" data-lang-cs="Stáhnout ZORYX" data-lang-en="Get ZORYX app" data-lang-ru="Скачать ZORYX" data-lang-ua="Завантажити ZORYX" href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank">Stáhnout ZORYX</a>
 </div>
 </div>
 </header>
@@ -1371,6 +1372,12 @@ body.has-cart .to-top{ bottom:208px; }
       })(d);
     }
     start();
+  })();
+
+  // "Get ZORYX": Google Play by default, the App Store on Apple devices.
+  (function(){
+    if (!/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) return;
+    document.querySelectorAll('[data-app-link]').forEach(function(a){ a.href = 'https://apps.apple.com/app/id1478295123'; });
   })();
 
   // ZORYX booking modal. Any [data-zoryx-book="<clinicId>"] opens it; a page
