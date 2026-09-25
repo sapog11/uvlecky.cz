@@ -1620,8 +1620,12 @@ body.has-cart .to-top{ bottom:208px; }
       var btn = e.target.closest && e.target.closest('[data-zoryx-book]');
       if (btn){
         e.preventDefault();
-        var notes = (btn.hasAttribute('data-with-picks') && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
-        open(btn.getAttribute('data-zoryx-book'), notes);
+        // Every blood-test booking takes the tests picked in the calculator —
+        // the floating "Objednat se" too, not only the calculator's own buttons.
+        var clinicId = btn.getAttribute('data-zoryx-book');
+        var withPicks = btn.hasAttribute('data-with-picks') || clinicId === 'odbery_usti';
+        var notes = (withPicks && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
+        open(clinicId, notes);
         return;
       }
       if (e.target.closest && e.target.closest('[data-zx-close]')) close();
