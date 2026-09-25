@@ -551,6 +551,28 @@
 #faq-odbery{ background:linear-gradient(180deg,#FFFFFF 0%,#EAF2EE 100%); }
 .cta-band{ margin-top:34px; text-align:center; }
 .cta-band .btn{ margin:6px; }
+
+/* ===== juicier lab page ===== */
+.topic{ overflow:hidden; }
+.topic::before{ content:""; position:absolute; inset:-40% -30% auto auto; width:180px; height:180px; border-radius:50%;
+  background:radial-gradient(circle, var(--ta,#7C3AED) 0%, transparent 70%); opacity:.18; pointer-events:none; }
+.topic .ic{ width:56px; height:56px; border-radius:18px; display:flex; align-items:center; justify-content:center; color:#fff;
+  background:linear-gradient(135deg,var(--ta,#7C3AED),var(--tb,#2563EB)); box-shadow:0 12px 24px -12px var(--ta,#7C3AED); }
+.topic .ic svg{ width:28px; height:28px; }
+.topic h3{ margin-top:14px; }
+.topic .price{ font-weight:800; font-size:17px; background:linear-gradient(90deg,var(--ta,#7C3AED),var(--tb,#2563EB)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.topic:hover{ border-color:var(--ta,#7C3AED); box-shadow:0 20px 44px -26px var(--ta,#7C3AED); }
+.topic[aria-pressed="true"]{ background:rgba(255,255,255,.85); border-color:var(--ta,#7C3AED); box-shadow:0 0 0 3px color-mix(in srgb, var(--ta,#7C3AED) 30%, transparent), 0 22px 48px -24px var(--ta,#7C3AED); }
+.topic .state .on{ color:var(--ta,#7C3AED); }
+#temata{ padding-top:36px; }
+.group{ background:rgba(255,255,255,.62); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 12px 30px -24px rgba(28,43,74,.45); }
+.group > summary{ padding:12px 16px; font-size:16.5px; }
+.g-ic{ width:40px; height:40px; border-radius:13px; display:flex; align-items:center; justify-content:center; color:#fff; flex:none;
+  box-shadow:0 10px 20px -12px rgba(28,43,74,.6); }
+.g-ic svg{ width:21px; height:21px; }
+.group[open] > summary{ background:linear-gradient(90deg,rgba(124,58,237,.08),transparent); }
+.g-count{ background:linear-gradient(135deg,#7C3AED,#2563EB); color:#fff; }
 </style>
 
 <div id="page-main">
@@ -584,6 +606,52 @@
 </section>
 
 <!-- WHY -->
+<!-- TOPICS = ready-made packages -->
+<section class="section" id="temata">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow" data-lang-cs="Co chcete zkontrolovat?" data-lang-en="What do you want to check?" data-lang-ru="Что хотите проверить?" data-lang-ua="Що хочете перевірити?">Co chcete zkontrolovat?</span>
+<div aria-hidden="true" class="ornament"><i></i></div>
+<h2 data-lang-cs="Vyberte téma — &lt;em&gt;vyšetření sestavíme za vás&lt;/em&gt;" data-lang-en="Pick a topic — &lt;em&gt;we assemble the tests for you&lt;/em&gt;" data-lang-ru="Выберите тему — &lt;em&gt;набор анализов уже собран&lt;/em&gt;" data-lang-ua="Оберіть тему — &lt;em&gt;набір аналізів уже зібрано&lt;/em&gt;">Vyberte téma — <em>vyšetření sestavíme za vás</em></h2>
+<p data-lang-cs="Jedním klepnutím přidáte sadu vyšetření do výběru. Níže v ceníku ji můžete upravit. Cena je včetně odběru." data-lang-en="One tap adds a set of tests to your selection; adjust it in the price list below. Prices include the blood draw." data-lang-ru="Одно нажатие — и набор анализов в выборе. Ниже в прайсе его можно изменить. Цена с учётом забора." data-lang-ua="Одне натискання — і набір аналізів у виборі. Нижче в прайсі його можна змінити. Ціна з урахуванням забору.">Jedním klepnutím přidáte sadu vyšetření do výběru. Níže v ceníku ji můžete upravit. Cena je včetně odběru.</p>
+</div>
+<div class="topic-grid">
+<button class="topic reveal" data-pack="hormony" type="button" style="--ta:#EC4899;--tb:#A855F7"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="9" cy="9" r="5"></circle><path d="M9 14v7M6 18h6M15.5 3.5H21v5.5M21 3.5l-6 6"></path></svg></span>
+<h3 data-lang-cs="Hormony" data-lang-en="Hormones" data-lang-ru="Гормоны" data-lang-ua="Гормони">Hormony</h3>
+<p data-lang-cs="Testosteron, estradiol, LH, FSH, prolaktin, DHEA-S — energie, libido, cyklus, plodnost." data-lang-en="Testosterone, oestradiol, LH, FSH, prolactin, DHEA-S — energy, libido, cycle, fertility." data-lang-ru="Тестостерон, эстрадиол, ЛГ, ФСГ, пролактин, ДГЭА-С — энергия, либидо, цикл, фертильность." data-lang-ua="Тестостерон, естрадіол, ЛГ, ФСГ, пролактин, ДГЕА-С — енергія, лібідо, цикл, фертильність.">Testosteron, estradiol, LH, FSH, prolaktin, DHEA-S — energie, libido, cyklus, plodnost.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal d1" data-pack="mineraly" type="button" style="--ta:#0EA5E9;--tb:#2563EB"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3 4 8v8l8 5 8-5V8z"></path><path d="M4 8l8 5 8-5M12 13v8"></path></svg></span>
+<h3 data-lang-cs="Minerály" data-lang-en="Minerals" data-lang-ru="Минералы" data-lang-ua="Мінерали">Minerály</h3>
+<p data-lang-cs="Sodík, draslík, chloridy, vápník, fosfor a hořčík — křeče, únava, srdce, kosti." data-lang-en="Sodium, potassium, chloride, calcium, phosphorus, magnesium — cramps, fatigue, heart, bones." data-lang-ru="Натрий, калий, хлориды, кальций, фосфор, магний — судороги, усталость, сердце, кости." data-lang-ua="Натрій, калій, хлориди, кальцій, фосфор, магній — судоми, втома, серце, кістки.">Sodík, draslík, chloridy, vápník, fosfor a hořčík — křeče, únava, srdce, kosti.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal d2" data-pack="vitaminy" type="button" style="--ta:#F59E0B;--tb:#EA580C"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="8" rx="4" transform="rotate(-45 12 12)" width="18" x="3" y="8"></rect><path d="m9.5 9.5 5 5"></path></svg></span>
+<h3 data-lang-cs="Vitamíny a železo" data-lang-en="Vitamins and iron" data-lang-ru="Витамины и железо" data-lang-ua="Вітаміни та залізо">Vitamíny a železo</h3>
+<p data-lang-cs="Vitamín D, B12, kyselina listová, ferritin a železo — imunita, vlasy, soustředění." data-lang-en="Vitamin D, B12, folate, ferritin and iron — immunity, hair, focus." data-lang-ru="Витамин D, B12, фолиевая кислота, ферритин и железо — иммунитет, волосы, концентрация." data-lang-ua="Вітамін D, B12, фолієва кислота, феритин і залізо — імунітет, волосся, концентрація.">Vitamín D, B12, kyselina listová, ferritin a železo — imunita, vlasy, soustředění.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal d3" data-pack="stitna" type="button" style="--ta:#8B5CF6;--tb:#6D28D9"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 8c-2-3-7-3-8 1-.8 3.4 1.5 7 4 7 1.6 0 3-1.2 4-3 1 1.8 2.4 3 4 3 2.5 0 4.8-3.6 4-7-1-4-6-4-8-1Z"></path><path d="M12 8v5"></path></svg></span>
+<h3 data-lang-cs="Štítná žláza" data-lang-en="Thyroid" data-lang-ru="Щитовидная железа" data-lang-ua="Щитоподібна залоза">Štítná žláza</h3>
+<p data-lang-cs="TSH, volný T4 a T3, protilátky anti-TPO — váha, nálada, únava, zimomřivost." data-lang-en="TSH, free T4 and T3, anti-TPO antibodies — weight, mood, fatigue, feeling cold." data-lang-ru="ТТГ, свободные Т4 и Т3, антитела анти-ТПО — вес, настроение, усталость, зябкость." data-lang-ua="ТТГ, вільні Т4 і Т3, антитіла анти-ТПО — вага, настрій, втома, мерзлякуватість.">TSH, volný T4 a T3, protilátky anti-TPO — váha, nálada, únava, zimomřivost.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal" data-pack="srdce" type="button" style="--ta:#F43F5E;--tb:#BE123C"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path><path d="M3.5 12h4l1.5-3 3 6 1.5-3h7"></path></svg></span>
+<h3 data-lang-cs="Cukr a cholesterol" data-lang-en="Sugar and cholesterol" data-lang-ru="Сахар и холестерин" data-lang-ua="Цукор і холестерин">Cukr a cholesterol</h3>
+<p data-lang-cs="Glukóza, HbA1c, cholesterol, HDL, LDL a triglyceridy — srdce, cévy a riziko cukrovky." data-lang-en="Glucose, HbA1c, cholesterol, HDL, LDL and triglycerides — heart, vessels, diabetes risk." data-lang-ru="Глюкоза, HbA1c, холестерин, ЛПВП, ЛПНП и триглицериды — сердце, сосуды, риск диабета." data-lang-ua="Глюкоза, HbA1c, холестерин, ЛПВЩ, ЛПНЩ і тригліцериди — серце, судини, ризик діабету.">Glukóza, HbA1c, cholesterol, HDL, LDL a triglyceridy — srdce, cévy a riziko cukrovky.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal d1" data-pack="prevence" type="button" style="--ta:#14B8A6;--tb:#0369A1"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+<h3 data-lang-cs="Základní prevence" data-lang-en="Basic check-up" data-lang-ru="Базовая профилактика" data-lang-ua="Базова профілактика">Základní prevence</h3>
+<p data-lang-cs="Krevní obraz, CRP, cukr, tuky, játra, ledviny a moč — rozumný celkový přehled jednou ročně." data-lang-en="Blood count, CRP, sugar, lipids, liver, kidneys and urine — a sensible yearly overview." data-lang-ru="Общий анализ крови, CRP, сахар, липиды, печень, почки и моча — разумный ежегодный обзор." data-lang-ua="Загальний аналіз крові, CRP, цукор, ліпіди, печінка, нирки та сеча — розумний щорічний огляд.">Krevní obraz, CRP, cukr, tuky, játra, ledviny a moč — rozumný celkový přehled jednou ročně.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal d2" data-pack="unava" type="button" style="--ta:#10B981;--tb:#0F766E"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="10" rx="2" width="16" x="2" y="7"></rect><path d="M22 11v2M6 10v4"></path></svg></span>
+<h3 data-lang-cs="Únava" data-lang-en="Fatigue" data-lang-ru="Усталость" data-lang-ua="Втома">Únava</h3>
+<p data-lang-cs="Krevní obraz, ferritin, B12, vitamín D a TSH — nejčastější důvody, proč chybí energie." data-lang-en="Blood count, ferritin, B12, vitamin D and TSH — the most common reasons for low energy." data-lang-ru="Общий анализ крови, ферритин, B12, витамин D и ТТГ — частые причины нехватки сил." data-lang-ua="Загальний аналіз крові, феритин, B12, вітамін D і ТТГ — часті причини нестачі сил.">Krevní obraz, ferritin, B12, vitamín D a TSH — nejčastější důvody, proč chybí energie.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+<button class="topic reveal d3" data-pack="muzi" type="button" style="--ta:#2563EB;--tb:#1E3A8A"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="10" cy="14" r="6"></circle><path d="M14.5 9.5 21 3M15 3h6v6"></path></svg></span>
+<h3 data-lang-cs="Muži 40+" data-lang-en="Men 40+" data-lang-ru="Мужчины 40+" data-lang-ua="Чоловіки 40+">Muži 40+</h3>
+<p data-lang-cs="PSA, volné PSA a testosteron — prevence prostaty a hormonální rovnováha." data-lang-en="PSA, free PSA and testosterone — prostate screening and hormone balance." data-lang-ru="PSA, свободный PSA и тестостерон — профилактика простаты и гормональный баланс." data-lang-ua="PSA, вільний PSA і тестостерон — профілактика простати та гормональний баланс.">PSA, volné PSA a testosteron — prevence prostaty a hormonální rovnováha.</p>
+<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
+</div>
+</div>
+</section>
+
 <section class="section" style="background:linear-gradient(180deg,#F4F9FD 0%,#EAF3FB 100%);">
 <div class="container">
 <div class="section-head reveal">
@@ -604,52 +672,6 @@
 <div class="card why-card reveal d3"><div class="why-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg></div>
 <h3 data-lang-cs="Přehled o zdraví" data-lang-en="A clear picture" data-lang-ru="Картина здоровья" data-lang-ua="Картина здоровʼя">Přehled o zdraví</h3>
 <p data-lang-cs="Výsledky dostanete elektronicky. Můžete je ukázat svému lékaři a mít o svém zdraví jasno." data-lang-en="Results arrive electronically. Show them to your doctor and know where you stand." data-lang-ru="Результаты приходят в электронном виде. Их можно показать своему врачу — и знать, как обстоят дела." data-lang-ua="Результати надходять в електронному вигляді. Їх можна показати своєму лікарю — і знати, як справи.">Výsledky dostanete elektronicky. Můžete je ukázat svému lékaři a mít o svém zdraví jasno.</p></div>
-</div>
-</div>
-</section>
-
-<!-- TOPICS = ready-made packages -->
-<section class="section" id="temata">
-<div class="container">
-<div class="section-head reveal">
-<span class="eyebrow" data-lang-cs="Co chcete zkontrolovat?" data-lang-en="What do you want to check?" data-lang-ru="Что хотите проверить?" data-lang-ua="Що хочете перевірити?">Co chcete zkontrolovat?</span>
-<div aria-hidden="true" class="ornament"><i></i></div>
-<h2 data-lang-cs="Vyberte téma — &lt;em&gt;vyšetření sestavíme za vás&lt;/em&gt;" data-lang-en="Pick a topic — &lt;em&gt;we assemble the tests for you&lt;/em&gt;" data-lang-ru="Выберите тему — &lt;em&gt;набор анализов уже собран&lt;/em&gt;" data-lang-ua="Оберіть тему — &lt;em&gt;набір аналізів уже зібрано&lt;/em&gt;">Vyberte téma — <em>vyšetření sestavíme za vás</em></h2>
-<p data-lang-cs="Jedním klepnutím přidáte sadu vyšetření do výběru. Níže v ceníku ji můžete upravit. Cena je včetně odběru." data-lang-en="One tap adds a set of tests to your selection; adjust it in the price list below. Prices include the blood draw." data-lang-ru="Одно нажатие — и набор анализов в выборе. Ниже в прайсе его можно изменить. Цена с учётом забора." data-lang-ua="Одне натискання — і набір аналізів у виборі. Нижче в прайсі його можна змінити. Ціна з урахуванням забору.">Jedním klepnutím přidáte sadu vyšetření do výběru. Níže v ceníku ji můžete upravit. Cena je včetně odběru.</p>
-</div>
-<div class="topic-grid">
-<button class="topic reveal" data-pack="hormony" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="9" cy="9" r="5"></circle><path d="M9 14v7M6 18h6M15.5 3.5H21v5.5M21 3.5l-6 6"></path></svg></span>
-<h3 data-lang-cs="Hormony" data-lang-en="Hormones" data-lang-ru="Гормоны" data-lang-ua="Гормони">Hormony</h3>
-<p data-lang-cs="Testosteron, estradiol, LH, FSH, prolaktin, DHEA-S — energie, libido, cyklus, plodnost." data-lang-en="Testosterone, oestradiol, LH, FSH, prolactin, DHEA-S — energy, libido, cycle, fertility." data-lang-ru="Тестостерон, эстрадиол, ЛГ, ФСГ, пролактин, ДГЭА-С — энергия, либидо, цикл, фертильность." data-lang-ua="Тестостерон, естрадіол, ЛГ, ФСГ, пролактин, ДГЕА-С — енергія, лібідо, цикл, фертильність.">Testosteron, estradiol, LH, FSH, prolaktin, DHEA-S — energie, libido, cyklus, plodnost.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal d1" data-pack="mineraly" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3 4 8v8l8 5 8-5V8z"></path><path d="M4 8l8 5 8-5M12 13v8"></path></svg></span>
-<h3 data-lang-cs="Minerály" data-lang-en="Minerals" data-lang-ru="Минералы" data-lang-ua="Мінерали">Minerály</h3>
-<p data-lang-cs="Sodík, draslík, chloridy, vápník, fosfor a hořčík — křeče, únava, srdce, kosti." data-lang-en="Sodium, potassium, chloride, calcium, phosphorus, magnesium — cramps, fatigue, heart, bones." data-lang-ru="Натрий, калий, хлориды, кальций, фосфор, магний — судороги, усталость, сердце, кости." data-lang-ua="Натрій, калій, хлориди, кальцій, фосфор, магній — судоми, втома, серце, кістки.">Sodík, draslík, chloridy, vápník, fosfor a hořčík — křeče, únava, srdce, kosti.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal d2" data-pack="vitaminy" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="8" rx="4" transform="rotate(-45 12 12)" width="18" x="3" y="8"></rect><path d="m9.5 9.5 5 5"></path></svg></span>
-<h3 data-lang-cs="Vitamíny a železo" data-lang-en="Vitamins and iron" data-lang-ru="Витамины и железо" data-lang-ua="Вітаміни та залізо">Vitamíny a železo</h3>
-<p data-lang-cs="Vitamín D, B12, kyselina listová, ferritin a železo — imunita, vlasy, soustředění." data-lang-en="Vitamin D, B12, folate, ferritin and iron — immunity, hair, focus." data-lang-ru="Витамин D, B12, фолиевая кислота, ферритин и железо — иммунитет, волосы, концентрация." data-lang-ua="Вітамін D, B12, фолієва кислота, феритин і залізо — імунітет, волосся, концентрація.">Vitamín D, B12, kyselina listová, ferritin a železo — imunita, vlasy, soustředění.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal d3" data-pack="stitna" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 8c-2-3-7-3-8 1-.8 3.4 1.5 7 4 7 1.6 0 3-1.2 4-3 1 1.8 2.4 3 4 3 2.5 0 4.8-3.6 4-7-1-4-6-4-8-1Z"></path><path d="M12 8v5"></path></svg></span>
-<h3 data-lang-cs="Štítná žláza" data-lang-en="Thyroid" data-lang-ru="Щитовидная железа" data-lang-ua="Щитоподібна залоза">Štítná žláza</h3>
-<p data-lang-cs="TSH, volný T4 a T3, protilátky anti-TPO — váha, nálada, únava, zimomřivost." data-lang-en="TSH, free T4 and T3, anti-TPO antibodies — weight, mood, fatigue, feeling cold." data-lang-ru="ТТГ, свободные Т4 и Т3, антитела анти-ТПО — вес, настроение, усталость, зябкость." data-lang-ua="ТТГ, вільні Т4 і Т3, антитіла анти-ТПО — вага, настрій, втома, мерзлякуватість.">TSH, volný T4 a T3, protilátky anti-TPO — váha, nálada, únava, zimomřivost.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal" data-pack="srdce" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path><path d="M3.5 12h4l1.5-3 3 6 1.5-3h7"></path></svg></span>
-<h3 data-lang-cs="Cukr a cholesterol" data-lang-en="Sugar and cholesterol" data-lang-ru="Сахар и холестерин" data-lang-ua="Цукор і холестерин">Cukr a cholesterol</h3>
-<p data-lang-cs="Glukóza, HbA1c, cholesterol, HDL, LDL a triglyceridy — srdce, cévy a riziko cukrovky." data-lang-en="Glucose, HbA1c, cholesterol, HDL, LDL and triglycerides — heart, vessels, diabetes risk." data-lang-ru="Глюкоза, HbA1c, холестерин, ЛПВП, ЛПНП и триглицериды — сердце, сосуды, риск диабета." data-lang-ua="Глюкоза, HbA1c, холестерин, ЛПВЩ, ЛПНЩ і тригліцериди — серце, судини, ризик діабету.">Glukóza, HbA1c, cholesterol, HDL, LDL a triglyceridy — srdce, cévy a riziko cukrovky.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal d1" data-pack="prevence" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
-<h3 data-lang-cs="Základní prevence" data-lang-en="Basic check-up" data-lang-ru="Базовая профилактика" data-lang-ua="Базова профілактика">Základní prevence</h3>
-<p data-lang-cs="Krevní obraz, CRP, cukr, tuky, játra, ledviny a moč — rozumný celkový přehled jednou ročně." data-lang-en="Blood count, CRP, sugar, lipids, liver, kidneys and urine — a sensible yearly overview." data-lang-ru="Общий анализ крови, CRP, сахар, липиды, печень, почки и моча — разумный ежегодный обзор." data-lang-ua="Загальний аналіз крові, CRP, цукор, ліпіди, печінка, нирки та сеча — розумний щорічний огляд.">Krevní obraz, CRP, cukr, tuky, játra, ledviny a moč — rozumný celkový přehled jednou ročně.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal d2" data-pack="unava" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="10" rx="2" width="16" x="2" y="7"></rect><path d="M22 11v2M6 10v4"></path></svg></span>
-<h3 data-lang-cs="Únava" data-lang-en="Fatigue" data-lang-ru="Усталость" data-lang-ua="Втома">Únava</h3>
-<p data-lang-cs="Krevní obraz, ferritin, B12, vitamín D a TSH — nejčastější důvody, proč chybí energie." data-lang-en="Blood count, ferritin, B12, vitamin D and TSH — the most common reasons for low energy." data-lang-ru="Общий анализ крови, ферритин, B12, витамин D и ТТГ — частые причины нехватки сил." data-lang-ua="Загальний аналіз крові, феритин, B12, вітамін D і ТТГ — часті причини нестачі сил.">Krevní obraz, ferritin, B12, vitamín D a TSH — nejčastější důvody, proč chybí energie.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
-<button class="topic reveal d3" data-pack="muzi" type="button"><span aria-hidden="true" class="ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="10" cy="14" r="6"></circle><path d="M14.5 9.5 21 3M15 3h6v6"></path></svg></span>
-<h3 data-lang-cs="Muži 40+" data-lang-en="Men 40+" data-lang-ru="Мужчины 40+" data-lang-ua="Чоловіки 40+">Muži 40+</h3>
-<p data-lang-cs="PSA, volné PSA a testosteron — prevence prostaty a hormonální rovnováha." data-lang-en="PSA, free PSA and testosterone — prostate screening and hormone balance." data-lang-ru="PSA, свободный PSA и тестостерон — профилактика простаты и гормональный баланс." data-lang-ua="PSA, вільний PSA і тестостерон — профілактика простати та гормональний баланс.">PSA, volné PSA a testosteron — prevence prostaty a hormonální rovnováha.</p>
-<span class="foot"><span class="price" data-price=""></span><span class="state"><span class="off" data-lang-cs="+ Přidat" data-lang-en="+ Add" data-lang-ru="+ Добавить" data-lang-ua="+ Додати">+ Přidat</span><span class="on" data-lang-cs="✓ Vybráno" data-lang-en="✓ Selected" data-lang-ru="✓ Выбрано" data-lang-ua="✓ Обрано">✓ Vybráno</span></span></span></button>
 </div>
 </div>
 </section>
@@ -736,28 +758,28 @@
   function it(id, p, n){ return { id:id, p:p, n:n }; }
 
   var GROUPS = [
-    { id:"basic", kind:"blood", n:t4("Krev — základní přehled","Кровь — базовый профиль","Кров — базовий профіль","Blood — core panel"), items:[
+    { id:"basic", kind:"blood", n:t4("Základní přehled","Базовый профиль","Базовий профіль","Core panel"), items:[
       it("ko",155,t4("Krevní obraz + diferenciál","Общий анализ крови с лейкоформулой","Загальний аналіз крові з лейкоформулою","Complete blood count + differential")),
       it("crp",160,t4("CRP — zánětlivý marker","CRP — маркер воспаления","CRP — маркер запалення","CRP — inflammation marker")),
       it("fw",50,t4("Sedimentace (FW)","СОЭ","ШОЕ","ESR (sedimentation rate)")),
       it("glc",22,t4("Glukóza","Глюкоза","Глюкоза","Glucose")),
       it("hba",230,t4("Glykovaný hemoglobin (HbA1c)","Гликированный гемоглобин (HbA1c)","Глікований гемоглобін (HbA1c)","Glycated haemoglobin (HbA1c)"))
     ]},
-    { id:"lipids", kind:"blood", n:t4("Krev — tuky a srdce","Кровь — липиды и сердце","Кров — ліпіди та серце","Blood — lipids and heart"), items:[
+    { id:"lipids", kind:"blood", n:t4("Tuky a srdce","Липиды и сердце","Ліпіди та серце","Lipids and heart"), items:[
       it("chol",30,t4("Cholesterol celkový","Холестерин общий","Холестерин загальний","Total cholesterol")),
       it("hdl",60,t4("HDL cholesterol","ЛПВП-холестерин","ЛПВЩ-холестерин","HDL cholesterol")),
       it("ldl",70,t4("LDL cholesterol","ЛПНП-холестерин","ЛПНЩ-холестерин","LDL cholesterol")),
       it("tag",70,t4("Triacylglyceroly","Триглицериды","Тригліцериди","Triglycerides")),
       it("lpa",100,t4("Lipoprotein(a)","Липопротеин(a)","Ліпопротеїн(a)","Lipoprotein(a)"))
     ]},
-    { id:"organs", kind:"blood", n:t4("Krev — játra, ledviny, slinivka","Кровь — печень, почки, поджелудочная","Кров — печінка, нирки, підшлункова","Blood — liver, kidneys, pancreas"), items:[
+    { id:"organs", kind:"blood", n:t4("Játra, ledviny, slinivka","Печень, почки, поджелудочная","Печінка, нирки, підшлункова","Liver, kidneys, pancreas"), items:[
       it("jat",210,t4("Jaterní testy","Печёночные пробы","Печінкові проби","Liver panel")),
       it("ggt",30,t4("GGT","ГГТ","ГГТ","GGT")),
       it("led",138,t4("Funkce ledvin (urea, kreatinin, kyselina močová)","Функция почек (мочевина, креатинин, мочевая кислота)","Функція нирок (сечовина, креатинін, сечова кислота)","Kidney function (urea, creatinine, uric acid)")),
       it("kmoc",30,t4("Kyselina močová","Мочевая кислота","Сечова кислота","Uric acid")),
       it("lip",220,t4("Lipáza","Липаза","Ліпаза","Lipase"))
     ]},
-    { id:"minerals", kind:"blood", n:t4("Krev — minerály","Кровь — минералы","Кров — мінерали","Blood — minerals"), items:[
+    { id:"minerals", kind:"blood", n:t4("Minerály","Минералы","Мінерали","Minerals"), items:[
       it("na",24,t4("Sodík","Натрий","Натрій","Sodium")),
       it("k",30,t4("Draslík","Калий","Калій","Potassium")),
       it("cl",24,t4("Chloridy","Хлориды","Хлориди","Chloride")),
@@ -765,7 +787,7 @@
       it("p",24,t4("Fosfor","Фосфор","Фосфор","Phosphorus")),
       it("mg",24,t4("Hořčík","Магний","Магній","Magnesium"))
     ]},
-    { id:"vitamins", kind:"blood", n:t4("Krev — vitamíny a železo","Кровь — витамины и железо","Кров — вітаміни та залізо","Blood — vitamins and iron"), items:[
+    { id:"vitamins", kind:"blood", n:t4("Vitamíny a železo","Витамины и железо","Вітаміни та залізо","Vitamins and iron"), items:[
       it("vitd",455,t4("25-OH vitamín D","25-OH витамин D","25-OH вітамін D","25-OH vitamin D")),
       it("b12",260,t4("Vitamín B12","Витамин B12","Вітамін B12","Vitamin B12")),
       it("fol",260,t4("Kyselina listová (foláty)","Фолиевая кислота","Фолієва кислота","Folate")),
@@ -773,14 +795,14 @@
       it("fer",250,t4("Ferritin — zásoby železa","Ферритин — запасы железа","Феритин — запаси заліза","Ferritin — iron stores")),
       it("trf",200,t4("Transferin","Трансферрин","Трансферин","Transferrin"))
     ]},
-    { id:"thyroid", kind:"blood", n:t4("Krev — štítná žláza","Кровь — щитовидная железа","Кров — щитоподібна залоза","Blood — thyroid"), items:[
+    { id:"thyroid", kind:"blood", n:t4("Štítná žláza","Щитовидная железа","Щитоподібна залоза","Thyroid"), items:[
       it("tsh",170,t4("TSH","ТТГ","ТТГ","TSH")),
       it("ft4",160,t4("Volný T4 (fT4)","Свободный Т4 (fT4)","Вільний Т4 (fT4)","Free T4 (fT4)")),
       it("ft3",160,t4("Volný T3 (fT3)","Свободный Т3 (fT3)","Вільний Т3 (fT3)","Free T3 (fT3)")),
       it("atpo",300,t4("Protilátky anti-TPO","Антитела к ТПО","Антитіла до ТПО","Anti-TPO antibodies")),
       it("atg",300,t4("Protilátky anti-TG","Антитела к ТГ","Антитіла до ТГ","Anti-TG antibodies"))
     ]},
-    { id:"hormones", kind:"blood", n:t4("Krev — hormony","Кровь — гормоны","Кров — гормони","Blood — hormones"), items:[
+    { id:"hormones", kind:"blood", n:t4("Hormony","Гормоны","Гормони","Hormones"), items:[
       it("testo",180,t4("Testosteron","Тестостерон","Тестостерон","Testosterone")),
       it("estr",180,t4("Estradiol","Эстрадиол","Естрадіол","Oestradiol")),
       it("prog",180,t4("Progesteron","Прогестерон","Прогестерон","Progesterone")),
@@ -793,17 +815,17 @@
       it("amh",900,t4("AMH — ovariální rezerva","АМГ — овариальный резерв","АМГ — оваріальний резерв","AMH — ovarian reserve")),
       it("pth",500,t4("Parathormon","Паратгормон","Паратгормон","Parathyroid hormone"))
     ]},
-    { id:"men", kind:"blood", n:t4("Krev — prostata","Кровь — простата","Кров — простата","Blood — prostate"), items:[
+    { id:"men", kind:"blood", n:t4("Prostata","Простата","Простата","Prostate"), items:[
       it("psa",260,t4("PSA","PSA","PSA","PSA")),
       it("psaf",400,t4("PSA volné","PSA свободный","PSA вільний","Free PSA"))
     ]},
-    { id:"infect", kind:"blood", n:t4("Krev — preventivní sérologie","Кровь — профилактическая серология","Кров — профілактична серологія","Blood — preventive serology"), items:[
+    { id:"infect", kind:"blood", n:t4("Preventivní sérologie","Профилактическая серология","Профілактична серологія","Preventive serology"), items:[
       it("hiv",300,t4("HIV","ВИЧ","ВІЛ","HIV")),
       it("syf",300,t4("Syfilis — RRR, Treponema screen","Сифилис — RRR, Treponema screen","Сифіліс — RRR, Treponema screen","Syphilis — RRR, Treponema screen")),
       it("hbs",250,t4("HBsAg — hepatitida B","HBsAg — гепатит B","HBsAg — гепатит B","HBsAg — hepatitis B")),
       it("hcv",350,t4("Anti-HCV — hepatitida C","Anti-HCV — гепатит C","Anti-HCV — гепатит C","Anti-HCV — hepatitis C"))
     ]},
-    { id:"coag", kind:"blood", n:t4("Krev — srážlivost","Кровь — свёртываемость","Кров — згортання","Blood — coagulation"), items:[
+    { id:"coag", kind:"blood", n:t4("Srážlivost","Свёртываемость","Згортання","Coagulation"), items:[
       it("dd",260,t4("D-dimery","D-димеры","D-димери","D-dimer")),
       it("koag",255,t4("APTT, PT, INR","АЧТВ, ПВ, МНО","АЧТЧ, ПЧ, МНВ","APTT, PT, INR"))
     ]},
@@ -856,6 +878,20 @@
     });
   }
 
+  /* a colour and an icon per group of tests */
+  var GICON = {
+    basic:{ a:"#E8466B", b:"#9E1239", d:'<path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"/>' },
+    lipids:{ a:"#F43F5E", b:"#BE123C", d:'<path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>' },
+    organs:{ a:"#10B981", b:"#0F766E", d:'<path d="M4 14c0-5 4-9 9-9 4 0 7 2 7 6 0 5-5 9-10 9-3.5 0-6-2.5-6-6Z"/><path d="M9 11c1.5 0 3 1 3 3"/>' },
+    minerals:{ a:"#0EA5E9", b:"#2563EB", d:'<path d="M12 3 4 8v8l8 5 8-5V8z"/><path d="M4 8l8 5 8-5M12 13v8"/>' },
+    vitamins:{ a:"#F59E0B", b:"#EA580C", d:'<rect height="8" rx="4" transform="rotate(-45 12 12)" width="18" x="3" y="8"/><path d="m9.5 9.5 5 5"/>' },
+    thyroid:{ a:"#8B5CF6", b:"#6D28D9", d:'<path d="M12 8c-2-3-7-3-8 1-.8 3.4 1.5 7 4 7 1.6 0 3-1.2 4-3 1 1.8 2.4 3 4 3 2.5 0 4.8-3.6 4-7-1-4-6-4-8-1Z"/>' },
+    hormones:{ a:"#EC4899", b:"#A855F7", d:'<circle cx="9" cy="9" r="5"/><path d="M9 14v7M6 18h6M15.5 3.5H21v5.5M21 3.5l-6 6"/>' },
+    men:{ a:"#2563EB", b:"#1E3A8A", d:'<circle cx="10" cy="14" r="6"/><path d="M14.5 9.5 21 3M15 3h6v6"/>' },
+    infect:{ a:"#14B8A6", b:"#0369A1", d:'<path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/>' },
+    coag:{ a:"#DC2626", b:"#7F1D1D", d:'<path d="M8 3.5s-4 4.5-4 7.3A4 4 0 0 0 12 11c0-2.8-4-7.5-4-7.5Z"/><path d="M16 10s-4 4.5-4 7.3a4 4 0 0 0 8 0c0-2.8-4-7.3-4-7.3Z"/>' },
+    urine:{ a:"#EAB308", b:"#CA8A04", d:'<path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 14h9"/>' }
+  };
   function renderGroups(){
     var host = document.getElementById("groups");
     var open = {};
@@ -874,6 +910,7 @@
       var isOpen = query ? true : (g.id in open ? open[g.id] : gi === 0);
       html += '<details class="group" data-g="' + g.id + '"' + (isOpen ? " open" : "") + '><summary>' +
               '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>' +
+              (GICON[g.id] ? '<span class="g-ic" style="background:linear-gradient(135deg,' + GICON[g.id].a + ',' + GICON[g.id].b + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + GICON[g.id].d + '</svg></span>' : '') +
               '<span class="g-name">' + esc(g.n[lang]) + '</span>' +
               '<span class="g-count"' + (picks ? "" : " hidden") + '>' + picks + " · " + fmt(sum) + " " + T.czk + '</span></summary>' +
               '<div class="rows">' + rows + '</div></details>';

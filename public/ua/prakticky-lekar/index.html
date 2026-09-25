@@ -906,6 +906,43 @@ body.has-cart .to-top{ bottom:208px; }
 .blood-points strong{ color:var(--navy); }
 .blood-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
 @media (max-width:860px){ .blood-promo{ grid-template-columns:1fr; gap:20px; padding:16px; } .blood-photo{ aspect-ratio:4/3; } }
+
+/* ===================== MORE COLOUR: violet glass accents =====================
+   The ZORYX violet as light and glow, so the page is not grey; icons sit in
+   colour bubbles; blood tests stay the one red thing. */
+:root{ --violet:#7C3AED; --violet-2:#622ADA; --sky:#38BDF8; }
+.page{
+  background:
+    radial-gradient(34% 18% at 92% 3%, rgba(124,58,237,.30), transparent 70%),
+    radial-gradient(36% 22% at 6% 4%, rgba(104,161,214,.38), transparent 70%),
+    radial-gradient(30% 18% at 70% 26%, rgba(124,58,237,.20), transparent 70%),
+    radial-gradient(40% 24% at 18% 36%, rgba(56,189,248,.28), transparent 70%),
+    radial-gradient(36% 22% at 88% 52%, rgba(98,42,218,.24), transparent 70%),
+    radial-gradient(40% 22% at 10% 70%, rgba(236,72,153,.14), transparent 70%),
+    radial-gradient(38% 20% at 90% 90%, rgba(124,58,237,.22), transparent 70%),
+    linear-gradient(180deg,#F4F7FE 0%,#EEF0FB 50%,#EEF3F4 100%);
+}
+.section-head .eyebrow{ color:var(--violet-2); }
+.section-head h2 em{ background:linear-gradient(90deg,var(--violet-2),var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.ornament i{ background:linear-gradient(90deg,var(--violet),var(--sky)); }
+.benefit-icon,.service-icon,.why-ic{
+  width:58px; height:58px; border-radius:18px; display:flex; align-items:center; justify-content:center;
+  color:#fff; background:linear-gradient(135deg,var(--violet) 0%,var(--blue-2) 100%);
+  box-shadow:0 12px 24px -12px rgba(124,58,237,.8);
+}
+.benefit-icon svg,.service-icon svg,.why-ic svg{ width:28px; height:28px; }
+.service-blood .service-icon{ background:linear-gradient(135deg,#E8466B,#9E1239); box-shadow:0 12px 24px -12px rgba(226,61,99,.8); }
+.info-card h3 svg{ color:var(--violet-2); }
+.card:hover,.doc-card:hover{ box-shadow:0 0 0 1px rgba(124,58,237,.25), 0 22px 48px -26px rgba(124,58,237,.55); }
+.btn-primary{ background:linear-gradient(135deg,var(--navy) 0%,var(--violet-2) 100%); }
+.site-header{ box-shadow:0 10px 30px -22px rgba(98,42,218,.6); }
+
+/* floating menu: blood tests first and red */
+.fab-item.fab-blood{ background:linear-gradient(135deg,#E8466B 0%,#C21A48 60%,#9E1239 100%); color:#fff; border-radius:16px; }
+.fab-item.fab-blood .fab-ic{ background:rgba(255,255,255,.2); color:#fff; }
+.fab-item.fab-blood small{ color:rgba(255,255,255,.85); }
+.fab-item.fab-blood:hover{ filter:brightness(1.06); }
+.fab-btn{ background:linear-gradient(135deg,#E8466B 0%,#9E1239 100%) !important; box-shadow:0 14px 30px -12px rgba(226,61,99,.8) !important; }
 </style>
 <style>
 /* ===================== SUBPAGE: PRAKTICKÝ LÉKAŘ ===================== */
@@ -1018,7 +1055,7 @@ body.has-cart .to-top{ bottom:208px; }
 <p class="sub-lead" data-lang-cs="Hledáte praktického lékaře? &lt;strong&gt;Registrujeme nové pacienty&lt;/strong&gt; z Ústí nad Labem i z okolních měst. Stačí zavolat — registraci i první návštěvu domluvíme po telefonu." data-lang-en="Looking for a GP? &lt;strong&gt;We register new patients&lt;/strong&gt; from Ústí nad Labem and the surrounding towns, &lt;strong&gt;including foreigners with commercial health insurance&lt;/strong&gt;. Just call — we arrange the registration and your first visit over the phone." data-lang-ru="Ищете терапевта? &lt;strong&gt;Регистрируем новых пациентов&lt;/strong&gt; из Усти-над-Лабем и соседних городов, &lt;strong&gt;в том числе иностранцев с коммерческой страховкой&lt;/strong&gt;. Просто позвоните — регистрацию и первый приём договоримся по телефону." data-lang-ua="Шукаєте терапевта? &lt;strong&gt;Реєструємо нових пацієнтів&lt;/strong&gt; з Усті-над-Лабем і сусідніх міст, &lt;strong&gt;зокрема іноземців з комерційною страховкою&lt;/strong&gt;. Просто зателефонуйте — реєстрацію і перший прийом домовимося телефоном.">Шукаєте терапевта? <strong>Реєструємо нових пацієнтів</strong> з Усті-над-Лабем і сусідніх міст, <strong>зокрема іноземців з комерційною страховкою</strong>. Просто зателефонуйте — реєстрацію і перший прийом домовимося телефоном.</p>
 <div class="sub-cta">
 <a class="btn btn-primary" href="tel:+420606755784"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>+420 606 755 784</a>
-<a class="btn btn-outline" href="/ua/odbery/"><span data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests without referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Аналізи без направлення</span></a>
+<a class="btn btn-blood" href="/ua/odbery/"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests without referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Аналізи без направлення</span></a>
 </div>
 <div class="sub-facts">
 <div class="sub-fact"><div class="k" data-lang-cs="Kapacita" data-lang-en="Capacity" data-lang-ru="Места" data-lang-ua="Місця">Місця</div><div class="v" data-lang-cs="Volná místa" data-lang-en="Free places" data-lang-ru="Есть свободные" data-lang-ua="Є вільні">Є вільні</div></div>
@@ -1146,10 +1183,10 @@ body.has-cart .to-top{ bottom:208px; }
 <!-- floating booking button (same idea as mencare.cz, in U Vlečky colours) -->
 <div class="fab" id="fab">
 <div class="fab-menu" hidden="" id="fabMenu" role="menu">
-<button class="fab-item" data-zoryx-book="odbery_usti" role="menuitem" type="button">
+<a class="fab-item fab-blood" data-calc-first="" data-with-picks="" data-zoryx-book="odbery_usti" href="/ua/odbery/" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"></path><path d="M7.5 14h9"></path></svg></span>
-<span><strong data-lang-cs="Odběry krve" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Аналізи крові</strong><small data-lang-cs="Online rezervace · Po–Pá 8–11" data-lang-en="Book online · Mon–Fri 8–11" data-lang-ru="Онлайн-запись · Пн–Пт 8–11" data-lang-ua="Онлайн-запис · Пн–Пт 8–11">Онлайн-запис · Пн–Пт 8–11</small></span>
-</button>
+<span><strong data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests, no referral" data-lang-ru="Анализы крови без направления" data-lang-ua="Аналізи крові без направлення">Аналізи крові без направлення</strong><small data-lang-cs="Testy od 22 Kč · Po–Pá 8–11" data-lang-en="Tests from 22 CZK · Mon–Fri 8–11" data-lang-ru="Анализы от 22 Kč · Пн–Пт 8–11" data-lang-ua="Аналізи від 22 Kč · Пн–Пт 8–11">Аналізи від 22 Kč · Пн–Пт 8–11</small></span>
+</a>
 <a class="fab-item" href="tel:+420606755784" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
 <span><strong data-lang-cs="Registrace k lékařce" data-lang-en="Register with the GP" data-lang-ru="Регистрация к терапевту" data-lang-ua="Реєстрація до терапевта">Реєстрація до терапевта</strong><small>+420 606 755 784</small></span>
@@ -1390,9 +1427,13 @@ body.has-cart .to-top{ bottom:208px; }
     document.addEventListener('click', function(e){
       var btn = e.target.closest && e.target.closest('[data-zoryx-book]');
       if (btn){
+        if (btn.hasAttribute('data-calc-first') && typeof window.uvBookingNotes !== 'function') return;
         e.preventDefault();
         // Every blood-test booking takes the tests picked in the calculator —
         // the floating "Objednat se" too, not only the calculator's own buttons.
+        // Outside the lab page, blood-test buttons lead to the calculator
+        // first (they are links to /odbery/); there they open the booking.
+        if (btn.hasAttribute('data-calc-first') && typeof window.uvBookingNotes !== 'function') return;
         var clinicId = btn.getAttribute('data-zoryx-book');
         var withPicks = btn.hasAttribute('data-with-picks') || clinicId === 'odbery_usti';
         var notes = (withPicks && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
