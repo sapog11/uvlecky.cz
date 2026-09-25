@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Терапевт в Усти-над-Лабем — свободные места, регистрация, иностранцы с коммерческой страховкой | U Vlečky</title>
 <meta content="MUDr. Éva Bojčuk регистрирует новых пациентов из Усти-над-Лабем и соседних городов, принимает иностранцев с коммерческой страховкой (PVZP). Говорим по-русски. +420 606 755 784." name="description"/>
-<meta content="praktický lékař Ústí nad Labem, poliklinika U Vlečky, uvlecky, terapeut Ústí, терапевт Усти над Лабем, lékař Ústí nad Labem, stomatolog Ústí, odběry krve Ústí, zdravotní prohlídky Ústí" name="keywords"/>
+<meta content="praktický lékař Ústí nad Labem, poliklinika U Vlečky, uvlecky, terapeut Ústí, терапевт Усти над Лабем, lékař Ústí nad Labem, stomatolog Ústí, odběry krve Ústí, odběr krve bez žádanky Ústí nad Labem, krevní testy samoplátce, laboratorní vyšetření Ústí, анализы крови Усти-над-Лабем, zdravotní prohlídky Ústí" name="keywords"/>
 <meta content="" name="google-site-verification"/>
 <meta content="" name="yandex-verification"/>
 <meta content="ehhRpoZnbT9NoiPdcMqnUcle4HVPyCWX" name="seznam-wmt"/>
@@ -841,6 +841,71 @@ body.has-cart .to-top{ bottom:208px; }
 .doc-photo{ height:auto; aspect-ratio:1 / 1; }
 .doc-photo.has-img img{ object-position:50% 30%; }
 @media (min-width:1001px){ .doctor-cards{ grid-template-columns:repeat(3,1fr); } }
+
+/* ===================== GLASS (as on ZORYX) =====================
+   Soft coloured light in several layers behind the page, frosted cards on
+   top. The page stays opaque where it slides over the hero video. */
+.page{
+  background:
+    radial-gradient(36% 22% at 6% 4%, rgba(104,161,214,.38), transparent 70%),
+    radial-gradient(34% 20% at 94% 12%, rgba(111,154,133,.30), transparent 70%),
+    radial-gradient(40% 24% at 18% 36%, rgba(156,194,230,.42), transparent 70%),
+    radial-gradient(36% 22% at 88% 52%, rgba(178,160,226,.26), transparent 70%),
+    radial-gradient(40% 22% at 10% 72%, rgba(111,154,133,.28), transparent 70%),
+    radial-gradient(38% 20% at 90% 92%, rgba(104,161,214,.32), transparent 70%),
+    linear-gradient(180deg,#F4F9FD 0%,#EDF4FA 50%,#EAF2EE 100%);
+}
+#vyhody,#registrace,#sluzby,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+.card,.doc-card,.faq-item,.sub-fact,.why-card,.topic{
+  background:rgba(255,255,255,.58);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);
+  backdrop-filter:blur(18px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 16px 40px -26px rgba(28,43,74,.45), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.topic[aria-pressed="true"]{ background:rgba(220,234,247,.8); border-color:var(--navy); }
+.faq-item summary:hover{ background:rgba(220,234,247,.55); }
+.sub-hero{ background:transparent; }
+#temata{ background:transparent; }
+
+/* the blood-test button: the one thing we want pressed */
+.btn-blood{
+  position:relative; color:#fff; border:0;
+  background:linear-gradient(135deg,#E8466B 0%,#C21A48 55%,#9E1239 100%);
+  box-shadow:0 14px 30px -12px rgba(226,61,99,.75), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-blood:hover{ transform:translateY(-1px); box-shadow:0 18px 36px -12px rgba(226,61,99,.9), inset 0 1px 0 rgba(255,255,255,.35); }
+.btn-blood::after{
+  content:""; position:absolute; inset:-4px; border-radius:inherit; pointer-events:none;
+  box-shadow:0 0 0 0 rgba(232,70,107,.45); animation:bloodPulse 2.4s ease-out infinite;
+}
+@keyframes bloodPulse{ 0%{ box-shadow:0 0 0 0 rgba(232,70,107,.45); } 70%{ box-shadow:0 0 0 12px rgba(232,70,107,0); } 100%{ box-shadow:0 0 0 0 rgba(232,70,107,0); } }
+.btn-lg{ padding:17px 28px; font-size:16.5px; }
+.hero-cta .btn-blood{ order:-1; }
+.doc-actions-blood,.service-actions{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:14px; }
+.service-actions .card-link{ margin-top:0; }
+.doc-card-blood{ box-shadow:0 0 0 2px rgba(232,70,107,.35), 0 18px 44px -24px rgba(194,26,72,.55); }
+
+/* promo band */
+.blood-promo{
+  display:grid; grid-template-columns:0.85fr 1.15fr; gap:36px; align-items:center;
+  padding:22px; border-radius:36px;
+  background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(232,70,107,.10) 60%,rgba(104,161,214,.18));
+  -webkit-backdrop-filter:blur(20px) saturate(1.5); backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 24px 60px -30px rgba(194,26,72,.5);
+}
+.blood-photo{ border-radius:28px; overflow:hidden; aspect-ratio:1/1; }
+.blood-photo img{ width:100%; height:100%; object-fit:cover; }
+.blood-text h2{ font-family:var(--display); font-size:clamp(34px,4.4vw,52px); line-height:1.05; font-weight:600; margin:10px 0 12px; }
+.blood-text h2 em{ font-style:italic; color:#C21A48; }
+.blood-text p{ color:var(--ink-soft); font-size:16.5px; max-width:52ch; }
+.blood-points{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:9px; }
+.blood-points li{ position:relative; padding-left:26px; font-size:15px; color:var(--ink-soft); }
+.blood-points li::before{ content:""; position:absolute; left:4px; top:.55em; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,#E8466B,#9E1239); box-shadow:0 0 0 4px rgba(232,70,107,.15); }
+.blood-points strong{ color:var(--navy); }
+.blood-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+@media (max-width:860px){ .blood-promo{ grid-template-columns:1fr; gap:20px; padding:16px; } .blood-photo{ aspect-ratio:4/3; } }
 </style>
 <style>
 /* ===================== SUBPAGE: PRAKTICKÝ LÉKAŘ ===================== */

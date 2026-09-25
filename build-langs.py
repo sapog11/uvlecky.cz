@@ -48,13 +48,16 @@ TITLES = {
 DESCRIPTIONS = {
     "ru": ("Русскоговорящий врач-терапевт регистрирует новых пациентов из "
            "Ústí nad Labem, Děčín, Litoměřice и всего Устецкого края. "
-           "Принимаем VZP и PVZP для иностранцев. U Vlečky 3086/6. +420 606 755 784"),
+           "Принимаем VZP и PVZP для иностранцев. Анализы крови без направления от 22 Kč. "
+           "U Vlečky 3086/6. +420 606 755 784"),
     "ua": ("Україномовний сімейний лікар-терапевт реєструє нових пацієнтів з "
            "Ústí nad Labem, Děčín, Litoměřice та всього Устецького краю. "
-           "Приймаємо VZP і PVZP для іноземців. U Vlečky 3086/6. +420 606 755 784"),
+           "Приймаємо VZP і PVZP для іноземців. Аналізи крові без направлення від 22 Kč. "
+           "U Vlečky 3086/6. +420 606 755 784"),
     "en": ("English-speaking general practitioner in Ústí nad Labem accepting new "
            "patients. We take VZP and PVZP insurance for foreigners. Russian and "
-           "Ukrainian spoken too. U Vlečky 3086/6. +420 606 755 784"),
+           "Ukrainian spoken too. Blood tests without a referral from 22 CZK. "
+           "U Vlečky 3086/6. +420 606 755 784"),
 }
 
 OG_LOCALE = {"ru": "ru_RU", "ua": "uk_UA", "en": "en_GB"}
@@ -291,8 +294,11 @@ def write(soup, lang, path):
         f.write(str(soup))
 
 
-def finish(soup, lang, path, title, desc):
-    """Společný závěr pro každou stránku a jazyk. Vrací (počet překladů, FAQ)."""
+def finish(soup, lang, path, title, desc, keywords=None, schema=None):
+    """Společný závěr pro každou stránku a jazyk. Vrací (počet překladů, FAQ).
+
+    keywords a schema (JSON-LD) přicházejí z page-meta vnitřní stránky, už v
+    jazyce dané mutace."""
     if lang:
         apply_only(soup, "tr")
         n = bake_translations(soup, lang)
@@ -303,6 +309,14 @@ def finish(soup, lang, path, title, desc):
     make_switcher_links(soup, lang, path)
     tag_schema_entity(soup)
     faq = inject_faq_schema(soup)
+    if keywords:
+        kw = soup.find("meta", attrs={"name": "keywords"})
+        if kw:
+            kw["content"] = keywords
+    if schema:
+        tag = soup.new_tag("script", type="application/ld+json")
+        tag.string = json.dumps(schema, ensure_ascii=False, indent=2)
+        soup.head.append(tag)
     write(soup, lang, path)
     return n, faq
 
@@ -325,6 +339,7 @@ if __name__ == "__main__":
         for lang in [None] + list(LANGS):
             soup, meta = page_from_master(master_html, page_html)
             key = lang or "cs"
-            n, faq = finish(soup, lang, path, meta["title"][key], meta["description"][key])
+            n, faq = finish(soup, lang, path, meta["title"][key], meta["description"][key],
+                            meta.get("keywords", {}).get(key), meta.get("schema", {}).get(key))
             print("  %-22s %s: %d, FAQ %d" % (path, key, n, faq))
     print("Hotovo.")

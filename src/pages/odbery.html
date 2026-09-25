@@ -7,16 +7,448 @@
 <script type="application/json" id="page-meta">
 {
   "title": {
-    "cs": "Odběry krve pro samoplátce Ústí nad Labem — ceník a objednání | U Vlečky",
-    "ru": "Анализы крови без направления в Усти-над-Лабем — цены и запись | U Vlečky",
-    "ua": "Аналізи крові без направлення в Усті-над-Лабем — ціни та запис | U Vlečky",
-    "en": "Blood tests without referral in Ústí nad Labem — prices and booking | U Vlečky"
+    "cs": "Odběr krve bez žádanky Ústí nad Labem — krevní testy pro samoplátce, ceník | U Vlečky",
+    "ru": "Анализы крови без направления в Усти-над-Лабем — платные анализы, цены и запись | U Vlečky",
+    "ua": "Аналізи крові без направлення в Усті-над-Лабем — платні аналізи, ціни та запис | U Vlečky",
+    "en": "Blood tests without a referral in Ústí nad Labem — private lab tests, prices, booking | U Vlečky"
   },
   "description": {
-    "cs": "Hormony, minerály, vitamíny, štítná žláza, cholesterol a další vyšetření bez žádanky. Odběry po–pá 8:00–11:00, ceny laboratoře diag.cz, objednání online. U Vlečky 3086/6, Ústí nad Labem.",
-    "ru": "Гормоны, минералы, витамины, щитовидная железа, холестерин и другие анализы без направления. Забор пн–пт 8:00–11:00, цены лаборатории diag.cz, запись онлайн. U Vlečky 3086/6, Усти-над-Лабем.",
-    "ua": "Гормони, мінерали, вітаміни, щитоподібна залоза, холестерин та інші аналізи без направлення. Забір пн–пт 8:00–11:00, ціни лабораторії diag.cz, запис онлайн. U Vlečky 3086/6, Усті-над-Лабем.",
-    "en": "Hormones, minerals, vitamins, thyroid, cholesterol and more without a referral. Sampling Mon–Fri 8:00–11:00 at diag.cz laboratory prices, book online. U Vlečky 3086/6, Ústí nad Labem."
+    "cs": "Krevní testy bez žádanky pro samoplátce v Ústí nad Labem: hormony, vitamíny, štítná žláza, cholesterol, cukr a další. Testy od 22 Kč, odběr 40 Kč, ceny laboratoře DIAGNOSTIKA. Po–Pá 8:00–11:00, objednání online.",
+    "ru": "Платные анализы крови без направления в Усти-над-Лабем: гормоны, витамины, щитовидная железа, холестерин, сахар и другие. От 22 Kč, забор 40 Kč, цены лаборатории DIAGNOSTIKA. Пн–Пт 8:00–11:00, запись онлайн.",
+    "ua": "Платні аналізи крові без направлення в Усті-над-Лабем: гормони, вітаміни, щитоподібна залоза, холестерин, цукор та інші. Від 22 Kč, забір 40 Kč, ціни лабораторії DIAGNOSTIKA. Пн–Пт 8:00–11:00, запис онлайн.",
+    "en": "Private blood tests without a referral in Ústí nad Labem: hormones, vitamins, thyroid, cholesterol, blood sugar and more. From 22 CZK, blood draw 40 CZK, DIAGNOSTIKA lab prices. Mon–Fri 8:00–11:00, book online."
+  },
+  "keywords": {
+    "cs": "odběr krve bez žádanky, krevní testy samoplátce, odběry krve Ústí nad Labem, laboratorní vyšetření bez žádanky, krevní rozbor Ústí, vitamín D test, štítná žláza TSH test, cholesterol test, hormony test Ústí, DIAGNOSTIKA Ústí, odběrová místnost U Vlečky",
+    "ru": "анализы крови без направления, платные анализы Усти-над-Лабем, сдать анализ крови Чехия, анализы крови Усти, лаборатория Усти-над-Лабем, анализ на витамин D, анализ ТТГ щитовидная железа, анализ на холестерин, гормоны анализ, анализы без страховки Чехия",
+    "ua": "аналізи крові без направлення, платні аналізи Усті-над-Лабем, здати аналіз крові Чехія, аналізи крові Усті, лабораторія Усті-над-Лабем, аналіз на вітамін D, аналіз ТТГ щитоподібна залоза, аналіз на холестерин, гормони аналіз, аналізи без страховки Чехія",
+    "en": "blood test without referral, private blood test Ústí nad Labem, blood test Czech Republic, lab tests Ústí nad Labem, vitamin D test, thyroid TSH test, cholesterol test, hormone test, blood test without insurance Czech Republic"
+  },
+  "schema": {
+    "cs": {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://uvlecky.cz/odbery/#odbery",
+      "name": "Odběry krve pro samoplátce — Poliklinika U Vlečky",
+      "url": "https://uvlecky.cz/odbery/",
+      "description": "Krevní testy bez žádanky pro samoplátce v Ústí nad Labem: hormony, vitamíny, štítná žláza, cholesterol, cukr a další. Testy od 22 Kč, odběr 40 Kč, ceny laboratoře DIAGNOSTIKA. Po–Pá 8:00–11:00, objednání online.",
+      "image": "https://uvlecky.cz/images/odber-ctverec.jpg",
+      "telephone": "+420606755784",
+      "priceRange": "22–1000 CZK",
+      "medicalSpecialty": "https://schema.org/Pathology",
+      "isAcceptingNewPatients": true,
+      "parentOrganization": {
+        "@id": "https://uvlecky.cz/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "U Vlečky 3086/6",
+        "addressLocality": "Ústí nad Labem",
+        "postalCode": "400 01",
+        "addressCountry": "CZ"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "11:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Odběry krve pro samoplátce — Poliklinika U Vlečky",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "price": "155",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Krevní obraz + diferenciál"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "160",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "CRP — zánětlivý marker"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "22",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Glukóza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "30",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Cholesterol celkový"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "210",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Jaterní testy"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "230",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Glykovaný hemoglobin (HbA1c)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "40",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Odběr krve"
+            }
+          }
+        ]
+      }
+    },
+    "ru": {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://uvlecky.cz/odbery/#odbery",
+      "name": "Анализы крови без направления — Поликлиника U Vlečky",
+      "url": "https://uvlecky.cz/ru/odbery/",
+      "description": "Платные анализы крови без направления в Усти-над-Лабем: гормоны, витамины, щитовидная железа, холестерин, сахар и другие. От 22 Kč, забор 40 Kč, цены лаборатории DIAGNOSTIKA. Пн–Пт 8:00–11:00, запись онлайн.",
+      "image": "https://uvlecky.cz/images/odber-ctverec.jpg",
+      "telephone": "+420606755784",
+      "priceRange": "22–1000 CZK",
+      "medicalSpecialty": "https://schema.org/Pathology",
+      "isAcceptingNewPatients": true,
+      "parentOrganization": {
+        "@id": "https://uvlecky.cz/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "U Vlečky 3086/6",
+        "addressLocality": "Ústí nad Labem",
+        "postalCode": "400 01",
+        "addressCountry": "CZ"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "11:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Анализы крови без направления — Поликлиника U Vlečky",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "price": "155",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Общий анализ крови с лейкоформулой"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "160",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "CRP — маркер воспаления"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "22",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Глюкоза"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "30",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Холестерин общий"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "210",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Печёночные пробы"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "230",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Гликированный гемоглобин (HbA1c)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "40",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Забор крови"
+            }
+          }
+        ]
+      }
+    },
+    "ua": {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://uvlecky.cz/odbery/#odbery",
+      "name": "Аналізи крові без направлення — Поліклініка U Vlečky",
+      "url": "https://uvlecky.cz/ua/odbery/",
+      "description": "Платні аналізи крові без направлення в Усті-над-Лабем: гормони, вітаміни, щитоподібна залоза, холестерин, цукор та інші. Від 22 Kč, забір 40 Kč, ціни лабораторії DIAGNOSTIKA. Пн–Пт 8:00–11:00, запис онлайн.",
+      "image": "https://uvlecky.cz/images/odber-ctverec.jpg",
+      "telephone": "+420606755784",
+      "priceRange": "22–1000 CZK",
+      "medicalSpecialty": "https://schema.org/Pathology",
+      "isAcceptingNewPatients": true,
+      "parentOrganization": {
+        "@id": "https://uvlecky.cz/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "U Vlečky 3086/6",
+        "addressLocality": "Ústí nad Labem",
+        "postalCode": "400 01",
+        "addressCountry": "CZ"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "11:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Аналізи крові без направлення — Поліклініка U Vlečky",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "price": "155",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Загальний аналіз крові з лейкоформулою"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "160",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "CRP — маркер запалення"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "22",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Глюкоза"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "30",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Холестерин загальний"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "210",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Печінкові проби"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "230",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Глікований гемоглобін (HbA1c)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "40",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Забір крові"
+            }
+          }
+        ]
+      }
+    },
+    "en": {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://uvlecky.cz/odbery/#odbery",
+      "name": "Blood tests without a referral — Poliklinika U Vlečky",
+      "url": "https://uvlecky.cz/en/odbery/",
+      "description": "Private blood tests without a referral in Ústí nad Labem: hormones, vitamins, thyroid, cholesterol, blood sugar and more. From 22 CZK, blood draw 40 CZK, DIAGNOSTIKA lab prices. Mon–Fri 8:00–11:00, book online.",
+      "image": "https://uvlecky.cz/images/odber-ctverec.jpg",
+      "telephone": "+420606755784",
+      "priceRange": "22–1000 CZK",
+      "medicalSpecialty": "https://schema.org/Pathology",
+      "isAcceptingNewPatients": true,
+      "parentOrganization": {
+        "@id": "https://uvlecky.cz/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "U Vlečky 3086/6",
+        "addressLocality": "Ústí nad Labem",
+        "postalCode": "400 01",
+        "addressCountry": "CZ"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "11:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Blood tests without a referral — Poliklinika U Vlečky",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "price": "155",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Complete blood count + differential"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "160",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "CRP — inflammation marker"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "22",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Glucose"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "30",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Total cholesterol"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "210",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Liver panel"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "230",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "MedicalTest",
+              "name": "Glycated haemoglobin (HbA1c)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "40",
+            "priceCurrency": "CZK",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Blood draw"
+            }
+          }
+        ]
+      }
+    }
   }
 }
 </script>
@@ -131,8 +563,8 @@
 <h1 id="odbery-h1" data-lang-cs="Co chcete vědět o svém zdraví? &lt;em&gt;Hormony, minerály, vitamíny — bez žádanky&lt;/em&gt;" data-lang-en="What would you like to know about your health? &lt;em&gt;Hormones, minerals, vitamins — no referral needed&lt;/em&gt;" data-lang-ru="Что вы хотите проверить? &lt;em&gt;Гормоны, минералы, витамины — без направления&lt;/em&gt;" data-lang-ua="Що ви хочете перевірити? &lt;em&gt;Гормони, мінерали, вітаміни — без направлення&lt;/em&gt;">Co chcete vědět o svém zdraví? <em>Hormony, minerály, vitamíny — bez žádanky</em></h1>
 <p class="sub-lead" data-lang-cs="Chcete si nechat zkontrolovat hormony, minerály nebo jiné důležité hodnoty, ale lékař vám &lt;strong&gt;nemůže napsat žádanku na pojišťovnu&lt;/strong&gt;? Přijďte k nám. Odběr je rychlý, ceny jsou přímo z ceníku laboratoře a výsledky vám dají &lt;strong&gt;přehled o vašem zdraví&lt;/strong&gt;." data-lang-en="Want to check your hormones, minerals or other important values, but your doctor &lt;strong&gt;cannot refer you on insurance&lt;/strong&gt;? Come to us. The draw is quick, the prices come straight from the laboratory's price list, and the results give you &lt;strong&gt;a clear picture of your health&lt;/strong&gt;." data-lang-ru="Хотите проверить гормоны, минералы и другие важные показатели, а врач &lt;strong&gt;не может выписать направление по страховке&lt;/strong&gt;? Приходите к нам. Забор быстрый, цены — прямо из прайса лаборатории, а результаты дадут &lt;strong&gt;ясную картину вашего здоровья&lt;/strong&gt;." data-lang-ua="Хочете перевірити гормони, мінерали та інші важливі показники, а лікар &lt;strong&gt;не може виписати направлення за страховкою&lt;/strong&gt;? Приходьте до нас. Забір швидкий, ціни — просто з прайсу лабораторії, а результати дадуть &lt;strong&gt;чітку картину вашого здоровʼя&lt;/strong&gt;.">Chcete si nechat zkontrolovat hormony, minerály nebo jiné důležité hodnoty, ale lékař vám <strong>nemůže napsat žádanku na pojišťovnu</strong>? Přijďte k nám. Odběr je rychlý, ceny jsou přímo z ceníku laboratoře a výsledky vám dají <strong>přehled o vašem zdraví</strong>.</p>
 <div class="sub-cta">
-<a class="btn btn-primary" href="#temata"><span data-lang-cs="Vybrat vyšetření" data-lang-en="Choose tests" data-lang-ru="Выбрать анализы" data-lang-ua="Обрати аналізи">Vybrat vyšetření</span></a>
-<button class="btn btn-outline" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><span data-lang-cs="Objednat odběr" data-lang-en="Book a blood test" data-lang-ru="Записаться на забор" data-lang-ua="Записатися на забір">Objednat odběr</span></button>
+<button class="btn btn-blood btn-lg" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></button>
+<a class="btn btn-outline" href="#temata"><span data-lang-cs="Vybrat vyšetření" data-lang-en="Choose tests" data-lang-ru="Выбрать анализы" data-lang-ua="Обрати аналізи">Vybrat vyšetření</span></a>
 </div>
 <div class="sub-facts">
 <div class="sub-fact"><div class="k" data-lang-cs="Odběry" data-lang-en="Sampling" data-lang-ru="Забор" data-lang-ua="Забір">Odběry</div><div class="v" data-lang-cs="Po–Pá 8:00–11:00" data-lang-en="Mon–Fri 8:00–11:00" data-lang-ru="Пн–Пт 8:00–11:00" data-lang-ua="Пн–Пт 8:00–11:00">Po–Pá 8:00–11:00</div></div>
@@ -267,6 +699,9 @@
 <h2 data-lang-cs="Odběry pro samoplátce &lt;em&gt;v kostce&lt;/em&gt;" data-lang-en="Self-pay blood tests &lt;em&gt;in brief&lt;/em&gt;" data-lang-ru="Анализы за свой счёт &lt;em&gt;коротко&lt;/em&gt;" data-lang-ua="Аналізи за власний кошт &lt;em&gt;коротко&lt;/em&gt;">Odběry pro samoplátce <em>v kostce</em></h2>
 </div>
 <div class="faq-list reveal">
+<details class="faq-item"><summary data-lang-cs="Mohu si nechat udělat krevní testy jako samoplátce, bez pojištění?" data-lang-en="Can I have blood tests as a self-payer, without insurance?" data-lang-ru="Можно ли сдать анализы как самоплательщик, без страховки?" data-lang-ua="Чи можна здати аналізи як самоплатник, без страховки?">Mohu si nechat udělat krevní testy jako samoplátce, bez pojištění?</summary><p data-lang-cs="Ano. Odběry jsou pro samoplátce bez žádanky a bez ohledu na pojištění — platíte jen ceny laboratoře DIAGNOSTIKA a 40 Kč za odběr krve." data-lang-en="Yes. Tests for self-payers need no referral and no insurance — you only pay the DIAGNOSTIKA laboratory prices and 40 CZK for the blood draw." data-lang-ru="Да. Анализы для самоплательщиков сдаются без направления и независимо от страховки — вы платите только цены лаборатории DIAGNOSTIKA и 40 Kč за забор крови." data-lang-ua="Так. Аналізи для самоплатників здаються без направлення й незалежно від страховки — ви платите лише ціни лабораторії DIAGNOSTIKA та 40 Kč за забір крові.">Ano. Odběry jsou pro samoplátce bez žádanky a bez ohledu na pojištění — platíte jen ceny laboratoře DIAGNOSTIKA a 40 Kč za odběr krve.</p></details>
+<details class="faq-item"><summary data-lang-cs="Musím přijít nalačno?" data-lang-en="Do I need to fast?" data-lang-ru="Нужно ли приходить натощак?" data-lang-ua="Чи треба приходити натщесерце?">Musím přijít nalačno?</summary><p data-lang-cs="U většiny testů (cukr, tuky, jaterní testy) ano — ráno bez jídla, vodu pít můžete. Odběry proto děláme od 8:00 do 11:00." data-lang-en="For most tests (blood sugar, lipids, liver panel) yes — no breakfast, water is fine. That is why sampling runs 8:00–11:00." data-lang-ru="Для большинства анализов (сахар, липиды, печёночные пробы) — да: утром без еды, воду пить можно. Поэтому забор с 8:00 до 11:00." data-lang-ua="Для більшості аналізів (цукор, ліпіди, печінкові проби) — так: зранку без їжі, воду пити можна. Тому забір з 8:00 до 11:00.">U většiny testů (cukr, tuky, jaterní testy) ano — ráno bez jídla, vodu pít můžete. Odběry proto děláme od 8:00 do 11:00.</p></details>
+<details class="faq-item"><summary data-lang-cs="Jak si vybrat vyšetření a objednat se?" data-lang-en="How do I choose tests and book?" data-lang-ru="Как выбрать анализы и записаться?" data-lang-ua="Як обрати аналізи та записатися?">Jak si vybrat vyšetření a objednat se?</summary><p data-lang-cs="V kalkulačce na této stránce zaškrtněte testy nebo hotový balíček. Tlačítkem Objednat se vybraný seznam i s cenou sám vloží do online rezervace." data-lang-en="Tick the tests or a ready package in the calculator on this page. The Book button puts the list and the price straight into your online booking." data-lang-ru="В калькуляторе на этой странице отметьте анализы или готовый набор. Кнопкой «Записаться» выбранный список с ценой сам попадёт в онлайн-запись." data-lang-ua="У калькуляторі на цій сторінці позначте аналізи або готовий набір. Кнопкою «Записатися» обраний список із ціною сам потрапить в онлайн-запис.">V kalkulačce na této stránce zaškrtněte testy nebo hotový balíček. Tlačítkem Objednat se vybraný seznam i s cenou sám vloží do online rezervace.</p></details>
 <details class="faq-item"><summary data-lang-cs="Potřebuji žádanku od lékaře?" data-lang-en="Do I need a doctor's referral?" data-lang-ru="Нужно ли направление врача?" data-lang-ua="Чи потрібне направлення лікаря?">Potřebuji žádanku od lékaře?</summary><p data-lang-cs="Ne. Jako samoplátce si vyšetření vyberete sami a zaplatíte je přímo. Žádanka je potřeba jen tehdy, když vyšetření hradí pojišťovna." data-lang-en="No. As a self-paying patient you choose the tests yourself and pay for them directly. A referral is only needed when insurance pays." data-lang-ru="Нет. Как самоплательщик вы сами выбираете анализы и оплачиваете их напрямую. Направление нужно, только если платит страховая." data-lang-ua="Ні. Як самоплатник ви самі обираєте аналізи й оплачуєте їх напряму. Направлення потрібне, лише якщо платить страхова.">Ne. Jako samoplátce si vyšetření vyberete sami a zaplatíte je přímo. Žádanka je potřeba jen tehdy, když vyšetření hradí pojišťovna.</p></details>
 <details class="faq-item"><summary data-lang-cs="Kdy a jak dostanu výsledky?" data-lang-en="When and how do I get the results?" data-lang-ru="Когда и как я получу результаты?" data-lang-ua="Коли і як я отримаю результати?">Kdy a jak dostanu výsledky?</summary><p data-lang-cs="Výsledky posíláme elektronicky, většina běžných vyšetření je hotová do několika pracovních dnů. Speciální vyšetření mohou trvat déle." data-lang-en="We send the results electronically. Most routine tests are ready within a few working days; specialised ones can take longer." data-lang-ru="Результаты присылаем в электронном виде. Большинство обычных анализов готовы за несколько рабочих дней, специальные — дольше." data-lang-ua="Результати надсилаємо в електронному вигляді. Більшість звичайних аналізів готові за кілька робочих днів, спеціальні — довше.">Výsledky posíláme elektronicky, většina běžných vyšetření je hotová do několika pracovních dnů. Speciální vyšetření mohou trvat déle.</p></details>
 <details class="faq-item"><summary data-lang-cs="Kolik zaplatím?" data-lang-en="How much will I pay?" data-lang-ru="Сколько я заплачу?" data-lang-ua="Скільки я заплачу?">Kolik zaplatím?</summary><p data-lang-cs="Součet vybraných vyšetření podle ceníku laboratoře diag.cz a 40 Kč za odběr krve jednou za návštěvu. Kalkulačka výše vám celkovou částku spočítá předem." data-lang-en="The sum of your chosen tests at the diag.cz laboratory prices plus 40 CZK for the blood draw, once per visit. The calculator above works out the total in advance." data-lang-ru="Сумма выбранных анализов по прайсу лаборатории diag.cz плюс 40 Kč за забор крови один раз за визит. Калькулятор выше посчитает итог заранее." data-lang-ua="Сума обраних аналізів за прайсом лабораторії diag.cz плюс 40 Kč за забір крові один раз за візит. Калькулятор вище порахує підсумок заздалегідь.">Součet vybraných vyšetření podle ceníku laboratoře diag.cz a 40 Kč za odběr krve jednou za návštěvu. Kalkulačka výše vám celkovou částku spočítá předem.</p></details>
@@ -274,7 +709,7 @@
 <details class="faq-item"><summary data-lang-cs="Co když výsledek nebude v pořádku?" data-lang-en="What if a result is abnormal?" data-lang-ru="Что если результат будет не в норме?" data-lang-ua="Що, якщо результат буде не в нормі?">Co když výsledek nebude v pořádku?</summary><p data-lang-cs="Výsledky vždy proberte se svým lékařem. Pokud praktického lékaře nemáte, v naší poliklinice registrujeme nové pacienty k MUDr. Évě Bojčuk." data-lang-en="Always discuss your results with your doctor. If you do not have a GP, our clinic registers new patients with MUDr. Éva Bojčuk." data-lang-ru="Всегда обсуждайте результаты со своим врачом. Если у вас нет терапевта, в нашей поликлинике регистрируем новых пациентов к MUDr. Éva Bojčuk." data-lang-ua="Завжди обговорюйте результати зі своїм лікарем. Якщо у вас немає терапевта, у нашій поліклініці реєструємо нових пацієнтів до MUDr. Éva Bojčuk.">Výsledky vždy proberte se svým lékařem. Pokud praktického lékaře nemáte, v naší poliklinice registrujeme nové pacienty k MUDr. Évě Bojčuk.</p></details>
 </div>
 <div class="cta-band">
-<button class="btn btn-primary" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><span data-lang-cs="Objednat odběr online" data-lang-en="Book a blood test online" data-lang-ru="Записаться на забор онлайн" data-lang-ua="Записатися на забір онлайн">Objednat odběr online</span></button>
+<button class="btn btn-blood btn-lg" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr online" data-lang-en="Book a blood test online" data-lang-ru="Записаться на забор онлайн" data-lang-ua="Записатися на забір онлайн">Objednat odběr online</span></button>
 <a class="btn btn-outline" href="/prakticky-lekar/"><span data-lang-cs="Registrace k praktické lékařce" data-lang-en="Register with our GP" data-lang-ru="Регистрация к терапевту" data-lang-ua="Реєстрація до терапевта">Registrace k praktické lékařce</span></a>
 </div>
 </div>

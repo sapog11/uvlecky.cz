@@ -5,8 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Praktický lékař pro dospělé Ústí nad Labem, Ústecký kraj – U Vlečky</title>
-<meta content="Praktický lékař pro dospělé — registrace nových pacientů z Ústí nad Labem, Děčína, Litoměřic a celého Ústeckého kraje. Všechny zdravotní pojišťovny. +420 606 755 784" name="description"/>
-<meta content="praktický lékař Ústí nad Labem, poliklinika U Vlečky, uvlecky, terapeut Ústí, терапевт Усти над Лабем, lékař Ústí nad Labem, stomatolog Ústí, odběry krve Ústí, zdravotní prohlídky Ústí" name="keywords"/>
+<meta content="Praktický lékař pro dospělé — registrace nových pacientů z Ústí nad Labem a celého Ústeckého kraje, všechny pojišťovny. Odběry krve bez žádanky od 22 Kč. +420 606 755 784" name="description"/>
+<meta content="praktický lékař Ústí nad Labem, poliklinika U Vlečky, uvlecky, terapeut Ústí, терапевт Усти над Лабем, lékař Ústí nad Labem, stomatolog Ústí, odběry krve Ústí, odběr krve bez žádanky Ústí nad Labem, krevní testy samoplátce, laboratorní vyšetření Ústí, анализы крови Усти-над-Лабем, zdravotní prohlídky Ústí" name="keywords"/>
 <meta content="" name="google-site-verification"/>
 <meta content="" name="yandex-verification"/>
 <meta content="ehhRpoZnbT9NoiPdcMqnUcle4HVPyCWX" name="seznam-wmt"/>
@@ -857,6 +857,71 @@ body.has-cart .to-top{ bottom:208px; }
 .doc-photo{ height:auto; aspect-ratio:1 / 1; }
 .doc-photo.has-img img{ object-position:50% 30%; }
 @media (min-width:1001px){ .doctor-cards{ grid-template-columns:repeat(3,1fr); } }
+
+/* ===================== GLASS (as on ZORYX) =====================
+   Soft coloured light in several layers behind the page, frosted cards on
+   top. The page stays opaque where it slides over the hero video. */
+.page{
+  background:
+    radial-gradient(36% 22% at 6% 4%, rgba(104,161,214,.38), transparent 70%),
+    radial-gradient(34% 20% at 94% 12%, rgba(111,154,133,.30), transparent 70%),
+    radial-gradient(40% 24% at 18% 36%, rgba(156,194,230,.42), transparent 70%),
+    radial-gradient(36% 22% at 88% 52%, rgba(178,160,226,.26), transparent 70%),
+    radial-gradient(40% 22% at 10% 72%, rgba(111,154,133,.28), transparent 70%),
+    radial-gradient(38% 20% at 90% 92%, rgba(104,161,214,.32), transparent 70%),
+    linear-gradient(180deg,#F4F9FD 0%,#EDF4FA 50%,#EAF2EE 100%);
+}
+#vyhody,#registrace,#sluzby,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+.card,.doc-card,.faq-item,.sub-fact,.why-card,.topic{
+  background:rgba(255,255,255,.58);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);
+  backdrop-filter:blur(18px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 16px 40px -26px rgba(28,43,74,.45), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.topic[aria-pressed="true"]{ background:rgba(220,234,247,.8); border-color:var(--navy); }
+.faq-item summary:hover{ background:rgba(220,234,247,.55); }
+.sub-hero{ background:transparent; }
+#temata{ background:transparent; }
+
+/* the blood-test button: the one thing we want pressed */
+.btn-blood{
+  position:relative; color:#fff; border:0;
+  background:linear-gradient(135deg,#E8466B 0%,#C21A48 55%,#9E1239 100%);
+  box-shadow:0 14px 30px -12px rgba(226,61,99,.75), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-blood:hover{ transform:translateY(-1px); box-shadow:0 18px 36px -12px rgba(226,61,99,.9), inset 0 1px 0 rgba(255,255,255,.35); }
+.btn-blood::after{
+  content:""; position:absolute; inset:-4px; border-radius:inherit; pointer-events:none;
+  box-shadow:0 0 0 0 rgba(232,70,107,.45); animation:bloodPulse 2.4s ease-out infinite;
+}
+@keyframes bloodPulse{ 0%{ box-shadow:0 0 0 0 rgba(232,70,107,.45); } 70%{ box-shadow:0 0 0 12px rgba(232,70,107,0); } 100%{ box-shadow:0 0 0 0 rgba(232,70,107,0); } }
+.btn-lg{ padding:17px 28px; font-size:16.5px; }
+.hero-cta .btn-blood{ order:-1; }
+.doc-actions-blood,.service-actions{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:14px; }
+.service-actions .card-link{ margin-top:0; }
+.doc-card-blood{ box-shadow:0 0 0 2px rgba(232,70,107,.35), 0 18px 44px -24px rgba(194,26,72,.55); }
+
+/* promo band */
+.blood-promo{
+  display:grid; grid-template-columns:0.85fr 1.15fr; gap:36px; align-items:center;
+  padding:22px; border-radius:36px;
+  background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(232,70,107,.10) 60%,rgba(104,161,214,.18));
+  -webkit-backdrop-filter:blur(20px) saturate(1.5); backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 24px 60px -30px rgba(194,26,72,.5);
+}
+.blood-photo{ border-radius:28px; overflow:hidden; aspect-ratio:1/1; }
+.blood-photo img{ width:100%; height:100%; object-fit:cover; }
+.blood-text h2{ font-family:var(--display); font-size:clamp(34px,4.4vw,52px); line-height:1.05; font-weight:600; margin:10px 0 12px; }
+.blood-text h2 em{ font-style:italic; color:#C21A48; }
+.blood-text p{ color:var(--ink-soft); font-size:16.5px; max-width:52ch; }
+.blood-points{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:9px; }
+.blood-points li{ position:relative; padding-left:26px; font-size:15px; color:var(--ink-soft); }
+.blood-points li::before{ content:""; position:absolute; left:4px; top:.55em; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,#E8466B,#9E1239); box-shadow:0 0 0 4px rgba(232,70,107,.15); }
+.blood-points strong{ color:var(--navy); }
+.blood-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+@media (max-width:860px){ .blood-promo{ grid-template-columns:1fr; gap:20px; padding:16px; } .blood-photo{ aspect-ratio:4/3; } }
 </style>
 </head>
 <body>
@@ -927,6 +992,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </div>
 <div class="hero-cta">
+<button class="btn btn-blood" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></button>
 <a class="hero-phone" href="tel:+420606755784">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>
       +420 606 755 784
@@ -969,8 +1035,27 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </div>
 </article>
-<!-- DOCTOR 2: Stomatolog -->
-<article class="doc-card reveal d1">
+<!-- DOCTOR 2: Odběrová místnost — krevní testy (druhé místo: samoplátci) -->
+<article class="doc-card doc-card-blood reveal d1">
+<div class="doc-photo has-img">
+<picture>
+<source srcset="/images/odber-ctverec.webp" type="image/webp"/>
+<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec.jpg" width="720"/>
+</picture>
+</div>
+<div class="doc-body">
+<h3 class="doc-name" data-lang-cs="Odběrová místnost" data-lang-en="Sample collection room" data-lang-ru="Процедурный кабинет" data-lang-ua="Процедурний кабінет">Odběrová místnost</h3>
+<span class="eyebrow" data-lang-cs="Krevní testy · bez žádanky" data-lang-en="Blood tests · no referral" data-lang-ru="Анализы крови · без направления" data-lang-ua="Аналізи крові · без направлення">Krevní testy · bez žádanky</span>
+<p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Blood and biological sample collection. Laboratory testing. Professional approach." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Сбор крови и биологических образцов. Лабораторные тесты. Профессиональный подход." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Збір крові та біологічних зразків. Лабораторні тести. Професійний підхід."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup.</p>
+<div class="doc-tags" data-lang-cs="Odběry Po–Pá: 8:00–11:00" data-lang-en="Sampling Mon–Fri: 8:00–11:00" data-lang-ru="Забор Пн–Пт: 8:00–11:00" data-lang-ua="Забір Пн–Пт: 8:00–11:00">Odběry Po–Pá: 8:00–11:00</div>
+<div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
+<strong data-lang-cs="Objednání:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">+420 606 755 784</a> <span aria-hidden="true">·</span> <a class="book-link" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti"><span data-lang-cs="online rezervace" data-lang-en="book online" data-lang-ru="онлайн-запись" data-lang-ua="онлайн-запис">online rezervace</span></a>
+</div>
+<div class="doc-actions doc-actions-blood"><button class="btn btn-blood btn-sm" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></button><a class="btn btn-outline btn-sm" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a></div>
+</div>
+</article>
+<!-- DOCTOR 3: Stomatolog -->
+<article class="doc-card reveal d2">
 <div class="doc-photo has-img">
 <picture>
 <source srcset="/images/dubska-ilustrace-2.webp" type="image/webp"/>
@@ -987,8 +1072,8 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </div>
 </article>
-<!-- DOCTOR 3: PLS Osv. do práce - MEDIGMA -->
-<article class="doc-card reveal d2">
+<!-- DOCTOR 4: PLS Osv. do práce - MEDIGMA -->
+<article class="doc-card reveal d3">
 <div class="doc-photo">
 <svg class="doc-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
 <circle cx="12" cy="8" r="4"></circle><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
@@ -1002,27 +1087,6 @@ body.has-cart .to-top{ bottom:208px; }
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
 <strong data-lang-cs="Objednání:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420732952576" style="color: var(--blue); font-weight: 600;">+420 732 952 576</a><br/>
 <a href="tel:+420777654951" style="color: var(--blue); font-weight: 600;">+420 777 654 951</a>
-</div>
-</div>
-</article>
-<!-- DOCTOR 4: Odběrová místnost - DIAGNOSTIKA -->
-<article class="doc-card reveal d3">
-<div class="doc-photo has-img">
-<picture>
-<source srcset="/images/odber-ctverec.webp" type="image/webp"/>
-<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec.jpg" width="720"/>
-</picture>
-</div>
-<div class="doc-body">
-<h3 class="doc-name" data-lang-cs="Odběrová místnost" data-lang-en="Sample collection room" data-lang-ru="Процедурный кабинет" data-lang-ua="Процедурний кабінет">Odběrová místnost</h3>
-<span class="eyebrow" data-lang-cs="Laboratorní testy" data-lang-en="Laboratory tests" data-lang-ru="Лабораторные тесты" data-lang-ua="Лабораторні тести">Laboratorní testy</span>
-<p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Blood and biological sample collection. Laboratory testing. Professional approach." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Сбор крови и биологических образцов. Лабораторные тесты. Профессиональный подход." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Збір крові та біологічних зразків. Лабораторні тести. Професійний підхід."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup.</p>
-<div class="doc-tags" data-lang-cs="Odběry Po–Pá: 8:00–11:00" data-lang-en="Sampling Mon–Fri: 8:00–11:00" data-lang-ru="Забор Пн–Пт: 8:00–11:00" data-lang-ua="Забір Пн–Пт: 8:00–11:00">Odběry Po–Pá: 8:00–11:00</div>
-<div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Objednání:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">+420 606 755 784</a> <span aria-hidden="true">·</span> <a class="book-link" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti"><span data-lang-cs="online rezervace" data-lang-en="book online" data-lang-ru="онлайн-запись" data-lang-ua="онлайн-запис">online rezervace</span></a>
-</div>
-<div class="doc-actions">
-<a class="btn btn-outline btn-sm" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a>
 </div>
 </div>
 </article>
@@ -1048,6 +1112,27 @@ body.has-cart .to-top{ bottom:208px; }
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>
           +420 606 755 784
         </a>
+</div>
+</div>
+</section>
+<!-- BLOOD TESTS FOR SELF-PAYERS: the promo band -->
+<section class="section" id="odbery-promo">
+<div class="container">
+<div class="blood-promo reveal">
+<div class="blood-photo">
+<picture><source srcset="/images/odber-ctverec.webp" type="image/webp"/><img alt="Odběrová místnost — Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec.jpg" width="720"/></picture>
+</div>
+<div class="blood-text">
+<span class="eyebrow" data-lang-cs="Pro samoplátce · bez žádanky" data-lang-en="For self-payers · no referral" data-lang-ru="Для самоплательщиков · без направления" data-lang-ua="Для самоплатників · без направлення">Pro samoplátce · bez žádanky</span>
+<h2 data-lang-cs="Krevní testy &lt;em&gt;bez žádanky&lt;/em&gt;" data-lang-en="Blood tests &lt;em&gt;without a referral&lt;/em&gt;" data-lang-ru="Анализы крови &lt;em&gt;без направления&lt;/em&gt;" data-lang-ua="Аналізи крові &lt;em&gt;без направлення&lt;/em&gt;">Krevní testy <em>bez žádanky</em></h2>
+<p data-lang-cs="Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání." data-lang-en="Hormones, vitamins, thyroid, cholesterol, blood sugar and more — at DIAGNOSTIKA laboratory prices with no mark-up. Booked times, no waiting." data-lang-ru="Гормоны, витамины, щитовидная железа, холестерин, сахар и другие — по ценам лаборатории DIAGNOSTIKA, без наценки. Забор по записи, без очереди." data-lang-ua="Гормони, вітаміни, щитоподібна залоза, холестерин, цукор та інші — за цінами лабораторії DIAGNOSTIKA, без націнки. Забір за записом, без черги.">Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání.</p>
+<ul class="blood-points">
+<li data-lang-cs="&lt;strong&gt;Testy od 22 Kč&lt;/strong&gt; · odběr krve 40 Kč" data-lang-en="&lt;strong&gt;Tests from 22 CZK&lt;/strong&gt; · blood draw 40 CZK" data-lang-ru="&lt;strong&gt;Анализы от 22 Kč&lt;/strong&gt; · забор крови 40 Kč" data-lang-ua="&lt;strong&gt;Аналізи від 22 Kč&lt;/strong&gt; · забір крові 40 Kč"><strong>Testy od 22 Kč</strong> · odběr krve 40 Kč</li>
+<li data-lang-cs="&lt;strong&gt;Po–Pá 8:00–11:00&lt;/strong&gt; · objednání online nebo telefonem" data-lang-en="&lt;strong&gt;Mon–Fri 8:00–11:00&lt;/strong&gt; · book online or by phone" data-lang-ru="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запись онлайн или по телефону" data-lang-ua="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запис онлайн або телефоном"><strong>Po–Pá 8:00–11:00</strong> · objednání online nebo telefonem</li>
+<li data-lang-cs="&lt;strong&gt;Vyberete v kalkulačce&lt;/strong&gt; — seznam se sám vloží do rezervace" data-lang-en="&lt;strong&gt;Pick in the calculator&lt;/strong&gt; — the list goes straight into your booking" data-lang-ru="&lt;strong&gt;Выберите в калькуляторе&lt;/strong&gt; — список сам попадёт в запись" data-lang-ua="&lt;strong&gt;Оберіть у калькуляторі&lt;/strong&gt; — список сам потрапить у запис"><strong>Vyberete v kalkulačce</strong> — seznam se sám vloží do rezervace</li>
+</ul>
+<div class="blood-cta"><button class="btn btn-blood btn-lg" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></button><a class="btn btn-light" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a></div>
+</div>
 </div>
 </div>
 </section>
@@ -1163,6 +1248,12 @@ body.has-cart .to-top{ bottom:208px; }
 <h3 data-lang-cs="Praktický lékař" data-lang-en="General practitioner" data-lang-ru="Практический врач" data-lang-ua="Практичний лікар">Praktický lékař</h3>
 <p data-lang-cs="Komplexní péče o dospělé pacienty. Preventivní prohlídky, léčba a doporučení ke specialistům." data-lang-en="Comprehensive care for adult patients. Preventive check-ups, treatment and specialist referrals." data-lang-ru="Комплексная помощь взрослым пациентам. Профилактические осмотры, лечение и рекомендации специалистов." data-lang-ua="Комплексна допомога дорослим пацієнтам. Профілактичні огляди, лікування та рекомендації спеціалістів.">Komplexní péče o dospělé pacienty. Preventivní prohlídky, léčba a doporučení ke specialistům.</p>
 </div>
+<div class="card service-card service-blood reveal d1">
+<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M9 3h6v3H9z"></path><rect height="12" rx="1" ry="1" width="8" x="8" y="6"></rect><line x1="12" x2="12" y1="6" y2="18"></line><circle cx="12" cy="12" fill="currentColor" r="2"></circle></svg></div>
+<h3 data-lang-cs="Laboratorní testy" data-lang-en="Laboratory tests" data-lang-ru="Лабораторные тесты" data-lang-ua="Лабораторні тести">Laboratorní testy</h3>
+<p data-lang-cs="Krevní testy a analýzy. Pro pojištěnce a samoplátce." data-lang-en="Blood tests and lab work. For insured and private patients." data-lang-ru="Анализ крови и тесты. Для застрахованных и платных пациентов. Проверьте здоровье у нас!" data-lang-ua="Аналіз крові та тести. Для застрахованих та платних пацієнтів. Перевірте здоров'я у нас!">Krevní testy a analýzy. Pro pojištěnce a samoplátce.</p>
+<div class="service-actions"><button class="btn btn-blood btn-sm" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></button><a class="card-link" data-lang-cs="Ceník a kalkulačka" data-lang-en="Price list and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор" href="/odbery/">Ceník a kalkulačka</a></div>
+</div>
 <div class="card service-card reveal d1">
 <div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3c-5 0-9 3-9 7 0 2 1 4 3 5.5l-1.5 2.5 3-1.5c1 .5 2.2.8 3.5.8 5 0 9-3 9-7S17 3 12 3z"></path><line x1="8" x2="8" y1="10" y2="16"></line><line x1="12" x2="12" y1="10" y2="16"></line><line x1="16" x2="16" y1="10" y2="16"></line></svg></div>
 <h3 data-lang-cs="Stomatolog" data-lang-en="Dentist" data-lang-ru="Стоматолог" data-lang-ua="Стоматолог">Stomatolog</h3>
@@ -1172,12 +1263,6 @@ body.has-cart .to-top{ bottom:208px; }
 <div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="14" rx="2" ry="2" width="20" x="2" y="4"></rect><path d="M6 4v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><line x1="8" x2="16" y1="9" y2="9"></line></svg></div>
 <h3 data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-en="Medical examinations (OHS)" data-lang-ru="Медицинские осмотры (PLS)" data-lang-ua="Медичні огляди (PLS)">Zdravotní prohlídky (PLS)</h3>
 <p data-lang-cs="Pracovnělékařské prohlídky – vstupní, periodické i výstupní." data-lang-en="Occupational health examinations for work." data-lang-ru="Профессиональные медицинские осмотры для работы." data-lang-ua="Професійні медичні огляди для роботи.">Pracovnělékařské prohlídky – vstupní, periodické i výstupní.</p>
-</div>
-<div class="card service-card reveal d3">
-<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M9 3h6v3H9z"></path><rect height="12" rx="1" ry="1" width="8" x="8" y="6"></rect><line x1="12" x2="12" y1="6" y2="18"></line><circle cx="12" cy="12" fill="currentColor" r="2"></circle></svg></div>
-<h3 data-lang-cs="Laboratorní testy" data-lang-en="Laboratory tests" data-lang-ru="Лабораторные тесты" data-lang-ua="Лабораторні тести">Laboratorní testy</h3>
-<p data-lang-cs="Krevní testy a analýzy. Pro pojištěnce a samoplátce." data-lang-en="Blood tests and lab work. For insured and private patients." data-lang-ru="Анализ крови и тесты. Для застрахованных и платных пациентов. Проверьте здоровье у нас!" data-lang-ua="Аналіз крові та тести. Для застрахованих та платних пацієнтів. Перевірте здоров'я у нас!">Krevní testy a analýzy. Pro pojištěnce a samoplátce.</p>
-<a class="card-link" data-lang-cs="Ceník a kalkulačka" data-lang-en="Price list and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор" href="/odbery/">Ceník a kalkulačka</a>
 </div>
 <div class="card service-card reveal" style="grid-column: span 2; opacity: 0.65;">
 <div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="8" cy="8" r="2.5"></circle><circle cx="16" cy="8" r="2.5"></circle><path d="M12 10v6M8 10l4-2 4 2"></path><path d="M12 16c-2.5 0-4 1-4 3s1.5 3 4 3 4-1 4-3-1.5-3-4-3z"></path></svg></div>
