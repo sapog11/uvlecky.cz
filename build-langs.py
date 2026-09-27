@@ -40,7 +40,7 @@ LANGS = {
 
 # titulek a popis hlavní stránky v překladech (česká verze je ve src/index.html)
 TITLES = {
-    "ru": "Русскоговорящий терапевт Ústí nad Labem и Устецкий край | U Vlečky",
+    "ru": "Терапевт для иностранцев в Усти-над-Лабем — все страховки, по-русски | U Vlečky",
     "ua": "Терапевт Ústí nad Labem — україномовний сімейний лікар | U Vlečky",
     "en": "English-speaking doctor in Ústí nad Labem – PVZP and VZP accepted",
 }
@@ -48,7 +48,7 @@ TITLES = {
 DESCRIPTIONS = {
     "ru": ("Русскоговорящий врач-терапевт регистрирует новых пациентов из "
            "Ústí nad Labem, Děčín, Litoměřice и всего Устецкого края. "
-           "Принимаем VZP и PVZP для иностранцев. Анализы крови без направления от 22 Kč. "
+           "Все государственные страховые (VZP, OZP, ČPZP, VoZP, ZP MV, RBP) и PVZP для иностранцев. Анализы крови без направления от 22 Kč. "
            "U Vlečky 3086/6. +420 606 755 784"),
     "ua": ("Україномовний сімейний лікар-терапевт реєструє нових пацієнтів з "
            "Ústí nad Labem, Děčín, Litoměřice та всього Устецького краю. "
