@@ -978,6 +978,22 @@ body.has-cart .to-top{ bottom:208px; }
 .btn-app .app-sub{ display:block; font-size:10.5px; font-weight:500; opacity:.85; line-height:1.15; margin-top:1px; letter-spacing:.01em; }
 .btn-app{ flex-direction:column; line-height:1.15; }
 .btn-app{ background:linear-gradient(135deg,#622ADA 0%,#0070BB 100%) !important; color:#fff !important; }
+/* App Store / Google Play — two store badges instead of one long button that overflowed the header */
+.store-badges{ display:flex; gap:8px; flex-shrink:0; }
+.store-badge{ display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 13px 0 11px; border-radius:11px; background:#000; color:#fff; text-decoration:none; border:1px solid #3c3c3c; box-shadow:0 6px 16px -10px rgba(0,0,0,.55); transition:transform .15s, box-shadow .15s; }
+.store-badge:hover{ transform:translateY(-1px); box-shadow:0 10px 20px -10px rgba(0,0,0,.6); color:#fff; }
+.store-badge svg{ width:20px; height:20px; flex-shrink:0; }
+.sb-txt{ display:flex; flex-direction:column; line-height:1.05; font-size:14.5px; font-weight:600; letter-spacing:-.01em; white-space:nowrap; text-align:left; }
+.sb-txt small{ font-size:9.5px; font-weight:500; opacity:.85; letter-spacing:.01em; }
+/* medium widths: the header keeps only the logos */
+@media (max-width:1380px){ .store-badges--header .sb-txt{ display:none; } .store-badges--header .store-badge{ padding:0 11px; } }
+@media (max-width:820px){ .store-badges--header{ display:none; } }
+/* after scrolling the phone joins the header: the badges give it room */
+@media (max-width:1600px){ .site-header.show-phone .store-badges--header .sb-txt{ display:none; } .site-header.show-phone .store-badges--header .store-badge{ padding:0 11px; } }
+/* mobile menu: Call on one row, the two stores on the next */
+.mobile-panel .mrow{ flex-wrap:wrap; }
+.store-badges--panel{ width:100%; flex-basis:100%; }
+.store-badges--panel .store-badge{ flex:1; justify-content:center; height:50px; }
 
 .footer-legal{ margin-top:22px; padding-top:16px; border-top:1px solid rgba(255,255,255,.12); font-size:12.5px; line-height:1.55; opacity:.8; }
 .footer-links{ display:flex; flex-wrap:wrap; gap:6px 16px; }
@@ -1016,7 +1032,10 @@ body.has-cart .to-top{ bottom:208px; }
 <a href="/en/" hreflang="en" role="menuitem">English</a>
 </div>
 </div>
-<a class="btn btn-primary btn-app" data-app-link="" data-lang-cs='Stáhnout ZORYX&lt;small class="app-sub"&gt;objednání na potvrzení a odběry&lt;/small&gt;' data-lang-en='Get ZORYX app&lt;small class="app-sub"&gt;book certificates and blood tests&lt;/small&gt;' data-lang-ru='Скачать ZORYX&lt;small class="app-sub"&gt;запись на справки и анализы&lt;/small&gt;' data-lang-ua='Завантажити ZORYX&lt;small class="app-sub"&gt;запис на довідки й аналізи&lt;/small&gt;' href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank">Завантажити ZORYX<small class="app-sub">запис на довідки й аналізи</small></a>
+<div class="store-badges store-badges--header">
+<a aria-label="ZORYX v App Store" class="store-badge" href="https://apps.apple.com/app/id1478295123" rel="noopener" target="_blank" title="ZORYX — objednání na potvrzení a odběry"><svg aria-hidden="true" viewbox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" fill="currentColor"></path></svg><span class="sb-txt"><small data-lang-cs="Stáhnout v" data-lang-en="Download on the" data-lang-ru="Загрузите в" data-lang-ua="Завантажте в">Завантажте в</small>App Store</span></a>
+<a aria-label="ZORYX na Google Play" class="store-badge" href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank" title="ZORYX — objednání na potvrzení a odběry"><svg aria-hidden="true" viewbox="0 0 512 512"><path d="M48 59.5v393c0 6.3 3.6 11.8 8.9 14.4l228-228.1L56.9 45.1C51.6 47.7 48 53.2 48 59.5z" fill="#00d7fe"></path><path d="M370 153.6 99.6 2.3C93 -1.4 85.1 -.5 79.5 3.6L284.9 238.8z" fill="#00f076"></path><path d="M79.5 508.4c5.6 4.1 13.5 5 20.1 1.3L370 358.4 284.9 273.2z" fill="#ff3a44"></path><path d="m463.4 225.7-93.4-72.1-85.1 85.2 85.1 85.2 93.4-72.1c19.6-14.8 19.6-46.4 0-26.2z" fill="#ffd500"></path></svg><span class="sb-txt"><small data-lang-cs="Nyní na" data-lang-en="Get it on" data-lang-ru="Доступно в" data-lang-ua="Доступно в">Доступно в</small>Google Play</span></a>
+</div>
 <button aria-expanded="false" aria-label="Menu" class="menu-toggle" id="menuToggle">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
 </button>
@@ -1031,7 +1050,10 @@ body.has-cart .to-top{ bottom:208px; }
 <a class="mlink" data-lang-cs="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="#kontakt">Контакти</a>
 <div class="mrow">
 <a class="btn btn-outline btn-block" data-lang-cs="Zavolat" data-lang-en="Call" data-lang-ru="Позвонить" data-lang-ua="Зателефонувати" href="tel:+420606755784">Зателефонувати</a>
-<a class="btn btn-primary btn-block btn-app" data-app-link="" data-lang-cs='Stáhnout ZORYX&lt;small class="app-sub"&gt;objednání na potvrzení a odběry&lt;/small&gt;' data-lang-en='Get ZORYX app&lt;small class="app-sub"&gt;book certificates and blood tests&lt;/small&gt;' data-lang-ru='Скачать ZORYX&lt;small class="app-sub"&gt;запись на справки и анализы&lt;/small&gt;' data-lang-ua='Завантажити ZORYX&lt;small class="app-sub"&gt;запис на довідки й аналізи&lt;/small&gt;' href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank">Завантажити ZORYX<small class="app-sub">запис на довідки й аналізи</small></a>
+<div class="store-badges store-badges--panel">
+<a aria-label="ZORYX v App Store" class="store-badge" href="https://apps.apple.com/app/id1478295123" rel="noopener" target="_blank" title="ZORYX — objednání na potvrzení a odběry"><svg aria-hidden="true" viewbox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" fill="currentColor"></path></svg><span class="sb-txt"><small data-lang-cs="Stáhnout v" data-lang-en="Download on the" data-lang-ru="Загрузите в" data-lang-ua="Завантажте в">Завантажте в</small>App Store</span></a>
+<a aria-label="ZORYX na Google Play" class="store-badge" href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank" title="ZORYX — objednání na potvrzení a odběry"><svg aria-hidden="true" viewbox="0 0 512 512"><path d="M48 59.5v393c0 6.3 3.6 11.8 8.9 14.4l228-228.1L56.9 45.1C51.6 47.7 48 53.2 48 59.5z" fill="#00d7fe"></path><path d="M370 153.6 99.6 2.3C93 -1.4 85.1 -.5 79.5 3.6L284.9 238.8z" fill="#00f076"></path><path d="M79.5 508.4c5.6 4.1 13.5 5 20.1 1.3L370 358.4 284.9 273.2z" fill="#ff3a44"></path><path d="m463.4 225.7-93.4-72.1-85.1 85.2 85.1 85.2 93.4-72.1c19.6-14.8 19.6-46.4 0-26.2z" fill="#ffd500"></path></svg><span class="sb-txt"><small data-lang-cs="Nyní na" data-lang-en="Get it on" data-lang-ru="Доступно в" data-lang-ua="Доступно в">Доступно в</small>Google Play</span></a>
+</div>
 </div>
 </div>
 </header>
@@ -1100,8 +1122,8 @@ body.has-cart .to-top{ bottom:208px; }
 <article class="doc-card doc-card-blood reveal d1">
 <div class="doc-photo has-img">
 <picture>
-<source srcset="/images/odber-ctverec.webp" type="image/webp"/>
-<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec.jpg" width="720"/>
+<source srcset="/images/odber-ctverec-v3.webp" type="image/webp"/>
+<img alt="Odběrová místnost DIAGNOSTIKA s.r.o. – Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec-v3.jpg" width="720"/>
 </picture>
 </div>
 <div class="doc-body">
@@ -1183,7 +1205,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="container">
 <div class="blood-promo reveal">
 <div class="blood-photo">
-<picture><source srcset="/images/odber-ctverec.webp" type="image/webp"/><img alt="Odběrová místnost — Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec.jpg" width="720"/></picture>
+<picture><source srcset="/images/odber-ctverec-v3.webp" type="image/webp"/><img alt="Odběrová místnost — Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec-v3.jpg" width="720"/></picture>
 </div>
 <div class="blood-text">
 <span class="eyebrow" data-lang-cs="Pro samoplátce · bez žádanky" data-lang-en="For self-payers · no referral" data-lang-ru="Для самоплательщиков · без направления" data-lang-ua="Для самоплатників · без направлення">Для самоплатників · без направлення</span>
