@@ -572,7 +572,8 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 @media (max-width:520px){ .benefit-grid{ grid-template-columns:1fr; } }
 
 /* ===================== REGISTRATION ===================== */
-.reg-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center; }
+.reg-grid{ display:grid; grid-template-columns:1fr; gap:40px; align-items:center; max-width:780px; margin:0 auto; }
+.region-cta{ max-width:560px; margin:34px auto 0; }
 .reg-copy .eyebrow{ display:block; margin-bottom:16px; }
 .reg-copy h2{ font-family:var(--display); font-size:clamp(32px,4.2vw,46px); line-height:1.06; font-weight:600; }
 .reg-copy h2 em{ font-style:italic; color:var(--blue); }
@@ -1275,21 +1276,6 @@ body.has-cart .to-top{ bottom:208px; }
 <li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Laboratorní vyšetření přímo v ordinaci" data-lang-en="Laboratory tests on the premises" data-lang-ru="Лабораторные анализы прямо в клинике" data-lang-ua="Лабораторні аналізи прямо в клініці">Лабораторные анализы прямо в клинике</span></li>
 </ul>
 </div>
-<div class="reg-card reveal d1">
-<div class="reg-card-inner">
-<span class="kicker" data-lang-cs="Rezervace po telefonu" data-lang-en="Booking by phone" data-lang-ru="Запись по телефону" data-lang-ua="Запис по телефону">Запись по телефону</span>
-<h3 data-lang-cs="Zavolejte — objednáme vás k lékaři" data-lang-en="Call us — we will book your appointment" data-lang-ru="Позвоните — запишем Вас к врачу" data-lang-ua="Зателефонуйте — запишемо Вас до лікаря">Позвоните — запишем Вас к врачу</h3>
-<p data-lang-cs="Přijímáme nové pacienty!" data-lang-en="We are accepting new patients!" data-lang-ru="Принимаем новых пациентов!" data-lang-ua="Приймаємо нових пацієнтів!">Принимаем новых пациентов!</p>
-<a class="reg-phone-box" href="tel:+420606755784">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>
-<span class="n">+420 606 755 784</span>
-</a>
-<div class="reg-hours">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
-<span data-lang-cs="Provozní doba: 08:00–14:00" data-lang-en="Opening hours: 08:00–14:00" data-lang-ru="Часы работы: 08:00–14:00" data-lang-ua="Години роботи: 08:00–14:00">Часы работы: 08:00–14:00</span>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -1329,6 +1315,23 @@ body.has-cart .to-top{ bottom:208px; }
 <li>Varnsdorf</li>
 </ul>
 <p class="region-note reveal d2" data-lang-cs="Ordinace je dobře dostupná autem i veřejnou dopravou, velké parkoviště je přímo v areálu. Registrace k praktickému lékaři je možná bez ohledu na to, kde v kraji bydlíte." data-lang-en="The practice is easy to reach by car and public transport, with a large car park on site. You can register with our GP wherever in the region you live." data-lang-ru="До клиники удобно добраться на машине и общественным транспортом, большая парковка прямо на территории. Записаться к терапевту можно независимо от того, где в крае вы живёте — семейный врач для всей семьи." data-lang-ua="До клініки зручно дістатися автомобілем і громадським транспортом, велика парковка прямо на території. Зареєструватися до терапевта можна незалежно від того, де в краї ви мешкаєте — сімейний лікар для всієї родини.">До клиники удобно добраться на машине и общественным транспортом, большая парковка прямо на территории. Записаться к терапевту можно независимо от того, где в крае вы живёте — семейный врач для всей семьи.</p>
+<div class="region-cta reveal d2">
+<div class="reg-card reveal">
+<div class="reg-card-inner">
+<span class="kicker" data-lang-cs="Rezervace po telefonu" data-lang-en="Booking by phone" data-lang-ru="Запись по телефону" data-lang-ua="Запис по телефону">Запись по телефону</span>
+<h3 data-lang-cs="Zavolejte — objednáme vás k lékaři" data-lang-en="Call us — we will book your appointment" data-lang-ru="Позвоните — запишем Вас к врачу" data-lang-ua="Зателефонуйте — запишемо Вас до лікаря">Позвоните — запишем Вас к врачу</h3>
+<p data-lang-cs="Přijímáme nové pacienty!" data-lang-en="We are accepting new patients!" data-lang-ru="Принимаем новых пациентов!" data-lang-ua="Приймаємо нових пацієнтів!">Принимаем новых пациентов!</p>
+<a class="reg-phone-box" href="tel:+420606755784">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>
+<span class="n">+420 606 755 784</span>
+</a>
+<div class="reg-hours">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+<span data-lang-cs="Provozní doba: 08:00–14:00" data-lang-en="Opening hours: 08:00–14:00" data-lang-ru="Часы работы: 08:00–14:00" data-lang-ua="Години роботи: 08:00–14:00">Часы работы: 08:00–14:00</span>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <!-- CIZINCI: pojisteni VZP/PVZP, jazyky, doklady -->
