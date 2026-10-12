@@ -49,15 +49,15 @@ DESCRIPTIONS = {
     "ru": ("Русскоговорящий врач-терапевт регистрирует новых пациентов из "
            "Ústí nad Labem, Děčín, Litoměřice и всего Устецкого края. "
            "Все государственные страховые (VZP, OZP, ČPZP, VoZP, ZP MV, RBP) и PVZP для иностранцев. Анализы крови без направления от 22 Kč. "
-           "U Vlečky 3086/6. +420 606 755 784"),
+           "U Vlečky 3086/6."),
     "ua": ("Україномовний сімейний лікар-терапевт реєструє нових пацієнтів з "
            "Ústí nad Labem, Děčín, Litoměřice та всього Устецького краю. "
            "Приймаємо VZP і PVZP для іноземців. Аналізи крові без направлення від 22 Kč. "
-           "U Vlečky 3086/6. +420 606 755 784"),
+           "U Vlečky 3086/6."),
     "en": ("English-speaking general practitioner in Ústí nad Labem accepting new "
            "patients. We take VZP and PVZP insurance for foreigners. Russian and "
            "Ukrainian spoken too. Blood tests without a referral from 22 CZK. "
-           "U Vlečky 3086/6. +420 606 755 784"),
+           "U Vlečky 3086/6."),
 }
 
 OG_LOCALE = {"ru": "ru_RU", "ua": "uk_UA", "en": "en_GB"}
