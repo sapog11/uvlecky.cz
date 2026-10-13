@@ -790,6 +790,37 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .faq-item p{ padding:2px 22px 20px; font-size:15px; color:var(--ink-soft); line-height:1.65; }
 @media (max-width:520px){ .faq-item summary{ font-size:15px; padding:15px 44px 15px 16px; } .faq-item p{ padding:0 16px 16px; font-size:14.5px; } }
 
+/* ===================== JAZYKOVA NABIDKA ===================== */
+.lang-hint{
+  position:fixed; top:84px; left:16px; right:16px; z-index:99;
+  width:fit-content; margin:0 auto;
+  transform:translateY(-10px);
+  display:flex; align-items:center; gap:10px;
+  padding:8px 8px 8px 16px; border-radius:999px;
+  background:rgba(255,255,255,0.94);
+  -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+  border:1px solid var(--line); box-shadow:0 14px 34px -20px rgba(28,43,74,0.55);
+  font-size:13.5px; color:var(--navy); max-width:calc(100vw - 32px);
+  line-height:1.35;
+  opacity:0; pointer-events:none;
+  transition:opacity .35s ease, transform .35s ease;
+}
+.lang-hint.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+.lang-hint-go{
+  flex:none; padding:7px 15px; border-radius:999px;
+  background:var(--navy); color:var(--white); font-weight:600; font-size:13px;
+}
+.lang-hint-go:hover{ background:var(--navy-2); }
+.lang-hint-x{
+  flex:none; width:28px; height:28px; border:none; background:none;
+  color:var(--ink-soft); font-size:19px; line-height:1; border-radius:50%;
+}
+.lang-hint-x:hover{ background:var(--blue-mist); color:var(--navy); }
+@media (max-width:560px){
+  .lang-hint{ top:76px; font-size:12.5px; padding:7px 7px 7px 13px; gap:8px; }
+  .lang-hint-go{ padding:6px 12px; font-size:12px; }
+}
+
 /* ===================== FOOTER ===================== */
 .site-footer{ background:linear-gradient(180deg, var(--green-pale) 0%, #BFD6C7 100%); color:var(--navy); padding:40px 0 20px; position:relative; z-index:2; }
 .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; gap:34px; flex-wrap:wrap; padding-bottom:30px; border-bottom:1px solid rgba(28,43,74,0.15); }
@@ -1568,6 +1599,11 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </footer></main>
 <button aria-label="Zpět nahoru" class="to-top" data-lang-cs="Zpět nahoru" data-lang-en="Back to top" data-lang-ru="Вернуться вверх" data-lang-ua="Повернутися вверх" id="toTop">Back to top</button>
+<div aria-live="polite" class="lang-hint" id="langHint" role="region">
+<span id="langHintTxt"></span>
+<a class="lang-hint-go" href="/en/" id="langHintGo"></a>
+<button aria-label="Close" class="lang-hint-x" id="langHintX" type="button">×</button>
+</div>
 <div aria-live="polite" class="cookie" id="cookie" role="dialog">
 <p data-lang-cs="Používáme soubory cookie pro zlepšení fungování webu." data-lang-en="We use cookies to improve your experience on our website." data-lang-ru="Мы используем файлы cookie для улучшения вашего опыта на сайте." data-lang-ua="Ми використовуємо файли cookie для покращення вашого досвіду на сайті.">We use cookies to improve your experience on our website.</p>
 <div class="cookie-actions">
@@ -1663,6 +1699,63 @@ body.has-cart .to-top{ bottom:208px; }
     });
   });
   document.addEventListener('click', function(){ lang.classList.remove('open'); langBtn.setAttribute('aria-expanded','false'); });
+
+
+  // ---- jazykova nabidka ------------------------------------------------
+  // Nepresmerovava: jen nabidne odkaz. Volbu si pamatuje, aby neotravovala.
+  (function(){
+    var L = {
+      cs: { prefix:'',     txt:'Web je dostupný v češtině',       go:'Přejít',    close:'Zavřít' },
+      ru: { prefix:'/ru',  txt:'Сайт доступен на русском',        go:'Перейти',   close:'Закрыть' },
+      uk: { prefix:'/ua',  txt:'Сайт доступний українською',      go:'Перейти',   close:'Закрити' },
+      en: { prefix:'/en',  txt:'This site is available in English', go:'Switch',  close:'Close' }
+    };
+    var KEY = 'uv-lang-hint';
+    var box = document.getElementById('langHint');
+    if (!box) return;
+
+    try { if (localStorage.getItem(KEY)) return; } catch(e){}
+
+    // jazyk otevrene stranky
+    var cur = (document.documentElement.lang || 'cs').slice(0,2).toLowerCase();
+    if (cur === 'uk') cur = 'uk';
+
+    // co chce prohlizec
+    var want = null;
+    var prefs = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < prefs.length; i++){
+      var code = String(prefs[i]).slice(0,2).toLowerCase();
+      if (code === 'cs' || code === 'ru' || code === 'uk' || code === 'en'){ want = code; break; }
+      if (code === 'sk'){ want = 'cs'; break; }   // slovenstina -> cestina
+      if (code === 'be'){ want = 'ru'; break; }
+    }
+    if (!want || want === cur) return;
+
+    // stejna podstranka, jen jiny jazyk
+    var path = location.pathname;
+    for (var p in L){
+      var pre = L[p].prefix;
+      if (pre && (path === pre || path.indexOf(pre + '/') === 0)){ path = path.slice(pre.length) || '/'; break; }
+    }
+    var target = (L[want].prefix + path) || '/';
+
+    document.getElementById('langHintTxt').textContent = L[want].txt;
+    var go = document.getElementById('langHintGo');
+    go.textContent = L[want].go;
+    go.setAttribute('href', target);
+    go.setAttribute('hreflang', want === 'uk' ? 'uk' : want);
+    var x = document.getElementById('langHintX');
+    x.setAttribute('aria-label', L[want].close);
+
+    function hide(remember){
+      box.classList.remove('show');
+      if (remember){ try { localStorage.setItem(KEY, '1'); } catch(e){} }
+    }
+    x.addEventListener('click', function(){ hide(true); });
+    go.addEventListener('click', function(){ hide(true); });
+
+    setTimeout(function(){ box.classList.add('show'); }, 1200);
+  })();
 
   // back to top + cookie
   var toTop = document.getElementById('toTop');
