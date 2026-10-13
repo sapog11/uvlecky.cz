@@ -102,6 +102,46 @@
         "source": "/gdpr.html",
         "destination": "/ochrana-osobnich-udaju/",
         "type": 301
+      },
+      {
+        "source": "/stiznosti",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/stiznosti/**",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/ru/stiznosti",
+        "destination": "/ru/",
+        "type": 301
+      },
+      {
+        "source": "/ru/stiznosti/**",
+        "destination": "/ru/",
+        "type": 301
+      },
+      {
+        "source": "/ua/stiznosti",
+        "destination": "/ua/",
+        "type": 301
+      },
+      {
+        "source": "/ua/stiznosti/**",
+        "destination": "/ua/",
+        "type": 301
+      },
+      {
+        "source": "/en/stiznosti",
+        "destination": "/en/",
+        "type": 301
+      },
+      {
+        "source": "/en/stiznosti/**",
+        "destination": "/en/",
+        "type": 301
       }
     ]
   }
