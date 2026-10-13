@@ -757,7 +757,11 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .footer-brand .brand-mark{ background:rgba(28,43,74,0.10); }
 .footer-brand .brand-name{ font-size:20px; }
 .footer-contact{ display:flex; flex-direction:column; gap:9px; font-size:14px; }
-.footer-contact div{ display:flex; align-items:center; gap:9px; }
+.footer-contact div{ display:flex; align-items:flex-start; gap:9px; }
+.footer-contact svg{ margin-top:3px; }
+.dept-phones{ display:grid; grid-template-columns:auto auto; gap:4px 10px; align-items:baseline; }
+.dept-phones .lbl{ color:var(--ink-soft); }
+@media (max-width:480px){ .dept-phones{ grid-template-columns:1fr; gap:2px; } .dept-phones .lbl{ margin-top:6px; } }
 .footer-contact svg{ width:15px; height:15px; color:var(--green); flex:none; }
 .footer-contact a:hover{ color:var(--blue); }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding-top:22px; font-size:12.5px; color:var(--ink-soft); }
@@ -996,7 +1000,7 @@ body.has-cart .to-top{ bottom:208px; }
 <nav aria-label="Hlavní navigace" class="main-nav">
 <a data-lang-cs="Lékař" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="#lekar">Lékař</a>
 <a data-lang-cs="Výhody" data-lang-en="Benefits" data-lang-ru="Преимущества" data-lang-ua="Переваги" href="#vyhody">Výhody</a>
-<a data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="#registrace">Registrace</a>
+<a data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="#region">Registrace</a>
 <a data-lang-cs="Služby" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="#sluzby">Služby</a>
 <a data-lang-cs="Informace" data-lang-en="Information" data-lang-ru="Информация" data-lang-ua="Інформація" href="#informace">Informace</a>
 <a data-lang-cs="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="#kontakt">Kontakt</a>
@@ -1026,7 +1030,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="mobile-panel" id="mobilePanel">
 <a class="mlink" data-lang-cs="Lékař" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="#lekar">Lékař</a>
 <a class="mlink" data-lang-cs="Výhody" data-lang-en="Benefits" data-lang-ru="Преимущества" data-lang-ua="Переваги" href="#vyhody">Výhody</a>
-<a class="mlink" data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="#registrace">Registrace</a>
+<a class="mlink" data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="#region">Registrace</a>
 <a class="mlink" data-lang-cs="Služby" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="#sluzby">Služby</a>
 <a class="mlink" data-lang-cs="Informace" data-lang-en="Information" data-lang-ru="Информация" data-lang-ua="Інформація" href="#informace">Informace</a>
 <a class="mlink" data-lang-cs="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="#kontakt">Kontakt</a>
@@ -1243,24 +1247,6 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </section>
 <!-- REGISTRATION -->
-<section class="section" id="registrace">
-<div class="container">
-<div class="reg-grid">
-<div class="reg-copy reveal">
-<span class="eyebrow" data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація">Registrace</span>
-<h2 data-lang-cs="Staňte se &lt;em&gt;naším pacientem&lt;/em&gt;" data-lang-en="Become &lt;em&gt;our patient&lt;/em&gt;" data-lang-ru="Станьте &lt;em&gt;нашим пациентом&lt;/em&gt;" data-lang-ua="Станьте &lt;em&gt;нашим пацієнтом&lt;/em&gt;">Staňte se <em>naším pacientem</em></h2>
-<p data-lang-cs="Přijímáme nové pacienty ze všech pojišťoven. Zavolejte — objednáme vás přímo po telefonu. Najdete nás na adrese U Vlečky 3086/6, Ústí nad Labem." data-lang-en="We accept patients with all major Czech health insurance. Call - we'll book you right over the phone. You will find us at U Vlečky 3086/6, Ústí nad Labem." data-lang-ru="Принимаем новых пациентов со всеми страховками. Позвоните — запишем Вас прямо по телефону. Приходите по адресу: U Vlečky 3086/6, Ústí nad Labem." data-lang-ua="Приймаємо нових пацієнтів з усіма страховками. Зателефонуйте — запишемо Вас прямо по телефону. Приходьте за адресою: U Vlečky 3086/6, Ústí nad Labem.">Přijímáme nové pacienty ze všech pojišťoven. Zavolejte — objednáme vás přímo po telefonu.</p>
-<ul class="reg-list">
-<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Přijímáme nové pacienty ihned" data-lang-en="Accepting new patients right away" data-lang-ru="Принимаем новых пациентов сразу" data-lang-ua="Приймаємо нових пацієнтів одразу">Přijímáme nové pacienty ihned</span></li>
-
-<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Všechny zdravotní pojišťovny" data-lang-en="All insurance companies including PVZP" data-lang-ru="Все страховые компании, включая PVZP" data-lang-ua="Усі страхові компанії, включно з PVZP">Všechny zdravotní pojišťovny</span></li>
-<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Velké parkoviště v areálu" data-lang-en="Ample parking on site" data-lang-ru="Большая парковка на территории" data-lang-ua="Велика парковка на території">Velké parkoviště v areálu</span></li>
-<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Laboratorní vyšetření přímo v ordinaci" data-lang-en="Laboratory tests on the premises" data-lang-ru="Лабораторные анализы прямо в клинике" data-lang-ua="Лабораторні аналізи прямо в клініці">Laboratorní vyšetření přímo v ordinaci</span></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
 <!-- REGION: spadova oblast - cely Ustecky kraj -->
 <section class="section" id="region">
 <div class="container">
@@ -1297,6 +1283,20 @@ body.has-cart .to-top{ bottom:208px; }
 <li>Varnsdorf</li>
 </ul>
 <p class="region-note reveal d2" data-lang-cs="Ordinace je dobře dostupná autem i veřejnou dopravou, velké parkoviště je přímo v areálu. Registrace k praktickému lékaři je možná bez ohledu na to, kde v kraji bydlíte." data-lang-en="The practice is easy to reach by car and public transport, with a large car park on site. You can register with our GP wherever in the region you live." data-lang-ru="До клиники удобно добраться на машине и общественным транспортом, большая парковка прямо на территории. Записаться к терапевту можно независимо от того, где в крае вы живёте — семейный врач для всей семьи." data-lang-ua="До клініки зручно дістатися автомобілем і громадським транспортом, велика парковка прямо на території. Зареєструватися до терапевта можна незалежно від того, де в краї ви мешкаєте — сімейний лікар для всієї родини.">Ordinace je dobře dostupná autem i veřejnou dopravou, velké parkoviště je přímo v areálu. Registrace k praktickému lékaři je možná bez ohledu na to, kde v kraji bydlíte.</p>
+<div class="reg-copy-wrap reveal">
+<div class="reg-copy reveal">
+<span class="eyebrow" data-lang-cs="Registrace" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація">Registrace</span>
+<h2 data-lang-cs="Staňte se &lt;em&gt;naším pacientem&lt;/em&gt;" data-lang-en="Become &lt;em&gt;our patient&lt;/em&gt;" data-lang-ru="Станьте &lt;em&gt;нашим пациентом&lt;/em&gt;" data-lang-ua="Станьте &lt;em&gt;нашим пацієнтом&lt;/em&gt;">Staňte se <em>naším pacientem</em></h2>
+<p data-lang-cs="Přijímáme nové pacienty ze všech pojišťoven. Zavolejte — objednáme vás přímo po telefonu. Najdete nás na adrese U Vlečky 3086/6, Ústí nad Labem." data-lang-en="We accept patients with all major Czech health insurance. Call - we'll book you right over the phone. You will find us at U Vlečky 3086/6, Ústí nad Labem." data-lang-ru="Принимаем новых пациентов со всеми страховками. Позвоните — запишем Вас прямо по телефону. Приходите по адресу: U Vlečky 3086/6, Ústí nad Labem." data-lang-ua="Приймаємо нових пацієнтів з усіма страховками. Зателефонуйте — запишемо Вас прямо по телефону. Приходьте за адресою: U Vlečky 3086/6, Ústí nad Labem.">Přijímáme nové pacienty ze všech pojišťoven. Zavolejte — objednáme vás přímo po telefonu.</p>
+<ul class="reg-list">
+<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Přijímáme nové pacienty ihned" data-lang-en="Accepting new patients right away" data-lang-ru="Принимаем новых пациентов сразу" data-lang-ua="Приймаємо нових пацієнтів одразу">Přijímáme nové pacienty ihned</span></li>
+
+<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Všechny zdravotní pojišťovny" data-lang-en="All insurance companies including PVZP" data-lang-ru="Все страховые компании, включая PVZP" data-lang-ua="Усі страхові компанії, включно з PVZP">Všechny zdravotní pojišťovny</span></li>
+<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Velké parkoviště v areálu" data-lang-en="Ample parking on site" data-lang-ru="Большая парковка на территории" data-lang-ua="Велика парковка на території">Velké parkoviště v areálu</span></li>
+<li><span aria-hidden="true" class="reg-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><span data-lang-cs="Laboratorní vyšetření přímo v ordinaci" data-lang-en="Laboratory tests on the premises" data-lang-ru="Лабораторные анализы прямо в клинике" data-lang-ua="Лабораторні аналізи прямо в клініці">Laboratorní vyšetření přímo v ordinaci</span></li>
+</ul>
+</div>
+</div>
 <div class="region-cta reveal d2">
 <div class="reg-card reveal">
 <div class="reg-card-inner">
@@ -1543,11 +1543,11 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="footer-contact">
 <div><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.4"></circle></svg><a data-lang-cs="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-en="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-ru="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-ua="U Vlečky 3086/6, 400 01 Ústí nad Labem" href="https://maps.app.goo.gl/bvLedpDPebfn6AKe8" rel="noopener" target="_blank">U Vlečky 3086/6, 400 01 Ústí nad Labem</a></div>
-<div><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg><span class="dept-phones"><span data-lang-cs="Praktická lékařka" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktická lékařka</span>: <a href="tel:+420606755784">+420 606 755 784</a><br/><span data-lang-cs="Odběry krve" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Odběry krve</span>: <a href="tel:+420602618024">+420 602 618 024</a><br/><span data-lang-cs="Zubní ordinace" data-lang-en="Dentist" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span>: <a href="tel:+420427702821">+420 427 702 821</a><br/><span data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-en="Work medicals (PLS)" data-lang-ru="Профосмотры (PLS)" data-lang-ua="Медогляди (PLS)">Zdravotní prohlídky (PLS)</span>: <a href="tel:+420732952576">+420 732 952 576</a></span></div>
+<div><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg><span class="dept-phones"><span class="lbl" data-lang-cs="Praktická lékařka" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktická lékařka</span><a href="tel:+420606755784">+420 606 755 784</a><span class="lbl" data-lang-cs="Odběry krve" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Odběry krve</span><a href="tel:+420602618024">+420 602 618 024</a><span class="lbl" data-lang-cs="Zubní ordinace" data-lang-en="Dentist" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span><a href="tel:+420427702821">+420 427 702 821</a><span class="lbl" data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-en="Work medicals (PLS)" data-lang-ru="Профосмотры (PLS)" data-lang-ua="Медогляди (PLS)">Zdravotní prohlídky (PLS)</span><a href="tel:+420732952576">+420 732 952 576</a></span></div>
 </div>
 </div>
 <div class="footer-legal">
-<p data-lang-cs="Provozovatel webu: Poliklinika U Vlečky s.r.o., IČ 23619091, se sídlem U Vlečky 3086/6, 400 01 Ústí nad Labem, zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad Labem, oddíl C, vložka 54457. Zdravotní služby poskytuje DIAGNOSTIKA s.r.o. Provozní ředitel: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503. Provozní ředitel: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503." data-lang-en="Website operator: Poliklinika U Vlečky s.r.o., company ID 23619091, registered office U Vlečky 3086/6, 400 01 Ústí nad Labem, Czech Republic, entered in the Commercial Register kept by the Regional Court in Ústí nad Labem, section C, file 54457. Health care is provided by DIAGNOSTIKA s.r.o. Operations director: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503. Operations director: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503." data-lang-ru="Оператор сайта: Poliklinika U Vlečky s.r.o., IČ 23619091, юридический адрес U Vlečky 3086/6, 400 01 Ústí nad Labem, внесена в торговый реестр Краевого суда в Усти-над-Лабем, раздел C, запись 54457. Медицинские услуги оказывает DIAGNOSTIKA s.r.o. Исполнительный директор: Евгений Зорич, yauhen.zorych@zoryx.app, +420 776 540 503." data-lang-ua="Оператор сайту: Poliklinika U Vlečky s.r.o., IČ 23619091, юридична адреса U Vlečky 3086/6, 400 01 Ústí nad Labem, внесена до торговельного реєстру Крайового суду в Усті-над-Лабем, розділ C, запис 54457. Медичні послуги надає DIAGNOSTIKA s.r.o. Виконавчий директор: Євген Зорич, yauhen.zorych@zoryx.app, +420 776 540 503.">Provozovatel webu: Poliklinika U Vlečky s.r.o., IČ 23619091, se sídlem U Vlečky 3086/6, 400 01 Ústí nad Labem, zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad Labem, oddíl C, vložka 54457. Zdravotní služby poskytuje DIAGNOSTIKA s.r.o. Provozní ředitel: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503. Provozní ředitel: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503.</p>
+<p data-lang-cs="Provozovatel webu: Poliklinika U Vlečky s.r.o., IČ 23619091, se sídlem U Vlečky 3086/6, 400 01 Ústí nad Labem, zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad Labem, oddíl C, vložka 54457. Zdravotní služby poskytuje DIAGNOSTIKA s.r.o. Provozní ředitel: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503." data-lang-en="Website operator: Poliklinika U Vlečky s.r.o., company ID 23619091, registered office U Vlečky 3086/6, 400 01 Ústí nad Labem, Czech Republic, entered in the Commercial Register kept by the Regional Court in Ústí nad Labem, section C, file 54457. Health care is provided by DIAGNOSTIKA s.r.o. Operations director: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503." data-lang-ru="Оператор сайта: Poliklinika U Vlečky s.r.o., IČ 23619091, юридический адрес U Vlečky 3086/6, 400 01 Ústí nad Labem, внесена в торговый реестр Краевого суда в Усти-над-Лабем, раздел C, запись 54457. Медицинские услуги оказывает DIAGNOSTIKA s.r.o. Исполнительный директор: Евгений Зорич, yauhen.zorych@zoryx.app, +420 776 540 503." data-lang-ua="Оператор сайту: Poliklinika U Vlečky s.r.o., IČ 23619091, юридична адреса U Vlečky 3086/6, 400 01 Ústí nad Labem, внесена до торговельного реєстру Крайового суду в Усті-над-Лабем, розділ C, запис 54457. Медичні послуги надає DIAGNOSTIKA s.r.o. Виконавчий директор: Євген Зорич, yauhen.zorych@zoryx.app, +420 776 540 503.">Provozovatel webu: Poliklinika U Vlečky s.r.o., IČ 23619091, se sídlem U Vlečky 3086/6, 400 01 Ústí nad Labem, zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad Labem, oddíl C, vložka 54457. Zdravotní služby poskytuje DIAGNOSTIKA s.r.o. Provozní ředitel: Evžen Zorič, yauhen.zorych@zoryx.app, +420 776 540 503.</p>
 </div>
 <div class="footer-bottom">
 <span>© <span id="year">2026</span> Poliklinika U Vlečky s.r.o.</span>
