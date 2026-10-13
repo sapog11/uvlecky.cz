@@ -1572,7 +1572,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div aria-live="polite" class="cart" id="cart">
 <div class="cart-in">
 <div class="cart-sum"><div class="l1" id="cart-line"></div><div class="l2"><span id="cart-total">0</span> Kč</div></div>
-<button class="link-btn" id="cart-toggle" type="button"></button>
+<button class="link-btn" id="cart-toggle" type="button"></button><button class="link-btn" data-lang-cs="Zrušit vše" data-lang-en="Clear all" data-lang-ru="Сбросить всё" data-lang-ua="Скасувати все" id="cart-clear" type="button">Zrušit vše</button>
 <button class="btn" data-with-picks="" data-zoryx-book="odbery_usti" type="button"><span data-lang-cs="Objednat" data-lang-en="Book" data-lang-ru="Записаться" data-lang-ua="Записатися">Objednat</span></button>
 </div>
 <div class="cart-list" hidden="" id="cart-list"></div>
@@ -2210,7 +2210,7 @@ body.has-cart .to-top{ bottom:208px; }
     var drop = e.target.closest("[data-drop]");
     if (drop){ picked[drop.getAttribute("data-drop")] = false; refresh(); return; }
     if (e.target.closest("#cart-toggle")){ cartOpen = !cartOpen; renderCart(); return; }
-    if (e.target.closest("#clear-all")){ picked = {}; refresh(); return; }
+    if (e.target.closest("#clear-all") || e.target.closest("#cart-clear")){ picked = {}; cartOpen = false; refresh(); return; }
     if (e.target.closest("#expand-all")){
       var mode = document.getElementById("expand-all").dataset.mode;
       document.querySelectorAll("details.group").forEach(function(d){ d.open = mode !== "collapse"; });
