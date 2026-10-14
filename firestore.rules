@@ -1,0 +1,24 @@
+rules_version = '2';
+// Shared "likes" for the blood-test request form (/odbery/): one document,
+// one integer per block. Anyone may read it; a write may only raise exactly
+// one counter by exactly 1. Everything else in Firestore stays closed.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /likes/{page} {
+      function plusOne() {
+        let before = resource == null ? {} : resource.data;
+        let keys = request.resource.data.diff(before).affectedKeys();
+        let k = keys.toList()[0];
+        return keys.size() == 1
+          && request.resource.data[k] is int
+          && request.resource.data[k] == (k in before ? before[k] : 0) + 1
+          && request.resource.data.size() <= 100;
+      }
+      allow read: if page == 'odbery';
+      allow create, update: if page == 'odbery' && plusOne();
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

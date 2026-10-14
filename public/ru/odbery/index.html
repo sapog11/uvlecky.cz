@@ -1258,6 +1258,59 @@ body.has-cart .to-top{ bottom:208px; }
   .topic .price{ font-size:15px; }
   .topic .state{ font-size:11px; }
 }
+
+/* ===== žádanka (lab request form) picker ===== */
+#groups{ max-width:1160px; display:block; }
+.zf-tabs{ display:flex; flex-wrap:wrap; gap:6px; margin:0 0 -1px; padding:0 6px; position:relative; z-index:1; }
+.zf-tab{ display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border:1px solid #cfd6df; border-bottom:0; border-radius:12px 12px 0 0; background:#F3F5F8; font:600 14px/1.2 var(--body); color:var(--ink-soft); cursor:pointer; }
+.zf-tab[aria-selected="true"]{ background:var(--tint); color:#111; box-shadow:0 -6px 16px -12px rgba(15,40,80,.5); }
+.zf-tab b{ min-width:20px; height:20px; padding:0 6px; border-radius:10px; background:#111; color:#fff; font-size:11.5px; display:inline-flex; align-items:center; justify-content:center; }
+.zf-tab b[hidden]{ display:none; }
+.zf-paper{ position:relative; background:#fff; border:1px solid #cfd6df; border-radius:4px; padding:26px 22px 22px; box-shadow:0 26px 60px -36px rgba(15,40,80,.55); margin-bottom:16px; }
+.zf-c{ position:absolute; width:22px; height:22px; border:0 solid #111; }
+.zf-c.tl{ top:8px; left:8px; border-top-width:5px; border-left-width:5px; }
+.zf-c.tr{ top:8px; right:8px; border-top-width:5px; border-right-width:5px; }
+.zf-c.bl{ bottom:8px; left:8px; border-bottom-width:5px; border-left-width:5px; }
+.zf-c.br{ bottom:8px; right:8px; border-bottom-width:5px; border-right-width:5px; }
+.zf-brand{ display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; padding:6px 14px 12px; margin-bottom:14px; border-bottom:3px solid var(--tint); font-size:13px; color:#555; }
+.zf-brand strong{ font-size:17px; letter-spacing:.04em; color:#1D8FD1; }
+.zf-title{ font:700 15px/1.2 var(--body); color:#111; text-align:right; }
+.zf-title small{ display:block; font-weight:500; font-size:11.5px; color:#777; }
+.zf-cols{ columns:4 240px; column-gap:12px; }
+.zf-sec{ break-inside:avoid; display:inline-block; width:100%; margin:0 0 12px; border:1px solid #c9d1db; background:#fff; }
+.zf-h{ display:flex; align-items:center; justify-content:space-between; gap:8px; background:#E4E5E7; border-bottom:2px solid var(--acc); padding:5px 8px; font:700 12.5px/1.2 var(--body); letter-spacing:.05em; text-transform:uppercase; color:#111; }
+.zf-like{ display:inline-flex; align-items:center; gap:4px; color:#E23D63; font-size:12px; letter-spacing:0; text-transform:none; white-space:nowrap; }
+.zf-like svg{ width:15px; height:15px; transition:transform .2s ease; }
+.zf-like b{ color:#111; font-weight:700; font-variant-numeric:tabular-nums; }
+.zf-like.bump svg{ animation:zfBump .6s ease; }
+@keyframes zfBump{ 25%{ transform:scale(1.6); } 55%{ transform:scale(.9); } 100%{ transform:scale(1); } }
+.zf-row{ display:grid; grid-template-columns:1fr auto 34px; align-items:stretch; width:100%; min-height:30px; padding:0 0 0 8px; border:0; border-top:1px solid #e3e6ea; background:#fff; color:#111; font:inherit; text-align:left; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.zf-row:hover{ background:#F7F9FC; }
+.zf-row:focus-visible{ outline:2px solid #1D8FD1; outline-offset:-2px; }
+.zf-n{ align-self:center; font-size:13px; line-height:1.25; padding:5px 6px 5px 0; }
+.zf-n small{ display:block; font-size:11px; color:#6b7280; }
+.zf-p{ align-self:center; padding-right:8px; font-size:12px; font-weight:600; color:#4b5563; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.zf-dot{ display:flex; align-items:center; justify-content:center; background:var(--tint); border-left:1px solid #e3e6ea; }
+.zf-dot i{ width:15px; height:15px; border-radius:50%; border:1.6px solid #2E86C1; background:#fff; transition:background .15s ease, border-color .15s ease, transform .2s ease; }
+.zf-row.on{ background:#FBFBF8; }
+.zf-row.on .zf-n{ font-weight:700; }
+.zf-row.on .zf-p{ color:#111; }
+.zf-row.on .zf-dot i{ background:#111; border-color:#111; animation:zfDot .35s ease; }
+@keyframes zfDot{ 0%{ transform:scale(.4); } 60%{ transform:scale(1.3); } 100%{ transform:scale(1); } }
+.zf-paper .empty{ padding:24px; color:var(--ink-soft); }
+.zf-burst{ position:fixed; z-index:140; width:0; height:0; pointer-events:none; }
+.zf-pt{ position:absolute; left:-4px; top:-4px; width:8px; height:8px; border-radius:50%; background:#E8466B; opacity:0; animation:zfIn .42s cubic-bezier(.3,.7,.4,1) forwards; }
+@keyframes zfIn{ 0%{ transform:translate(var(--dx),var(--dy)) scale(.7); opacity:0; } 35%{ opacity:1; } 100%{ transform:translate(0,0) scale(.2); opacity:0; } }
+.zf-hrt{ position:absolute; left:-17px; top:-17px; width:34px; height:34px; color:#E23D63; opacity:0; filter:drop-shadow(0 4px 8px rgba(226,61,99,.45)); animation:zfHeart 1.05s .32s ease-out forwards; }
+.zf-hrt svg{ width:100%; height:100%; }
+@keyframes zfHeart{ 0%{ transform:scale(.2); opacity:1; } 22%{ transform:scale(1.35); opacity:1; } 38%{ transform:scale(1); opacity:1; } 100%{ transform:translateY(-54px) scale(.85); opacity:0; } }
+@media (max-width:640px){
+  .zf-paper{ padding:20px 10px 14px; }
+  .zf-c{ width:16px; height:16px; }
+  .zf-row{ min-height:40px; grid-template-columns:1fr auto 42px; }
+  .zf-n{ font-size:14px; }
+  .zf-tab{ padding:9px 12px; font-size:13px; }
+}
 </style><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
@@ -1458,12 +1511,11 @@ body.has-cart .to-top{ bottom:208px; }
 <span class="eyebrow" data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Цены и калькулятор</span>
 <div aria-hidden="true" class="ornament"><i></i></div>
 <h2 data-lang-cs="Sestavte si &lt;em&gt;vlastní vyšetření&lt;/em&gt;" data-lang-en="Build &lt;em&gt;your own test set&lt;/em&gt;" data-lang-ru="Соберите &lt;em&gt;свой набор анализов&lt;/em&gt;" data-lang-ua="Складіть &lt;em&gt;свій набір аналізів&lt;/em&gt;">Соберите <em>свой набор анализов</em></h2>
-<p data-lang-cs="Zaškrtněte, co vás zajímá — celkovou cenu uvidíte dole. Při objednání se výběr sám přenese do rezervace." data-lang-en="Tick what interests you and the total appears at the bottom. When you book, the selection travels into the booking by itself." data-lang-ru="Отметьте нужное — итог появится внизу. При записи выбор сам перенесётся в бронь." data-lang-ua="Позначте потрібне — підсумок зʼявиться внизу. Під час запису вибір сам перенесеться до бронювання.">Отметьте нужное — итог появится внизу. При записи выбор сам перенесётся в бронь.</p>
+<p data-lang-cs="Vyšetření jsou seřazená jako na žádance laboratoře DIAGNOSTIKA. Klepněte na řádek — černá tečka znamená vybráno. Celkovou cenu uvidíte dole a výběr se sám přenese do rezervace." data-lang-en="Tests are laid out like the DIAGNOSTIKA lab request form. Tap a row — a black dot means selected. You'll see the total below and the selection goes straight into your booking." data-lang-ru="Анализы расположены как на бланке лаборатории DIAGNOSTIKA. Нажмите на строку — чёрная точка означает выбор. Итог увидите внизу, а выбор сам перенесётся в запись." data-lang-ua="Аналізи розташовані як на бланку лабораторії DIAGNOSTIKA. Натисніть на рядок — чорна точка означає вибір. Підсумок побачите внизу, а вибір сам перенесеться в запис.">Анализы расположены как на бланке лаборатории DIAGNOSTIKA. Нажмите на строку — чёрная точка означает выбор. Итог увидите внизу, а выбор сам перенесётся в запись.</p>
 <span class="fee-line" data-lang-cs="Odběr krve 40 Kč — jednou za návštěvu. Moč bez poplatku." data-lang-en="Blood draw 40 CZK — once per visit. Urine tests carry no fee." data-lang-ru="Забор крови 40 Kč — один раз за визит. Моча без платы." data-lang-ua="Забір крові 40 Kč — один раз за візит. Сеча без плати.">Забор крови 40 Kč — один раз за визит. Моча без платы.</span>
 </div>
 <div class="picker-tools">
 <label class="search"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg><input autocomplete="off" data-lang-en-placeholder="Search tests…" data-lang-ru-placeholder="Поиск анализа…" data-lang-ua-placeholder="Пошук аналізу…" id="q" placeholder="Поиск анализа…" type="search"/></label>
-<button class="btn btn-outline" id="expand-all" type="button"></button>
 <button class="btn btn-outline" id="clear-all" type="button"><span data-lang-cs="Zrušit výběr" data-lang-en="Clear selection" data-lang-ru="Сбросить выбор" data-lang-ua="Скинути вибір">Сбросить выбор</span></button>
 </div>
 <a class="packs-hint" href="#temata"><span data-lang-cs="Nevíte, co vybrat? Hotové sady podle tématu" data-lang-en="Not sure? Ready-made sets by topic" data-lang-ru="Не знаете, что выбрать? Готовые наборы по темам" data-lang-ua="Не знаєте, що обрати? Готові набори за темами">Не знаете, что выбрать? Готовые наборы по темам</span> <span aria-hidden="true">↓</span></a>
@@ -2048,7 +2100,12 @@ body.has-cart .to-top{ bottom:208px; }
   function t4(cs, ru, uk, en){ return { cs:cs, ru:ru, uk:uk, en:en }; }
   function it(id, p, n, d){ return { id:id, p:p, n:n, d:d }; }
 
-  var GROUPS = [
+  /* Žádanky DIAGNOSTIKA (F05.02 Biochemie, F03.01/F04.01 Imunochemie, alergologická žádanka),
+     ceny z ceníku diag.cz pro přímou platbu. Řádek: [id, název jako na žádance, cena Kč, "u" = bez odběru krve]. */
+  var FORM = [{"id": "bio", "n": {"cs": "Biochemie a hematologie", "en": "Biochemistry & haematology", "ru": "Биохимия и гематология", "ua": "Біохімія та гематологія"}, "form": "F05.02", "tint": "#F7DCE3", "acc": "#C8102E", "secs": [{"id": "miner", "n": {"cs": "Minerály", "en": "Minerals", "ru": "Минералы", "ua": "Мінерали"}, "rows": [["minblok", "Blok Minerály", 210, ""], ["na", "Sodík", 24, ""], ["k", "Draslík", 30, ""], ["cl", "Chloridy", 24, ""], ["ca", "Vápník", 24, ""], ["mg", "Hořčík", 24, ""], ["p", "Fosfor anorg.", 24, ""], ["fe", "Železo", 24, ""], ["vkz", "Celk. vaz. kap. železa", 80, ""], ["fevkz", "Železo + vazebná kapacita", 164, ""]]}, {"id": "diab", "n": {"cs": "Diabetologie", "en": "Diabetes", "ru": "Диабетология", "ua": "Діабетологія"}, "rows": [["glc", "Glukóza", 22, ""], ["hba", "HbA1c (glykovaný hemoglobin)", 230, ""], ["ogtt", "OGTT", 320, ""]]}, {"id": "ledv", "n": {"cs": "Ledviny", "en": "Kidneys", "ru": "Почки", "ua": "Нирки"}, "rows": [["led", "Blok Ledviny", 138, ""], ["urea", "Urea", 24, ""], ["krea", "Kreatinin", 24, ""], ["kmoc", "Kys. močová", 30, ""]]}, {"id": "lipid", "n": {"cs": "Lipidy", "en": "Lipids", "ru": "Липиды", "ua": "Ліпіди"}, "rows": [["lipblok", "Blok Lipidy", 290, ""], ["chol", "Cholesterol", 30, ""], ["hdl", "HDL cholesterol", 60, ""], ["ldl", "LDL cholesterol", 70, ""], ["tag", "Triacylglyceroly", 70, ""], ["lpa", "Lp(a)", 100, ""], ["apoa", "ApoA1", 200, ""], ["apob", "ApoB", 200, ""], ["elfolip", "Elektroforéza lipoproteinů", 110, ""]]}, {"id": "jatra", "n": {"cs": "Jaterní testy", "en": "Liver tests", "ru": "Печёночные пробы", "ua": "Печінкові проби"}, "rows": [["jat", "Blok Jaterní testy", 210, ""], ["bil", "Bilirubin celkový", 24, ""], ["alt", "ALT", 24, ""], ["ast", "AST", 24, ""], ["ggt", "GGT", 30, ""], ["alp", "ALP", 24, ""], ["bilp", "Bilirubin přímý", 24, ""], ["amy", "Amyláza", 40, ""], ["pamy", "Amyláza pankreat.", 50, ""], ["ld", "LD", 30, ""], ["ck", "CK", 30, ""], ["lip", "Lipáza", 220, ""], ["che", "Cholinesteráza", 22, ""], ["alpiz", "ALP izoenzymy", 310, ""]]}, {"id": "prot", "n": {"cs": "Proteiny", "en": "Proteins", "ru": "Белки", "ua": "Білки"}, "rows": [["crp", "CRP", 160, ""], ["cb", "Celková bílkovina", 22, ""], ["albs", "Albumin", 22, ""], ["elfo", "Elektroforéza bílkovin", 70, ""], ["elfoif", "Elfo + imunofixace", 1250, ""]]}, {"id": "hemat", "n": {"cs": "Hematologie", "en": "Haematology", "ru": "Гематология", "ua": "Гематологія"}, "rows": [["ko", "KO + diferenciál", 155, ""], ["ret", "Retikulocyty", 60, ""], ["fw", "Sedimentace erytrocytů", 50, ""]]}, {"id": "koag", "n": {"cs": "Koagulace", "en": "Coagulation", "ru": "Коагуляция", "ua": "Коагуляція"}, "rows": [["pt", "PT-INR", 130, ""], ["aptt", "APTT", 130, ""], ["dd", "D-Dimery", 260, ""], ["fbg", "Fibrinogen", 300, ""], ["tt", "Trombinový test", 110, ""], ["at", "Antitrombin", 220, ""], ["apc", "APC rezistence", 600, ""], ["protc", "Protein C", 850, ""], ["prots", "Protein S", 1000, ""], ["f8", "Faktor VIII", 800, ""], ["inh", "Inhibitor", 200, ""]]}, {"id": "imhem", "n": {"cs": "Imunohematologie", "en": "Immunohaematology", "ru": "Иммуногематология", "ua": "Імуногематологія"}, "rows": [["skup", "Krevní skupina", 350, ""], ["protery", "Protilátky", 200, ""], ["pat", "PAT (přímý antiglob. test)", 200, ""]]}, {"id": "moc", "n": {"cs": "Moč", "en": "Urine", "ru": "Моча", "ua": "Сеча"}, "rows": [["moc", "Moč chem. + sediment", 60, "u"], ["kult", "Moč – kultivace", null, "u"], ["blk", "Proteiny v moči", 27, "u"], ["alb", "Albumin v moči", 200, "u"], ["faz", "Ery ve fázovém kontrastu", 50, "u"], ["hamb", "Hamburgerův sediment", 37, "u"]]}, {"id": "stol", "n": {"cs": "Stolice", "en": "Stool", "ru": "Кал", "ua": "Кал"}, "rows": [["fob", "FOB (okultní krvácení)", 135, "u"]]}]}, {"id": "imu", "n": {"cs": "Imunochemie", "en": "Immunochemistry", "ru": "Иммунохимия", "ua": "Імунохімія"}, "form": "F03.01", "tint": "#D6EEF8", "acc": "#C8102E", "secs": [{"id": "stit", "n": {"cs": "Štítná žláza", "en": "Thyroid", "ru": "Щитовидная железа", "ua": "Щитоподібна залоза"}, "rows": [["t3", "T3", 130, ""], ["t4", "T4", 130, ""], ["ft3", "Volný T3", 160, ""], ["ft4", "Volný T4", 160, ""], ["tsh", "TSH", 170, ""], ["atpo", "Anti-TPO", 300, ""], ["atg", "Anti-TG", 300, ""], ["trak", "Anti-TSH receptor (TRAK)", 400, ""], ["tg", "Thyreoglobulin", 280, ""]]}, {"id": "gyn", "n": {"cs": "Gyn. reprodukce", "en": "Reproduction", "ru": "Репродукция", "ua": "Репродукція"}, "rows": [["asperm", "Autoprotilátky proti spermiím", 300, ""], ["amh", "AMH", 900, ""], ["lh", "LH", 170, ""], ["fsh", "FSH", 170, ""], ["prl", "Prolaktin", 170, ""], ["estr", "Estradiol", 180, ""], ["prog", "Progesteron", 180, ""], ["testo", "Testosteron", 180, ""], ["shbg", "SHBG", 250, ""], ["dheas", "DHEA-sulfát", 160, ""], ["hcg", "hCG", 200, ""]]}, {"id": "zelezo", "n": {"cs": "Metabolismus železa", "en": "Iron metabolism", "ru": "Обмен железа", "ua": "Обмін заліза"}, "rows": [["fer", "Ferritin", 250, ""], ["b12", "Vitamin B12", 260, ""], ["b12a", "Aktivní vitamin B12", 260, ""], ["fol", "Kys. listová – foláty", 260, ""], ["trf", "Transferin", 200, ""]]}, {"id": "onko", "n": {"cs": "Onkologie", "en": "Oncology", "ru": "Онкология", "ua": "Онкологія"}, "rows": [["psa", "PSA", 260, ""], ["psaf", "FPSA", 400, ""], ["cea", "CEA", 300, ""], ["ca125", "Ca125", 450, ""], ["he4", "HE 4 (jen s Ca125)", 450, ""], ["ca153", "Ca 15-3", 450, ""], ["ca199", "Ca 19-9", 450, ""], ["scca", "SCCA", 500, ""], ["cyfra", "Cyfra 21-1", 450, ""], ["ca724", "Ca 72-4", 450, ""], ["afp", "AFP", 180, ""], ["tps", "TPS", 250, ""], ["ubc", "UBC moč", 250, "u"], ["b2m", "B2 mikroglobulin", 300, ""]]}, {"id": "kost", "n": {"cs": "Kostní metabolismus", "en": "Bone metabolism", "ru": "Костный обмен", "ua": "Кістковий обмін"}, "rows": [["ocn", "Osteokalcin", 400, ""], ["pth", "Parathormon intakt.", 500, ""], ["ctx", "CrossLaps (CTx)", 400, ""], ["vitd", "25-OH vitamin D", 455, ""]]}, {"id": "lekhl", "n": {"cs": "Lékové hladiny", "en": "Drug levels", "ru": "Уровни лекарств", "ua": "Рівні ліків"}, "rows": [["dig", "Digoxin", 300, ""], ["valp", "Kyselina valproová", 400, ""]]}, {"id": "kardio", "n": {"cs": "Kardiologie", "en": "Cardiology", "ru": "Кардиология", "ua": "Кардіологія"}, "rows": [["tropi", "Troponin I", 900, ""], ["ckmb", "CK-MB", 200, ""], ["bnp", "NT pro BNP", 800, ""], ["hcy", "Homocystein", 400, ""]]}, {"id": "ostat", "n": {"cs": "Ostatní", "en": "Other", "ru": "Прочее", "ua": "Інше"}, "rows": [["cpep", "C-peptid", 200, ""], ["hgh", "HGH – růstový hormon", 300, ""], ["igf1", "IGF-1", 400, ""], ["igfbp3", "IGF BP3", 450, ""], ["kort", "Kortizol sérum", 250, ""], ["kortu", "Kortizol moč /24 hod", 250, "u"]]}, {"id": "imunol1", "n": {"cs": "Imunologie", "en": "Immunology", "ru": "Иммунология", "ua": "Імунологія"}, "rows": [["ige", "Celkové IgE", 400, ""], ["iga", "IgA", 160, ""], ["igm", "IgM", 160, ""], ["igg", "IgG", 160, ""], ["iggp", "IgG – podtřídy", 300, ""], ["c3", "C3 složka komplementu", 190, ""], ["c4", "C4 složka komplementu", 190, ""], ["cerul", "Ceruloplasmin", 190, ""], ["a1at", "Alfa-1-antitrypsin", 190, ""], ["oroso", "Orosomucoid", 190, ""], ["prealb", "Prealbumin", 190, ""], ["aslo", "ASLO", 160, ""], ["dnasab", "Anti Dnasa B", 160, ""], ["rf", "RF screen", 160, ""], ["rft", "RF IgM, IgA, IgG", 840, ""]]}, {"id": "imunol2", "n": {"cs": "Autoimunita", "en": "Autoimmunity", "ru": "Аутоиммунитет", "ua": "Аутоімунітет"}, "rows": [["accp", "Anti-citrulin IgG", 300, ""], ["c1q", "CIK – C1q", 250, ""], ["ttg", "Anti tTG", 400, ""], ["gliad", "Anti DA gliadin IgA, IgG", 500, ""], ["ema", "EMA IgA", 200, ""], ["akm", "Anti Kravské mléko IgA, IgG", 1200, ""], ["alakt", "Anti Laktóza IgA, IgG", 400, ""], ["asca", "ASCA IgA, IgG", 800, ""], ["ana", "ANA IIF", 300, ""], ["ena", "ENA screen", 400, ""], ["anablot", "ANA blot", 1000, ""], ["dsdna", "Anti ds-DNA screen", 400, ""], ["asma", "ASMA IIF", 300, ""], ["jblot", "Jaterní blot", 1000, ""], ["lkm", "Anti LKM", 300, ""], ["sla", "Anti SLA", 300, ""], ["ama", "AMA M2", 300, ""], ["aif", "Anti Intrinsic faktor", 300, ""], ["apca", "APCA", 300, ""], ["anca", "ANCA IIF", 300, ""], ["pr3", "ANCA anti PR3", 400, ""], ["mpo", "ANCA anti MPO", 400, ""], ["gbm", "Anti GBM", 300, ""], ["acla", "ACLA screen", 300, ""], ["acla3", "ACLA třídy", 900, ""], ["b2gp", "Anti β2 glykoprotein 1 screen", 300, ""], ["b2gp3", "Anti β2 glykoprotein 1 třídy", 900, ""]]}]}, {"id": "sero", "n": {"cs": "Infekce, sérologie a PCR", "en": "Infections, serology & PCR", "ru": "Инфекции, серология и ПЦР", "ua": "Інфекції, серологія та ПЛР"}, "form": "F04.01", "tint": "#D6EEF8", "acc": "#C8102E", "secs": [{"id": "hep", "n": {"cs": "Hepatitidy, HIV, syphilis", "en": "Hepatitis, HIV, syphilis", "ru": "Гепатиты, ВИЧ, сифилис", "ua": "Гепатити, ВІЛ, сифіліс"}, "rows": [["havm", "Hepatitis A – IgM", 350, ""], ["havg", "Hepatitis A – IgG", 350, ""], ["hbs", "Hepatitis B – HBsAg", 250, ""], ["hbeag", "Hepatitis B – HBeAg", 250, ""], ["hbcm", "Hepatitis B – IgM HBc", 350, ""], ["antihbc", "Hepatitis B – anti HBc celkové", 300, ""], ["hbe", "Hepatitis B – anti HBe", 300, ""], ["antihbs", "Hepatitis B – anti HBs", 300, ""], ["hcv", "Hepatitis C – anti HCV", 350, ""], ["hcvblot", "Hepatitis C – HCV blot", 1100, ""], ["hdv", "Hepatitis D – anti HDV", 300, ""], ["hev", "Hepatitis E – IgG, IgM", 500, ""], ["syf", "Syphilis", 300, ""], ["hiv", "HIV 1/2", 300, ""]]}, {"id": "vvv", "n": {"cs": "Screening VVV (těhotenství)", "en": "Pregnancy screening", "ru": "Скрининг при беременности", "ua": "Скринінг вагітності"}, "rows": [["vvv1", "1. trimestr – PAPP-A, free β HCG", 650, ""], ["vvv2", "2. trimestr – AFP, HCG, Estriol", 550, ""], ["pigf", "Preeklampsie PlGF", 450, ""], ["sflt", "Preeklampsie sFlt 1", 450, ""]]}, {"id": "drogy", "n": {"cs": "Drogy screen – moč", "en": "Drug screen – urine", "ru": "Наркотики – моча", "ua": "Наркотики – сеча"}, "rows": [["dr_amp", "Amphetamine", 270, "u"], ["dr_thc", "Cannabinoides", 270, "u"], ["dr_opi", "Opiates", 270, "u"], ["dr_coc", "Cocaine", 270, "u"], ["dr_bzd", "Benzodiazepines", 270, "u"], ["dr_bup", "Buprenorphine", 270, "u"]]}, {"id": "serol", "n": {"cs": "Sérologie", "en": "Serology", "ru": "Серология", "ua": "Серологія"}, "rows": [["bart", "Bartonella henselae", 500, ""], ["list", "Listerie", 600, ""], ["tular", "Tularemie", 600, ""], ["bruc", "Brucella", 600, ""], ["toxo", "Toxoplasma gondii", 1500, ""], ["toxoc", "Toxocara canis", 300, ""], ["bafz", "Borrelia afzelii", 600, ""], ["bafzwb", "Borrelia afzelii WB", 1600, ""], ["bgar", "Borrelia garinii", 600, ""], ["bgarwb", "Borrelia garinii WB", 1600, ""], ["kme", "Klíšťová encef. IgG, IgM", 600, ""], ["kmeo", "Klíšťová encef. po očkování IgG", 300, ""], ["hsv", "Herpes s. typ 1,2", 900, ""], ["ebv", "EBV", 1500, ""], ["imt", "IM test", 100, ""], ["cmv", "CMV", 1200, ""], ["hhv6", "Herpes h. typ 6", 400, ""], ["vzv", "Varicella-zoster IgG, IgM", 600, ""], ["chltr", "Chlam. trachomatis", 900, ""], ["chlpn", "Chlam. pneumoniae", 900, ""], ["chlwb", "Chlamydie WB", 2000, ""], ["yerwb", "Yersinia ent. WB", 1600, ""], ["hpwb", "Helicobacter p. WB", 1600, ""], ["parvo", "Parvo-B19 (5. nemoc)", 600, ""], ["rub", "Rubella IgG, IgM", 600, ""], ["morb", "Morbilli IgG, IgM", 600, ""], ["parot", "Parotitis epid. IgG, IgM", 600, ""], ["flu", "Chřipka A, B", 500, ""], ["adeno", "Adenoviry", 600, ""], ["rsv", "RS – viry", 600, ""], ["entero", "Enteroviry", 1200, ""], ["mycpn", "Mycoplasma pneum. IgG, IgM, IgA", 900, ""], ["bper", "B. pertussis/para IgG, IgM, IgA", 900, ""], ["bpero", "B. pertussis po očkování IgG", 300, ""], ["covm", "COVID 19 IgM", 400, ""], ["covg", "COVID 19 IgG", 400, ""], ["cova", "COVID 19 IgA", 400, ""], ["covs", "COVID 19 po očkování IgG (S-protein)", 400, ""], ["tet", "Tetanus po očkování IgG", 350, ""], ["dif", "Difteriae po očkování IgG", 350, ""]]}, {"id": "pcr", "n": {"cs": "PCR", "en": "PCR", "ru": "ПЦР", "ua": "ПЛР"}, "rows": [["pcr_hbv", "HBV", 1500, ""], ["pcr_hcv", "HCV", 1500, ""], ["pcr_ebv", "EBV", 1000, ""], ["pcr_cmv", "CMV", 1000, ""], ["pcr_hhv6", "HHV 6", 1000, ""], ["pcr_hsv", "HSV 1/2", 1000, ""], ["pcr_vzv", "Varicella-zoster", 1000, ""], ["pcr_parvo", "Parvo-B19", 1500, ""], ["pcr_myc", "Mycoplasma pn. – výtěr", 1000, "u"], ["pcr_bper", "B. pertussis/para – výtěr", 1000, "u"], ["pcr_flu", "Chřipka A, B, RS virus – výtěr", 1500, "u"], ["pcr_cov", "COVID 19 – výtěr", 850, "u"], ["pcr_resp", "Respirační panel – výtěr", 7000, "u"], ["pcr_bor", "Borrelia", 1000, ""]]}, {"id": "std", "n": {"cs": "STD – PCR", "en": "STD – PCR", "ru": "ИППП – ПЦР", "ua": "ІПСШ – ПЛР"}, "rows": [["std_ctng", "Ch. trachomatis, N. gonorrhoeae, Myco. genitalium", 502, "u"], ["std_uu", "Ureaplasma spec., Myco. hominis", 502, "u"], ["std_tv", "Trichomonas vag.", 190, "u"], ["std_gv", "Gardnerella vag.", 650, "u"], ["std_multi", "STD MULTIPLEX", 1700, "u"], ["hpv", "HPV – HIGH RISK", 1500, "u"]]}, {"id": "stolice", "n": {"cs": "Stolice", "en": "Stool", "ru": "Кал", "ua": "Кал"}, "rows": [["hpag", "Helicobacter p. Ag", 400, "u"], ["calpro", "Calprotectin", 700, "u"], ["rna", "Rotaviry, Noroviry, Adenoviry", 1000, "u"], ["gastro", "Gastropanel PCR", 7000, "u"]]}, {"id": "vytery", "n": {"cs": "Výtěry", "en": "Swabs", "ru": "Мазки", "ua": "Мазки"}, "rows": [["vkrk", "Výtěr krk", 350, "u"], ["vnos", "Výtěr nos", 350, "u"], ["vrekt", "Výtěr rektum", 350, "u"]]}]}, {"id": "alerg", "n": {"cs": "Alergologie", "en": "Allergology", "ru": "Аллергология", "ua": "Алергологія"}, "form": "Alergo", "tint": "#DDF1E6", "acc": "#0A9E62", "secs": [{"id": "algen", "n": {"cs": "Celkové a screening", "en": "Total & screening", "ru": "Общий и скрининг", "ua": "Загальний і скринінг"}, "rows": [["ige_al", "Celkové IgE", 400, ""], ["alatop", "AlaTOP screening", 900, ""], ["foodblot", "Potravinový blot (20 alergenů)", 1500, ""]]}, {"id": "al_zvir", "n": {"cs": "Zvířecí alergeny", "en": "Animal allergens", "ru": "Аллергены животных", "ua": "Алергени тварин"}, "rows": [["al_e1", "E1  Kočičí epitel", 400, ""], ["al_e3", "E3  Koňská srst", 400, ""], ["al_e82", "E82  Králičí epitel", 400, ""], ["al_e84", "E84  Křeččí epitel", 400, ""], ["al_e6", "E6  Morčecí epitel", 400, ""], ["al_e78", "E78  Peří andulky", 400, ""], ["al_e2", "E2  Psí epitel", 400, ""]]}, {"id": "al_potr", "n": {"cs": "Potraviny", "en": "Foods", "ru": "Продукты", "ua": "Продукти"}, "rows": [["al_f1", "F1  Vaječný bílek", 400, ""], ["al_f2", "F2  Kravské mléko", 400, ""], ["al_f76", "F76  Alpha laktalbumin", 400, ""], ["al_f77", "F77  Beta laktoglobulin", 400, ""], ["al_f78", "F78  Kasein", 400, ""], ["al_f79", "F79  Gluten", 400, ""], ["al_f4", "F4  Pšenice", 400, ""], ["al_f36", "F36  Kokosový ořech", 400, ""], ["al_f17", "F17  Lískový ořech", 400, ""], ["al_f20", "F20  Mandle", 400, ""], ["al_f18", "F18  Para ořech", 400, ""], ["al_f13", "F13  Podzemnice olejná", 400, ""], ["al_f10", "F10  Sezamové semínko", 400, ""], ["al_f14", "F14  Sojový bob", 400, ""], ["al_f256", "F256  Vlašský ořech", 400, ""], ["al_f25", "F25  Rajče", 400, ""], ["al_f84", "F84  Kiwi", 400, ""], ["al_f85", "F85  Celer", 400, ""], ["al_f105", "F105  Čokoláda", 400, ""], ["al_f3", "F3  Treska", 400, ""]]}, {"id": "al_hmyz", "n": {"cs": "Hmyz", "en": "Insects", "ru": "Насекомые", "ua": "Комахи"}, "rows": [["al_i71", "I71  Komár", 400, ""], ["al_i5", "I5  Sršeň", 400, ""], ["al_i1", "I1  Včela medonosná", 400, ""], ["al_i2", "I2  Vosa lesní", 400, ""], ["al_i3", "I3  Vosa obecná", 400, ""], ["al_i4", "I4  Vosík", 400, ""]]}, {"id": "al_travy", "n": {"cs": "Trávy", "en": "Grasses", "ru": "Травы", "ua": "Трави"}, "rows": [["al_g6", "G6  Bojínek luční", 400, ""], ["al_g2", "G2  Troskut prstnatý", 400, ""], ["al_g12", "G12  Žito seté", 400, ""]]}, {"id": "al_roztoci", "n": {"cs": "Roztoči", "en": "Mites", "ru": "Клещи", "ua": "Кліщі"}, "rows": [["al_d1", "D1  Dermatophagoides pteronyssinus", 400, ""], ["al_d2", "D2  Dermatophagoides farinae", 400, ""]]}, {"id": "al_plisne", "n": {"cs": "Plísně", "en": "Moulds", "ru": "Плесень", "ua": "Плісняви"}, "rows": [["al_m6", "M6  Alternaria tenuis", 400, ""], ["al_m2", "M2  Cladosporium herbarum", 400, ""], ["al_m1", "M1  Penicillium notatum", 400, ""]]}, {"id": "al_leky", "n": {"cs": "Léky", "en": "Drugs", "ru": "Лекарства", "ua": "Ліки"}, "rows": [["al_c203", "C203  Ampicillin", 400, ""], ["al_c204", "C204  Amoxicillin", 400, ""], ["al_c1", "C1  Penicilloyl G", 400, ""], ["al_c2", "C2  Penicilloyl V", 400, ""]]}, {"id": "al_byliny", "n": {"cs": "Byliny", "en": "Weeds", "ru": "Сорные травы", "ua": "Бур'яни"}, "rows": [["al_w1", "W1  Ambrosie pelyňkolistá", 400, ""], ["al_w9", "W9  Jitrocel kopinatý", 400, ""], ["al_w6", "W6  Pelyněk černobýl", 400, ""], ["al_w19", "W19  Plicník lékařský", 400, ""]]}, {"id": "al_stromy", "n": {"cs": "Stromy", "en": "Trees", "ru": "Деревья", "ua": "Дерева"}, "rows": [["al_t3", "T3  Bříza bradavičnatá", 400, ""], ["al_t17", "T17  Cedr japonský", 400, ""]]}, {"id": "al_rek", "n": {"cs": "Rekombinantní alergeny", "en": "Recombinant allergens", "ru": "Рекомбинантные аллергены", "ua": "Рекомбінантні алергени"}, "rows": [["al_nbetv1", "nBet v1 – pyl břízy (PR-10)", 450, ""], ["al_nderp1", "nDer p1 – Der. pteronyssinus (cystein proteáza)", 450, ""], ["al_nderp2", "nDer p2 – Der. pteronyssinus (rodina NPC2)", 450, ""], ["al_rapim1", "rApi m1 – včela (fosfolipáza PLA2)", 450, ""], ["al_rapim2", "rApi m2 – včela (hyaluronidáza)", 450, ""], ["al_rvesv5", "rVes v5 – vosa (antigen 5)", 450, ""]]}]}];
+
+  /* Původní seznam — slouží už jen pro překlady názvů v ruštině, ukrajinštině a angličtině. */
+  var LEGACY = [
     { id:"basic", kind:"blood", n:t4("Základní přehled","Базовый профиль","Базовий профіль","Core panel"), d:t4("Krevní obraz, zánět a cukr — první krok každé prevence. Odhalí chudokrevnost, skrytý zánět i riziko cukrovky dřív, než se ozvou potíže.","Общий анализ крови, воспаление и сахар — первый шаг любой профилактики. Покажет анемию, скрытое воспаление и риск диабета раньше, чем появятся жалобы.","Загальний аналіз крові, запалення й цукор — перший крок будь-якої профілактики. Покаже анемію, приховане запалення та ризик діабету раніше, ніж з’являться скарги.","Blood count, inflammation and sugar — the first step of any check-up. It reveals anaemia, hidden inflammation and diabetes risk before symptoms appear."), items:[
       it("skup",350,t4("Krevní skupina + Rh faktor","Группа крови + резус-фактор","Група крові + резус-фактор","Blood group + Rh factor"),t4("Vaše krevní skupina a Rh — hodí se před operací, porodem, v těhotenství a pro dárcovství krve. Stačí jednou za život.","Ваша группа крови и резус — нужны перед операцией, родами, при беременности и для донорства. Достаточно раз в жизни.","Ваша група крові та резус — потрібні перед операцією, пологами, при вагітності та для донорства. Достатньо раз у житті.","Your blood group and Rh — useful before surgery, birth, in pregnancy and for donating blood. Once in a lifetime is enough.")),
       it("cpep",200,t4("C-peptid — vlastní tvorba inzulinu","С-пептид — собственная выработка инсулина","С-пептид — власне вироблення інсуліну","C-peptide — your own insulin production"),t4("Kolik inzulinu si tělo samo vyrábí — pomáhá rozlišit typ cukrovky.","Сколько инсулина организм вырабатывает сам — помогает различить тип диабета.","Скільки інсуліну організм виробляє сам — допомагає розрізнити тип діабету.","How much insulin your body makes itself — helps tell diabetes types apart.")),
@@ -2155,75 +2212,130 @@ body.has-cart .to-top{ bottom:208px; }
   };
 
   var UI = {
-    cs:{ czk:"Kč", ask:"na dotaz", count:"Vybráno: {n}", fee:"odběr krve", nofee:"bez poplatku za odběr", show:"Zobrazit výběr", hide:"Skrýt výběr", expand:"Rozbalit vše", collapse:"Sbalit vše", nores:"Žádné vyšetření neodpovídá hledání.", remove:"Odebrat", notesHead:"Vybraná vyšetření (web uvlecky.cz):", notesTotal:"Celkem orientačně" },
-    ru:{ czk:"Kč", ask:"по запросу", count:"Выбрано: {n}", fee:"забор крови", nofee:"без платы за забор", show:"Показать выбор", hide:"Скрыть выбор", expand:"Развернуть всё", collapse:"Свернуть всё", nores:"Ничего не найдено.", remove:"Убрать", notesHead:"Выбранные анализы (сайт uvlecky.cz):", notesTotal:"Итого ориентировочно" },
-    uk:{ czk:"Kč", ask:"за запитом", count:"Обрано: {n}", fee:"забір крові", nofee:"без плати за забір", show:"Показати вибір", hide:"Сховати вибір", expand:"Розгорнути все", collapse:"Згорнути все", nores:"Нічого не знайдено.", remove:"Прибрати", notesHead:"Обрані аналізи (сайт uvlecky.cz):", notesTotal:"Разом орієнтовно" },
-    en:{ czk:"CZK", ask:"on request", count:"Selected: {n}", fee:"blood draw", nofee:"no sampling fee", show:"Show selection", hide:"Hide selection", expand:"Expand all", collapse:"Collapse all", nores:"No test matches your search.", remove:"Remove", notesHead:"Selected tests (uvlecky.cz):", notesTotal:"Estimated total" }
+    cs:{ likes:"Kolikrát lidé vybrali vyšetření z tohoto bloku", lab:"klinická laboratoř · žádanka", form:"podle žádanky", czk:"Kč", ask:"na dotaz", count:"Vybráno: {n}", fee:"odběr krve", nofee:"bez poplatku za odběr", show:"Zobrazit výběr", hide:"Skrýt výběr", expand:"Rozbalit vše", collapse:"Sbalit vše", nores:"Žádné vyšetření neodpovídá hledání.", remove:"Odebrat", notesHead:"Vybraná vyšetření (web uvlecky.cz):", notesTotal:"Celkem orientačně" },
+    ru:{ likes:"Сколько раз выбирали анализы из этого блока", lab:"клиническая лаборатория · бланк", form:"по бланку", czk:"Kč", ask:"по запросу", count:"Выбрано: {n}", fee:"забор крови", nofee:"без платы за забор", show:"Показать выбор", hide:"Скрыть выбор", expand:"Развернуть всё", collapse:"Свернуть всё", nores:"Ничего не найдено.", remove:"Убрать", notesHead:"Выбранные анализы (сайт uvlecky.cz):", notesTotal:"Итого ориентировочно" },
+    uk:{ likes:"Скільки разів обирали аналізи з цього блоку", lab:"клінічна лабораторія · бланк", form:"за бланком", czk:"Kč", ask:"за запитом", count:"Обрано: {n}", fee:"забір крові", nofee:"без плати за забір", show:"Показати вибір", hide:"Сховати вибір", expand:"Розгорнути все", collapse:"Згорнути все", nores:"Нічого не знайдено.", remove:"Прибрати", notesHead:"Обрані аналізи (сайт uvlecky.cz):", notesTotal:"Разом орієнтовно" },
+    en:{ likes:"How many times people picked tests from this block", lab:"clinical laboratory · request form", form:"after form", czk:"CZK", ask:"on request", count:"Selected: {n}", fee:"blood draw", nofee:"no sampling fee", show:"Show selection", hide:"Hide selection", expand:"Expand all", collapse:"Collapse all", nores:"No test matches your search.", remove:"Remove", notesHead:"Selected tests (uvlecky.cz):", notesTotal:"Estimated total" }
   };
 
   var lang = UI[document.documentElement.lang] ? document.documentElement.lang : "cs";
   var T = UI[lang];
-  var ITEMS = {}, KIND = {}, picked = {}, query = "", cartOpen = false;
-  GROUPS.forEach(function(g){ g.items.forEach(function(i){ ITEMS[i.id] = i; KIND[i.id] = g.kind; }); });
+  var ITEMS = {}, KIND = {}, SECOF = {}, SHEETOF = {}, TR = {}, picked = {}, query = "", cartOpen = false, tab = FORM[0].id;
+  LEGACY.forEach(function(g){ g.items.forEach(function(i){ TR[i.id] = i.n; }); });
+  FORM.forEach(function(sh){ sh.secs.forEach(function(sec){ sec.rows.forEach(function(r){
+    ITEMS[r[0]] = { id:r[0], n:r[1], p:r[2] };
+    KIND[r[0]] = r[3] === "u" ? "other" : "blood";
+    SECOF[r[0]] = sec.id; SHEETOF[r[0]] = sh.id;
+  }); }); });
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-  function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
-  function ids(){ var out = []; GROUPS.forEach(function(g){ g.items.forEach(function(i){ if (picked[i.id]) out.push(i.id); }); }); return out; }
+  function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+  function ids(){ var out = []; FORM.forEach(function(sh){ sh.secs.forEach(function(sec){ sec.rows.forEach(function(r){ if (picked[r[0]]) out.push(r[0]); }); }); }); return out; }
   function totals(){
     var list = ids(), tests = 0, blood = false;
     list.forEach(function(id){ tests += ITEMS[id].p || 0; if (KIND[id] === "blood") blood = true; });
     return { ids:list, tests:tests, fee:blood ? FEE : 0, total:tests + (blood ? FEE : 0) };
   }
+  function price(p){ return p == null ? T.ask : fmt(p) + " " + T.czk; }
+  function hint(id){ return (lang !== "cs" && TR[id] && TR[id][lang] && TR[id][lang] !== ITEMS[id].n) ? TR[id][lang] : ""; }
 
   function renderPacks(){
     document.querySelectorAll(".topic[data-pack]").forEach(function(btn){
-      var list = PACKS[btn.getAttribute("data-pack")], sum = 0, blood = false, on = true;
+      var list = (PACKS[btn.getAttribute("data-pack")] || []).filter(function(id){ return ITEMS[id]; }), sum = 0, blood = false, on = list.length > 0;
       list.forEach(function(id){ sum += ITEMS[id].p || 0; if (KIND[id] === "blood") blood = true; if (!picked[id]) on = false; });
       var ask = list.some(function(id){ return ITEMS[id].p == null; });
-      btn.querySelector("[data-price]").textContent = (ask && !sum) ? T.ask : fmt(sum + (blood ? FEE : 0)) + " " + T.czk + (ask ? " + " + T.ask : "");
+      btn.querySelector("[data-price]").textContent = fmt(sum + (blood ? FEE : 0)) + " " + T.czk + (ask ? " + " + T.ask : "");
       btn.setAttribute("aria-pressed", String(on));
     });
   }
 
-  /* a colour and an icon per group of tests */
-  var GICON = {
-    basic:{ a:"#E8466B", b:"#9E1239", d:'<path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"/>' },
-    lipids:{ a:"#F43F5E", b:"#BE123C", d:'<path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>' },
-    organs:{ a:"#10B981", b:"#0F766E", d:'<path d="M4 14c0-5 4-9 9-9 4 0 7 2 7 6 0 5-5 9-10 9-3.5 0-6-2.5-6-6Z"/><path d="M9 11c1.5 0 3 1 3 3"/>' },
-    minerals:{ a:"#0EA5E9", b:"#2563EB", d:'<path d="M12 3 4 8v8l8 5 8-5V8z"/><path d="M4 8l8 5 8-5M12 13v8"/>' },
-    vitamins:{ a:"#F59E0B", b:"#EA580C", d:'<rect height="8" rx="4" transform="rotate(-45 12 12)" width="18" x="3" y="8"/><path d="m9.5 9.5 5 5"/>' },
-    thyroid:{ a:"#8B5CF6", b:"#6D28D9", d:'<path d="M12 8c-2-3-7-3-8 1-.8 3.4 1.5 7 4 7 1.6 0 3-1.2 4-3 1 1.8 2.4 3 4 3 2.5 0 4.8-3.6 4-7-1-4-6-4-8-1Z"/>' },
-    hormones:{ a:"#EC4899", b:"#A855F7", d:'<circle cx="9" cy="9" r="5"/><path d="M9 14v7M6 18h6M15.5 3.5H21v5.5M21 3.5l-6 6"/>' },
-    men:{ a:"#2563EB", b:"#1E3A8A", d:'<circle cx="10" cy="14" r="6"/><path d="M14.5 9.5 21 3M15 3h6v6"/>' },
-    infect:{ a:"#14B8A6", b:"#0369A1", d:'<path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/>' },
-    coag:{ a:"#DC2626", b:"#7F1D1D", d:'<path d="M8 3.5s-4 4.5-4 7.3A4 4 0 0 0 12 11c0-2.8-4-7.5-4-7.5Z"/><path d="M16 10s-4 4.5-4 7.3a4 4 0 0 0 8 0c0-2.8-4-7.3-4-7.3Z"/>' },
-    urine:{ a:"#EAB308", b:"#CA8A04", d:'<path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 14h9"/>' }
-  };
-  function renderGroups(){
-    var host = document.getElementById("groups");
-    var open = {};
-    host.querySelectorAll("details.group").forEach(function(d){ open[d.getAttribute("data-g")] = d.open; });
-    var html = "", any = false;
-    GROUPS.forEach(function(g, gi){
-      var rows = "", picks = 0, sum = 0;
-      g.items.forEach(function(i){
-        if (picked[i.id]){ picks++; sum += i.p || 0; }
-        if (query && (i.n[lang] + ' ' + i.n.cs + ' ' + (i.d ? i.d[lang] : '')).toLowerCase().indexOf(query) < 0) return;
-        rows += '<label class="row' + (picked[i.id] ? " on" : "") + '"><input type="checkbox" data-pick="' + i.id + '"' + (picked[i.id] ? " checked" : "") + '>' +
-                '<span class="name">' + esc(i.n[lang]) + (i.d ? '<small class="why">' + esc(i.d[lang]) + '</small>' : '') + '</span><span class="p">' + (i.p == null ? T.ask : fmt(i.p) + " " + T.czk) + '</span></label>';
-      });
-      if (!rows) return;
-      any = true;
-      var isOpen = query ? true : (g.id in open ? open[g.id] : gi === 0);
-      html += '<details class="group" data-g="' + g.id + '"' + (isOpen ? " open" : "") + '><summary>' +
-              '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>' +
-              (GICON[g.id] ? '<span class="g-ic" style="background:linear-gradient(135deg,' + GICON[g.id].a + ',' + GICON[g.id].b + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + GICON[g.id].d + '</svg></span>' : '') +
-              '<span class="g-text"><span class="g-name">' + esc(g.n[lang]) + '</span>' + (g.d ? '<span class="g-desc">' + esc(g.d[lang]) + '</span>' : '') + '</span>' +
-              '<span class="g-count"' + (picks ? "" : " hidden") + '>' + picks + " · " + fmt(sum) + " " + T.czk + '</span></summary>' +
-              '<div class="rows">' + rows + '</div></details>';
+  /* ---- likes: one shared counter per block in Firestore (likes/odbery), +1 per tapped test ---- */
+  var DOC = "projects/uvlecky-f9d20/databases/(default)/documents/likes/odbery";
+  var API = "https://firestore.googleapis.com/v1/";
+  var likes = {};
+  function likeHtml(secId){ return '<span class="zf-like" data-like="' + secId + '" title="' + esc(T.likes) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21Z" fill="currentColor"/></svg><b>' + fmt(likes[secId] || 0) + '</b></span>'; }
+  function paintLikes(){ document.querySelectorAll("[data-like]").forEach(function(el){ el.querySelector("b").textContent = fmt(likes[el.getAttribute("data-like")] || 0); }); }
+  function loadLikes(){
+    if (!window.fetch) return;
+    fetch(API + DOC).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+      if (!d || !d.fields) return;
+      Object.keys(d.fields).forEach(function(k){ var v = d.fields[k].integerValue; if (v != null) likes[k] = Math.max(likes[k] || 0, +v); });
+      paintLikes();
+    }).catch(function(){});
+  }
+  function addLike(secId){
+    likes[secId] = (likes[secId] || 0) + 1;
+    document.querySelectorAll('[data-like="' + secId + '"]').forEach(function(el){
+      el.querySelector("b").textContent = fmt(likes[secId]);
+      el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump");
     });
-    host.innerHTML = any ? html : '<div class="group"><div class="empty">' + esc(T.nores) + '</div></div>';
-    syncExpand();
+    if (!window.fetch) return;
+    fetch(API + DOC.replace(/\/likes\/odbery$/, "") + ":commit", {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ writes:[{ transform:{ document:DOC, fieldTransforms:[{ fieldPath:secId, increment:{ integerValue:"1" } }] } }] })
+    }).catch(function(){});
+  }
+
+  /* ---- heart that gathers from little dots above the tapped row ---- */
+  var HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21Z" fill="currentColor"/></svg>';
+  function burst(el){
+    if (reduce) return;
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), html = "";
+    w.className = "zf-burst";
+    w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top + r.height / 2) + "px";
+    for (var i = 0; i < 9; i++){
+      var ang = (i / 9) * Math.PI * 2, dist = 30 + Math.random() * 22;
+      html += '<span class="zf-pt" style="--dx:' + (Math.cos(ang) * dist).toFixed(1) + 'px;--dy:' + (Math.sin(ang) * dist).toFixed(1) + 'px;animation-delay:' + (Math.random() * 90 | 0) + 'ms"></span>';
+    }
+    w.innerHTML = html + '<span class="zf-hrt">' + HEART + '</span>';
+    document.body.appendChild(w);
+    setTimeout(function(){ w.remove(); }, 1500);
+  }
+
+  function rowHtml(r){
+    var on = !!picked[r[0]], h = hint(r[0]);
+    return '<button type="button" class="zf-row' + (on ? " on" : "") + '" data-pick="' + r[0] + '" aria-pressed="' + on + '">' +
+           '<span class="zf-n">' + esc(r[1]) + (h ? '<small>' + esc(h) + '</small>' : '') + '</span>' +
+           '<span class="zf-p">' + price(r[2]) + '</span><span class="zf-dot"><i></i></span></button>';
+  }
+  function match(r){
+    if (!query) return true;
+    return (r[1] + " " + (TR[r[0]] ? TR[r[0]][lang] + " " + TR[r[0]].cs : "")).toLowerCase().indexOf(query) >= 0;
+  }
+  function sheetHtml(sh){
+    var cols = "";
+    sh.secs.forEach(function(sec){
+      var rows = sec.rows.filter(match);
+      if (!rows.length) return;
+      cols += '<section class="zf-sec" data-sec="' + sec.id + '"><header class="zf-h"><span>' + esc(sec.n[lang] || sec.n.cs) + '</span>' + likeHtml(sec.id) + '</header>' +
+              rows.map(rowHtml).join("") + '</section>';
+    });
+    if (!cols) return "";
+    return '<div class="zf-paper" style="--tint:' + sh.tint + ';--acc:' + sh.acc + '"><i class="zf-c tl"></i><i class="zf-c tr"></i><i class="zf-c bl"></i><i class="zf-c br"></i>' +
+           '<div class="zf-brand"><div><strong>DIAGNOSTIKA</strong> <span>' + esc(T.lab) + '</span></div><div class="zf-title">' + esc(sh.n[lang] || sh.n.cs) + '<small>' + esc(T.form) + ' ' + esc(sh.form) + '</small></div></div>' +
+           '<div class="zf-cols">' + cols + '</div></div>';
+  }
+  function sheetCount(id){ var n = 0; Object.keys(picked).forEach(function(k){ if (picked[k] && SHEETOF[k] === id) n++; }); return n; }
+  function renderTabs(){
+    document.querySelectorAll(".zf-tab").forEach(function(b){
+      var n = sheetCount(b.getAttribute("data-tab")), badge = b.querySelector("b");
+      badge.textContent = n; badge.hidden = !n;
+    });
+  }
+  function renderGroups(){
+    var host = document.getElementById("groups"), out = "";
+    if (!query){
+      out += '<div class="zf-tabs" role="tablist">' + FORM.map(function(sh){
+        return '<button type="button" role="tab" class="zf-tab" data-tab="' + sh.id + '" aria-selected="' + (sh.id === tab) + '" style="--tint:' + sh.tint + '">' + esc(sh.n[lang] || sh.n.cs) + '<b hidden></b></button>';
+      }).join("") + '</div>';
+      FORM.forEach(function(sh){ if (sh.id === tab) out += sheetHtml(sh); });
+    } else {
+      FORM.forEach(function(sh){ out += sheetHtml(sh); });
+      if (out.indexOf("zf-row") < 0) out = '<div class="zf-paper"><div class="empty">' + esc(T.nores) + '</div></div>';
+    }
+    host.innerHTML = out;
+    renderTabs();
   }
 
   function renderCart(){
@@ -2240,17 +2352,9 @@ body.has-cart .to-top{ bottom:208px; }
     var list = document.getElementById("cart-list");
     list.hidden = !cartOpen;
     list.innerHTML = cartOpen ? s.ids.map(function(id){
-      return '<span class="chip">' + esc(ITEMS[id].n[lang]) + " · " + fmt(ITEMS[id].p) +
+      return '<span class="chip">' + esc(ITEMS[id].n) + " · " + price(ITEMS[id].p) +
              '<button type="button" data-drop="' + id + '" aria-label="' + esc(T.remove) + '">&times;</button></span>';
     }).join("") : "";
-  }
-
-  function syncExpand(){
-    var all = document.querySelectorAll("details.group"), allOpen = all.length > 0;
-    all.forEach(function(d){ if (!d.open) allOpen = false; });
-    var b = document.getElementById("expand-all");
-    b.textContent = allOpen ? T.collapse : T.expand;
-    b.dataset.mode = allOpen ? "collapse" : "expand";
   }
 
   function refresh(){ renderPacks(); renderGroups(); renderCart(); }
@@ -2260,31 +2364,28 @@ body.has-cart .to-top{ bottom:208px; }
     var s = totals();
     if (!s.ids.length) return "";
     var lines = [T.notesHead];
-    s.ids.forEach(function(id){ lines.push("• " + ITEMS[id].n[lang] + " — " + (ITEMS[id].p == null ? T.ask : ITEMS[id].p + " " + T.czk)); });
+    s.ids.forEach(function(id){ lines.push("• " + ITEMS[id].n + " — " + price(ITEMS[id].p)); });
     if (s.fee) lines.push("• " + T.fee + " — " + s.fee + " " + T.czk);
     lines.push(T.notesTotal + ": " + s.total + " " + T.czk);
     return lines.join("\n");
   };
 
-  document.addEventListener("change", function(e){
-    var box = e.target;
-    if (!box.getAttribute || !box.getAttribute("data-pick")) return;
-    picked[box.getAttribute("data-pick")] = box.checked;
-    box.closest("label.row").classList.toggle("on", box.checked);
-    var det = box.closest("details.group"), g = null, picks = 0, sum = 0;
-    GROUPS.forEach(function(x){ if (x.id === det.getAttribute("data-g")) g = x; });
-    g.items.forEach(function(i){ if (picked[i.id]){ picks++; sum += i.p || 0; } });
-    var badge = det.querySelector(".g-count");
-    badge.hidden = !picks;
-    badge.textContent = picks + " · " + fmt(sum) + " " + T.czk;
-    renderPacks(); renderCart();
-  });
-
   document.addEventListener("click", function(e){
     if (!e.target.closest) return;
+    var row = e.target.closest(".zf-row[data-pick]");
+    if (row){
+      var id = row.getAttribute("data-pick"), on = !picked[id];
+      picked[id] = on;
+      row.classList.toggle("on", on); row.setAttribute("aria-pressed", String(on));
+      if (on){ burst(row.querySelector(".zf-dot")); addLike(SECOF[id]); }
+      renderTabs(); renderPacks(); renderCart();
+      return;
+    }
+    var t = e.target.closest(".zf-tab[data-tab]");
+    if (t){ tab = t.getAttribute("data-tab"); renderGroups(); return; }
     var pack = e.target.closest(".topic[data-pack]");
     if (pack){
-      var list = PACKS[pack.getAttribute("data-pack")], allOn = list.every(function(id){ return picked[id]; });
+      var list = PACKS[pack.getAttribute("data-pack")].filter(function(id){ return ITEMS[id]; }), allOn = list.every(function(id){ return picked[id]; });
       list.forEach(function(id){ picked[id] = !allOn; });
       refresh();
       return;
@@ -2293,16 +2394,11 @@ body.has-cart .to-top{ bottom:208px; }
     if (drop){ picked[drop.getAttribute("data-drop")] = false; refresh(); return; }
     if (e.target.closest("#cart-toggle")){ cartOpen = !cartOpen; renderCart(); return; }
     if (e.target.closest("#clear-all") || e.target.closest("#cart-clear")){ picked = {}; cartOpen = false; refresh(); return; }
-    if (e.target.closest("#expand-all")){
-      var mode = document.getElementById("expand-all").dataset.mode;
-      document.querySelectorAll("details.group").forEach(function(d){ d.open = mode !== "collapse"; });
-      syncExpand();
-    }
   });
-  document.addEventListener("toggle", function(e){ if (e.target.classList && e.target.classList.contains("group")) syncExpand(); }, true);
   document.getElementById("q").addEventListener("input", function(e){ query = e.target.value.trim().toLowerCase(); renderGroups(); });
 
   refresh();
+  loadLikes();
 })();
 </script></body>
 </html>
