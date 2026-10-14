@@ -21,7 +21,9 @@ Spuštění po každé změně ve src/ (soubory v public/ needitovat, přepíš�
     python build-langs.py
 """
 
+import html
 import json
+import re
 import os
 from bs4 import BeautifulSoup
 
@@ -294,6 +296,81 @@ def write(soup, lang, path):
         f.write(str(soup))
 
 
+def request_form_seo(soup, lang, keywords, schema):
+    """Stránka s žádankou (var FORM = [...] ve skriptu stránky): vyrenderuje
+    všechna vyšetření, ceny a popisy bloků přímo do HTML (#groups), aby je
+    vyhledávače viděly i bez JavaScriptu, a doplní je do keywords a do
+    katalogu nabídek ve schema. Skript stránky obsah po načtení nahradí
+    interaktivní žádankou."""
+    host = soup.find(id="groups")
+    script = next((t for t in soup.find_all("script") if t.string and "var FORM = " in t.string), None)
+    if host is None or script is None:
+        return keywords, schema
+    m = re.search(r"var FORM = (\[.*?\]);\n", script.string)
+    if not m:
+        return keywords, schema
+    form = json.loads(m.group(1))
+    key = lang or "cs"
+    czk = "CZK" if key == "en" else "Kč"
+    ask = {"cs": "na dotaz", "en": "on request", "ru": "по запросу", "ua": "за запитом"}[key]
+    def price(p):
+        return ask if p is None else "{:,}".format(p).replace(",", " ") + " " + czk
+    def t(d):
+        return d.get(key) or d.get("cs", "")
+    out = []
+    for sh in form:
+        cols = []
+        for sec in sh["secs"]:
+            rows = "".join('<div class="zf-row"><span class="zf-n">%s</span><span class="zf-p">%s</span><span class="zf-dot"><i></i></span></div>'
+                           % (html.escape(r[1]), price(r[2])) for r in sec["rows"])
+            desc = '<p class="zf-d">%s</p>' % html.escape(t(sec["d"])) if sec.get("d") else ""
+            cols.append('<section class="zf-sec"><header class="zf-h"><h3 style="font:inherit;margin:0">%s</h3></header>%s%s</section>'
+                        % (html.escape(t(sec["n"])), desc, rows))
+        out.append('<div class="zf-paper" style="--tint:%s;--acc:%s"><div class="zf-brand"><div><strong>DIAGNOSTIKA</strong></div>'
+                   '<h3 class="zf-title" style="margin:0">%s<small>%s</small></h3></div><div class="zf-cols">%s</div></div>'
+                   % (sh["tint"], sh["acc"], html.escape(t(sh["n"])), html.escape(sh["form"]), "".join(cols)))
+    host.clear()
+    host.append(BeautifulSoup("".join(out), "html.parser"))
+
+    words = []
+    for sh in form:
+        words.append(t(sh["n"]))
+        for sec in sh["secs"]:
+            words.append(t(sec["n"]))
+            words.extend(r[1] for r in sec["rows"])
+    if keywords is not None:
+        have = {w.strip().lower() for w in keywords.split(",")}
+        extra = []
+        for w in words:
+            w = w.replace("  ", " ").strip()
+            if w and w.lower() not in have:
+                have.add(w.lower()); extra.append(w)
+        keywords = keywords.rstrip(", ") + ", " + ", ".join(extra)
+
+    if isinstance(schema, dict):
+        cats, prices = [], []
+        for sh in form:
+            for sec in sh["secs"]:
+                offers = []
+                for r in sec["rows"]:
+                    offer = {"@type": "Offer", "priceCurrency": "CZK",
+                             "itemOffered": {"@type": "MedicalTest", "name": r[1]}}
+                    if r[2] is not None:
+                        offer["price"] = str(r[2]); prices.append(r[2])
+                    offers.append(offer)
+                cat = {"@type": "OfferCatalog", "name": "%s — %s" % (t(sh["n"]), t(sec["n"])), "itemListElement": offers}
+                if sec.get("d"):
+                    cat["description"] = t(sec["d"])
+                cats.append(cat)
+        schema = dict(schema)
+        oc = dict(schema.get("hasOfferCatalog") or {"@type": "OfferCatalog", "name": schema.get("name", "")})
+        oc["itemListElement"] = cats
+        schema["hasOfferCatalog"] = oc
+        if prices:
+            schema["priceRange"] = "%d–%d CZK" % (min(prices), max(prices))
+    return keywords, schema
+
+
 def finish(soup, lang, path, title, desc, keywords=None, schema=None):
     """Společný závěr pro každou stránku a jazyk. Vrací (počet překladů, FAQ).
 
@@ -307,6 +384,7 @@ def finish(soup, lang, path, title, desc, keywords=None, schema=None):
         n = apply_only(soup, "cs")
     fix_head(soup, lang, path, title, desc)
     make_switcher_links(soup, lang, path)
+    keywords, schema = request_form_seo(soup, lang, keywords, schema)
     tag_schema_entity(soup)
     faq = inject_faq_schema(soup)
     if keywords:
