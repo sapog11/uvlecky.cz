@@ -13,30 +13,27 @@ Spusteni po deployi:  python indexnow-ping.py
 
 import json
 import os
+import re
 import urllib.request
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 HOST = "uvlecky.cz"
 
-URLS = [
-    "https://uvlecky.cz/",
-    "https://uvlecky.cz/ru/",
-    "https://uvlecky.cz/ua/",
-    "https://uvlecky.cz/en/",
-    "https://uvlecky.cz/odbery/",
-    "https://uvlecky.cz/ru/odbery/",
-    "https://uvlecky.cz/ua/odbery/",
-    "https://uvlecky.cz/en/odbery/",
-    "https://uvlecky.cz/prakticky-lekar/",
-    "https://uvlecky.cz/ru/prakticky-lekar/",
-    "https://uvlecky.cz/ua/prakticky-lekar/",
-    "https://uvlecky.cz/en/prakticky-lekar/",
-    "https://uvlecky.cz/sitemap.xml",
-]
+def sitemap_urls():
+    """Vsechny adresy z public/sitemap.xml (+ samotny sitemap), aby ping
+    vzdy odpovidal aktualnimu webu."""
+    path = os.path.join(ROOT, "public", "sitemap.xml")
+    with open(path, encoding="utf-8") as f:
+        urls = re.findall(r"<loc>([^<]+)</loc>", f.read())
+    return urls + ["https://%s/sitemap.xml" % HOST]
+
+
+URLS = sitemap_urls()
 
 ENDPOINTS = [
     ("IndexNow (vsichni partneri)", "https://api.indexnow.org/indexnow"),
     ("Seznam.cz",                   "https://search.seznam.cz/indexnow"),
+    ("Bing",                        "https://www.bing.com/indexnow"),
     ("Yandex",                      "https://yandex.com/indexnow"),
 ]
 
