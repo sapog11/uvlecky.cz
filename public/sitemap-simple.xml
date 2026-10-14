@@ -1,39 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://uvlecky.cz</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://uvlecky.cz/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
-    <loc>https://uvlecky.cz#sluzby</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://uvlecky.cz/ru/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
-    <loc>https://uvlecky.cz#lekar</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://uvlecky.cz/ua/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
-    <loc>https://uvlecky.cz#informace</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://uvlecky.cz/en/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
-    <loc>https://uvlecky.cz#kontakt</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://uvlecky.cz/odbery/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
-    <loc>https://uvlecky.cz#partneri</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://uvlecky.cz/ru/odbery/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ua/odbery/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/en/odbery/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/prakticky-lekar/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ru/prakticky-lekar/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ua/prakticky-lekar/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/en/prakticky-lekar/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ochrana-osobnich-udaju/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ru/ochrana-osobnich-udaju/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ua/ochrana-osobnich-udaju/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/en/ochrana-osobnich-udaju/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/podminky/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ru/podminky/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ua/podminky/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/en/podminky/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/cookies/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ru/cookies/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/ua/cookies/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://uvlecky.cz/en/cookies/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
 </urlset>
