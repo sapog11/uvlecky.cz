@@ -964,6 +964,12 @@ body.has-cart .to-top{ bottom:208px; }
 .fab-item.fab-blood .fab-ic{ background:rgba(255,255,255,.2); color:#fff; }
 .fab-item.fab-blood small{ color:rgba(255,255,255,.85); }
 .fab-item.fab-blood:hover{ filter:brightness(1.06); }
+.fab-item.fab-zad{ background:#FFF1F4; color:#9E1239; border:1.5px solid rgba(232,70,107,.35); border-radius:16px; }
+.fab-item.fab-zad .fab-ic{ background:#fff; color:#C21A48; }
+.fab-item.fab-zad small{ color:#B4385A; }
+.fab-item.fab-zad:hover{ background:#FFE4EA; }
+.btn-2l{ display:flex; flex-direction:column; line-height:1.2; text-align:left; }
+.btn-2l small{ font-size:12px; font-weight:500; opacity:.8; }
 .fab-item.fab-exam{ background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 60%,#3B1C8C 100%); color:#fff; border-radius:16px; }
 .fab-item.fab-exam .fab-ic{ background:rgba(255,255,255,.2); color:#fff; }
 .fab-item.fab-exam small{ color:rgba(255,255,255,.85); }
@@ -1144,7 +1150,11 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="fab-menu" hidden="" id="fabMenu" role="menu">
 <a class="fab-item fab-blood" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"></path><path d="M7.5 14h9"></path></svg></span>
-<span><strong data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests, no referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Аналізи без направлення</strong><small data-lang-cs="Online rezervace · Po–Pá 8–11" data-lang-en="Book online · Mon–Fri 8–11" data-lang-ru="Онлайн-запись · Пн–Пт 8–11" data-lang-ua="Онлайн-запис · Пн–Пт 8–11">Онлайн-запис · Пн–Пт 8–11</small></span>
+<span><strong data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests, no referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Аналізи без направлення</strong><small data-lang-cs="Samoplátce · Po–Pá 8–11" data-lang-en="Self-pay · Mon–Fri 8–11" data-lang-ru="Платно · Пн–Пт 8–11" data-lang-ua="Платно · Пн–Пт 8–11">Платно · Пн–Пт 8–11</small></span>
+</a>
+<a class="fab-item fab-zad" data-zoryx-book="odbery_usti" data-zx-note="zadanka" href="https://zoryx.app/clinic/embed/odbery_usti" role="menuitem">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6M9 17h4"></path></svg></span>
+<span><strong data-lang-cs="Odběr se žádankou" data-lang-en="Blood test with a referral" data-lang-ru="Анализы с направлением" data-lang-ua="Аналізи з направленням">Аналізи з направленням</strong><small data-lang-cs="Hradí pojišťovna · stejné termíny" data-lang-en="Paid by insurance · same slots" data-lang-ru="Оплачивает страховая · те же даты" data-lang-ua="Оплачує страхова · ті самі дати">Оплачує страхова · ті самі дати</small></span>
 </a>
 <a class="fab-item fab-exam" data-zoryx-book="poliklinika_u_vlecky" href="https://zoryx.app/clinic/embed/poliklinika_u_vlecky" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="4" rx="1" width="8" x="8" y="2"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span>
@@ -1479,7 +1489,15 @@ body.has-cart .to-top{ bottom:208px; }
         if (btn.hasAttribute('data-calc-first') && typeof window.uvBookingNotes !== 'function') return;
         var clinicId = btn.getAttribute('data-zoryx-book');
         var withPicks = btn.hasAttribute('data-with-picks') || clinicId === 'odbery_usti';
-        var notes = (withPicks && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
+        var NOTES = {
+          zadanka: { cs:'Odběr se žádankou od lékaře — hradí pojišťovna. Žádanku a kartičku pojištěnce přinesu s sebou.',
+                     en:'Blood test with a doctor\'s referral — paid by health insurance. I will bring the referral and my insurance card.',
+                     ru:'Анализы с направлением от врача — оплачивает страховая. Направление и карточку страхования принесу с собой.',
+                     uk:'Аналізи з направленням від лікаря — оплачує страхова. Направлення та картку страхування принесу з собою.' }
+        };
+        var noteId = btn.getAttribute('data-zx-note');
+        var notes = noteId && NOTES[noteId] ? (NOTES[noteId][lang] || NOTES[noteId].cs)
+                  : (withPicks && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
         open(clinicId, notes);
         return;
       }
