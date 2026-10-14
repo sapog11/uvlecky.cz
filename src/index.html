@@ -2004,8 +2004,14 @@ body.has-cart .to-top{ bottom:208px; }
     var lang = ({ cs:'cs', ru:'ru', uk:'uk', en:'en' })[document.documentElement.lang] || 'cs';
     var clinic = null, alive = false, timer = null;
 
-    function open(clinicId, notes){
+    // Which ZORYX service a button books — preselected in the form, the same
+    // way mencare.cz's "nearest slot" button preselects doctor and time.
+    var SERVICES = {
+      odbery_usti: { paid: 'zC6Q3QsVR0Fm2ucIN2KN', zadanka: 'odber_se_zadankou' }
+    };
+    function open(clinicId, notes, service){
       var url = 'https://zoryx.app/clinic/embed/' + clinicId + '?lang=' + lang +
+                (service ? '&service=' + encodeURIComponent(service) : '') +
                 (notes ? '&notes=' + encodeURIComponent(notes) : '');
       clinic = clinicId; alive = false;
       link.href = url;
@@ -2046,7 +2052,9 @@ body.has-cart .to-top{ bottom:208px; }
         var noteId = btn.getAttribute('data-zx-note');
         var notes = noteId && NOTES[noteId] ? (NOTES[noteId][lang] || NOTES[noteId].cs)
                   : (withPicks && typeof window.uvBookingNotes === 'function') ? window.uvBookingNotes() : '';
-        open(clinicId, notes);
+        var svc = btn.getAttribute('data-zx-service') ||
+                  (SERVICES[clinicId] ? SERVICES[clinicId][noteId === 'zadanka' ? 'zadanka' : 'paid'] : '');
+        open(clinicId, notes, svc);
         return;
       }
       if (e.target.closest && e.target.closest('[data-zx-close]')) close();
