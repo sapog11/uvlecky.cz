@@ -827,17 +827,46 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .to-top:hover{ background:var(--navy-2); }
 .to-top svg{ width:20px; height:20px; }
 
-/* cookie */
-.cookie{ position:fixed; left:18px; right:18px; bottom:18px; z-index:200; max-width:560px; margin:0 auto; background:var(--white); border:1px solid var(--line); border-radius:24px; padding:20px 22px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; transform:translateY(150%); transition:transform .45s cubic-bezier(.2,.8,.2,1); }
-.cookie.visible{ transform:translateY(0); }
-.cookie p{ flex:1 1 220px; font-size:13.5px; color:var(--ink-soft); }
-.cookie-actions{ display:flex; gap:10px; }
-.cookie-actions button{ padding:10px 18px; border-radius:16px; font-size:13.5px; font-weight:600; border:1.5px solid transparent; }
-.c-accept{ background:var(--navy); color:var(--white); }
-.c-accept:hover{ background:var(--navy-2); }
-.c-decline{ background:transparent; border-color:var(--line); color:var(--ink-soft); }
-.c-decline:hover{ background:var(--blue-mist); }
-@media (max-width:520px){ .cookie{ flex-direction:row; align-items:center; padding: 10px 14px; max-width: calc(100% - 36px); gap: 12px; } .cookie p{ font-size: 12px; margin-bottom: 0; flex: 1; } .cookie-actions{ flex-direction:row; gap: 6px; } .cookie-actions button{ padding: 6px 12px; font-size: 11px; } }
+/* cookie consent — full-screen until the visitor chooses */
+.ck{ position:fixed; inset:0; z-index:400; display:flex; align-items:center; justify-content:center; padding:16px;
+  background:rgba(20,32,58,.55); -webkit-backdrop-filter:blur(14px) saturate(1.1); backdrop-filter:blur(14px) saturate(1.1); }
+.ck[hidden]{ display:none; }
+.ck-box:focus{ outline:none; }
+.ck-box{ width:min(520px,100%); max-height:calc(100dvh - 32px); overflow:auto; background:var(--white); border-radius:28px; padding:26px 24px 20px;
+  box-shadow:0 30px 70px -20px rgba(10,20,45,.55); animation:ckIn .45s cubic-bezier(.2,.9,.25,1.2) both; }
+@keyframes ckIn{ from{ opacity:0; transform:translateY(24px) scale(.96); } to{ opacity:1; transform:none; } }
+.ck-head{ display:flex; align-items:center; gap:10px; }
+.ck-head h2{ font-family:var(--display); font-size:32px; font-weight:600; color:var(--navy); margin:0; }
+.ck-biscuit{ font-size:30px; display:inline-block; animation:ckSpin 6s ease-in-out infinite; }
+@keyframes ckSpin{ 0%,80%,100%{ transform:rotate(0); } 85%{ transform:rotate(-14deg); } 90%{ transform:rotate(12deg); } 95%{ transform:rotate(-6deg); } }
+.ck-lead{ margin:8px 0 16px; color:var(--ink-soft); font-size:15px; }
+.ck-opts{ display:flex; flex-direction:column; gap:10px; }
+.ck-opt{ display:flex; align-items:center; gap:14px; width:100%; text-align:left; padding:14px 14px 14px 16px; border-radius:20px; border:2px solid var(--line); background:#F7F9FC; font:inherit; color:var(--navy); cursor:pointer;
+  transition:transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }
+.ck-opt:hover{ transform:translateY(-2px); }
+.ck-opt:focus-visible{ outline:3px solid var(--blue-2); outline-offset:2px; }
+.ck-emoji{ font-size:34px; line-height:1; flex:none; }
+.ck-txt{ flex:1; min-width:0; }
+.ck-txt strong{ display:block; font-size:16px; }
+.ck-txt small{ display:block; font-size:13px; color:var(--ink-soft); margin-top:2px; line-height:1.45; }
+.ck-check{ flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--line); display:flex; align-items:center; justify-content:center; color:transparent; transition:all .2s ease; }
+.ck-check svg{ width:20px; height:20px; }
+.ck-yes{ border-color:#34C77B; background:linear-gradient(135deg,#ECFDF3,#F4FFF8); box-shadow:0 14px 30px -18px rgba(22,163,74,.7); }
+.ck-yes .ck-emoji{ animation:ckBounce 1.6s ease-in-out infinite; }
+.ck-yes .ck-check{ border-color:#22A55B; background:#22A55B; color:#fff; animation:ckBuzz 2.2s ease-in-out infinite; }
+@keyframes ckBounce{ 0%,100%{ transform:translateY(0) rotate(0); } 30%{ transform:translateY(-5px) rotate(-8deg); } 60%{ transform:translateY(0) rotate(6deg); } }
+@keyframes ckBuzz{ 0%,58%,100%{ transform:none; box-shadow:0 0 0 0 rgba(34,165,91,.5); } 62%{ transform:translateX(-2px) rotate(-10deg) scale(1.08); } 66%{ transform:translateX(2px) rotate(10deg) scale(1.08); } 70%{ transform:translateX(-2px) rotate(-8deg); } 74%{ transform:translateX(2px) rotate(8deg); } 80%{ transform:none; box-shadow:0 0 0 10px rgba(34,165,91,0); } }
+.ck-yes:hover .ck-check{ animation-duration:.7s; }
+.ck-no .ck-emoji{ filter:saturate(.8); transition:transform .3s ease; }
+.ck-no:hover .ck-emoji{ transform:translateY(3px) rotate(-6deg); }
+.ck-no:hover{ border-color:var(--blue-pale); background:var(--blue-mist); }
+.ck-opt.picked .ck-check{ border-color:currentColor; background:var(--navy); color:#fff; animation:none; transform:scale(1.15); }
+.ck-yes.picked .ck-check{ background:#22A55B; }
+.ck-foot{ margin:14px 2px 0; font-size:12.5px; color:var(--ink-faint); }
+.ck-foot a{ color:var(--blue); text-decoration:underline; }
+body.ck-open{ overflow:hidden; }
+@media (prefers-reduced-motion:reduce){ .ck-box, .ck-biscuit, .ck-yes .ck-emoji, .ck-yes .ck-check{ animation:none; } }
+@media (max-width:520px){ .ck{ align-items:flex-end; padding:10px; } .ck-box{ padding:22px 16px 16px; border-radius:26px; } .ck-head h2{ font-size:28px; } .ck-emoji{ font-size:30px; } }
 
 /* reveal */
 .reveal{ opacity:1; transform:none; }
@@ -1004,6 +1033,10 @@ body.has-cart .to-top{ bottom:208px; }
 .fab-item.fab-blood .fab-ic{ background:rgba(255,255,255,.2); color:#fff; }
 .fab-item.fab-blood small{ color:rgba(255,255,255,.85); }
 .fab-item.fab-blood:hover{ filter:brightness(1.06); }
+.fab-item.fab-exam{ background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 60%,#3B1C8C 100%); color:#fff; border-radius:16px; }
+.fab-item.fab-exam .fab-ic{ background:rgba(255,255,255,.2); color:#fff; }
+.fab-item.fab-exam small{ color:rgba(255,255,255,.85); }
+.fab-item.fab-exam:hover{ filter:brightness(1.08); }
 .fab-btn{ background:linear-gradient(135deg,#E8466B 0%,#9E1239 100%) !important; box-shadow:0 14px 30px -12px rgba(226,61,99,.8) !important; }
 .btn-app .app-sub{ display:block; font-size:10.5px; font-weight:500; opacity:.85; line-height:1.15; margin-top:1px; letter-spacing:.01em; }
 .btn-app{ flex-direction:column; line-height:1.15; }
@@ -1626,7 +1659,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="footer-bottom">
 <span>© <span id="year">2026</span> Poliklinika U Vlečky s.r.o.</span>
-<nav class="footer-links"><a data-lang-cs="Ochrana osobních údajů (GDPR)" data-lang-en="Privacy policy (GDPR)" data-lang-ru="Защита данных (GDPR)" data-lang-ua="Захист даних (GDPR)" href="/ru/ochrana-osobnich-udaju/">Защита данных (GDPR)</a><a data-lang-cs="Podmínky užívání" data-lang-en="Terms of use" data-lang-ru="Условия использования" data-lang-ua="Умови використання" href="/ru/podminky/">Условия использования</a><a data-lang-cs="Cookies" data-lang-en="Cookies" data-lang-ru="Cookies" data-lang-ua="Cookies" href="/ru/cookies/">Cookies</a><a data-lang-cs="Návštěvní řád" data-lang-en="Visitor rules" data-lang-ru="Правила посещения" data-lang-ua="Правила відвідування" href="/ru/#navstevni-rad">Правила посещения</a></nav>
+<nav class="footer-links"><a data-lang-cs="Ochrana osobních údajů (GDPR)" data-lang-en="Privacy policy (GDPR)" data-lang-ru="Защита данных (GDPR)" data-lang-ua="Захист даних (GDPR)" href="/ru/ochrana-osobnich-udaju/">Защита данных (GDPR)</a><a data-lang-cs="Podmínky užívání" data-lang-en="Terms of use" data-lang-ru="Условия использования" data-lang-ua="Умови використання" href="/ru/podminky/">Условия использования</a><a data-lang-cs="Cookies" data-lang-en="Cookies" data-lang-ru="Cookies" data-lang-ua="Cookies" href="/ru/cookies/">Cookies</a><a data-lang-cs="Návštěvní řád" data-lang-en="Visitor rules" data-lang-ru="Правила посещения" data-lang-ua="Правила відвідування" href="/ru/#navstevni-rad">Правила посещения</a><a data-cookie-open="" data-lang-cs="Nastavení cookies" data-lang-en="Cookie settings" data-lang-ru="Настройки cookie" data-lang-ua="Налаштування cookie" href="/ru/cookies/">Настройки cookie</a></nav>
 <span data-lang-cs="Vytvořeno ZORYX Team s.r.o." data-lang-en="Made by ZORYX Team s.r.o." data-lang-ru="Сделано ZORYX Team s.r.o." data-lang-ua="Створено ZORYX Team s.r.o.">Сделано ZORYX Team s.r.o.</span>
 </div>
 </div>
@@ -1638,27 +1671,31 @@ body.has-cart .to-top{ bottom:208px; }
 <a class="lang-hint-go" href="/ru/" id="langHintGo"></a>
 <button aria-label="Close" class="lang-hint-x" id="langHintX" type="button">×</button>
 </div>
-<div aria-live="polite" class="cookie" id="cookie" role="dialog">
-<p data-lang-cs="Používáme soubory cookie pro zlepšení fungování webu." data-lang-en="We use cookies to improve your experience on our website." data-lang-ru="Мы используем файлы cookie для улучшения вашего опыта на сайте." data-lang-ua="Ми використовуємо файли cookie для покращення вашого досвіду на сайті.">Мы используем файлы cookie для улучшения вашего опыта на сайте.</p>
-<div class="cookie-actions">
-<button class="c-decline" data-lang-cs="Odmítnout" data-lang-en="Decline" data-lang-ru="Отклонить" data-lang-ua="Відхилити" id="cDecline">Отклонить</button>
-<button class="c-accept" data-lang-cs="Přijmout" data-lang-en="Accept" data-lang-ru="Принять" data-lang-ua="Прийняти" id="cAccept">Принять</button>
+<div aria-labelledby="ckTitle" aria-modal="true" class="ck" hidden="" id="cookie" role="dialog">
+<div class="ck-box" tabindex="-1">
+<div class="ck-head"><span aria-hidden="true" class="ck-biscuit">🍪</span><h2 data-lang-cs="Cookies" data-lang-en="Cookies" data-lang-ru="Cookies" data-lang-ua="Cookies" id="ckTitle">Cookies</h2></div>
+<p class="ck-lead" data-lang-cs="Než budete pokračovat, vyberte, jak chcete web navštívit." data-lang-en="Before you continue, choose how you'd like to visit the site." data-lang-ru="Прежде чем продолжить, выберите, как вы хотите посетить сайт." data-lang-ua="Перш ніж продовжити, оберіть, як ви хочете відвідати сайт.">Прежде чем продолжить, выберите, как вы хотите посетить сайт.</p>
+<div class="ck-opts">
+<button class="ck-opt ck-yes" id="cAccept" type="button"><span aria-hidden="true" class="ck-emoji">😄</span><span class="ck-txt"><strong data-lang-cs="Ano, započítejte mou návštěvu" data-lang-en="Yes, count my visit" data-lang-ru="Да, учитывайте мой визит" data-lang-ua="Так, враховуйте мій візит">Да, учитывайте мой визит</strong><small data-lang-cs="Povolím anonymní statistiku návštěvnosti v Google Analytics. Pomůžete nám vylepšovat web." data-lang-en="I allow anonymous visitor statistics in Google Analytics. It helps us improve the site." data-lang-ru="Разрешаю анонимную статистику посещений в Google Analytics. Это помогает нам улучшать сайт." data-lang-ua="Дозволяю анонімну статистику відвідувань у Google Analytics. Це допомагає нам покращувати сайт.">Разрешаю анонимную статистику посещений в Google Analytics. Это помогает нам улучшать сайт.</small></span><span aria-hidden="true" class="ck-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span></button>
+<button class="ck-opt ck-no" id="cDecline" type="button"><span aria-hidden="true" class="ck-emoji">😢</span><span class="ck-txt"><strong data-lang-cs="Navštívit web inkognito" data-lang-en="Visit incognito" data-lang-ru="Посетить сайт инкогнито" data-lang-ua="Відвідати сайт інкогніто">Посетить сайт инкогнито</strong><small data-lang-cs="Bez statistických cookies. Web funguje úplně stejně." data-lang-en="No statistics cookies. The site works just the same." data-lang-ru="Без статистических cookie. Сайт работает точно так же." data-lang-ua="Без статистичних cookie. Сайт працює так само.">Без статистических cookie. Сайт работает точно так же.</small></span><span aria-hidden="true" class="ck-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span></button>
+</div>
+<p class="ck-foot" data-lang-cs='Volbu můžete kdykoli změnit v patičce webu. Podrobnosti: &lt;a href="/cookies/"&gt;zásady cookies&lt;/a&gt;.' data-lang-en='You can change your choice any time in the footer. Details: &lt;a href="/cookies/"&gt;cookie policy&lt;/a&gt;.' data-lang-ru='Выбор можно изменить в любой момент внизу сайта. Подробнее: &lt;a href="/cookies/"&gt;политика cookie&lt;/a&gt;.' data-lang-ua='Вибір можна змінити будь-коли внизу сайту. Детальніше: &lt;a href="/cookies/"&gt;політика cookie&lt;/a&gt;.'>Выбор можно изменить в любой момент внизу сайта. Подробнее: <a href="/ru/cookies/">политика cookie</a>.</p>
 </div>
 </div>
 <!-- floating booking button (same idea as mencare.cz, in U Vlečky colours) -->
 <div class="fab" id="fab">
 <div class="fab-menu" hidden="" id="fabMenu" role="menu">
-<a class="fab-item fab-blood" href="/ru/odbery/" role="menuitem">
+<a class="fab-item fab-blood" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"></path><path d="M7.5 14h9"></path></svg></span>
-<span><strong data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests, no referral" data-lang-ru="Анализы крови без направления" data-lang-ua="Аналізи крові без направлення">Анализы крови без направления</strong><small data-lang-cs="Testy od 22 Kč · Po–Pá 8–11" data-lang-en="Tests from 22 CZK · Mon–Fri 8–11" data-lang-ru="Анализы от 22 Kč · Пн–Пт 8–11" data-lang-ua="Аналізи від 22 Kč · Пн–Пт 8–11">Анализы от 22 Kč · Пн–Пт 8–11</small></span>
+<span><strong data-lang-cs="Odběry krve bez žádanky" data-lang-en="Blood tests, no referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Анализы без направления</strong><small data-lang-cs="Online rezervace · Po–Pá 8–11" data-lang-en="Book online · Mon–Fri 8–11" data-lang-ru="Онлайн-запись · Пн–Пт 8–11" data-lang-ua="Онлайн-запис · Пн–Пт 8–11">Онлайн-запись · Пн–Пт 8–11</small></span>
 </a>
-<a class="fab-item" href="tel:+420606755784" role="menuitem">
-<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
-<span><strong data-lang-cs="Registrace k lékařce" data-lang-en="Register with the GP" data-lang-ru="Регистрация к терапевту" data-lang-ua="Реєстрація до терапевта">Регистрация к терапевту</strong><small>+420 606 755 784</small></span>
+<a class="fab-item fab-exam" data-zoryx-book="poliklinika_u_vlecky" href="https://zoryx.app/clinic/embed/poliklinika_u_vlecky" role="menuitem">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="4" rx="1" width="8" x="8" y="2"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span>
+<span><strong data-lang-cs="Lékařské prohlídky" data-lang-en="Medical check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Медосмотры</strong><small data-lang-cs="Autoškola, práce, škola · online termíny" data-lang-en="Driving, work, school · book online" data-lang-ru="Автошкола, работа, учёба · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · онлайн-запис">Автошкола, работа, учёба · онлайн-запись</small></span>
 </a>
-<a class="fab-item" href="/ru/prakticky-lekar/" role="menuitem">
-<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4M12 16h.01"></path></svg></span>
-<span><strong data-lang-cs="Volná místa u lékařky" data-lang-en="Free places with our GP" data-lang-ru="Свободные места у терапевта" data-lang-ua="Вільні місця у терапевта">Свободные места у терапевта</strong><small data-lang-cs="Pacienti z celého kraje" data-lang-en="Patients from the whole region" data-lang-ru="Пациенты со всего края" data-lang-ua="Пацієнти з усього краю">Пациенты со всего края</small></span>
+<a class="fab-item" href="/ru/prakticky-lekar/#registrace" role="menuitem">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
+<span><strong data-lang-cs="Registrace k lékařce" data-lang-en="Register with the GP" data-lang-ru="Регистрация у врача" data-lang-ua="Реєстрація в лікаря">Регистрация у врача</strong><small data-lang-cs="Pouze telefonicky" data-lang-en="By phone only" data-lang-ru="Только по телефону" data-lang-ua="Лише телефоном">Только по телефону</small></span>
 </a>
 </div>
 <button aria-controls="fabMenu" aria-expanded="false" class="fab-btn" id="fabBtn" type="button">
@@ -1795,27 +1832,48 @@ body.has-cart .to-top{ bottom:208px; }
   var toTop = document.getElementById('toTop');
   toTop.addEventListener('click', function(){ window.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' }); });
   var cookie = document.getElementById('cookie');
-  function hideCookie(){ cookie.classList.remove('visible'); }
 
-  // Cookie lista + Consent Mode v2.
-  // Merici cookies se zapnou az po kliknuti na "Prijmout"; volba se pamatuje,
-  // takze se lista pri dalsi navsteve uz neukazuje.
+  // Cookie volba + Consent Mode v2. Dokud návštěvník nevybere, okno zakrývá
+  // celý web. "Ano" zapne analytické cookies, "inkognito" je nechá vypnuté;
+  // volba se pamatuje a dá se změnit odkazem v patičce ([data-cookie-open]).
   var CONSENT_KEY = 'uv-consent';
   function readConsent(){
     try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
   }
-  function setConsent(granted){
+  function showCookie(){
+    cookie.hidden = false;
+    document.body.classList.add('ck-open');
+    setTimeout(function(){ cookie.querySelector('.ck-box').focus({ preventScroll:true }); }, 60);
+  }
+  function hideCookie(){
+    cookie.hidden = true;
+    document.body.classList.remove('ck-open');
+  }
+  function setConsent(granted, btn){
     try { localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied'); } catch (e) {}
-    if (granted && typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': granted ? 'granted' : 'denied' });
     }
-    hideCookie();
+    if (btn) btn.classList.add('picked');
+    setTimeout(hideCookie, reduce ? 0 : 380);
   }
-  if (!readConsent()) {
-    setTimeout(function(){ cookie.classList.add('visible'); }, 1000);
-  }
-  document.getElementById('cAccept').addEventListener('click', function(){ setConsent(true); });
-  document.getElementById('cDecline').addEventListener('click', function(){ setConsent(false); });
+  if (!readConsent()) showCookie();
+  document.getElementById('cAccept').addEventListener('click', function(){ setConsent(true, this); });
+  document.getElementById('cDecline').addEventListener('click', function(){ setConsent(false, this); });
+  document.addEventListener('click', function(e){
+    var o = e.target.closest && e.target.closest('[data-cookie-open]');
+    if (!o) return;
+    e.preventDefault();
+    cookie.querySelectorAll('.picked').forEach(function(b){ b.classList.remove('picked'); });
+    showCookie();
+  });
+  // Focus stays inside the consent window while it is open.
+  cookie.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab') return;
+    var f = cookie.querySelectorAll('button, a[href]'), first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
 
   // hero fisheye scale-down + header scroll state
   var pin = document.querySelector('.hero-pin');
