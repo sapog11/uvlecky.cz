@@ -445,6 +445,12 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .menu-toggle svg{ width:20px; height:20px; color:var(--navy); }
 
 @media (max-width:1120px){ .main-nav{ display:none; } .menu-toggle{ display:flex; } }
+/* The logo is only the round cross; where the menu folds away the header was
+   an icon and two buttons, so the clinic's name stands next to it. */
+.brand-text-m{ display:none; white-space:nowrap; }
+@media (max-width:1120px){ .logo{ aspect-ratio:1; } .brand-text-m{ display:flex; } .brand{ gap:10px; } }
+@media (max-width:600px){ .brand-text-m .brand-name{ font-size:18px; } .brand-text-m .brand-sub{ font-size:8.5px; letter-spacing:.2em; } }
+@media (max-width:360px){ .brand-text-m .brand-sub{ display:none; } }
 @media (max-width:820px){
   .header-actions .btn-primary{ display:none; }
   .site-header.show-phone .header-phone span{ display:none; }
@@ -614,6 +620,16 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 
 /* ===================== DOCTOR ===================== */
 .doctor-cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; align-items:stretch; }
+.doctor-cards > .blood-promo-in{ grid-column:1 / -1; margin:6px 0; }
+/* Wide grid: the blood tests stand beside the GP card, filling the rest of the row.
+   Two columns: GP + sampling room first, then the blood tests across, then the rest. */
+@media (min-width:1001px){ .doctor-cards > .blood-promo-in{ grid-column:2 / -1; margin:0; } }
+@media (min-width:561px) and (max-width:1000px){
+  .doctor-cards > *{ order:4; }
+  .doctor-cards > .doc-card:first-child{ order:1; }
+  .doctor-cards > .doc-card-blood{ order:2; }
+  .doctor-cards > .blood-promo-in{ order:3; }
+}
 .doc-card{
   position:relative; display:flex; flex-direction:column;
   background:#F5F8FC;
@@ -1092,6 +1108,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="header-inner">
 <a aria-label="Poliklinika U Vlečky – Zdravotní středisko" class="brand" href="#top">
 <span aria-label="Poliklinika U Vlečky" class="logo" role="img"></span>
+<span aria-hidden="true" class="brand-text brand-text-m"><span class="brand-name">Poliklinika U Vlečky</span><span class="brand-sub">Ústí nad Labem</span></span>
 </a>
 <nav aria-label="Hlavní navigace" class="main-nav">
 <a data-lang-cs="Lékař" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="#lekar">Lékař</a>
@@ -1188,6 +1205,24 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </div>
 </article>
+<!-- Blood tests right under the GP: the two things people come for -->
+<div class="blood-promo blood-promo-in reveal" id="odbery-promo">
+<div class="blood-photo">
+<picture><source srcset="/images/odber-ctverec-v3.webp" type="image/webp"/><img alt="Odběrová místnost — Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec-v3.jpg" width="720"/></picture>
+</div>
+<div class="blood-text">
+<span class="eyebrow" data-lang-cs="Pro samoplátce · bez žádanky" data-lang-en="For self-payers · no referral" data-lang-ru="Для самоплательщиков · без направления" data-lang-ua="Для самоплатників · без направлення">Pro samoplátce · bez žádanky</span>
+<h2 data-lang-cs="Krevní testy &lt;em&gt;bez žádanky&lt;/em&gt;" data-lang-en="Blood tests &lt;em&gt;without a referral&lt;/em&gt;" data-lang-ru="Анализы крови &lt;em&gt;без направления&lt;/em&gt;" data-lang-ua="Аналізи крові &lt;em&gt;без направлення&lt;/em&gt;">Krevní testy <em>bez žádanky</em></h2>
+<p data-lang-cs="Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání." data-lang-en="Hormones, vitamins, thyroid, cholesterol, blood sugar and more — at DIAGNOSTIKA laboratory prices with no mark-up. Booked times, no waiting." data-lang-ru="Гормоны, витамины, щитовидная железа, холестерин, сахар и другие — по ценам лаборатории DIAGNOSTIKA, без наценки. Забор по записи, без очереди." data-lang-ua="Гормони, вітаміни, щитоподібна залоза, холестерин, цукор та інші — за цінами лабораторії DIAGNOSTIKA, без націнки. Забір за записом, без черги.">Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání.</p>
+<ul class="blood-points">
+<li data-lang-cs="&lt;strong&gt;Testy od 22 Kč&lt;/strong&gt; · odběr krve 40 Kč" data-lang-en="&lt;strong&gt;Tests from 22 CZK&lt;/strong&gt; · blood draw 40 CZK" data-lang-ru="&lt;strong&gt;Анализы от 22 Kč&lt;/strong&gt; · забор крови 40 Kč" data-lang-ua="&lt;strong&gt;Аналізи від 22 Kč&lt;/strong&gt; · забір крові 40 Kč"><strong>Testy od 22 Kč</strong> · odběr krve 40 Kč</li>
+<li data-lang-cs="&lt;strong&gt;Po–Pá 8:00–11:00&lt;/strong&gt; · objednání online nebo telefonem" data-lang-en="&lt;strong&gt;Mon–Fri 8:00–11:00&lt;/strong&gt; · book online or by phone" data-lang-ru="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запись онлайн или по телефону" data-lang-ua="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запис онлайн або телефоном"><strong>Po–Pá 8:00–11:00</strong> · objednání online nebo telefonem</li>
+<li data-lang-cs="&lt;strong&gt;Prevence a Longevity&lt;/strong&gt; — balíček pro dlouhý a zdravý život" data-lang-en="&lt;strong&gt;Prevention and Longevity&lt;/strong&gt; — a package for a long, healthy life" data-lang-ru="&lt;strong&gt;Профилактика и Longevity&lt;/strong&gt; — набор для долгой и здоровой жизни" data-lang-ua="&lt;strong&gt;Профілактика й Longevity&lt;/strong&gt; — набір для довгого й здорового життя"><strong>Prevence a Longevity</strong> — balíček pro dlouhý a zdravý život</li>
+<li data-lang-cs="&lt;strong&gt;Vyberete v kalkulačce&lt;/strong&gt; — seznam se sám vloží do rezervace" data-lang-en="&lt;strong&gt;Pick in the calculator&lt;/strong&gt; — the list goes straight into your booking" data-lang-ru="&lt;strong&gt;Выберите в калькуляторе&lt;/strong&gt; — список сам попадёт в запись" data-lang-ua="&lt;strong&gt;Оберіть у калькуляторі&lt;/strong&gt; — список сам потрапить у запис"><strong>Vyberete v kalkulačce</strong> — seznam se sám vloží do rezervace</li>
+</ul>
+<div class="blood-cta"><a class="btn btn-blood btn-lg" href="/odbery/#cenik"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></a><a class="btn btn-light" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a></div>
+</div>
+</div>
 <!-- DOCTOR 2: Odběrová místnost — krevní testy (druhé místo: samoplátci) -->
 <article class="doc-card doc-card-blood reveal d1">
 <div class="doc-photo has-img">
@@ -1283,27 +1318,6 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </section>
 <!-- BLOOD TESTS FOR SELF-PAYERS: the promo band -->
-<section class="section" id="odbery-promo">
-<div class="container">
-<div class="blood-promo reveal">
-<div class="blood-photo">
-<picture><source srcset="/images/odber-ctverec-v3.webp" type="image/webp"/><img alt="Odběrová místnost — Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec-v3.jpg" width="720"/></picture>
-</div>
-<div class="blood-text">
-<span class="eyebrow" data-lang-cs="Pro samoplátce · bez žádanky" data-lang-en="For self-payers · no referral" data-lang-ru="Для самоплательщиков · без направления" data-lang-ua="Для самоплатників · без направлення">Pro samoplátce · bez žádanky</span>
-<h2 data-lang-cs="Krevní testy &lt;em&gt;bez žádanky&lt;/em&gt;" data-lang-en="Blood tests &lt;em&gt;without a referral&lt;/em&gt;" data-lang-ru="Анализы крови &lt;em&gt;без направления&lt;/em&gt;" data-lang-ua="Аналізи крові &lt;em&gt;без направлення&lt;/em&gt;">Krevní testy <em>bez žádanky</em></h2>
-<p data-lang-cs="Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání." data-lang-en="Hormones, vitamins, thyroid, cholesterol, blood sugar and more — at DIAGNOSTIKA laboratory prices with no mark-up. Booked times, no waiting." data-lang-ru="Гормоны, витамины, щитовидная железа, холестерин, сахар и другие — по ценам лаборатории DIAGNOSTIKA, без наценки. Забор по записи, без очереди." data-lang-ua="Гормони, вітаміни, щитоподібна залоза, холестерин, цукор та інші — за цінами лабораторії DIAGNOSTIKA, без націнки. Забір за записом, без черги.">Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání.</p>
-<ul class="blood-points">
-<li data-lang-cs="&lt;strong&gt;Testy od 22 Kč&lt;/strong&gt; · odběr krve 40 Kč" data-lang-en="&lt;strong&gt;Tests from 22 CZK&lt;/strong&gt; · blood draw 40 CZK" data-lang-ru="&lt;strong&gt;Анализы от 22 Kč&lt;/strong&gt; · забор крови 40 Kč" data-lang-ua="&lt;strong&gt;Аналізи від 22 Kč&lt;/strong&gt; · забір крові 40 Kč"><strong>Testy od 22 Kč</strong> · odběr krve 40 Kč</li>
-<li data-lang-cs="&lt;strong&gt;Po–Pá 8:00–11:00&lt;/strong&gt; · objednání online nebo telefonem" data-lang-en="&lt;strong&gt;Mon–Fri 8:00–11:00&lt;/strong&gt; · book online or by phone" data-lang-ru="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запись онлайн или по телефону" data-lang-ua="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запис онлайн або телефоном"><strong>Po–Pá 8:00–11:00</strong> · objednání online nebo telefonem</li>
-<li data-lang-cs="&lt;strong&gt;Prevence a Longevity&lt;/strong&gt; — balíček pro dlouhý a zdravý život" data-lang-en="&lt;strong&gt;Prevention and Longevity&lt;/strong&gt; — a package for a long, healthy life" data-lang-ru="&lt;strong&gt;Профилактика и Longevity&lt;/strong&gt; — набор для долгой и здоровой жизни" data-lang-ua="&lt;strong&gt;Профілактика й Longevity&lt;/strong&gt; — набір для довгого й здорового життя"><strong>Prevence a Longevity</strong> — balíček pro dlouhý a zdravý život</li>
-<li data-lang-cs="&lt;strong&gt;Vyberete v kalkulačce&lt;/strong&gt; — seznam se sám vloží do rezervace" data-lang-en="&lt;strong&gt;Pick in the calculator&lt;/strong&gt; — the list goes straight into your booking" data-lang-ru="&lt;strong&gt;Выберите в калькуляторе&lt;/strong&gt; — список сам попадёт в запись" data-lang-ua="&lt;strong&gt;Оберіть у калькуляторі&lt;/strong&gt; — список сам потрапить у запис"><strong>Vyberete v kalkulačce</strong> — seznam se sám vloží do rezervace</li>
-</ul>
-<div class="blood-cta"><a class="btn btn-blood btn-lg" href="/odbery/#cenik"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></a><a class="btn btn-light" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a></div>
-</div>
-</div>
-</div>
-</section>
 <!-- QUICK BENEFITS -->
 <section class="section" id="vyhody">
 <div class="container">
