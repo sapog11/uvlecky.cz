@@ -843,13 +843,18 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .to-top:hover{ background:var(--navy-2); }
 .to-top svg{ width:20px; height:20px; }
 
-/* cookie consent — full-screen until the visitor chooses */
+/* cookie consent — full-screen until the visitor chooses. Glass card; the
+   "yes" is light-blue glass with an empty heart that beats until it is tapped,
+   the "incognito" is orange glass with a grey broken heart. Nothing is
+   preselected: the heart fills only on the visitor's own click. */
 .ck{ position:fixed; inset:0; z-index:400; display:flex; align-items:center; justify-content:center; padding:16px;
-  background:rgba(20,32,58,.55); -webkit-backdrop-filter:blur(14px) saturate(1.1); backdrop-filter:blur(14px) saturate(1.1); }
+  background:rgba(20,32,58,.5); -webkit-backdrop-filter:blur(28px) saturate(1.3); backdrop-filter:blur(28px) saturate(1.3); }
 .ck[hidden]{ display:none; }
 .ck-box:focus{ outline:none; }
-.ck-box{ width:min(520px,100%); max-height:calc(100dvh - 32px); overflow:auto; background:var(--white); border-radius:28px; padding:26px 24px 20px;
-  box-shadow:0 30px 70px -20px rgba(10,20,45,.55); animation:ckIn .45s cubic-bezier(.2,.9,.25,1.2) both; }
+.ck-box{ width:min(520px,100%); max-height:calc(100dvh - 32px); overflow:auto; border-radius:28px; padding:26px 22px 20px;
+  background:linear-gradient(150deg,rgba(255,255,255,.82),rgba(255,255,255,.58)); border:1px solid rgba(255,255,255,.85);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4); backdrop-filter:blur(20px) saturate(1.4);
+  box-shadow:0 30px 70px -20px rgba(10,20,45,.55), inset 0 1px 0 rgba(255,255,255,.9); animation:ckIn .45s cubic-bezier(.2,.9,.25,1.2) both; }
 @keyframes ckIn{ from{ opacity:0; transform:translateY(24px) scale(.96); } to{ opacity:1; transform:none; } }
 .ck-head{ display:flex; align-items:center; gap:10px; }
 .ck-head h2{ font-family:var(--display); font-size:32px; font-weight:600; color:var(--navy); margin:0; }
@@ -857,31 +862,44 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 @keyframes ckSpin{ 0%,80%,100%{ transform:rotate(0); } 85%{ transform:rotate(-14deg); } 90%{ transform:rotate(12deg); } 95%{ transform:rotate(-6deg); } }
 .ck-lead{ margin:8px 0 16px; color:var(--ink-soft); font-size:15px; }
 .ck-opts{ display:flex; flex-direction:column; gap:10px; }
-.ck-opt{ display:flex; align-items:center; gap:14px; width:100%; text-align:left; padding:14px 14px 14px 16px; border-radius:20px; border:2px solid var(--line); background:#F7F9FC; font:inherit; color:var(--navy); cursor:pointer;
-  transition:transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }
+.ck-opt{ display:flex; align-items:center; gap:14px; width:100%; text-align:left; padding:14px 14px 14px 16px; border-radius:20px; font:inherit; color:var(--navy); cursor:pointer;
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  transition:transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease, opacity .2s ease; }
 .ck-opt:hover{ transform:translateY(-2px); }
 .ck-opt:focus-visible{ outline:3px solid var(--blue-2); outline-offset:2px; }
 .ck-emoji{ font-size:34px; line-height:1; flex:none; }
 .ck-txt{ flex:1; min-width:0; }
 .ck-txt strong{ display:block; font-size:16px; }
 .ck-txt small{ display:block; font-size:13px; color:var(--ink-soft); margin-top:2px; line-height:1.45; }
-.ck-check{ flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--line); display:flex; align-items:center; justify-content:center; color:transparent; transition:all .2s ease; }
-.ck-check svg{ width:20px; height:20px; }
-.ck-yes{ border-color:#34C77B; background:linear-gradient(135deg,#ECFDF3,#F4FFF8); box-shadow:0 14px 30px -18px rgba(22,163,74,.7); }
+.ck-check{ flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:transform .25s ease; }
+.ck-check svg{ width:34px; height:34px; overflow:visible; }
+.ck-check path{ fill:transparent; transition:fill .25s ease, stroke .25s ease; }
+/* yes — light-blue glass, beating empty heart */
+.ck-yes{ border:2px solid rgba(96,180,240,.75); background:linear-gradient(135deg,rgba(186,228,255,.75),rgba(224,244,255,.55));
+  box-shadow:0 16px 34px -18px rgba(14,116,190,.75), inset 0 1px 0 rgba(255,255,255,.9); }
+.ck-yes:hover{ box-shadow:0 20px 40px -16px rgba(14,116,190,.85), inset 0 1px 0 rgba(255,255,255,.9); }
 .ck-yes .ck-emoji{ animation:ckBounce 1.6s ease-in-out infinite; }
-.ck-yes .ck-check{ border-color:#22A55B; background:#22A55B; color:#fff; animation:ckBuzz 2.2s ease-in-out infinite; }
+.ck-yes .ck-check{ color:#E11D48; animation:ckBeat 1.3s ease-in-out infinite; }
+.ck-yes .ck-check path{ stroke:#E11D48; }
+.ck-yes:hover .ck-check{ animation-duration:.6s; }
 @keyframes ckBounce{ 0%,100%{ transform:translateY(0) rotate(0); } 30%{ transform:translateY(-5px) rotate(-8deg); } 60%{ transform:translateY(0) rotate(6deg); } }
-@keyframes ckBuzz{ 0%,58%,100%{ transform:none; box-shadow:0 0 0 0 rgba(34,165,91,.5); } 62%{ transform:translateX(-2px) rotate(-10deg) scale(1.08); } 66%{ transform:translateX(2px) rotate(10deg) scale(1.08); } 70%{ transform:translateX(-2px) rotate(-8deg); } 74%{ transform:translateX(2px) rotate(8deg); } 80%{ transform:none; box-shadow:0 0 0 10px rgba(34,165,91,0); } }
-.ck-yes:hover .ck-check{ animation-duration:.7s; }
-.ck-no .ck-emoji{ filter:saturate(.8); transition:transform .3s ease; }
-.ck-no:hover .ck-emoji{ transform:translateY(3px) rotate(-6deg); }
-.ck-no:hover{ border-color:var(--blue-pale); background:var(--blue-mist); }
-.ck-opt.picked .ck-check{ border-color:currentColor; background:var(--navy); color:#fff; animation:none; transform:scale(1.15); }
-.ck-yes.picked .ck-check{ background:#22A55B; }
+@keyframes ckBeat{ 0%,40%,100%{ transform:scale(1) rotate(0); } 10%{ transform:scale(1.2) rotate(-6deg); } 20%{ transform:scale(.95) rotate(4deg); } 30%{ transform:scale(1.14) rotate(-3deg); } }
+/* incognito — orange glass, grey broken heart, a little dimmer */
+.ck-no{ border:2px solid rgba(249,146,60,.55); background:linear-gradient(135deg,rgba(255,214,170,.6),rgba(255,236,214,.45)); opacity:.88; }
+.ck-no:hover{ opacity:1; }
+.ck-no .ck-emoji{ filter:grayscale(.35); transition:transform .3s ease; }
+.ck-no:hover .ck-emoji{ transform:translateY(3px) rotate(-8deg); }
+.ck-no .ck-check path{ stroke:#9CA3AF; }
+/* picked: the heart fills only now */
+.ck-yes.picked .ck-check{ animation:ckPop .5s ease-out both; }
+.ck-yes.picked .ck-check path{ fill:#E11D48; }
+.ck-no.picked .ck-check{ transform:translateY(2px) rotate(-10deg); }
+.ck-no.picked .ck-check path.ck-half{ fill:#9CA3AF; }
+@keyframes ckPop{ 0%{ transform:scale(.8); } 50%{ transform:scale(1.45) rotate(-8deg); } 100%{ transform:scale(1.15); } }
 .ck-foot{ margin:14px 2px 0; font-size:12.5px; color:var(--ink-faint); }
 .ck-foot a{ color:var(--blue); text-decoration:underline; }
 body.ck-open{ overflow:hidden; }
-@media (prefers-reduced-motion:reduce){ .ck-box, .ck-biscuit, .ck-yes .ck-emoji, .ck-yes .ck-check{ animation:none; } }
+@media (prefers-reduced-motion:reduce){ .ck-box, .ck-biscuit, .ck-yes .ck-emoji, .ck-yes .ck-check, .ck-yes.picked .ck-check{ animation:none; } }
 @media (max-width:520px){ .ck{ align-items:flex-end; padding:10px; } .ck-box{ padding:22px 16px 16px; border-radius:26px; } .ck-head h2{ font-size:28px; } .ck-emoji{ font-size:30px; } }
 
 /* reveal */
@@ -1295,6 +1313,8 @@ body.has-cart .to-top{ bottom:208px; }
 .zf-dot i{ width:15px; height:15px; border-radius:50%; border:1.6px solid #2E86C1; background:#fff; transition:background .15s ease, border-color .15s ease, transform .2s ease; }
 .zf-row.on{ background:#FBFBF8; }
 .zf-row.on .zf-n{ font-weight:700; }
+.zf-inb{ font-size:10.5px; font-weight:700; color:#2E86C1; text-transform:uppercase; letter-spacing:.03em; }
+.zf-row.inblk .zf-n{ font-weight:600; }
 .zf-row.on .zf-p{ color:#111; }
 .zf-row.on .zf-dot i{ background:#111; border-color:#111; animation:zfDot .35s ease; }
 @keyframes zfDot{ 0%{ transform:scale(.4); } 60%{ transform:scale(1.3); } 100%{ transform:scale(1); } }
@@ -4771,8 +4791,8 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="ck-head"><span aria-hidden="true" class="ck-biscuit">🍪</span><h2 data-lang-cs="Cookies" data-lang-en="Cookies" data-lang-ru="Cookies" data-lang-ua="Cookies" id="ckTitle">Cookies</h2></div>
 <p class="ck-lead" data-lang-cs="Než budete pokračovat, vyberte, jak chcete web navštívit." data-lang-en="Before you continue, choose how you'd like to visit the site." data-lang-ru="Прежде чем продолжить, выберите, как вы хотите посетить сайт." data-lang-ua="Перш ніж продовжити, оберіть, як ви хочете відвідати сайт.">Before you continue, choose how you'd like to visit the site.</p>
 <div class="ck-opts">
-<button class="ck-opt ck-yes" id="cAccept" type="button"><span aria-hidden="true" class="ck-emoji">😄</span><span class="ck-txt"><strong data-lang-cs="Ano, započítejte mou návštěvu" data-lang-en="Yes, count my visit" data-lang-ru="Да, учитывайте мой визит" data-lang-ua="Так, враховуйте мій візит">Yes, count my visit</strong><small data-lang-cs="Povolím anonymní statistiku návštěvnosti v Google Analytics. Pomůžete nám vylepšovat web." data-lang-en="I allow anonymous visitor statistics in Google Analytics. It helps us improve the site." data-lang-ru="Разрешаю анонимную статистику посещений в Google Analytics. Это помогает нам улучшать сайт." data-lang-ua="Дозволяю анонімну статистику відвідувань у Google Analytics. Це допомагає нам покращувати сайт.">I allow anonymous visitor statistics in Google Analytics. It helps us improve the site.</small></span><span aria-hidden="true" class="ck-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span></button>
-<button class="ck-opt ck-no" id="cDecline" type="button"><span aria-hidden="true" class="ck-emoji">😢</span><span class="ck-txt"><strong data-lang-cs="Navštívit web inkognito" data-lang-en="Visit incognito" data-lang-ru="Посетить сайт инкогнито" data-lang-ua="Відвідати сайт інкогніто">Visit incognito</strong><small data-lang-cs="Bez statistických cookies. Web funguje úplně stejně." data-lang-en="No statistics cookies. The site works just the same." data-lang-ru="Без статистических cookie. Сайт работает точно так же." data-lang-ua="Без статистичних cookie. Сайт працює так само.">No statistics cookies. The site works just the same.</small></span><span aria-hidden="true" class="ck-check"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span></button>
+<button class="ck-opt ck-yes" id="cAccept" type="button"><span aria-hidden="true" class="ck-emoji">😄</span><span class="ck-txt"><strong data-lang-cs="Ano, započítejte mou návštěvu" data-lang-en="Yes, count my visit" data-lang-ru="Да, учитывайте мой визит" data-lang-ua="Так, враховуйте мій візит">Yes, count my visit</strong><small data-lang-cs="Povolím anonymní statistiku návštěvnosti v Google Analytics. Pomůžete nám vylepšovat web." data-lang-en="I allow anonymous visitor statistics in Google Analytics. It helps us improve the site." data-lang-ru="Разрешаю анонимную статистику посещений в Google Analytics. Это помогает нам улучшать сайт." data-lang-ua="Дозволяю анонімну статистику відвідувань у Google Analytics. Це допомагає нам покращувати сайт.">I allow anonymous visitor statistics in Google Analytics. It helps us improve the site.</small></span><span aria-hidden="true" class="ck-check"><svg stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 20.5s-7.5-4.4-9.5-9C1 7.9 3.3 4.5 6.8 4.5c2.2 0 3.7 1.3 5.2 3 1.5-1.7 3-3 5.2-3 3.5 0 5.8 3.4 4.3 7-2 4.6-9.5 9-9.5 9Z"></path></svg></span></button>
+<button class="ck-opt ck-no" id="cDecline" type="button"><span aria-hidden="true" class="ck-emoji">😢</span><span class="ck-txt"><strong data-lang-cs="Navštívit web inkognito" data-lang-en="Visit incognito" data-lang-ru="Посетить сайт инкогнито" data-lang-ua="Відвідати сайт інкогніто">Visit incognito</strong><small data-lang-cs="Bez statistických cookies. Web funguje úplně stejně." data-lang-en="No statistics cookies. The site works just the same." data-lang-ru="Без статистических cookie. Сайт работает точно так же." data-lang-ua="Без статистичних cookie. Сайт працює так само.">No statistics cookies. The site works just the same.</small></span><span aria-hidden="true" class="ck-check"><svg stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path class="ck-half" d="M11.2 19.9C8.6 18.2 4 14.8 2.5 11.5 1 7.9 3.3 4.5 6.8 4.5c2 0 3.4 1 4.6 2.5l-1.2 3.2 2.2 2.4-1.6 3.1z"></path><path class="ck-half" d="M13.6 6.6c1.3-1.2 2.4-2.1 3.6-2.1 3.5 0 5.8 3.4 4.3 7-1.5 3.4-6.2 6.9-8.8 8.6l.6-3.6 1.7-3.2-2.3-2.5z"></path></svg></span></button>
 </div>
 <p class="ck-foot" data-lang-cs='Volbu můžete kdykoli změnit v patičce webu. Podrobnosti: &lt;a href="/cookies/"&gt;zásady cookies&lt;/a&gt;.' data-lang-en='You can change your choice any time in the footer. Details: &lt;a href="/cookies/"&gt;cookie policy&lt;/a&gt;.' data-lang-ru='Выбор можно изменить в любой момент внизу сайта. Подробнее: &lt;a href="/cookies/"&gt;политика cookie&lt;/a&gt;.' data-lang-ua='Вибір можна змінити будь-коли внизу сайту. Детальніше: &lt;a href="/cookies/"&gt;політика cookie&lt;/a&gt;.'>You can change your choice any time in the footer. Details: <a href="/en/cookies/">cookie policy</a>.</p>
 </div>
@@ -5283,10 +5303,10 @@ body.has-cart .to-top{ bottom:208px; }
   };
 
   var UI = {
-    cs:{ likes:"Kolikrát lidé vybrali vyšetření z tohoto bloku", lab:"klinická laboratoř · žádanka", form:"podle žádanky", czk:"Kč", ask:"na dotaz", count:"Vybráno: {n}", fee:"odběr krve", nofee:"bez poplatku za odběr", show:"Zobrazit výběr", hide:"Skrýt výběr", expand:"Rozbalit vše", collapse:"Sbalit vše", nores:"Žádné vyšetření neodpovídá hledání.", remove:"Odebrat", notesHead:"Vybraná vyšetření (web uvlecky.cz):", notesTotal:"Celkem orientačně" },
-    ru:{ likes:"Сколько раз выбирали анализы из этого блока", lab:"клиническая лаборатория · бланк", form:"по бланку", czk:"Kč", ask:"по запросу", count:"Выбрано: {n}", fee:"забор крови", nofee:"без платы за забор", show:"Показать выбор", hide:"Скрыть выбор", expand:"Развернуть всё", collapse:"Свернуть всё", nores:"Ничего не найдено.", remove:"Убрать", notesHead:"Выбранные анализы (сайт uvlecky.cz):", notesTotal:"Итого ориентировочно" },
-    uk:{ likes:"Скільки разів обирали аналізи з цього блоку", lab:"клінічна лабораторія · бланк", form:"за бланком", czk:"Kč", ask:"за запитом", count:"Обрано: {n}", fee:"забір крові", nofee:"без плати за забір", show:"Показати вибір", hide:"Сховати вибір", expand:"Розгорнути все", collapse:"Згорнути все", nores:"Нічого не знайдено.", remove:"Прибрати", notesHead:"Обрані аналізи (сайт uvlecky.cz):", notesTotal:"Разом орієнтовно" },
-    en:{ likes:"How many times people picked tests from this block", lab:"clinical laboratory · request form", form:"after form", czk:"CZK", ask:"on request", count:"Selected: {n}", fee:"blood draw", nofee:"no sampling fee", show:"Show selection", hide:"Hide selection", expand:"Expand all", collapse:"Collapse all", nores:"No test matches your search.", remove:"Remove", notesHead:"Selected tests (uvlecky.cz):", notesTotal:"Estimated total" }
+    cs:{ without:"bez", inblock:"v bloku", likes:"Kolikrát lidé vybrali vyšetření z tohoto bloku", lab:"klinická laboratoř · žádanka", form:"podle žádanky", czk:"Kč", ask:"na dotaz", count:"Vybráno: {n}", fee:"odběr krve", nofee:"bez poplatku za odběr", show:"Zobrazit výběr", hide:"Skrýt výběr", expand:"Rozbalit vše", collapse:"Sbalit vše", nores:"Žádné vyšetření neodpovídá hledání.", remove:"Odebrat", notesHead:"Vybraná vyšetření (web uvlecky.cz):", notesTotal:"Celkem orientačně" },
+    ru:{ without:"без", inblock:"в блоке", likes:"Сколько раз выбирали анализы из этого блока", lab:"клиническая лаборатория · бланк", form:"по бланку", czk:"Kč", ask:"по запросу", count:"Выбрано: {n}", fee:"забор крови", nofee:"без платы за забор", show:"Показать выбор", hide:"Скрыть выбор", expand:"Развернуть всё", collapse:"Свернуть всё", nores:"Ничего не найдено.", remove:"Убрать", notesHead:"Выбранные анализы (сайт uvlecky.cz):", notesTotal:"Итого ориентировочно" },
+    uk:{ without:"без", inblock:"у блоці", likes:"Скільки разів обирали аналізи з цього блоку", lab:"клінічна лабораторія · бланк", form:"за бланком", czk:"Kč", ask:"за запитом", count:"Обрано: {n}", fee:"забір крові", nofee:"без плати за забір", show:"Показати вибір", hide:"Сховати вибір", expand:"Розгорнути все", collapse:"Згорнути все", nores:"Нічого не знайдено.", remove:"Прибрати", notesHead:"Обрані аналізи (сайт uvlecky.cz):", notesTotal:"Разом орієнтовно" },
+    en:{ without:"without", inblock:"in block", likes:"How many times people picked tests from this block", lab:"clinical laboratory · request form", form:"after form", czk:"CZK", ask:"on request", count:"Selected: {n}", fee:"blood draw", nofee:"no sampling fee", show:"Show selection", hide:"Hide selection", expand:"Expand all", collapse:"Collapse all", nores:"No test matches your search.", remove:"Remove", notesHead:"Selected tests (uvlecky.cz):", notesTotal:"Estimated total" }
   };
 
   var lang = UI[document.documentElement.lang] ? document.documentElement.lang : "cs";
@@ -5303,10 +5323,37 @@ body.has-cart .to-top{ bottom:208px; }
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
-  function ids(){ var out = []; FORM.forEach(function(sh){ sh.secs.forEach(function(sec){ sec.rows.forEach(function(r){ if (picked[r[0]]) out.push(r[0]); }); }); }); return out; }
+  /* Bloky na žádance: jedna cena za několik vyšetření (složení podle popisu bloku).
+     Zaškrtnutý blok označí všechna svá vyšetření; odškrtnutím jednoho z nich
+     cena bloku klesne o jeho položku. Vyšetření v bloku se neúčtují zvlášť. */
+  var BLOCKS = {
+    minblok: ["na","k","ca","mg","p"],
+    led:     ["urea","krea","kmoc"],
+    lipblok: ["chol","hdl","ldl","tag","lpa"],
+    jat:     ["alt","ast","ggt","alp","bil"]
+  };
+  var BLOCKOF = {};
+  Object.keys(BLOCKS).forEach(function(b){ BLOCKS[b].forEach(function(m){ BLOCKOF[m] = b; }); });
+  function inBlock(id){ var b = BLOCKOF[id]; return !!(b && picked[b]); }
+  function missing(b){ return BLOCKS[b].filter(function(m){ return ITEMS[m] && !picked[m]; }); }
+  /* Cena položky v košíku: blok bez odškrtnutých vyšetření, ostatní podle ceníku. */
+  function cost(id){
+    if (!BLOCKS[id]) return ITEMS[id].p;
+    var p = ITEMS[id].p || 0;
+    missing(id).forEach(function(m){ p -= ITEMS[m].p || 0; });
+    return Math.max(p, 0);
+  }
+  function setBlock(b, on){ picked[b] = on; BLOCKS[b].forEach(function(m){ picked[m] = on; }); }
+  /* Co jde do košíku: vyšetření uvnitř zaškrtnutého bloku tam nejsou zvlášť. */
+  function ids(){ var out = []; FORM.forEach(function(sh){ sh.secs.forEach(function(sec){ sec.rows.forEach(function(r){ if (picked[r[0]] && !inBlock(r[0])) out.push(r[0]); }); }); }); return out; }
+  function label(id){
+    if (!BLOCKS[id]) return ITEMS[id].n;
+    var miss = missing(id);
+    return ITEMS[id].n + (miss.length ? " (" + T.without + " " + miss.map(function(m){ return ITEMS[m].n; }).join(", ") + ")" : "");
+  }
   function totals(){
     var list = ids(), tests = 0, blood = false;
-    list.forEach(function(id){ tests += ITEMS[id].p || 0; if (KIND[id] === "blood") blood = true; });
+    list.forEach(function(id){ tests += cost(id) || 0; if (KIND[id] === "blood") blood = true; });
     return { ids:list, tests:tests, fee:blood ? FEE : 0, total:tests + (blood ? FEE : 0) };
   }
   function price(p){ return p == null ? T.ask : fmt(p) + " " + T.czk; }
@@ -5366,10 +5413,11 @@ body.has-cart .to-top{ bottom:208px; }
   }
 
   function rowHtml(r){
-    var on = !!picked[r[0]], h = hint(r[0]);
-    return '<button type="button" class="zf-row' + (on ? " on" : "") + '" data-pick="' + r[0] + '" aria-pressed="' + on + '">' +
+    var on = !!picked[r[0]], h = hint(r[0]), inb = on && inBlock(r[0]);
+    var pr = BLOCKS[r[0]] && on ? cost(r[0]) : r[2];
+    return '<button type="button" class="zf-row' + (on ? " on" : "") + (inb ? " inblk" : "") + '" data-pick="' + r[0] + '" aria-pressed="' + on + '">' +
            '<span class="zf-n">' + esc(r[1]) + (h ? '<small>' + esc(h) + '</small>' : '') + '</span>' +
-           '<span class="zf-p">' + price(r[2]) + '</span><span class="zf-dot"><i></i></span></button>';
+           '<span class="zf-p">' + (inb ? '<small class="zf-inb">' + esc(T.inblock) + '</small>' : price(pr)) + '</span><span class="zf-dot"><i></i></span></button>';
   }
   function match(r){
     if (!query) return true;
@@ -5425,7 +5473,7 @@ body.has-cart .to-top{ bottom:208px; }
     var list = document.getElementById("cart-list");
     list.hidden = !cartOpen;
     list.innerHTML = cartOpen ? s.ids.map(function(id){
-      return '<span class="chip">' + esc(ITEMS[id].n) + " · " + price(ITEMS[id].p) +
+      return '<span class="chip">' + esc(label(id)) + " · " + price(cost(id)) +
              '<button type="button" data-drop="' + id + '" aria-label="' + esc(T.remove) + '">&times;</button></span>';
     }).join("") : "";
   }
@@ -5437,7 +5485,10 @@ body.has-cart .to-top{ bottom:208px; }
     var s = totals();
     if (!s.ids.length) return "";
     var lines = [T.notesHead];
-    s.ids.forEach(function(id){ lines.push("• " + ITEMS[id].n + " — " + price(ITEMS[id].p)); });
+    s.ids.forEach(function(id){
+      lines.push("• " + label(id) + " — " + price(cost(id)));
+      if (BLOCKS[id]) lines.push("   " + BLOCKS[id].filter(function(m){ return picked[m]; }).map(function(m){ return ITEMS[m].n; }).join(", "));
+    });
     if (s.fee) lines.push("• " + T.fee + " — " + s.fee + " " + T.czk);
     lines.push(T.notesTotal + ": " + s.total + " " + T.czk);
     return lines.join("\n");
@@ -5448,10 +5499,15 @@ body.has-cart .to-top{ bottom:208px; }
     var row = e.target.closest(".zf-row[data-pick]");
     if (row){
       var id = row.getAttribute("data-pick"), on = !picked[id];
-      picked[id] = on;
-      row.classList.toggle("on", on); row.setAttribute("aria-pressed", String(on));
+      if (BLOCKS[id]) setBlock(id, on);
+      else {
+        picked[id] = on;
+        /* Poslední vyšetření odškrtnuté z bloku — blok už není co účtovat. */
+        var b = BLOCKOF[id];
+        if (!on && b && picked[b] && missing(b).length === BLOCKS[b].length) picked[b] = false;
+      }
       if (on){ burst(row.querySelector(".zf-dot")); addLike(SECOF[id]); }
-      renderTabs(); renderPacks(); renderCart();
+      renderGroups(); renderPacks(); renderCart();
       return;
     }
     var t = e.target.closest(".zf-tab[data-tab]");
@@ -5459,12 +5515,12 @@ body.has-cart .to-top{ bottom:208px; }
     var pack = e.target.closest(".topic[data-pack]");
     if (pack){
       var list = PACKS[pack.getAttribute("data-pack")].filter(function(id){ return ITEMS[id]; }), allOn = list.every(function(id){ return picked[id]; });
-      list.forEach(function(id){ picked[id] = !allOn; });
+      list.forEach(function(id){ if (BLOCKS[id]) setBlock(id, !allOn); else picked[id] = !allOn; });
       refresh();
       return;
     }
     var drop = e.target.closest("[data-drop]");
-    if (drop){ picked[drop.getAttribute("data-drop")] = false; refresh(); return; }
+    if (drop){ var did = drop.getAttribute("data-drop"); if (BLOCKS[did]) setBlock(did, false); else picked[did] = false; refresh(); return; }
     if (e.target.closest("#cart-toggle")){ cartOpen = !cartOpen; renderCart(); return; }
     if (e.target.closest("#clear-all") || e.target.closest("#cart-clear")){ picked = {}; cartOpen = false; refresh(); return; }
   });

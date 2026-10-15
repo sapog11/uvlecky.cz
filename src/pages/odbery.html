@@ -649,6 +649,8 @@
 .zf-dot i{ width:15px; height:15px; border-radius:50%; border:1.6px solid #2E86C1; background:#fff; transition:background .15s ease, border-color .15s ease, transform .2s ease; }
 .zf-row.on{ background:#FBFBF8; }
 .zf-row.on .zf-n{ font-weight:700; }
+.zf-inb{ font-size:10.5px; font-weight:700; color:#2E86C1; text-transform:uppercase; letter-spacing:.03em; }
+.zf-row.inblk .zf-n{ font-weight:600; }
 .zf-row.on .zf-p{ color:#111; }
 .zf-row.on .zf-dot i{ background:#111; border-color:#111; animation:zfDot .35s ease; }
 @keyframes zfDot{ 0%{ transform:scale(.4); } 60%{ transform:scale(1.3); } 100%{ transform:scale(1); } }
@@ -994,10 +996,10 @@
   };
 
   var UI = {
-    cs:{ likes:"Kolikrát lidé vybrali vyšetření z tohoto bloku", lab:"klinická laboratoř · žádanka", form:"podle žádanky", czk:"Kč", ask:"na dotaz", count:"Vybráno: {n}", fee:"odběr krve", nofee:"bez poplatku za odběr", show:"Zobrazit výběr", hide:"Skrýt výběr", expand:"Rozbalit vše", collapse:"Sbalit vše", nores:"Žádné vyšetření neodpovídá hledání.", remove:"Odebrat", notesHead:"Vybraná vyšetření (web uvlecky.cz):", notesTotal:"Celkem orientačně" },
-    ru:{ likes:"Сколько раз выбирали анализы из этого блока", lab:"клиническая лаборатория · бланк", form:"по бланку", czk:"Kč", ask:"по запросу", count:"Выбрано: {n}", fee:"забор крови", nofee:"без платы за забор", show:"Показать выбор", hide:"Скрыть выбор", expand:"Развернуть всё", collapse:"Свернуть всё", nores:"Ничего не найдено.", remove:"Убрать", notesHead:"Выбранные анализы (сайт uvlecky.cz):", notesTotal:"Итого ориентировочно" },
-    uk:{ likes:"Скільки разів обирали аналізи з цього блоку", lab:"клінічна лабораторія · бланк", form:"за бланком", czk:"Kč", ask:"за запитом", count:"Обрано: {n}", fee:"забір крові", nofee:"без плати за забір", show:"Показати вибір", hide:"Сховати вибір", expand:"Розгорнути все", collapse:"Згорнути все", nores:"Нічого не знайдено.", remove:"Прибрати", notesHead:"Обрані аналізи (сайт uvlecky.cz):", notesTotal:"Разом орієнтовно" },
-    en:{ likes:"How many times people picked tests from this block", lab:"clinical laboratory · request form", form:"after form", czk:"CZK", ask:"on request", count:"Selected: {n}", fee:"blood draw", nofee:"no sampling fee", show:"Show selection", hide:"Hide selection", expand:"Expand all", collapse:"Collapse all", nores:"No test matches your search.", remove:"Remove", notesHead:"Selected tests (uvlecky.cz):", notesTotal:"Estimated total" }
+    cs:{ without:"bez", inblock:"v bloku", likes:"Kolikrát lidé vybrali vyšetření z tohoto bloku", lab:"klinická laboratoř · žádanka", form:"podle žádanky", czk:"Kč", ask:"na dotaz", count:"Vybráno: {n}", fee:"odběr krve", nofee:"bez poplatku za odběr", show:"Zobrazit výběr", hide:"Skrýt výběr", expand:"Rozbalit vše", collapse:"Sbalit vše", nores:"Žádné vyšetření neodpovídá hledání.", remove:"Odebrat", notesHead:"Vybraná vyšetření (web uvlecky.cz):", notesTotal:"Celkem orientačně" },
+    ru:{ without:"без", inblock:"в блоке", likes:"Сколько раз выбирали анализы из этого блока", lab:"клиническая лаборатория · бланк", form:"по бланку", czk:"Kč", ask:"по запросу", count:"Выбрано: {n}", fee:"забор крови", nofee:"без платы за забор", show:"Показать выбор", hide:"Скрыть выбор", expand:"Развернуть всё", collapse:"Свернуть всё", nores:"Ничего не найдено.", remove:"Убрать", notesHead:"Выбранные анализы (сайт uvlecky.cz):", notesTotal:"Итого ориентировочно" },
+    uk:{ without:"без", inblock:"у блоці", likes:"Скільки разів обирали аналізи з цього блоку", lab:"клінічна лабораторія · бланк", form:"за бланком", czk:"Kč", ask:"за запитом", count:"Обрано: {n}", fee:"забір крові", nofee:"без плати за забір", show:"Показати вибір", hide:"Сховати вибір", expand:"Розгорнути все", collapse:"Згорнути все", nores:"Нічого не знайдено.", remove:"Прибрати", notesHead:"Обрані аналізи (сайт uvlecky.cz):", notesTotal:"Разом орієнтовно" },
+    en:{ without:"without", inblock:"in block", likes:"How many times people picked tests from this block", lab:"clinical laboratory · request form", form:"after form", czk:"CZK", ask:"on request", count:"Selected: {n}", fee:"blood draw", nofee:"no sampling fee", show:"Show selection", hide:"Hide selection", expand:"Expand all", collapse:"Collapse all", nores:"No test matches your search.", remove:"Remove", notesHead:"Selected tests (uvlecky.cz):", notesTotal:"Estimated total" }
   };
 
   var lang = UI[document.documentElement.lang] ? document.documentElement.lang : "cs";
@@ -1014,10 +1016,37 @@
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
-  function ids(){ var out = []; FORM.forEach(function(sh){ sh.secs.forEach(function(sec){ sec.rows.forEach(function(r){ if (picked[r[0]]) out.push(r[0]); }); }); }); return out; }
+  /* Bloky na žádance: jedna cena za několik vyšetření (složení podle popisu bloku).
+     Zaškrtnutý blok označí všechna svá vyšetření; odškrtnutím jednoho z nich
+     cena bloku klesne o jeho položku. Vyšetření v bloku se neúčtují zvlášť. */
+  var BLOCKS = {
+    minblok: ["na","k","ca","mg","p"],
+    led:     ["urea","krea","kmoc"],
+    lipblok: ["chol","hdl","ldl","tag","lpa"],
+    jat:     ["alt","ast","ggt","alp","bil"]
+  };
+  var BLOCKOF = {};
+  Object.keys(BLOCKS).forEach(function(b){ BLOCKS[b].forEach(function(m){ BLOCKOF[m] = b; }); });
+  function inBlock(id){ var b = BLOCKOF[id]; return !!(b && picked[b]); }
+  function missing(b){ return BLOCKS[b].filter(function(m){ return ITEMS[m] && !picked[m]; }); }
+  /* Cena položky v košíku: blok bez odškrtnutých vyšetření, ostatní podle ceníku. */
+  function cost(id){
+    if (!BLOCKS[id]) return ITEMS[id].p;
+    var p = ITEMS[id].p || 0;
+    missing(id).forEach(function(m){ p -= ITEMS[m].p || 0; });
+    return Math.max(p, 0);
+  }
+  function setBlock(b, on){ picked[b] = on; BLOCKS[b].forEach(function(m){ picked[m] = on; }); }
+  /* Co jde do košíku: vyšetření uvnitř zaškrtnutého bloku tam nejsou zvlášť. */
+  function ids(){ var out = []; FORM.forEach(function(sh){ sh.secs.forEach(function(sec){ sec.rows.forEach(function(r){ if (picked[r[0]] && !inBlock(r[0])) out.push(r[0]); }); }); }); return out; }
+  function label(id){
+    if (!BLOCKS[id]) return ITEMS[id].n;
+    var miss = missing(id);
+    return ITEMS[id].n + (miss.length ? " (" + T.without + " " + miss.map(function(m){ return ITEMS[m].n; }).join(", ") + ")" : "");
+  }
   function totals(){
     var list = ids(), tests = 0, blood = false;
-    list.forEach(function(id){ tests += ITEMS[id].p || 0; if (KIND[id] === "blood") blood = true; });
+    list.forEach(function(id){ tests += cost(id) || 0; if (KIND[id] === "blood") blood = true; });
     return { ids:list, tests:tests, fee:blood ? FEE : 0, total:tests + (blood ? FEE : 0) };
   }
   function price(p){ return p == null ? T.ask : fmt(p) + " " + T.czk; }
@@ -1077,10 +1106,11 @@
   }
 
   function rowHtml(r){
-    var on = !!picked[r[0]], h = hint(r[0]);
-    return '<button type="button" class="zf-row' + (on ? " on" : "") + '" data-pick="' + r[0] + '" aria-pressed="' + on + '">' +
+    var on = !!picked[r[0]], h = hint(r[0]), inb = on && inBlock(r[0]);
+    var pr = BLOCKS[r[0]] && on ? cost(r[0]) : r[2];
+    return '<button type="button" class="zf-row' + (on ? " on" : "") + (inb ? " inblk" : "") + '" data-pick="' + r[0] + '" aria-pressed="' + on + '">' +
            '<span class="zf-n">' + esc(r[1]) + (h ? '<small>' + esc(h) + '</small>' : '') + '</span>' +
-           '<span class="zf-p">' + price(r[2]) + '</span><span class="zf-dot"><i></i></span></button>';
+           '<span class="zf-p">' + (inb ? '<small class="zf-inb">' + esc(T.inblock) + '</small>' : price(pr)) + '</span><span class="zf-dot"><i></i></span></button>';
   }
   function match(r){
     if (!query) return true;
@@ -1136,7 +1166,7 @@
     var list = document.getElementById("cart-list");
     list.hidden = !cartOpen;
     list.innerHTML = cartOpen ? s.ids.map(function(id){
-      return '<span class="chip">' + esc(ITEMS[id].n) + " · " + price(ITEMS[id].p) +
+      return '<span class="chip">' + esc(label(id)) + " · " + price(cost(id)) +
              '<button type="button" data-drop="' + id + '" aria-label="' + esc(T.remove) + '">&times;</button></span>';
     }).join("") : "";
   }
@@ -1148,7 +1178,10 @@
     var s = totals();
     if (!s.ids.length) return "";
     var lines = [T.notesHead];
-    s.ids.forEach(function(id){ lines.push("• " + ITEMS[id].n + " — " + price(ITEMS[id].p)); });
+    s.ids.forEach(function(id){
+      lines.push("• " + label(id) + " — " + price(cost(id)));
+      if (BLOCKS[id]) lines.push("   " + BLOCKS[id].filter(function(m){ return picked[m]; }).map(function(m){ return ITEMS[m].n; }).join(", "));
+    });
     if (s.fee) lines.push("• " + T.fee + " — " + s.fee + " " + T.czk);
     lines.push(T.notesTotal + ": " + s.total + " " + T.czk);
     return lines.join("\n");
@@ -1159,10 +1192,15 @@
     var row = e.target.closest(".zf-row[data-pick]");
     if (row){
       var id = row.getAttribute("data-pick"), on = !picked[id];
-      picked[id] = on;
-      row.classList.toggle("on", on); row.setAttribute("aria-pressed", String(on));
+      if (BLOCKS[id]) setBlock(id, on);
+      else {
+        picked[id] = on;
+        /* Poslední vyšetření odškrtnuté z bloku — blok už není co účtovat. */
+        var b = BLOCKOF[id];
+        if (!on && b && picked[b] && missing(b).length === BLOCKS[b].length) picked[b] = false;
+      }
       if (on){ burst(row.querySelector(".zf-dot")); addLike(SECOF[id]); }
-      renderTabs(); renderPacks(); renderCart();
+      renderGroups(); renderPacks(); renderCart();
       return;
     }
     var t = e.target.closest(".zf-tab[data-tab]");
@@ -1170,12 +1208,12 @@
     var pack = e.target.closest(".topic[data-pack]");
     if (pack){
       var list = PACKS[pack.getAttribute("data-pack")].filter(function(id){ return ITEMS[id]; }), allOn = list.every(function(id){ return picked[id]; });
-      list.forEach(function(id){ picked[id] = !allOn; });
+      list.forEach(function(id){ if (BLOCKS[id]) setBlock(id, !allOn); else picked[id] = !allOn; });
       refresh();
       return;
     }
     var drop = e.target.closest("[data-drop]");
-    if (drop){ picked[drop.getAttribute("data-drop")] = false; refresh(); return; }
+    if (drop){ var did = drop.getAttribute("data-drop"); if (BLOCKS[did]) setBlock(did, false); else picked[did] = false; refresh(); return; }
     if (e.target.closest("#cart-toggle")){ cartOpen = !cartOpen; renderCart(); return; }
     if (e.target.closest("#clear-all") || e.target.closest("#cart-clear")){ picked = {}; cartOpen = false; refresh(); return; }
   });
