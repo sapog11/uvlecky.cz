@@ -38,6 +38,7 @@ LANGS = {
     "ru": ("ru", "ru", "ru"),
     "ua": ("ua", "uk", "uk"),
     "en": ("en", "en", "en"),
+    "de": ("de", "de", "de"),
 }
 
 # titulek a popis hlavní stránky v překladech (česká verze je ve src/index.html)
@@ -45,6 +46,7 @@ TITLES = {
     "ru": "Терапевт для иностранцев в Усти-над-Лабем — все страховки, по-русски | U Vlečky",
     "ua": "Терапевт Ústí nad Labem — україномовний сімейний лікар | U Vlečky",
     "en": "English-speaking doctor in Ústí nad Labem – PVZP and VZP accepted",
+    "de": "Blutuntersuchung ohne Überweisung & russischsprachige Ärztin — Ústí nad Labem, nah an Sachsen | U Vlečky",
 }
 
 DESCRIPTIONS = {
@@ -60,10 +62,13 @@ DESCRIPTIONS = {
            "patients. We take VZP and PVZP insurance for foreigners. Russian and "
            "Ukrainian spoken too. Blood tests without a referral from 22 CZK. "
            "U Vlečky 3086/6."),
+    "de": ("Russischsprachige Ärztin und Blutuntersuchungen ohne Überweisung in Ústí nad Labem — "
+           "nur ca. 25 Minuten hinter der Grenze zu Sachsen. Kein Termin beim Hausarzt in Deutschland? "
+           "Bei uns schnell, günstig, ohne Wartezeit: Tests ab 22 Kč, Termin online. U Vlečky 3086/6."),
 }
 
-OG_LOCALE = {"ru": "ru_RU", "ua": "uk_UA", "en": "en_GB"}
-HREFLANG_TO_DIR = {"cs": "", "ru": "ru/", "uk": "ua/", "en": "en/"}
+OG_LOCALE = {"ru": "ru_RU", "ua": "uk_UA", "en": "en_GB", "de": "de_DE"}
+HREFLANG_TO_DIR = {"cs": "", "ru": "ru/", "uk": "ua/", "en": "en/", "de": "de/"}
 
 
 def page_paths():
@@ -84,7 +89,7 @@ def url(lang_dir, path):
 def hreflang_block(soup, path):
     """Sada <link rel=alternate> na jazykové verze TÉTO stránky."""
     out = []
-    for code, d in (("cs", ""), ("ru", "ru/"), ("uk", "ua/"), ("en", "en/"), ("x-default", "")):
+    for code, d in (("cs", ""), ("ru", "ru/"), ("uk", "ua/"), ("en", "en/"), ("de", "de/"), ("x-default", "")):
         tag = soup.new_tag("link", rel="alternate", href=SITE + url(d, path))
         tag["hreflang"] = code
         out.append(tag)
@@ -136,7 +141,7 @@ def make_switcher_links(soup, lang, path):
     menu = soup.select_one(".lang-menu")
     if not menu:
         return
-    current = {None: "cs", "ru": "ru", "ua": "uk", "en": "en"}[lang]
+    current = {None: "cs", "ru": "ru", "ua": "uk", "en": "en", "de": "de"}[lang]
     for a in menu.find_all("a"):
         code = a.get("hreflang")
         if code not in HREFLANG_TO_DIR:
@@ -148,7 +153,7 @@ def make_switcher_links(soup, lang, path):
             del a["class"]
     cur = soup.find(id="langCur")
     if cur:
-        cur.string = {"cs": "CS", "ru": "RU", "uk": "UA", "en": "EN"}[current]
+        cur.string = {"cs": "CS", "ru": "RU", "uk": "UA", "en": "EN", "de": "DE"}[current]
 
 
 def localize_links(soup, lang):
@@ -165,10 +170,16 @@ def localize_links(soup, lang):
 
 
 def apply_only(soup, keep):
-    """Vypustí prvky určené jen pro druhou skupinu jazyků (data-only="cs"|"tr")."""
+    """Vypustí prvky určené jen pro druhou skupinu jazyků (data-only="cs"|"tr"|"de"|"tr-not-de").
+
+    keep je množina hodnot, které na stránce zůstanou: čeština {"cs"},
+    překlady {"tr", "tr-not-de"}, němčina {"tr", "de"} — německá verze má
+    navíc vlastní bloky pro návštěvníky z Německa."""
+    if isinstance(keep, str):
+        keep = {keep}
     removed = 0
     for el in soup.select("[data-only]"):
-        if el.get("data-only") != keep:
+        if el.get("data-only") not in keep:
             el.decompose()
             removed += 1
         else:
@@ -312,7 +323,7 @@ def request_form_seo(soup, lang, keywords, schema):
     form = json.loads(m.group(1))
     key = lang or "cs"
     czk = "CZK" if key == "en" else "Kč"
-    ask = {"cs": "na dotaz", "en": "on request", "ru": "по запросу", "ua": "за запитом"}[key]
+    ask = {"cs": "na dotaz", "en": "on request", "ru": "по запросу", "ua": "за запитом", "de": "auf Anfrage"}[key]
     def price(p):
         return ask if p is None else "{:,}".format(p).replace(",", " ") + " " + czk
     def t(d):
@@ -377,11 +388,11 @@ def finish(soup, lang, path, title, desc, keywords=None, schema=None):
     keywords a schema (JSON-LD) přicházejí z page-meta vnitřní stránky, už v
     jazyce dané mutace."""
     if lang:
-        apply_only(soup, "tr")
+        apply_only(soup, {"tr", "de"} if lang == "de" else {"tr", "tr-not-de"})
         n = bake_translations(soup, lang)
         localize_links(soup, lang)
     else:
-        n = apply_only(soup, "cs")
+        n = apply_only(soup, {"cs"})
     fix_head(soup, lang, path, title, desc)
     make_switcher_links(soup, lang, path)
     keywords, schema = request_form_seo(soup, lang, keywords, schema)
