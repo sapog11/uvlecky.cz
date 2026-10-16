@@ -549,7 +549,8 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   background:rgba(255,255,255,0.06); margin-bottom:18px;
 }
 .reg-phone-box svg{ width:22px; height:22px; color:var(--blue-2); flex:none; }
-.reg-phone-box .n{ font-family:var(--display); font-size:27px; font-weight:600; letter-spacing:0.01em; }
+.reg-phone-box .n{ font-family:var(--body); font-size:25px; font-weight:700; letter-spacing:0.02em; font-variant-numeric:tabular-nums; }
+.reg-who{ margin-top:12px; font-size:12.5px; line-height:1.5; color:rgba(255,255,255,0.62); }
 .reg-hours{ display:flex; align-items:center; gap:9px; font-size:13px; color:rgba(255,255,255,0.68); }
 .reg-hours svg{ width:15px; height:15px; flex:none; }
 @media (max-width:900px){ .reg-grid{ grid-template-columns:1fr; gap:40px; } }
@@ -752,6 +753,13 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   .lang-hint-go{ padding:6px 12px; font-size:12px; }
 }
 
+.doc-ic{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; margin-bottom:9px;
+  border-radius:12px; background:var(--blue-mist); color:var(--navy);
+}
+.doc-ic svg{ width:19px; height:19px; }
+
 /* ===================== FOOTER ===================== */
 .site-footer{ background:linear-gradient(180deg, var(--green-pale) 0%, #BFD6C7 100%); color:var(--navy); padding:40px 0 20px; position:relative; z-index:2; }
 .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; gap:34px; flex-wrap:wrap; padding-bottom:30px; border-bottom:1px solid rgba(28,43,74,0.15); }
@@ -912,7 +920,7 @@ body.has-cart .to-top{ bottom:208px; }
     radial-gradient(38% 20% at 90% 92%, rgba(104,161,214,.32), transparent 70%),
     linear-gradient(180deg,#F4F9FD 0%,#EDF4FA 50%,#EAF2EE 100%);
 }
-#vyhody,#registrace,#sluzby,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+#vyhody,#registrace,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
 .card,.doc-card,.faq-item,.sub-fact,.why-card,.topic{
   background:rgba(255,255,255,.58);
   -webkit-backdrop-filter:blur(18px) saturate(1.5);
@@ -1074,7 +1082,7 @@ body.has-cart .to-top{ bottom:208px; }
 <a data-lang-cs="Lékař" data-lang-de="Ärzte" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="/en/#lekar">Doctors</a>
 <a data-lang-cs="Výhody" data-lang-de="Vorteile" data-lang-en="Benefits" data-lang-ru="Преимущества" data-lang-ua="Переваги" href="/en/#vyhody">Benefits</a>
 <a data-lang-cs="Registrace" data-lang-de="Registrierung" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="/en/#region">Registration</a>
-<a data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="/en/#sluzby">Services</a>
+<a data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="/en/#lekar">Services</a>
 <a data-lang-cs="Informace" data-lang-de="Informationen" data-lang-en="Information" data-lang-ru="Информация" data-lang-ua="Інформація" href="/en/#informace">Information</a>
 <a data-lang-cs="Kontakt" data-lang-de="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="/en/#kontakt">Contact</a>
 </nav>
@@ -1105,7 +1113,7 @@ body.has-cart .to-top{ bottom:208px; }
 <a class="mlink" data-lang-cs="Lékař" data-lang-de="Ärzte" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="/en/#lekar">Doctors</a>
 <a class="mlink" data-lang-cs="Výhody" data-lang-de="Vorteile" data-lang-en="Benefits" data-lang-ru="Преимущества" data-lang-ua="Переваги" href="/en/#vyhody">Benefits</a>
 <a class="mlink" data-lang-cs="Registrace" data-lang-de="Registrierung" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="/en/#region">Registration</a>
-<a class="mlink" data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="/en/#sluzby">Services</a>
+<a class="mlink" data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="/en/#lekar">Services</a>
 <a class="mlink" data-lang-cs="Informace" data-lang-de="Informationen" data-lang-en="Information" data-lang-ru="Информация" data-lang-ua="Інформація" href="/en/#informace">Information</a>
 <a class="mlink" data-lang-cs="Kontakt" data-lang-de="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="/en/#kontakt">Contact</a>
 <div class="mrow">
@@ -1194,11 +1202,11 @@ body.has-cart .to-top{ bottom:208px; }
 </a>
 <a class="fab-item fab-exam" data-zoryx-book="poliklinika_u_vlecky" href="https://zoryx.app/clinic/embed/poliklinika_u_vlecky" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="4" rx="1" width="8" x="8" y="2"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span>
-<span><strong data-lang-cs="Lékařské prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Medical check-ups</strong><small data-lang-cs="Autoškola, práce, škola · online termíny" data-lang-de="Führerschein, Arbeit, Schule · online buchen" data-lang-en="Driving, work, school · book online" data-lang-ru="Автошкола, работа, учёба · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · онлайн-запис">Driving, work, school · book online</small></span>
+<span><strong data-lang-cs="Lékařské prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Medical check-ups</strong><small data-lang-cs="Autoškola, práce, škola · od 500 Kč · online termíny" data-lang-de="Führerschein, Arbeit, Schule · ab 500 CZK · online buchen" data-lang-en="Driving, work, school · from 500 CZK · book online" data-lang-ru="Автошкола, работа, учёба · от 500 Kč · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · від 500 Kč · онлайн-запис">Driving, work, school · from 500 CZK · book online</small></span>
 </a>
 <a class="fab-item" href="/en/prakticky-lekar/#registrace" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
-<span><strong data-lang-cs="Registrace k lékařce" data-lang-de="Registrierung bei der Hausärztin" data-lang-en="Register with the GP" data-lang-ru="Регистрация у врача" data-lang-ua="Реєстрація в лікаря">Register with the GP</strong><small data-lang-cs="Pouze telefonicky" data-lang-de="Nur telefonisch" data-lang-en="By phone only" data-lang-ru="Только по телефону" data-lang-ua="Лише телефоном">By phone only</small></span>
+<span><strong data-lang-cs="Registrace k praktickému lékaři" data-lang-de="Registrierung beim Hausarzt" data-lang-en="Register with the GP" data-lang-ru="Регистрация к практическому врачу" data-lang-ua="Реєстрація до сімейного лікаря">Register with the GP</strong><small data-lang-cs="Pouze telefonicky · na pojišťovnu" data-lang-de="Nur telefonisch · über die Krankenkasse" data-lang-en="By phone only · covered by insurance" data-lang-ru="Только по телефону · по страховке" data-lang-ua="Лише телефоном · за страховкою">By phone only · covered by insurance</small></span>
 </a>
 </div>
 <button aria-controls="fabMenu" aria-expanded="false" class="fab-btn" id="fabBtn" type="button">

@@ -602,7 +602,8 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   background:rgba(255,255,255,0.06); margin-bottom:18px;
 }
 .reg-phone-box svg{ width:22px; height:22px; color:var(--blue-2); flex:none; }
-.reg-phone-box .n{ font-family:var(--display); font-size:27px; font-weight:600; letter-spacing:0.01em; }
+.reg-phone-box .n{ font-family:var(--body); font-size:25px; font-weight:700; letter-spacing:0.02em; font-variant-numeric:tabular-nums; }
+.reg-who{ margin-top:12px; font-size:12.5px; line-height:1.5; color:rgba(255,255,255,0.62); }
 .reg-hours{ display:flex; align-items:center; gap:9px; font-size:13px; color:rgba(255,255,255,0.68); }
 .reg-hours svg{ width:15px; height:15px; flex:none; }
 @media (max-width:900px){ .reg-grid{ grid-template-columns:1fr; gap:40px; } }
@@ -805,6 +806,13 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   .lang-hint-go{ padding:6px 12px; font-size:12px; }
 }
 
+.doc-ic{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; margin-bottom:9px;
+  border-radius:12px; background:var(--blue-mist); color:var(--navy);
+}
+.doc-ic svg{ width:19px; height:19px; }
+
 /* ===================== FOOTER ===================== */
 .site-footer{ background:linear-gradient(180deg, var(--green-pale) 0%, #BFD6C7 100%); color:var(--navy); padding:40px 0 20px; position:relative; z-index:2; }
 .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; gap:34px; flex-wrap:wrap; padding-bottom:30px; border-bottom:1px solid rgba(28,43,74,0.15); }
@@ -965,7 +973,7 @@ body.has-cart .to-top{ bottom:208px; }
     radial-gradient(38% 20% at 90% 92%, rgba(104,161,214,.32), transparent 70%),
     linear-gradient(180deg,#F4F9FD 0%,#EDF4FA 50%,#EAF2EE 100%);
 }
-#vyhody,#registrace,#sluzby,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+#vyhody,#registrace,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
 .card,.doc-card,.faq-item,.sub-fact,.why-card,.topic{
   background:rgba(255,255,255,.58);
   -webkit-backdrop-filter:blur(18px) saturate(1.5);
@@ -1114,7 +1122,7 @@ body.has-cart .to-top{ bottom:208px; }
 <a data-lang-cs="Lékař" data-lang-de="Ärzte" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="#lekar">Lékař</a>
 <a data-lang-cs="Výhody" data-lang-de="Vorteile" data-lang-en="Benefits" data-lang-ru="Преимущества" data-lang-ua="Переваги" href="#vyhody">Výhody</a>
 <a data-lang-cs="Registrace" data-lang-de="Registrierung" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="#region">Registrace</a>
-<a data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="#sluzby">Služby</a>
+<a data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="#lekar">Služby</a>
 <a data-lang-cs="Informace" data-lang-de="Informationen" data-lang-en="Information" data-lang-ru="Информация" data-lang-ua="Інформація" href="#informace">Informace</a>
 <a data-lang-cs="Kontakt" data-lang-de="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="#kontakt">Kontakt</a>
 </nav>
@@ -1145,7 +1153,7 @@ body.has-cart .to-top{ bottom:208px; }
 <a class="mlink" data-lang-cs="Lékař" data-lang-de="Ärzte" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі" href="#lekar">Lékař</a>
 <a class="mlink" data-lang-cs="Výhody" data-lang-de="Vorteile" data-lang-en="Benefits" data-lang-ru="Преимущества" data-lang-ua="Переваги" href="#vyhody">Výhody</a>
 <a class="mlink" data-lang-cs="Registrace" data-lang-de="Registrierung" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація" href="#region">Registrace</a>
-<a class="mlink" data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="#sluzby">Služby</a>
+<a class="mlink" data-lang-cs="Služby" data-lang-de="Leistungen" data-lang-en="Services" data-lang-ru="Услуги" data-lang-ua="Послуги" href="#lekar">Služby</a>
 <a class="mlink" data-lang-cs="Informace" data-lang-de="Informationen" data-lang-en="Information" data-lang-ru="Информация" data-lang-ua="Інформація" href="#informace">Informace</a>
 <a class="mlink" data-lang-cs="Kontakt" data-lang-de="Kontakt" data-lang-en="Contact" data-lang-ru="Контакты" data-lang-ua="Контакти" href="#kontakt">Kontakt</a>
 <div class="mrow">
@@ -1196,7 +1204,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="doc-body">
 <h3 class="doc-name">MUDr. Éva Bojčuk</h3>
-<span class="eyebrow" data-lang-cs="Praktický lékař" data-lang-de="Allgemeinmedizin" data-lang-en="General practitioner" data-lang-ru="Практический врач" data-lang-ua="Практичний лікар">Praktický lékař</span>
+<span aria-hidden="true" class="doc-ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M6 3h12c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2z"></path><circle cx="12" cy="9" r="3"></circle><path d="M8 17c0-2 2-3 4-3s4 1 4 3"></path><path d="M12 2v2M12 20v2M3 12h2M19 12h2"></path></svg></span><span class="eyebrow" data-lang-cs="Praktický lékař" data-lang-de="Allgemeinmedizin" data-lang-en="General practitioner" data-lang-ru="Практический врач" data-lang-ua="Практичний лікар">Praktický lékař</span>
 <p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Komplexní péče o dospělé pacienty. Prevence, diagnostika, terapie vč. laboratorních testů." data-lang-de="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Umfassende Betreuung erwachsener Patienten. Vorsorge, Diagnostik, Therapie. Einschließlich Laboruntersuchungen." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Comprehensive care for adult patients. Prevention, diagnosis, therapy. Including laboratory tests." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Комплексная помощь взрослым пациентам. Профилактика, диагностика, терапия. Включая лабораторные тесты." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Комплексна допомога дорослим пацієнтам. Профілактика, діагностика, терапія. Включаючи лабораторні тести."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Komplexní péče o dospělé pacienty. Prevence, diagnostika, terapie vč. laboratorních testů.</p>
 <div class="doc-tags" data-lang-cs="Po–Pá: 8:00–14:00" data-lang-de="Mo–Fr: 8:00–14:00" data-lang-en="Mon–Fri: 8:00–14:00" data-lang-ru="Пн–Пт: 8:00–14:00" data-lang-ua="Пн–Пт: 8:00–14:00">Po–Pá: 8:00–14:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
@@ -1209,23 +1217,6 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </article>
 <!-- Blood tests right under the GP: the two things people come for -->
-<div class="blood-promo blood-promo-in reveal" id="odbery-promo">
-<div class="blood-photo">
-<picture><source srcset="/images/odber-ctverec-v3.webp" type="image/webp"/><img alt="Odběrová místnost — Poliklinika U Vlečky, Ústí nad Labem" height="720" loading="lazy" src="/images/odber-ctverec-v3.jpg" width="720"/></picture>
-</div>
-<div class="blood-text">
-<span class="eyebrow" data-lang-cs="Pro samoplátce · bez žádanky" data-lang-de="Für Selbstzahler · ohne Überweisung" data-lang-en="For self-payers · no referral" data-lang-ru="Для самоплательщиков · без направления" data-lang-ua="Для самоплатників · без направлення">Pro samoplátce · bez žádanky</span>
-<h2 data-lang-cs="Krevní testy &lt;em&gt;bez žádanky&lt;/em&gt;" data-lang-de="Blutuntersuchungen &lt;em&gt;ohne Überweisung&lt;/em&gt;" data-lang-en="Blood tests &lt;em&gt;without a referral&lt;/em&gt;" data-lang-ru="Анализы крови &lt;em&gt;без направления&lt;/em&gt;" data-lang-ua="Аналізи крові &lt;em&gt;без направлення&lt;/em&gt;">Krevní testy <em>bez žádanky</em></h2>
-<p data-lang-cs="Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání." data-lang-de="Hormone, Vitamine, Schilddrüse, Cholesterin, Blutzucker und mehr — zu den Preisen des Labors DIAGNOSTIKA, ohne Aufschlag. Fester Termin, keine Wartezeit." data-lang-en="Hormones, vitamins, thyroid, cholesterol, blood sugar and more — at DIAGNOSTIKA laboratory prices with no mark-up. Booked times, no waiting." data-lang-ru="Гормоны, витамины, щитовидная железа, холестерин, сахар и другие — по ценам лаборатории DIAGNOSTIKA, без наценки. Забор по записи, без очереди." data-lang-ua="Гормони, вітаміни, щитоподібна залоза, холестерин, цукор та інші — за цінами лабораторії DIAGNOSTIKA, без націнки. Забір за записом, без черги.">Hormony, vitamíny, štítná žláza, cholesterol, cukr a další — za ceny laboratoře DIAGNOSTIKA, bez přirážky. Odběr na čas, bez čekání.</p>
-<ul class="blood-points">
-<li data-lang-cs="&lt;strong&gt;Testy od 22 Kč&lt;/strong&gt; · odběr krve 40 Kč" data-lang-de="&lt;strong&gt;Tests ab 22 Kč&lt;/strong&gt; · Blutabnahme 40 Kč" data-lang-en="&lt;strong&gt;Tests from 22 CZK&lt;/strong&gt; · blood draw 40 CZK" data-lang-ru="&lt;strong&gt;Анализы от 22 Kč&lt;/strong&gt; · забор крови 40 Kč" data-lang-ua="&lt;strong&gt;Аналізи від 22 Kč&lt;/strong&gt; · забір крові 40 Kč"><strong>Testy od 22 Kč</strong> · odběr krve 40 Kč</li>
-<li data-lang-cs="&lt;strong&gt;Po–Pá 8:00–11:00&lt;/strong&gt; · objednání online nebo telefonem" data-lang-de="&lt;strong&gt;Mo–Fr 8:00–11:00&lt;/strong&gt; · Termin online oder telefonisch" data-lang-en="&lt;strong&gt;Mon–Fri 8:00–11:00&lt;/strong&gt; · book online or by phone" data-lang-ru="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запись онлайн или по телефону" data-lang-ua="&lt;strong&gt;Пн–Пт 8:00–11:00&lt;/strong&gt; · запис онлайн або телефоном"><strong>Po–Pá 8:00–11:00</strong> · objednání online nebo telefonem</li>
-<li data-lang-cs="&lt;strong&gt;Prevence a Longevity&lt;/strong&gt; — balíček pro dlouhý a zdravý život" data-lang-de="&lt;strong&gt;Vorsorge und Longevity&lt;/strong&gt; — ein Paket für ein langes, gesundes Leben" data-lang-en="&lt;strong&gt;Prevention and Longevity&lt;/strong&gt; — a package for a long, healthy life" data-lang-ru="&lt;strong&gt;Профилактика и Longevity&lt;/strong&gt; — набор для долгой и здоровой жизни" data-lang-ua="&lt;strong&gt;Профілактика й Longevity&lt;/strong&gt; — набір для довгого й здорового життя"><strong>Prevence a Longevity</strong> — balíček pro dlouhý a zdravý život</li>
-<li data-lang-cs="&lt;strong&gt;Vyberete v kalkulačce&lt;/strong&gt; — seznam se sám vloží do rezervace" data-lang-de="&lt;strong&gt;Im Rechner auswählen&lt;/strong&gt; — die Liste geht direkt in Ihre Buchung" data-lang-en="&lt;strong&gt;Pick in the calculator&lt;/strong&gt; — the list goes straight into your booking" data-lang-ru="&lt;strong&gt;Выберите в калькуляторе&lt;/strong&gt; — список сам попадёт в запись" data-lang-ua="&lt;strong&gt;Оберіть у калькуляторі&lt;/strong&gt; — список сам потрапить у запис"><strong>Vyberete v kalkulačce</strong> — seznam se sám vloží do rezervace</li>
-</ul>
-<div class="blood-cta"><a class="btn btn-blood btn-lg" href="/odbery/#cenik"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-de="Bluttest buchen" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></a><a class="btn btn-light" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-de="Preise und Rechner" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a></div>
-</div>
-</div>
 <!-- DOCTOR 2: Odběrová místnost — krevní testy (druhé místo: samoplátci) -->
 <article class="doc-card doc-card-blood reveal d1">
 <div class="doc-photo has-img">
@@ -1236,8 +1227,8 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="doc-body">
 <h3 class="doc-name" data-lang-cs="Odběrová místnost" data-lang-de="Blutabnahmeraum" data-lang-en="Sample collection room" data-lang-ru="Процедурный кабинет" data-lang-ua="Процедурний кабінет">Odběrová místnost</h3>
-<span class="eyebrow" data-lang-cs="Krevní testy · bez žádanky" data-lang-de="Blutuntersuchungen · ohne Überweisung" data-lang-en="Blood tests · no referral" data-lang-ru="Анализы крови · без направления" data-lang-ua="Аналізи крові · без направлення">Krevní testy · bez žádanky</span>
-<p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup." data-lang-de="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Entnahme von Blut und anderen Proben. Laboruntersuchungen. Professionelle Betreuung." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Blood and biological sample collection. Laboratory testing. Professional approach." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Сбор крови и биологических образцов. Лабораторные тесты. Профессиональный подход." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Збір крові та біологічних зразків. Лабораторні тести. Професійний підхід."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Odběr krve a biologického materiálu. Laboratorní vyšetření. Profesionální přístup.</p>
+<span aria-hidden="true" class="doc-ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M9 3h6v3H9z"></path><rect height="12" rx="1" ry="1" width="8" x="8" y="6"></rect><line x1="12" x2="12" y1="6" y2="18"></line><circle cx="12" cy="12" fill="currentColor" r="2"></circle></svg></span><span class="eyebrow" data-lang-cs="Krevní testy · bez žádanky" data-lang-de="Blutuntersuchungen · ohne Überweisung" data-lang-en="Blood tests · no referral" data-lang-ru="Анализы крови · без направления" data-lang-ua="Аналізи крові · без направлення">Krevní testy · bez žádanky</span>
+<p data-lang-cs="Odběr krve a biologického materiálu. Na žádanku i na vlastní žádost bez žádanky." data-lang-de="Blut- und Probenentnahme. Mit Überweisung oder auf eigenen Wunsch, auch ohne." data-lang-en="Blood and biological sample collection. With a referral or at your own request, without one." data-lang-ru="Забор крови и биоматериала. По направлению и по собственному желанию, без направления." data-lang-ua="Забір крові та біоматеріалу. За направленням і за власним бажанням, без направлення.">Odběr krve a biologického materiálu. Na žádanku i na vlastní žádost bez žádanky.</p>
 <div class="doc-tags" data-lang-cs="Odběry Po–Pá: 8:00–11:00" data-lang-de="Blutabnahme Mo–Fr: 8:00–11:00" data-lang-en="Sampling Mon–Fri: 8:00–11:00" data-lang-ru="Забор Пн–Пт: 8:00–11:00" data-lang-ua="Забір Пн–Пт: 8:00–11:00">Odběry Po–Pá: 8:00–11:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
 <strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420602618024" style="color: var(--blue); font-weight: 600;">+420 602 618 024</a> <span aria-hidden="true">·</span> <a class="book-link" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti"><span data-lang-cs="online rezervace" data-lang-de="online buchen" data-lang-en="book online" data-lang-ru="онлайн-запись" data-lang-ua="онлайн-запис">online rezervace</span></a>
@@ -1255,7 +1246,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="doc-body">
 <h3 class="doc-name">MUDr. Marcela Dubská</h3>
-<span class="eyebrow" data-lang-cs="Zubní ordinace" data-lang-de="Zahnarztpraxis" data-lang-en="Dental clinic" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span>
+<span aria-hidden="true" class="doc-ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3c-5 0-9 3-9 7 0 2 1 4 3 5.5l-1.5 2.5 3-1.5c1 .5 2.2.8 3.5.8 5 0 9-3 9-7S17 3 12 3z"></path><line x1="8" x2="8" y1="10" y2="16"></line><line x1="12" x2="12" y1="10" y2="16"></line><line x1="16" x2="16" y1="10" y2="16"></line></svg></span><span class="eyebrow" data-lang-cs="Zubní ordinace" data-lang-de="Zahnarztpraxis" data-lang-en="Dental clinic" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span>
 <p data-lang-cs="Zubní péče pro dospělé a děti. Prevence, léčba zubů a ambulantní zákroky." data-lang-de="Zahnmedizinische Versorgung für Erwachsene und Kinder. Vorsorge, Behandlung und zahnärztliche Eingriffe." data-lang-en="Dental care for adults and children. Prevention, treatment and dental procedures." data-lang-ru="Стоматологическая помощь для взрослых и детей. Профилактика, лечение зубов и стоматологические процедуры." data-lang-ua="Стоматологічна допомога для дорослих і дітей. Профілактика, лікування зубів та стоматологічні процедури.">Zubní péče pro dospělé a děti. Prevence, léčba zubů a ambulantní zákroky.</p>
 <div class="doc-tags" data-lang-cs="Po: 7:30–16:00 | Út–Pá: 7:30–13:00" data-lang-de="Mo: 7:30–16:00 | Di–Fr: 7:30–13:00" data-lang-en="Mon: 7:30–16:00 | Tue–Fri: 7:30–13:00" data-lang-ru="Пн: 7:30–16:00 | Вт–Пт: 7:30–13:00" data-lang-ua="Пн: 7:30–16:00 | Вт–Пт: 7:30–13:00">Po: 7:30–16:00 | Út–Pá: 7:30–13:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
@@ -1273,7 +1264,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="doc-body">
 <h3 class="doc-name">MUDr. Adam Siakel<br/>MUDr. Luboš Gluck</h3>
-<span class="eyebrow" data-lang-cs="Zdravotní prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical examinations" data-lang-ru="Медицинские осмотры" data-lang-ua="Медичні огляди">Zdravotní prohlídky</span>
+<span aria-hidden="true" class="doc-ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="14" rx="2" ry="2" width="20" x="2" y="4"></rect><path d="M6 4v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><line x1="8" x2="16" y1="9" y2="9"></line></svg></span><span class="eyebrow" data-lang-cs="Zdravotní prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical examinations" data-lang-ru="Медицинские осмотры" data-lang-ua="Медичні огляди">Zdravotní prohlídky</span>
 <p data-lang-cs="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Pracovnělékařské prohlídky (PLS) a poradenství." data-lang-de="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Arbeitsmedizinische Untersuchungen (Arbeitsschutz), Beratung durch den Betriebsarzt." data-lang-en="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Medical examinations for work (OHS), occupational physician consultations." data-lang-ru="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Медицинские осмотры для работы (OHS), консультации врача-профессионала." data-lang-ua="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Медичні огляди для роботи (OHS), консультації лікаря-професіонала."><strong>MEDIGMA PLS, s.r.o.</strong><br/>Pracovnělékařské prohlídky (PLS) a poradenství.</p>
 <div class="doc-tags" data-lang-cs="Po–Pá: 8:00–17:00 (dle dohody)" data-lang-de="Mo–Fr: 8:00–17:00 (nach Vereinbarung)" data-lang-en="Mon–Fri: 8:00–17:00 (by arrangement)" data-lang-ru="Пн–Пт: 8:00–17:00 (по договоренности)" data-lang-ua="Пн–Пт: 8:00–17:00 (за домовленістю)">Po–Pá: 8:00–17:00 (dle dohody)</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
@@ -1307,7 +1298,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="doc-body">
 <h3 class="doc-name" data-lang-cs="Gynekologie" data-lang-de="Gynäkologie" data-lang-en="Gynecology" data-lang-ru="Гинекология" data-lang-ua="Гінекологія">Gynekologie</h3>
-<span class="eyebrow" data-lang-cs="Od listopadu 2026" data-lang-de="Ab November 2026" data-lang-en="From November 2026" data-lang-ru="С ноября 2026" data-lang-ua="З листопада 2026">Od listopadu 2026</span>
+<span aria-hidden="true" class="doc-ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="8" cy="8" r="2.5"></circle><circle cx="16" cy="8" r="2.5"></circle><path d="M12 10v6M8 10l4-2 4 2"></path><path d="M12 16c-2.5 0-4 1-4 3s1.5 3 4 3 4-1 4-3-1.5-3-4-3z"></path></svg></span><span class="eyebrow" data-lang-cs="Od listopadu 2026" data-lang-de="Ab November 2026" data-lang-en="From November 2026" data-lang-ru="С ноября 2026" data-lang-ua="З листопада 2026">Od listopadu 2026</span>
 <p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Nová gynekologická ordinace se otevírá od listopadu 2026. Jméno lékaře upřesníme." data-lang-de="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Im November 2026 eröffnet eine neue gynäkologische Praxis. Die Ärztin bzw. der Arzt wird bald bekanntgegeben." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;New gynecology office opens in November 2026. Doctor to be announced soon." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Новый кабинет гинеколога открывается в ноябре 2026 года. Врач будет подтвержден вскоре." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Новий кабінет гінеколога відкривається у листопаді 2026 року. Лікар буде підтвердженo незабаром."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Nová gynekologická ordinace se otevírá od listopadu 2026. Jméno lékaře upřesníme.</p>
 <div class="doc-tags" data-lang-cs="Gynekologie · Listopad 2026" data-lang-de="Gynäkologie · November 2026" data-lang-en="Gynecology · November 2026" data-lang-ru="Гинекология · Ноябрь 2026" data-lang-ua="Гінекологія · Листопад 2026">Gynekologie · Listopad 2026</div>
 </div>
@@ -1414,7 +1405,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="reg-hours">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
 <span data-lang-cs="Provozní doba: 08:00–14:00" data-lang-de="Sprechzeiten: 08:00–14:00" data-lang-en="Opening hours: 08:00–14:00" data-lang-ru="Часы работы: 08:00–14:00" data-lang-ua="Години роботи: 08:00–14:00">Provozní doba: 08:00–14:00</span>
-</div>
+</div><p class="reg-who" data-lang-cs="Na čísle je praktická lékařka a sestra — domluví s vámi termín registrace." data-lang-de="Unter dieser Nummer erreichen Sie die Hausärztin und die Schwester — sie vereinbaren Ihren Registrierungstermin." data-lang-en="The GP and the nurse answer this number — they will arrange your registration appointment." data-lang-ru="По этому номеру отвечают врач-терапевт и медсестра — они согласуют время регистрации." data-lang-ua="За цим номером відповідають лікарка та медсестра — вони узгодять час реєстрації.">Na čísle je praktická lékařka a sestra — domluví s vámi termín registrace.</p>
 </div>
 </div>
 </div>
@@ -1423,44 +1414,6 @@ body.has-cart .to-top{ bottom:208px; }
 <!-- CIZINCI: pojisteni VZP/PVZP, jazyky, doklady -->
 
 <!-- SERVICES -->
-<section class="section" id="sluzby">
-<div class="container">
-<div class="section-head reveal">
-<span class="eyebrow" data-lang-cs="Naše služby" data-lang-de="Unsere Leistungen" data-lang-en="Our services" data-lang-ru="Наши услуги" data-lang-ua="Наші послуги">Naše služby</span>
-<div aria-hidden="true" class="ornament"><i></i></div>
-<h2 data-lang-cs="Co u nás &lt;em&gt;najdete&lt;/em&gt;" data-lang-de="Was Sie bei uns &lt;em&gt;finden&lt;/em&gt;" data-lang-en="What you'll &lt;em&gt;find&lt;/em&gt;" data-lang-ru="Что вы &lt;em&gt;найдете&lt;/em&gt;" data-lang-ua="Що ви &lt;em&gt;знайдете&lt;/em&gt;">Co u nás <em>najdete</em></h2>
-<p data-lang-cs="Kompletní zdravotní péče pod jednou střechou." data-lang-de="Umfassende medizinische Versorgung unter einem Dach." data-lang-en="Complete medical care under one roof." data-lang-ru="Полный спектр медицинских услуг под одной крышей." data-lang-ua="Повний спектр медичних послуг під одним дахом.">Kompletní zdravotní péče pod jednou střechou.</p>
-</div>
-<div class="service-grid">
-<div class="card service-card reveal">
-<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M6 3h12c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2z"></path><circle cx="12" cy="9" r="3"></circle><path d="M8 17c0-2 2-3 4-3s4 1 4 3"></path><path d="M12 2v2M12 20v2M3 12h2M19 12h2"></path></svg></div>
-<h3 data-lang-cs="Praktický lékař" data-lang-de="Allgemeinmedizin" data-lang-en="General practitioner" data-lang-ru="Практический врач" data-lang-ua="Практичний лікар">Praktický lékař</h3>
-<p data-lang-cs="Komplexní péče o dospělé pacienty. Preventivní prohlídky, léčba a doporučení ke specialistům." data-lang-de="Umfassende Betreuung erwachsener Patienten. Vorsorgeuntersuchungen, Behandlung und Überweisungen zu Fachärzten." data-lang-en="Comprehensive care for adult patients. Preventive check-ups, treatment and specialist referrals." data-lang-ru="Комплексная помощь взрослым пациентам. Профилактические осмотры, лечение и рекомендации специалистов." data-lang-ua="Комплексна допомога дорослим пацієнтам. Профілактичні огляди, лікування та рекомендації спеціалістів.">Komplexní péče o dospělé pacienty. Preventivní prohlídky, léčba a doporučení ke specialistům.</p>
-</div>
-<div class="card service-card service-blood reveal d1">
-<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M9 3h6v3H9z"></path><rect height="12" rx="1" ry="1" width="8" x="8" y="6"></rect><line x1="12" x2="12" y1="6" y2="18"></line><circle cx="12" cy="12" fill="currentColor" r="2"></circle></svg></div>
-<h3 data-lang-cs="Laboratorní testy" data-lang-de="Laboruntersuchungen" data-lang-en="Laboratory tests" data-lang-ru="Лабораторные тесты" data-lang-ua="Лабораторні тести">Laboratorní testy</h3>
-<p data-lang-cs="Krevní testy a analýzy. Pro pojištěnce a samoplátce." data-lang-de="Blutuntersuchungen und Labortests. Für Versicherte und Selbstzahler." data-lang-en="Blood tests and lab work. For insured and private patients." data-lang-ru="Анализ крови и тесты. Для застрахованных и платных пациентов. Проверьте здоровье у нас!" data-lang-ua="Аналіз крові та тести. Для застрахованих та платних пацієнтів. Перевірте здоров'я у нас!">Krevní testy a analýzy. Pro pojištěnce a samoplátce.</p>
-<div class="service-actions"><a class="btn btn-blood btn-sm" href="/odbery/#cenik"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-de="Bluttest buchen" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></a><a class="card-link" data-lang-cs="Ceník a kalkulačka" data-lang-de="Preisliste und Rechner" data-lang-en="Price list and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор" href="/odbery/">Ceník a kalkulačka</a></div>
-</div>
-<div class="card service-card reveal d1">
-<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3c-5 0-9 3-9 7 0 2 1 4 3 5.5l-1.5 2.5 3-1.5c1 .5 2.2.8 3.5.8 5 0 9-3 9-7S17 3 12 3z"></path><line x1="8" x2="8" y1="10" y2="16"></line><line x1="12" x2="12" y1="10" y2="16"></line><line x1="16" x2="16" y1="10" y2="16"></line></svg></div>
-<h3 data-lang-cs="Stomatolog" data-lang-de="Zahnarzt" data-lang-en="Dentist" data-lang-ru="Стоматолог" data-lang-ua="Стоматолог">Stomatolog</h3>
-<p data-lang-cs="Péče o zuby pro dospělé a děti. Prevence, léčba zubů a dentální hygiena." data-lang-de="Zahnmedizinische Versorgung für Erwachsene und Kinder. Vorsorge, Behandlung und Dentalhygiene." data-lang-en="Dental care for adults and children. Prevention, treatment and hygiene procedures." data-lang-ru="Уход за зубами взрослых и детей. Профилактика, лечение зубов и гигиенические процедуры." data-lang-ua="Догляд за зубами дорослих і дітей. Профілактика, лікування зубів та гігієнічні процедури.">Péče o zuby pro dospělé a děti. Prevence, léčba zubů a dentální hygiena.</p>
-</div>
-<div class="card service-card reveal d2">
-<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="14" rx="2" ry="2" width="20" x="2" y="4"></rect><path d="M6 4v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><line x1="8" x2="16" y1="9" y2="9"></line></svg></div>
-<h3 data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-de="Ärztliche Untersuchungen (Arbeitsmedizin)" data-lang-en="Medical examinations (OHS)" data-lang-ru="Медицинские осмотры (PLS)" data-lang-ua="Медичні огляди (PLS)">Zdravotní prohlídky (PLS)</h3>
-<p data-lang-cs="Pracovnělékařské prohlídky – vstupní, periodické i výstupní." data-lang-de="Arbeitsmedizinische Untersuchungen für den Beruf." data-lang-en="Occupational health examinations for work." data-lang-ru="Профессиональные медицинские осмотры для работы." data-lang-ua="Професійні медичні огляди для роботи.">Pracovnělékařské prohlídky – vstupní, periodické i výstupní.</p>
-</div>
-<div class="card service-card reveal" style="grid-column: span 2; opacity: 0.65;">
-<div aria-hidden="true" class="service-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="8" cy="8" r="2.5"></circle><circle cx="16" cy="8" r="2.5"></circle><path d="M12 10v6M8 10l4-2 4 2"></path><path d="M12 16c-2.5 0-4 1-4 3s1.5 3 4 3 4-1 4-3-1.5-3-4-3z"></path></svg></div>
-<h3 data-lang-cs="Gynekologie" data-lang-de="Gynäkologie" data-lang-en="Gynecology" data-lang-ru="Гинекология" data-lang-ua="Гінекологія">Gynekologie</h3>
-<p data-lang-cs="&lt;strong&gt;Již brzy!&lt;/strong&gt; Nová gynekologická ordinace od listopadu 2026. Jméno lékaře upřesníme." data-lang-de="&lt;strong&gt;Demnächst!&lt;/strong&gt; Neue gynäkologische Praxis ab November 2026. Die Ärztin bzw. der Arzt wird bald bekanntgegeben." data-lang-en="&lt;strong&gt;Coming soon!&lt;/strong&gt; New gynecology office from November 2026. Doctor to be announced soon." data-lang-ru="&lt;strong&gt;Скоро откроется!&lt;/strong&gt; Новый кабинет гинеколога с ноября 2026 года. Врач будет подтвержден вскоре." data-lang-ua="&lt;strong&gt;Скоро відкриється!&lt;/strong&gt; Новий кабінет гінеколога з листопада 2026 року. Лікар буде підтвердженo незабаром."><strong>Již brzy!</strong> Nová gynekologická ordinace od listopadu 2026. Jméno lékaře upřesníme.</p>
-</div>
-</div>
-</div>
-</section>
 <!-- PARTNERS -->
 <section class="section" id="partneri">
 <div class="container">
@@ -1693,11 +1646,11 @@ body.has-cart .to-top{ bottom:208px; }
 </a>
 <a class="fab-item fab-exam" data-zoryx-book="poliklinika_u_vlecky" href="https://zoryx.app/clinic/embed/poliklinika_u_vlecky" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="4" rx="1" width="8" x="8" y="2"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span>
-<span><strong data-lang-cs="Lékařské prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Lékařské prohlídky</strong><small data-lang-cs="Autoškola, práce, škola · online termíny" data-lang-de="Führerschein, Arbeit, Schule · online buchen" data-lang-en="Driving, work, school · book online" data-lang-ru="Автошкола, работа, учёба · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · онлайн-запис">Autoškola, práce, škola · online termíny</small></span>
+<span><strong data-lang-cs="Lékařské prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Lékařské prohlídky</strong><small data-lang-cs="Autoškola, práce, škola · od 500 Kč · online termíny" data-lang-de="Führerschein, Arbeit, Schule · ab 500 CZK · online buchen" data-lang-en="Driving, work, school · from 500 CZK · book online" data-lang-ru="Автошкола, работа, учёба · от 500 Kč · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · від 500 Kč · онлайн-запис">Autoškola, práce, škola · online termíny</small></span>
 </a>
 <a class="fab-item" href="/prakticky-lekar/#registrace" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
-<span><strong data-lang-cs="Registrace k lékařce" data-lang-de="Registrierung bei der Hausärztin" data-lang-en="Register with the GP" data-lang-ru="Регистрация у врача" data-lang-ua="Реєстрація в лікаря">Registrace k lékařce</strong><small data-lang-cs="Pouze telefonicky" data-lang-de="Nur telefonisch" data-lang-en="By phone only" data-lang-ru="Только по телефону" data-lang-ua="Лише телефоном">Pouze telefonicky</small></span>
+<span><strong data-lang-cs="Registrace k praktickému lékaři" data-lang-de="Registrierung beim Hausarzt" data-lang-en="Register with the GP" data-lang-ru="Регистрация к практическому врачу" data-lang-ua="Реєстрація до сімейного лікаря">Registrace k praktickému lékaři</strong><small data-lang-cs="Pouze telefonicky · na pojišťovnu" data-lang-de="Nur telefonisch · über die Krankenkasse" data-lang-en="By phone only · covered by insurance" data-lang-ru="Только по телефону · по страховке" data-lang-ua="Лише телефоном · за страховкою">Pouze telefonicky · na pojišťovnu</small></span>
 </a>
 </div>
 <button aria-controls="fabMenu" aria-expanded="false" class="fab-btn" id="fabBtn" type="button">
