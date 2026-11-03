@@ -491,7 +491,8 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .section-head h2{
   font-family:var(--display);
   font-size:clamp(32px,4.4vw,46px);
-  line-height:1.08; letter-spacing:-0.01em;
+  line-height:1.22; letter-spacing:-0.005em;
+  padding-bottom:.06em;
   font-weight:600;
 }
 .section-head h2 em{ font-style:italic; color:var(--blue); }
@@ -691,7 +692,6 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .benefit-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 .benefit-card{ padding:32px 26px; text-align:left; }
 .benefit-card:hover{ transform:scale(1.03); }
-.benefit-num{ font-family:var(--display); font-size:15px; font-style:italic; color:var(--blue); }
 .benefit-icon{ margin:8px 0 18px; color:var(--navy); display:flex; align-items:center; }
 .benefit-icon svg{ width:40px; height:40px; }
 .benefit-card h3{ font-family:var(--body); font-size:16.5px; font-weight:700; color:var(--navy); margin-bottom:8px; }
@@ -904,12 +904,14 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .faq-item[open] summary::after{ transform:translateY(-30%) rotate(-135deg); }
 .faq-item summary:hover{ background:var(--blue-mist); }
 .faq-item p{ padding:2px 22px 20px; font-size:15px; color:var(--ink-soft); line-height:1.65; }
+.faq-item p strong{ color:var(--navy); font-weight:600; }
 @media (max-width:520px){ .faq-item summary{ font-size:15px; padding:15px 44px 15px 16px; } .faq-item p{ padding:0 16px 16px; font-size:14.5px; } }
 
 /* ===================== JAZYKOVA NABIDKA ===================== */
 .lang-hint{
-  position:fixed; top:84px; left:16px; right:16px; z-index:99;
-  width:fit-content; margin:0 auto;
+  position:fixed; top:72px; z-index:99;
+  left:auto; right:calc(max(16px, (100vw - 1120px) / 2) + 112px);
+  width:fit-content; margin:0;
   transform:translateY(-10px);
   display:flex; align-items:center; gap:10px;
   padding:8px 8px 8px 16px; border-radius:999px;
@@ -932,8 +934,11 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
   color:var(--ink-soft); font-size:19px; line-height:1; border-radius:50%;
 }
 .lang-hint-x:hover{ background:var(--blue-mist); color:var(--navy); }
+@media (max-width:1000px){
+  .lang-hint{ right:16px; }
+}
 @media (max-width:560px){
-  .lang-hint{ top:76px; font-size:12.5px; padding:7px 7px 7px 13px; gap:8px; }
+  .lang-hint{ top:70px; right:12px; max-width:calc(100vw - 24px); font-size:12.5px; padding:7px 7px 7px 13px; gap:8px; }
   .lang-hint-go{ padding:6px 12px; font-size:12px; }
 }
 
@@ -951,7 +956,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .footer-brand .brand-mark{ background:rgba(28,43,74,0.10); }
 .footer-brand .brand-name{ font-size:20px; }
 /* three columns: who we are + hours, quick links + app, contacts — no empty middle */
-.footer-grid{ display:grid; grid-template-columns:1.15fr 1fr 1.25fr; gap:28px 40px; }
+.footer-grid{ display:grid; grid-template-columns:1fr; gap:28px 40px; }
 .footer-brand--col{ display:flex; flex-direction:column; align-items:flex-start; gap:14px; }
 .footer-brand-row{ display:flex; align-items:center; gap:12px; }
 .footer-name{ display:block; font-family:var(--display); font-size:22px; font-weight:600; color:var(--navy); }
@@ -964,14 +969,19 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .footer-quick a{ color:var(--navy); text-decoration:none; font-size:15px; }
 .footer-quick a:hover{ color:var(--blue); text-decoration:underline; }
 .store-badges--footer{ flex-wrap:wrap; }
-@media (max-width:980px){ .footer-grid{ grid-template-columns:1fr 1fr; } .footer-contact{ grid-column:1 / -1; } }
-@media (max-width:600px){ .footer-grid{ grid-template-columns:1fr; } }
 .footer-contact{ display:flex; flex-direction:column; gap:9px; font-size:14px; }
 .footer-contact div{ display:flex; align-items:flex-start; gap:9px; }
 .footer-contact svg{ margin-top:3px; }
-.dept-phones{ display:grid; grid-template-columns:auto auto; gap:4px 10px; align-items:baseline; }
+.dept-phones{ display:flex; flex-direction:column; margin-top:4px; }
+.dept-row{ display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+  padding:9px 0; border-top:1px solid rgba(28,43,74,.12); }
+.dept-row:first-child{ border-top:none; padding-top:2px; }
 .dept-phones .lbl{ color:var(--ink-soft); }
-@media (max-width:480px){ .dept-phones{ grid-template-columns:1fr; gap:2px; } .dept-phones .lbl{ margin-top:6px; } }
+.dept-phones a{ color:var(--navy); font-weight:600; white-space:nowrap; }
+.dept-phones a:hover{ color:var(--blue); }
+.dept-row--mail{ flex-direction:column; align-items:flex-start; gap:1px; }
+.dept-row--mail a{ white-space:normal; word-break:break-word; }
+@media (max-width:420px){ .dept-row{ flex-direction:column; gap:1px; } }
 .footer-contact svg{ width:15px; height:15px; color:var(--blue); flex:none; }
 .footer-contact a:hover{ color:var(--blue); }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding-top:22px; font-size:12.5px; color:var(--ink-soft); }
@@ -1120,7 +1130,7 @@ body.has-cart .to-top{ bottom:208px; }
     radial-gradient(38% 20% at 90% 92%, rgba(104,161,214,.32), transparent 70%),
     linear-gradient(180deg,#F4F9FD 0%,#EDF4FA 50%,#E8F1FA 100%);
 }
-#vyhody,#registrace,#lekar,#informace,#kontakt,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+#vyhody,#registrace,#lekar,#informace,#kontakt,#faq,#cizinci,#odbery-promo{ background:transparent; }
 
 /* ---- jeden tmavy predel: sekce Usteckeho kraje ---- */
 #region{
@@ -1211,29 +1221,29 @@ body.has-cart .to-top{ bottom:208px; }
 :root{ --violet:var(--blue); --violet-2:var(--navy); --sky:var(--blue-2); }
 .page{
   background:
-    radial-gradient(34% 18% at 92% 3%, rgba(124,58,237,.30), transparent 70%),
-    radial-gradient(36% 22% at 6% 4%, rgba(104,161,214,.38), transparent 70%),
-    radial-gradient(30% 18% at 70% 26%, rgba(124,58,237,.20), transparent 70%),
-    radial-gradient(40% 24% at 18% 36%, rgba(56,189,248,.28), transparent 70%),
-    radial-gradient(36% 22% at 88% 52%, rgba(98,42,218,.24), transparent 70%),
-    radial-gradient(40% 22% at 10% 70%, rgba(236,72,153,.14), transparent 70%),
-    radial-gradient(38% 20% at 90% 90%, rgba(124,58,237,.22), transparent 70%),
-    linear-gradient(180deg,#F4F7FE 0%,#EEF0FB 50%,#EEF3F4 100%);
+    radial-gradient(34% 18% at 92% 3%, rgba(104,161,214,.30), transparent 70%),
+    radial-gradient(36% 22% at 6% 4%, rgba(104,161,214,.32), transparent 70%),
+    radial-gradient(30% 18% at 70% 26%, rgba(156,194,230,.30), transparent 70%),
+    radial-gradient(40% 24% at 18% 36%, rgba(104,161,214,.24), transparent 70%),
+    radial-gradient(36% 22% at 88% 52%, rgba(156,194,230,.30), transparent 70%),
+    radial-gradient(40% 22% at 10% 70%, rgba(104,161,214,.20), transparent 70%),
+    radial-gradient(38% 20% at 90% 90%, rgba(156,194,230,.26), transparent 70%),
+    linear-gradient(180deg,#F8FBFE 0%,#F0F6FD 50%,#EAF3FB 100%);
 }
 .section-head .eyebrow{ color:var(--violet-2); }
-.section-head h2 em{ background:linear-gradient(90deg,var(--violet-2),var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.section-head h2 em{ color:var(--blue); }
 .ornament i{ background:linear-gradient(90deg,var(--violet),var(--sky)); }
 .benefit-icon,.service-icon,.why-ic{
   width:58px; height:58px; border-radius:18px; display:flex; align-items:center; justify-content:center;
   color:#fff; background:linear-gradient(135deg,var(--violet) 0%,var(--blue-2) 100%);
-  box-shadow:0 12px 24px -12px rgba(124,58,237,.8);
+  box-shadow:0 12px 24px -12px rgba(62,107,160,.75);
 }
 .benefit-icon svg,.service-icon svg,.why-ic svg{ width:28px; height:28px; }
 .service-blood .service-icon{ background:linear-gradient(135deg,#E8466B,#9E1239); box-shadow:0 12px 24px -12px rgba(226,61,99,.8); }
 .info-card h3 svg{ color:var(--violet-2); }
-.card:hover,.doc-card:hover{ box-shadow:0 0 0 1px rgba(124,58,237,.25), 0 22px 48px -26px rgba(124,58,237,.55); }
+.card:hover,.doc-card:hover{ box-shadow:0 0 0 1px rgba(62,107,160,.22), 0 22px 48px -26px rgba(28,43,74,.5); }
 .btn-primary{ background:linear-gradient(135deg,var(--navy) 0%,var(--violet-2) 100%); }
-.site-header{ box-shadow:0 10px 30px -22px rgba(98,42,218,.6); }
+.site-header{ box-shadow:0 10px 30px -22px rgba(28,43,74,.55); }
 
 /* floating menu: blood tests first and red */
 .fab-item.fab-blood{ background:linear-gradient(135deg,#E8466B 0%,#C21A48 60%,#9E1239 100%); color:#fff; border-radius:16px; }
@@ -1390,7 +1400,7 @@ body.has-cart .to-top{ bottom:208px; }
 <p class="region-intro reveal" lang="ru" style="margin-top:22px">Русскоговорящим из Германии: не можете попасть на анализы или к терапевту? Приезжайте к нам — близко, недорого и быстро. Сдайте анализы и получите своевременную информацию о состоянии здоровья. Врач и персонал говорят по-русски.</p>
 <div class="blood-cta reveal" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px">
 <a class="btn btn-blood btn-lg" href="/de/odbery/#cenik">Tests auswählen und buchen</a>
-<a class="btn btn-outline btn-lg" href="tel:+420602618024">+420 602 618 024</a>
+<a class="btn btn-outline btn-lg" href="tel:+420602618024">602 618 024</a>
 </div>
 </div>
 </section>
@@ -1416,7 +1426,7 @@ body.has-cart .to-top{ bottom:208px; }
 <p data-lang-cs="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Komplexní péče o dospělé pacienty. Prevence, diagnostika, terapie vč. laboratorních testů." data-lang-de="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Umfassende Betreuung erwachsener Patienten. Vorsorge, Diagnostik, Therapie. Einschließlich Laboruntersuchungen." data-lang-en="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Comprehensive care for adult patients. Prevention, diagnosis, therapy. Including laboratory tests." data-lang-ru="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Комплексная помощь взрослым пациентам. Профилактика, диагностика, терапия. Включая лабораторные тесты." data-lang-ua="&lt;strong&gt;DIAGNOSTIKA s.r.o.&lt;/strong&gt;&lt;br&gt;Комплексна допомога дорослим пацієнтам. Профілактика, діагностика, терапія. Включаючи лабораторні тести."><strong>DIAGNOSTIKA s.r.o.</strong><br/>Komplexní péče o dospělé pacienty. Prevence, diagnostika, terapie vč. laboratorních testů.</p>
 <div class="doc-tags" data-lang-cs="Po–Pá: 8:00–13:00" data-lang-de="Mo–Fr: 8:00–13:00" data-lang-en="Mon–Fri: 8:00–13:00" data-lang-ru="Пн–Пт: 8:00–13:00" data-lang-ua="Пн–Пт: 8:00–13:00">Po–Pá: 8:00–13:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">+420 606 755 784</a>
+<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420606755784" style="color: var(--blue); font-weight: 600;">606 755 784</a>
 </div>
 <div class="doc-actions">
 <a class="btn btn-primary btn-sm" data-zoryx-book="poliklinika_u_vlecky" href="https://zoryx.app/clinic/embed/poliklinika_u_vlecky"><span data-lang-cs="Zdravotní prohlídka" data-lang-de="Ärztliche Untersuchung" data-lang-en="Medical check-up" data-lang-ru="Медосмотр" data-lang-ua="Медогляд">Zdravotní prohlídka</span></a>
@@ -1439,7 +1449,7 @@ body.has-cart .to-top{ bottom:208px; }
 <p data-lang-cs="Odběr krve a biologického materiálu. Na žádanku i na vlastní žádost bez žádanky." data-lang-de="Blut- und Probenentnahme. Mit Überweisung oder auf eigenen Wunsch, auch ohne." data-lang-en="Blood and biological sample collection. With a referral or at your own request, without one." data-lang-ru="Забор крови и биоматериала. По направлению и по собственному желанию, без направления." data-lang-ua="Забір крові та біоматеріалу. За направленням і за власним бажанням, без направлення.">Odběr krve a biologického materiálu. Na žádanku i na vlastní žádost bez žádanky.</p>
 <div class="doc-tags" data-lang-cs="Odběry Po–Pá: 7:00–12:00" data-lang-de="Blutabnahme Mo–Fr: 7:00–12:00" data-lang-en="Sampling Mon–Fri: 7:00–12:00" data-lang-ru="Забор Пн–Пт: 7:00–12:00" data-lang-ua="Забір Пн–Пт: 7:00–12:00">Odběry Po–Pá: 7:00–12:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420602618024" style="color: var(--blue); font-weight: 600;">+420 602 618 024</a> <span aria-hidden="true">·</span> <a class="book-link" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti"><span data-lang-cs="online rezervace" data-lang-de="online buchen" data-lang-en="book online" data-lang-ru="онлайн-запись" data-lang-ua="онлайн-запис">online rezervace</span></a>
+<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420602618024" style="color: var(--blue); font-weight: 600;">602 618 024</a> <span aria-hidden="true">·</span> <a class="book-link" data-zoryx-book="odbery_usti" href="https://zoryx.app/clinic/embed/odbery_usti"><span data-lang-cs="online rezervace" data-lang-de="online buchen" data-lang-en="book online" data-lang-ru="онлайн-запись" data-lang-ua="онлайн-запис">online rezervace</span></a>
 </div>
 <div class="doc-actions doc-actions-blood"><a class="btn btn-blood btn-sm" href="/odbery/#cenik"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M12 2.7s-6.5 7.2-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.7 12 2.7Z"></path><path d="M9 15.2a3 3 0 0 0 3 2.8"></path></svg><span data-lang-cs="Objednat odběr krve" data-lang-de="Bluttest buchen" data-lang-en="Book a blood test" data-lang-ru="Записаться на анализы" data-lang-ua="Записатися на аналізи">Objednat odběr krve</span></a><a class="btn btn-outline btn-sm" href="/odbery/"><span data-lang-cs="Ceník a kalkulačka" data-lang-de="Preise und Rechner" data-lang-en="Prices and calculator" data-lang-ru="Цены и калькулятор" data-lang-ua="Ціни та калькулятор">Ceník a kalkulačka</span></a></div>
 </div>
@@ -1458,7 +1468,7 @@ body.has-cart .to-top{ bottom:208px; }
 <p data-lang-cs="Zubní péče pro dospělé a děti. Prevence, léčba zubů a ambulantní zákroky." data-lang-de="Zahnmedizinische Versorgung für Erwachsene und Kinder. Vorsorge, Behandlung und zahnärztliche Eingriffe." data-lang-en="Dental care for adults and children. Prevention, treatment and dental procedures." data-lang-ru="Стоматологическая помощь для взрослых и детей. Профилактика, лечение зубов и стоматологические процедуры." data-lang-ua="Стоматологічна допомога для дорослих і дітей. Профілактика, лікування зубів та стоматологічні процедури.">Zubní péče pro dospělé a děti. Prevence, léčba zubů a ambulantní zákroky.</p>
 <div class="doc-tags" data-lang-cs="Po: 7:30–16:00 | Út–Pá: 7:30–13:00" data-lang-de="Mo: 7:30–16:00 | Di–Fr: 7:30–13:00" data-lang-en="Mon: 7:30–16:00 | Tue–Fri: 7:30–13:00" data-lang-ru="Пн: 7:30–16:00 | Вт–Пт: 7:30–13:00" data-lang-ua="Пн: 7:30–16:00 | Вт–Пт: 7:30–13:00">Po: 7:30–16:00 | Út–Pá: 7:30–13:00</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420427702821" style="color: var(--blue); font-weight: 600;">+420 427 702 821</a>
+<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420427702821" style="color: var(--blue); font-weight: 600;">427 702 821</a>
 </div>
 </div>
 </article>
@@ -1476,8 +1486,8 @@ body.has-cart .to-top{ bottom:208px; }
 <p data-lang-cs="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Pracovnělékařské prohlídky (PLS) a poradenství." data-lang-de="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Arbeitsmedizinische Untersuchungen (Arbeitsschutz), Beratung durch den Betriebsarzt." data-lang-en="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Medical examinations for work (OHS), occupational physician consultations." data-lang-ru="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Медицинские осмотры для работы (OHS), консультации врача-профессионала." data-lang-ua="&lt;strong&gt;MEDIGMA PLS, s.r.o.&lt;/strong&gt;&lt;br&gt;Медичні огляди для роботи (OHS), консультації лікаря-професіонала."><strong>MEDIGMA PLS, s.r.o.</strong><br/>Pracovnělékařské prohlídky (PLS) a poradenství.</p>
 <div class="doc-tags" data-lang-cs="Po–Pá: 8:00–17:00 (dle dohody)" data-lang-de="Mo–Fr: 8:00–17:00 (nach Vereinbarung)" data-lang-en="Mon–Fri: 8:00–17:00 (by arrangement)" data-lang-ru="Пн–Пт: 8:00–17:00 (по договоренности)" data-lang-ua="Пн–Пт: 8:00–17:00 (за домовленістю)">Po–Pá: 8:00–17:00 (dle dohody)</div>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420732952576" style="color: var(--blue); font-weight: 600;">+420 732 952 576</a><br/>
-<a href="tel:+420777654951" style="color: var(--blue); font-weight: 600;">+420 777 654 951</a><br/>
+<strong data-lang-cs="Objednání:" data-lang-de="Termin:" data-lang-en="Booking:" data-lang-ru="Запись:" data-lang-ua="Запис:">Objednání:</strong> <a href="tel:+420732952576" style="color: var(--blue); font-weight: 600;">732 952 576</a><br/>
+<a href="tel:+420777654951" style="color: var(--blue); font-weight: 600;">777 654 951</a><br/>
 <strong>E-mail:</strong> <a href="mailto:medigma@medigmapls.cz" style="color: var(--blue); font-weight: 600;">medigma@medigmapls.cz</a>
 </div>
 </div>
@@ -1495,7 +1505,7 @@ body.has-cart .to-top{ bottom:208px; }
 <span class="eyebrow" data-lang-cs="Provozní ředitel · CEO" data-lang-de="Betriebsleiter · CEO" data-lang-en="Operations Director · CEO" data-lang-ru="Исполнительный директор · CEO" data-lang-ua="Виконавчий директор · CEO">Provozní ředitel · CEO</span>
 <p data-lang-cs="&lt;strong&gt;Poliklinika U Vlečky s.r.o.&lt;/strong&gt;&lt;br&gt;Samostatná rekonstrukce a revitalizace polikliniky v Ústí nad Labem. Organizace provozu polikliniky a udržení chodu všech pracovišť. Rozvoj a rozšiřování služeb, propagace projektu, vývoj webu a marketing." data-lang-de="&lt;strong&gt;Poliklinika U Vlečky s.r.o.&lt;/strong&gt;&lt;br&gt;Eigenständiger Umbau und Wiederbelebung der Poliklinik in Ústí nad Labem. Führt die Poliklinik und sorgt dafür, dass jede Praxis funktioniert. Entwickelt und erweitert das Angebot, macht das Projekt bekannt, baut die Website und leitet das Marketing." data-lang-en="&lt;strong&gt;Poliklinika U Vlečky s.r.o.&lt;/strong&gt;&lt;br&gt;Independent reconstruction and revitalisation of the polyclinic in Ústí nad Labem. Runs the polyclinic and keeps every practice working. Develops and expands services, promotes the project, builds the website and leads marketing." data-lang-ru="&lt;strong&gt;Poliklinika U Vlečky s.r.o.&lt;/strong&gt;&lt;br&gt;Самостоятельная реконструкция и ревитализация поликлиники в Усти-над-Лабем. Организация работы поликлиники и поддержание рабочих процессов. Развитие и расширение услуг, продвижение проекта, разработка сайта и маркетинг." data-lang-ua="&lt;strong&gt;Poliklinika U Vlečky s.r.o.&lt;/strong&gt;&lt;br&gt;Самостійна реконструкція та ревіталізація поліклініки в Усті-над-Лабем. Організація роботи поліклініки та підтримка робочих процесів. Розвиток і розширення послуг, просування проєкту, розробка сайту та маркетинг."><strong>Poliklinika U Vlečky s.r.o.</strong><br/>Samostatná rekonstrukce a revitalizace polikliniky v Ústí nad Labem. Organizace provozu polikliniky a udržení chodu všech pracovišť. Rozvoj a rozšiřování služeb, propagace projektu, vývoj webu a marketing.</p>
 <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; color: var(--ink-soft);">
-<strong data-lang-cs="Tel.:" data-lang-de="Telefon:" data-lang-en="Phone:" data-lang-ru="Тел.:" data-lang-ua="Тел.:">Tel.:</strong> <a href="tel:+420776540503" style="color: var(--blue); font-weight: 600;">+420 776 540 503</a><br/>
+<strong data-lang-cs="Tel.:" data-lang-de="Telefon:" data-lang-en="Phone:" data-lang-ru="Тел.:" data-lang-ua="Тел.:">Tel.:</strong> <a href="tel:+420776540503" style="color: var(--blue); font-weight: 600;">776 540 503</a><br/>
 <strong>E-mail:</strong> <a href="mailto:yauhen.zorych@zoryx.app" style="color: var(--blue); font-weight: 600;">yauhen.zorych@zoryx.app</a>
 </div>
 </div>
@@ -1533,25 +1543,21 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 <div class="benefit-grid">
 <div class="card benefit-card reveal">
-<span class="benefit-num">I.</span>
 <div aria-hidden="true" class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M8 3v5a4 4 0 0 0 8 0V3"></path><path d="M20 9v2a8 8 0 0 1-16 0V9"></path><circle cx="20" cy="6" r="2"></circle></svg></div>
 <h3 data-lang-cs="Praktický lékař pro dospělé" data-lang-de="Arzt für Erwachsene" data-lang-en="Doctor for adults" data-lang-ru="Врач для взрослых" data-lang-ua="Лікар для дорослих">Praktický lékař pro dospělé</h3>
 <p data-lang-cs="Komplexní péče o dospělé pacienty — prevence, diagnostika i léčba." data-lang-de="Umfassende Betreuung auf Tschechisch, Russisch, Ukrainisch und Englisch." data-lang-en="Comprehensive care in Czech, Russian, Ukrainian and English." data-lang-ru="Комплексная помощь на чешском, русском, украинском и английском языках." data-lang-ua="Комплексна допомога чеською, російською, українською та англійською мовами.">Komplexní péče o dospělé pacienty — prevence, diagnostika i léčba.</p>
 </div>
 <div class="card benefit-card reveal d1">
-<span class="benefit-num">II.</span>
 <div aria-hidden="true" class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
 <h3 data-lang-cs="Všechny pojišťovny" data-lang-de="Alle Krankenkassen" data-lang-en="All insurances" data-lang-ru="Все страховки" data-lang-ua="Всі страховки">Všechny pojišťovny</h3>
 <p data-lang-cs="VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP, PVZP." data-lang-de="VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP, PVZP." data-lang-en="VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP, PVZP." data-lang-ru="VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP, PVZP." data-lang-ua="VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP, PVZP.">VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP, PVZP.</p>
 </div>
 <div class="card benefit-card reveal d2">
-<span class="benefit-num">III.</span>
 <div aria-hidden="true" class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><rect height="16" rx="1.5" width="18" x="3" y="4"></rect><path d="M9 8h4a2.5 2.5 0 0 1 0 5H9V8Zm0 5v4"></path></svg></div>
 <h3 data-lang-cs="Velké parkoviště" data-lang-de="Viele Parkplätze" data-lang-en="Ample parking" data-lang-ru="Большая парковка" data-lang-ua="Велика парковка">Velké parkoviště</h3>
 <p data-lang-cs="Pro klienty přímo v areálu polikliniky." data-lang-de="Für Patienten direkt auf dem Gelände." data-lang-en="For clients directly on clinic premises." data-lang-ru="Для клиентов прямо на территории клиники." data-lang-ua="Для клієнтів прямо на території клініки.">Pro klienty přímo v areálu polikliniky.</p>
 </div>
 <div class="card benefit-card reveal d3">
-<span class="benefit-num">IV.</span>
 <div aria-hidden="true" class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3.5"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"></path><path d="M18 8v6M15 11h6"></path></svg></div>
 <h3 data-lang-cs="Přijímáme nové pacienty" data-lang-de="Wir nehmen neue Patienten auf" data-lang-en="Accepting new patients" data-lang-ru="Принимаем новых пациентов" data-lang-ua="Приймаємо нових пацієнтів">Přijímáme nové pacienty</h3>
 <p data-lang-cs="Volejte a zaregistrujte se hned." data-lang-de="Rufen Sie an und melden Sie sich an." data-lang-en="Call and register now." data-lang-ru="Позвоните и зарегистрируйтесь сейчас." data-lang-ua="Зателефонуйте і зареєструйтеся зараз.">Volejte a zaregistrujte se hned.</p>
@@ -1611,7 +1617,7 @@ body.has-cart .to-top{ bottom:208px; }
 <p data-lang-cs="Přijímáme nové pacienty!" data-lang-de="Wir nehmen neue Patienten auf!" data-lang-en="We are accepting new patients!" data-lang-ru="Принимаем новых пациентов!" data-lang-ua="Приймаємо нових пацієнтів!">Přijímáme nové pacienty!</p>
 <a class="reg-phone-box" href="tel:+420606755784">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg>
-<span class="n">+420 606 755 784</span>
+<span class="n">606 755 784</span>
 </a>
 <div class="reg-hours">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
@@ -1648,32 +1654,6 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </section>
 <!-- SERVICES -->
-<!-- PARTNERS -->
-<section class="section" id="partneri">
-<div class="container">
-<div class="section-head reveal">
-<span class="eyebrow" data-lang-cs="Spolupráce" data-lang-de="Partnerschaft" data-lang-en="Partnership" data-lang-ru="Сотрудничество" data-lang-ua="Співпраця">Spolupráce</span>
-<div aria-hidden="true" class="ornament"><i></i></div>
-<h2 data-lang-cs="Naši &lt;em&gt;partneři&lt;/em&gt;" data-lang-de="Unsere &lt;em&gt;Partner&lt;/em&gt;" data-lang-en="Our &lt;em&gt;partners&lt;/em&gt;" data-lang-ru="Наши &lt;em&gt;партнеры&lt;/em&gt;" data-lang-ua="Наші &lt;em&gt;партнери&lt;/em&gt;">Naši <em>partneři</em></h2>
-</div>
-<div class="pb-carousel reveal">
-<div class="pb-slide active">
-<img alt="Medigma PLS - Pracovně lékařské služby. Zdravotní prohlídky do práce v Ústí nad Labem" src="/banner-pracovne-lekarske-v2.png"/>
-</div>
-<a class="pb-slide" href="/prakticky-lekar/">
-<img alt="MUDr. Éva Bojčuk - praktický lékař pro dospělé, Diagnostika s.r.o. Registrujeme nové pacienty v Ústí nad Labem" src="/banner-diagnostika-bojcuk-v2.png"/>
-</a>
-<a class="pb-slide" href="/odbery/">
-<img alt="Odběry krve pro samoplátce bez žádanky — Poliklinika U Vlečky, Ústí nad Labem, po–pá 7:00–12:00" loading="lazy" src="/banner-odbery.jpg"/>
-</a>
-<div class="pb-dots">
-<button aria-label="1" class="pb-dot active" type="button"></button>
-<button aria-label="2" class="pb-dot" type="button"></button>
-<button aria-label="3" class="pb-dot" type="button"></button>
-</div>
-</div>
-</div>
-</section>
 <!-- IMPORTANT INFO -->
 <section class="section" id="informace">
 <div class="container">
@@ -1690,7 +1670,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="card info-card reveal d1">
 <h3 data-lang-cs="Zdravotní pojišťovny" data-lang-de="Krankenversicherung" data-lang-en="Health Insurance" data-lang-ru="Медицинские страховки" data-lang-ua="Медичні страховки"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>Zdravotní pojišťovny</h3>
 <div class="ins-list">
-<span>VZP (111)</span><span>OZP (207)</span><span>VoZP (201)</span><span>ZP MV ČR (211)</span><span>RBP (213)</span><span>ČPZP (205)</span><span>PVZP (228)</span>
+<span>VZP (111)</span><span>OZP (207)</span><span>VoZP (201)</span><span>ZP MV ČR (211)</span><span>RBP (213)</span><span>ČPZP (205)</span><span>PVZP (333)</span>
 </div>
 </div>
 <div class="card info-card info-note reveal d2">
@@ -1711,35 +1691,39 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="faq-list reveal">
 <details class="faq-item">
 <summary data-lang-cs="Přijímáte nové pacienty?" data-lang-de="Nehmen Sie neue Patienten auf?" data-lang-en="Are you accepting new patients?" data-lang-ru="Принимаете ли новых пациентов?" data-lang-ua="Чи приймаєте нових пацієнтів?">Přijímáte nové pacienty?</summary>
-<p data-lang-cs="Ano, registrujeme nové pacienty průběžně, bez čekací listiny. Zaregistrovat se můžete i v den návštěvy — doporučujeme ale předem zavolat na +420 606 755 784, aby si na vás lékař vyhradil čas." data-lang-de="Ja, wir registrieren neue Patienten laufend und ohne Warteliste. Sie können sich am Tag Ihres Besuchs registrieren — wir empfehlen aber, vorher unter +420 606 755 784 anzurufen, damit sich die Ärztin Zeit für Sie nehmen kann." data-lang-en="Yes, we register new patients on an ongoing basis, with no waiting list. You can register on the day of your visit — but we recommend calling +420 606 755 784 in advance so the doctor can set aside time for you." data-lang-ru="Да, регистрируем новых пациентов постоянно, без листа ожидания. Зарегистрироваться можно и в день визита — но лучше заранее позвонить по +420 606 755 784, чтобы врач выделил на Вас время." data-lang-ua="Так, реєструємо нових пацієнтів постійно, без листа очікування. Зареєструватися можна і в день візиту — але краще заздалегідь зателефонувати за +420 606 755 784, щоб лікар виділив на Вас час.">Ano, registrujeme nové pacienty průběžně, bez čekací listiny. Zaregistrovat se můžete i v den návštěvy — doporučujeme ale předem zavolat na +420 606 755 784, aby si na vás lékař vyhradil čas.</p>
+<p data-lang-cs="&lt;strong&gt;Ano, registrujeme nové pacienty průběžně, bez čekací listiny.&lt;/strong&gt; Zaregistrovat se můžete i v den návštěvy — doporučujeme ale předem zavolat na &lt;strong&gt;606 755 784&lt;/strong&gt;, aby si na vás lékař vyhradil čas." data-lang-de="&lt;strong&gt;Ja, wir registrieren neue Patienten laufend und ohne Warteliste.&lt;/strong&gt; Sie können sich am Tag Ihres Besuchs registrieren — wir empfehlen aber, vorher unter &lt;strong&gt;+420 606 755 784&lt;/strong&gt; anzurufen, damit sich die Ärztin Zeit für Sie nehmen kann." data-lang-en="&lt;strong&gt;Yes, we register new patients on an ongoing basis, with no waiting list.&lt;/strong&gt; You can register on the day of your visit — but we recommend calling &lt;strong&gt;+420 606 755 784&lt;/strong&gt; in advance so the doctor can set aside time for you." data-lang-ru="&lt;strong&gt;Да, регистрируем новых пациентов постоянно, без листа ожидания.&lt;/strong&gt; Зарегистрироваться можно и в день визита — но лучше заранее позвонить по &lt;strong&gt;606 755 784&lt;/strong&gt;, чтобы врач выделил на Вас время." data-lang-ua="&lt;strong&gt;Так, реєструємо нових пацієнтів постійно, без листа очікування.&lt;/strong&gt; Зареєструватися можна і в день візиту — але краще заздалегідь зателефонувати за &lt;strong&gt;606 755 784&lt;/strong&gt;, щоб лікар виділив на Вас час."><strong>Ano, registrujeme nové pacienty průběžně, bez čekací listiny.</strong> Zaregistrovat se můžete i v den návštěvy — doporučujeme ale předem zavolat na <strong>606 755 784</strong>, aby si na vás lékař vyhradil čas.</p>
 </details>
 <details class="faq-item" data-only="tr">
 <summary data-lang-cs="Přijel jsem do České republiky nedávno a nemám zde žádného lékaře. Mohu se zaregistrovat?" data-lang-de="Ich bin erst vor Kurzem nach Tschechien gekommen und habe hier keinen Arzt. Kann ich mich registrieren?" data-lang-en="I recently arrived in the Czech Republic and have no doctor here. Can I register?" data-lang-ru="Я недавно приехал в Чехию, врача здесь ещё нет. Могу зарегистрироваться?" data-lang-ua="Я нещодавно приїхав до Чехії, лікаря тут ще немає. Чи можу зареєструватися?">Přijel jsem do České republiky nedávno a nemám zde žádného lékaře. Mohu se zaregistrovat?</summary>
-<p data-lang-cs="Ano, právě pro tyto situace jsme tu. Nepotřebujete předchozího českého lékaře ani doporučení. Stačí pas nebo průkaz o povolení k pobytu a doklad o pojištění — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu." data-lang-de="Ja — genau dafür sind wir da. Sie brauchen weder einen bisherigen tschechischen Arzt noch eine Überweisung. Bringen Sie einfach Reisepass oder Aufenthaltskarte und den Versicherungsnachweis mit — gesetzlich (VZP u. a.) oder privat PVZP. Wir registrieren Sie und vereinbaren gleich Ihren ersten Besuch." data-lang-en="Yes — this is exactly what we are here for. You don't need a previous Czech doctor or a referral. Just bring your passport or residence card and proof of insurance — public (VZP and others) or commercial PVZP. We will register you and arrange your first visit straight away." data-lang-ru="Да, именно для таких ситуаций мы и работаем. Не нужен ни предыдущий чешский врач, ни направление. Достаточно паспорта или карты ВНЖ и подтверждения страховки — государственной (VZP и другие) или коммерческой PVZP. Зарегистрируем и сразу договоримся о первом визите." data-lang-ua="Так — саме для таких ситуацій ми й працюємо. Не потрібен ані попередній чеський лікар, ані направлення. Достатньо паспорта або картки посвідки та підтвердження страховки — державної (VZP та інші) або комерційної PVZP. Зареєструємо і одразу домовимося про перший візит.">Ano, právě pro tyto situace jsme tu. Nepotřebujete předchozího českého lékaře ani doporučení. Stačí pas nebo průkaz o povolení k pobytu a doklad o pojištění — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu.</p>
+<p data-lang-cs="&lt;strong&gt;Ano, právě pro tyto situace jsme tu.&lt;/strong&gt; Nepotřebujete předchozího českého lékaře ani doporučení. Stačí &lt;strong&gt;pas nebo průkaz o povolení k pobytu&lt;/strong&gt; a &lt;strong&gt;doklad o pojištění&lt;/strong&gt; — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu." data-lang-de="&lt;strong&gt;Ja — genau dafür sind wir da.&lt;/strong&gt; Sie brauchen weder einen bisherigen tschechischen Arzt noch eine Überweisung. Bringen Sie einfach &lt;strong&gt;Reisepass oder Aufenthaltskarte&lt;/strong&gt; und den &lt;strong&gt;Versicherungsnachweis&lt;/strong&gt; mit — gesetzlich (VZP u. a.) oder privat PVZP. Wir registrieren Sie und vereinbaren gleich Ihren ersten Besuch." data-lang-en="&lt;strong&gt;Yes — this is exactly what we are here for.&lt;/strong&gt; You don't need a previous Czech doctor or a referral. Just bring your &lt;strong&gt;passport or residence card&lt;/strong&gt; and &lt;strong&gt;proof of insurance&lt;/strong&gt; — public (VZP and others) or commercial PVZP. We will register you and arrange your first visit straight away." data-lang-ru="&lt;strong&gt;Да, именно для таких ситуаций мы и работаем.&lt;/strong&gt; Не нужен ни предыдущий чешский врач, ни направление. Достаточно &lt;strong&gt;паспорта или карты ВНЖ&lt;/strong&gt; и &lt;strong&gt;подтверждения страховки&lt;/strong&gt; — государственной (VZP и другие) или коммерческой PVZP. Зарегистрируем и сразу договоримся о первом визите." data-lang-ua="&lt;strong&gt;Так — саме для таких ситуацій ми й працюємо.&lt;/strong&gt; Не потрібен ані попередній чеський лікар, ані направлення. Достатньо &lt;strong&gt;паспорта або картки посвідки&lt;/strong&gt; та &lt;strong&gt;підтвердження страховки&lt;/strong&gt; — державної (VZP та інші) або комерційної PVZP. Зареєструємо і одразу домовимося про перший візит."><strong>Ano, právě pro tyto situace jsme tu.</strong> Nepotřebujete předchozího českého lékaře ani doporučení. Stačí <strong>pas nebo průkaz o povolení k pobytu</strong> a <strong>doklad o pojištění</strong> — veřejném (VZP a další) nebo komerčním PVZP. Zaregistrujeme vás a ihned domluvíme první návštěvu.</p>
+</details>
+<details class="faq-item">
+<summary data-lang-cs="Přijímáte cizince?" data-lang-de="Nehmen Sie auch Ausländer auf?" data-lang-en="Do you accept foreign nationals?" data-lang-ru="Принимаете ли иностранцев?" data-lang-ua="Чи приймаєте іноземців?">Přijímáte cizince?</summary>
+<p data-lang-cs="&lt;strong&gt;Ano.&lt;/strong&gt; Registrujeme pacienty bez ohledu na státní příslušnost. Stačí &lt;strong&gt;doklad totožnosti&lt;/strong&gt; (pas nebo průkaz o povolení k pobytu) a &lt;strong&gt;doklad o zdravotním pojištění&lt;/strong&gt; — veřejném i komerčním (PVZP). Domluvíte se s námi &lt;strong&gt;česky, rusky, ukrajinsky i anglicky&lt;/strong&gt; a s vyplněním formulářů vám pomůžeme." data-lang-de="&lt;strong&gt;Ja.&lt;/strong&gt; Wir registrieren Patienten unabhängig von der Staatsangehörigkeit. Sie brauchen nur einen &lt;strong&gt;Ausweis&lt;/strong&gt; (Reisepass oder Aufenthaltskarte) und einen &lt;strong&gt;Versicherungsnachweis&lt;/strong&gt; — gesetzlich oder privat (PVZP). Wir sprechen &lt;strong&gt;Tschechisch, Russisch, Ukrainisch und Englisch&lt;/strong&gt; und helfen Ihnen beim Ausfüllen der Formulare." data-lang-en="&lt;strong&gt;Yes.&lt;/strong&gt; We register patients regardless of nationality. All you need is an &lt;strong&gt;ID&lt;/strong&gt; (passport or residence permit card) and &lt;strong&gt;proof of health insurance&lt;/strong&gt; — public or commercial (PVZP). We speak &lt;strong&gt;Czech, Russian, Ukrainian and English&lt;/strong&gt; and will help you fill in the forms." data-lang-ru="&lt;strong&gt;Да.&lt;/strong&gt; Регистрируем пациентов независимо от гражданства. Нужен &lt;strong&gt;документ, удостоверяющий личность&lt;/strong&gt; (паспорт или карта ВНЖ) и &lt;strong&gt;подтверждение медицинской страховки&lt;/strong&gt; — государственной или коммерческой (PVZP). Говорим &lt;strong&gt;по-чешски, по-русски, по-украински и по-английски&lt;/strong&gt;, с заполнением бланков поможем." data-lang-ua="&lt;strong&gt;Так.&lt;/strong&gt; Реєструємо пацієнтів незалежно від громадянства. Потрібен &lt;strong&gt;документ, що посвідчує особу&lt;/strong&gt; (паспорт або картка посвідки) та &lt;strong&gt;підтвердження медичної страховки&lt;/strong&gt; — державної або комерційної (PVZP). Говоримо &lt;strong&gt;чеською, російською, українською та англійською&lt;/strong&gt;, із заповненням бланків допоможемо."><strong>Ano.</strong> Registrujeme pacienty bez ohledu na státní příslušnost. Stačí <strong>doklad totožnosti</strong> (pas nebo průkaz o povolení k pobytu) a <strong>doklad o zdravotním pojištění</strong> — veřejném i komerčním (PVZP). Domluvíte se s námi <strong>česky, rusky, ukrajinsky i anglicky</strong> a s vyplněním formulářů vám pomůžeme.</p>
 </details>
 <details class="faq-item">
 <summary data-lang-cs="Mohu se zaregistrovat, když bydlím v Děčíně, Teplicích, Litoměřicích nebo jinde v kraji?" data-lang-de="Kann ich mich registrieren, wenn ich in Děčín, Teplice, Litoměřice oder anderswo in der Region wohne?" data-lang-en="Can I register if I live in Děčín, Teplice, Litoměřice or elsewhere in the region?" data-lang-ru="Могу ли я зарегистрироваться, если живу в Дечине, Теплице, Литомержице или другом городе края?" data-lang-ua="Чи можу я зареєструватися, якщо мешкаю в Дечіні, Тепліце, Літомержице або іншому місті краю?">Mohu se zaregistrovat, když bydlím v Děčíně, Teplicích, Litoměřicích nebo jinde v kraji?</summary>
-<p data-lang-cs="Ano. Registrace k praktickému lékaři není vázána na místo bydliště. Pravidelně k nám dojíždějí pacienti z celého Ústeckého kraje — z Děčína, Litoměřic, Teplic, Lovosic, Mostu, Chomutova i Loun." data-lang-de="Ja. Die Registrierung beim Hausarzt ist nicht an Ihren Wohnort gebunden. Patienten kommen regelmäßig aus der ganzen Region Ústí zu uns — aus Děčín, Litoměřice, Teplice, Lovosice, Most, Chomutov und Louny." data-lang-en="Yes. Registration with a GP is not tied to your place of residence. Patients regularly travel to us from across the Ústí Region — Děčín, Litoměřice, Teplice, Lovosice, Most, Chomutov and Louny." data-lang-ru="Да. Регистрация к терапевту не привязана к месту жительства. К нам регулярно приезжают пациенты со всего Устецкого края — из Дечина, Литомержице, Теплице, Ловосице, Моста, Хомутова и Лоуни." data-lang-ua="Так. Реєстрація до сімейного лікаря не прив'язана до місця проживання. До нас регулярно приїжджають пацієнти з усього Устецького краю — з Дечіна, Літомержице, Тепліце, Ловосіце, Моста, Хомутова та Лоуни.">Ano. Registrace k praktickému lékaři není vázána na místo bydliště. Pravidelně k nám dojíždějí pacienti z celého Ústeckého kraje — z Děčína, Litoměřic, Teplic, Lovosic, Mostu, Chomutova i Loun.</p>
+<p data-lang-cs="&lt;strong&gt;Ano.&lt;/strong&gt; Registrace k praktickému lékaři &lt;strong&gt;není vázána na místo bydliště&lt;/strong&gt;. Pravidelně k nám dojíždějí pacienti z celého Ústeckého kraje — z Děčína, Litoměřic, Teplic, Lovosic, Mostu, Chomutova i Loun." data-lang-de="&lt;strong&gt;Ja.&lt;/strong&gt; Die Registrierung beim Hausarzt ist &lt;strong&gt;nicht an Ihren Wohnort gebunden&lt;/strong&gt;. Patienten kommen regelmäßig aus der ganzen Region Ústí zu uns — aus Děčín, Litoměřice, Teplice, Lovosice, Most, Chomutov und Louny." data-lang-en="&lt;strong&gt;Yes.&lt;/strong&gt; Registration with a GP is &lt;strong&gt;not tied to your place of residence&lt;/strong&gt;. Patients regularly travel to us from across the Ústí Region — Děčín, Litoměřice, Teplice, Lovosice, Most, Chomutov and Louny." data-lang-ru="&lt;strong&gt;Да.&lt;/strong&gt; Регистрация к терапевту &lt;strong&gt;не привязана к месту жительства&lt;/strong&gt;. К нам регулярно приезжают пациенты со всего Устецкого края — из Дечина, Литомержице, Теплице, Ловосице, Моста, Хомутова и Лоуни." data-lang-ua="&lt;strong&gt;Так.&lt;/strong&gt; Реєстрація до сімейного лікаря &lt;strong&gt;не прив'язана до місця проживання&lt;/strong&gt;. До нас регулярно приїжджають пацієнти з усього Устецького краю — з Дечіна, Літомержице, Тепліце, Ловосіце, Моста, Хомутова та Лоуни."><strong>Ano.</strong> Registrace k praktickému lékaři <strong>není vázána na místo bydliště</strong>. Pravidelně k nám dojíždějí pacienti z celého Ústeckého kraje — z Děčína, Litoměřic, Teplic, Lovosic, Mostu, Chomutova i Loun.</p>
 </details>
 <details class="faq-item">
 <summary data-lang-cs="Jaké pojišťovny přijímáte?" data-lang-de="Welche Krankenkassen akzeptieren Sie? Nehmen Sie PVZP?" data-lang-en="Which insurance companies do you accept? Do you take PVZP?" data-lang-ru="Какие страховые принимаете? Берёте ли PVZP?" data-lang-ua="Які страхові приймаєте? Чи берете PVZP?">Jaké pojišťovny přijímáte?</summary>
-<p data-lang-cs="Přijímáme pacienty všech zdravotních pojišťoven — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP i PVZP." data-lang-de="Wir nehmen Patienten aller tschechischen Krankenkassen auf — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — und auch PVZP (Pojišťovna VZP), die Ausländer mit Daueraufenthalt meist haben." data-lang-en="We accept patients from all health insurance companies — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — and also PVZP (Pojišťovna VZP), which foreigners on long-term residence usually have." data-lang-ru="Принимаем пациентов всех страховых компаний — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — а также PVZP (Pojišťovna VZP), которая обычно у иностранцев с долгосрочным пребыванием." data-lang-ua="Приймаємо пацієнтів усіх страхових компаній — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — а також PVZP (Pojišťovna VZP), яка зазвичай у іноземців з довгостроковим перебуванням.">Přijímáme pacienty všech zdravotních pojišťoven — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP i PVZP.</p>
+<p data-lang-cs="Přijímáme pacienty &lt;strong&gt;všech zdravotních pojišťoven&lt;/strong&gt; — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP i &lt;strong&gt;PVZP&lt;/strong&gt;." data-lang-de="Wir nehmen Patienten &lt;strong&gt;aller tschechischen Krankenkassen&lt;/strong&gt; auf — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — und auch &lt;strong&gt;PVZP&lt;/strong&gt; (Pojišťovna VZP), die Ausländer mit Daueraufenthalt meist haben." data-lang-en="We accept patients from &lt;strong&gt;all health insurance companies&lt;/strong&gt; — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — and also &lt;strong&gt;PVZP&lt;/strong&gt; (Pojišťovna VZP), which foreigners on long-term residence usually have." data-lang-ru="Принимаем пациентов &lt;strong&gt;всех страховых компаний&lt;/strong&gt; — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — а также &lt;strong&gt;PVZP&lt;/strong&gt; (Pojišťovna VZP), которая обычно у иностранцев с долгосрочным пребыванием." data-lang-ua="Приймаємо пацієнтів &lt;strong&gt;усіх страхових компаній&lt;/strong&gt; — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP — а також &lt;strong&gt;PVZP&lt;/strong&gt; (Pojišťovna VZP), яка зазвичай у іноземців з довгостроковим перебуванням.">Přijímáme pacienty <strong>všech zdravotních pojišťoven</strong> — VZP, OZP, VoZP, ZPŠ, ZP MV, RBP, ČPZP i <strong>PVZP</strong>.</p>
 </details>
 <details class="faq-item" data-only="tr">
 <summary data-lang-cs="Mluví lékař rusky nebo ukrajinsky?" data-lang-de="Spricht die Ärztin Russisch oder Ukrainisch?" data-lang-en="Does the doctor speak Russian or Ukrainian?" data-lang-ru="Врач говорит по-русски или по-украински?" data-lang-ua="Чи говорить лікар російською або українською?">Mluví lékař rusky nebo ukrajinsky?</summary>
-<p data-lang-cs="Ano. Ordinace funguje v češtině, ruštině, ukrajinštině a angličtině. Nepotřebujete tlumočníka." data-lang-de="Ja. Die Praxis arbeitet auf Tschechisch, Russisch, Ukrainisch und Englisch. Kein Dolmetscher nötig." data-lang-en="Yes. The practice operates in Czech, Russian, Ukrainian and English. No interpreter needed." data-lang-ru="Да. Приём ведётся на чешском, русском, украинском и английском. Переводчик не нужен." data-lang-ua="Так. Прийом ведеться чеською, російською, українською та англійською. Перекладач не потрібен.">Ano. Ordinace funguje v češtině, ruštině, ukrajinštině a angličtině. Nepotřebujete tlumočníka.</p>
+<p data-lang-cs="&lt;strong&gt;Ano.&lt;/strong&gt; Ordinace funguje v &lt;strong&gt;češtině, ruštině, ukrajinštině a angličtině&lt;/strong&gt;. Nepotřebujete tlumočníka." data-lang-de="&lt;strong&gt;Ja.&lt;/strong&gt; Die Praxis arbeitet auf &lt;strong&gt;Tschechisch, Russisch, Ukrainisch und Englisch&lt;/strong&gt;. Kein Dolmetscher nötig." data-lang-en="&lt;strong&gt;Yes.&lt;/strong&gt; The practice operates in &lt;strong&gt;Czech, Russian, Ukrainian and English&lt;/strong&gt;. No interpreter needed." data-lang-ru="&lt;strong&gt;Да.&lt;/strong&gt; Приём ведётся на &lt;strong&gt;чешском, русском, украинском и английском&lt;/strong&gt;. Переводчик не нужен." data-lang-ua="&lt;strong&gt;Так.&lt;/strong&gt; Прийом ведеться &lt;strong&gt;чеською, російською, українською та англійською&lt;/strong&gt;. Перекладач не потрібен."><strong>Ano.</strong> Ordinace funguje v <strong>češtině, ruštině, ukrajinštině a angličtině</strong>. Nepotřebujete tlumočníka.</p>
 </details>
 <details class="faq-item">
 <summary data-lang-cs="Co si mám vzít s sebou na registraci?" data-lang-de="Was muss ich zur Registrierung mitbringen?" data-lang-en="What should I bring to register?" data-lang-ru="Что взять с собой на регистрацию?" data-lang-ua="Що взяти з собою на реєстрацію?">Co si mám vzít s sebou na registraci?</summary>
-<p data-lang-cs="Průkaz pojištěnce a doklad totožnosti (občanský průkaz, pas nebo průkaz o povolení k pobytu). Pokud máte výpis ze zdravotní dokumentace od předchozího lékaře, vezměte ho s sebou — pokud ne, vyžádáme si ho sami." data-lang-de="Ihre Versicherungskarte (kartička pojištěnce) und einen Ausweis (Personalausweis, Reisepass oder Aufenthaltskarte). Wenn Sie einen Auszug aus der Krankenakte Ihres bisherigen Arztes haben (výpis ze zdravotní dokumentace), bringen Sie ihn mit — sonst fordern wir ihn selbst an." data-lang-en="Your insurance card (kartička pojištěnce) and an ID (občanský průkaz, passport or residence permit card). If you have a medical records extract from your previous doctor (výpis ze zdravotní dokumentace), bring it — if not, we will request it ourselves." data-lang-ru="Карточку страховой (kartička pojištěnce) и документ, удостоверяющий личность (občanský průkaz, паспорт или карту ВНЖ). Если есть выписка из медкарты от прежнего врача (výpis ze zdravotní dokumentace) — возьмите с собой; если нет, мы запросим её сами." data-lang-ua="Картку страхової (kartička pojištěnce) та документ, що посвідчує особу (občanský průkaz, паспорт або картку посвідки на проживання). Якщо є виписка з медкартки від попереднього лікаря (výpis ze zdravotní dokumentace) — візьміть із собою; якщо ні, ми запитаємо її самі.">Průkaz pojištěnce a doklad totožnosti (občanský průkaz, pas nebo průkaz o povolení k pobytu). Pokud máte výpis ze zdravotní dokumentace od předchozího lékaře, vezměte ho s sebou — pokud ne, vyžádáme si ho sami.</p>
+<p data-lang-cs="&lt;strong&gt;Průkaz pojištěnce&lt;/strong&gt; a &lt;strong&gt;doklad totožnosti&lt;/strong&gt; (občanský průkaz, pas nebo průkaz o povolení k pobytu). Pokud máte &lt;strong&gt;výpis ze zdravotnické dokumentace&lt;/strong&gt; od předchozího lékaře, vezměte ho s sebou — pokud ne, domluvíme s vámi jeho zajištění." data-lang-de="Ihre &lt;strong&gt;Versicherungskarte&lt;/strong&gt; (kartička pojištěnce) und einen &lt;strong&gt;Ausweis&lt;/strong&gt; (Personalausweis, Reisepass oder Aufenthaltskarte). Wenn Sie einen &lt;strong&gt;Auszug aus der Krankenakte&lt;/strong&gt; Ihres bisherigen Arztes haben, bringen Sie ihn mit — sonst besprechen wir mit Ihnen, wie wir ihn beschaffen." data-lang-en="Your &lt;strong&gt;insurance card&lt;/strong&gt; (kartička pojištěnce) and an &lt;strong&gt;ID&lt;/strong&gt; (občanský průkaz, passport or residence permit card). If you have a &lt;strong&gt;medical records extract&lt;/strong&gt; from your previous doctor, bring it — if not, we will agree with you how to obtain it." data-lang-ru="&lt;strong&gt;Карточку страховой&lt;/strong&gt; (kartička pojištěnce) и &lt;strong&gt;документ, удостоверяющий личность&lt;/strong&gt; (občanský průkaz, паспорт или карту ВНЖ). Если есть &lt;strong&gt;выписка из медкарты&lt;/strong&gt; от прежнего врача — возьмите с собой; если нет, договоримся с Вами о её получении." data-lang-ua="&lt;strong&gt;Картку страхової&lt;/strong&gt; (kartička pojištěnce) та &lt;strong&gt;документ, що посвідчує особу&lt;/strong&gt; (občanský průkaz, паспорт або картку посвідки). Якщо є &lt;strong&gt;виписка з медкартки&lt;/strong&gt; від попереднього лікаря — візьміть із собою; якщо ні, домовимося з Вами про її отримання."><strong>Průkaz pojištěnce</strong> a <strong>doklad totožnosti</strong> (občanský průkaz, pas nebo průkaz o povolení k pobytu). Pokud máte <strong>výpis ze zdravotnické dokumentace</strong> od předchozího lékaře, vezměte ho s sebou — pokud ne, domluvíme s vámi jeho zajištění.</p>
 </details>
 <details class="faq-item">
 <summary data-lang-cs="Jak se objednám na vyšetření?" data-lang-de="Wie bekomme ich einen Termin?" data-lang-en="How do I book an appointment?" data-lang-ru="Как записаться на приём?" data-lang-ua="Як записатися на прийом?">Jak se objednám na vyšetření?</summary>
-<p data-lang-cs="Telefonicky na +420 606 755 784. Hovory přijímáme v ordinační době lékaře. Objednáme vás přímo při hovoru." data-lang-de="Telefonisch unter +420 606 755 784. Wir nehmen während der Sprechzeiten ab und geben Ihnen direkt im Gespräch einen Termin." data-lang-en="By phone on +420 606 755 784. We answer during the doctor's surgery hours. We will book you in during the call." data-lang-ru="По телефону +420 606 755 784. Отвечаем в рабочее время врача. Запишем Вас прямо во время звонка." data-lang-ua="Телефоном +420 606 755 784. Відповідаємо в робочий час лікаря. Запишемо Вас прямо під час дзвінка.">Telefonicky na +420 606 755 784. Hovory přijímáme v ordinační době lékaře. Objednáme vás přímo při hovoru.</p>
+<p data-lang-cs="&lt;strong&gt;Telefonicky na 606 755 784.&lt;/strong&gt; Hovory přijímáme v ordinační době lékaře. Objednáme vás přímo při hovoru." data-lang-de="&lt;strong&gt;Telefonisch unter +420 606 755 784.&lt;/strong&gt; Wir nehmen während der Sprechzeiten ab und geben Ihnen direkt im Gespräch einen Termin." data-lang-en="&lt;strong&gt;By phone on +420 606 755 784.&lt;/strong&gt; We answer during the doctor's surgery hours. We will book you in during the call." data-lang-ru="&lt;strong&gt;По телефону 606 755 784.&lt;/strong&gt; Отвечаем в рабочее время врача. Запишем Вас прямо во время звонка." data-lang-ua="&lt;strong&gt;Телефоном 606 755 784.&lt;/strong&gt; Відповідаємо в робочий час лікаря. Запишемо Вас прямо під час дзвінка."><strong>Telefonicky na 606 755 784.</strong> Hovory přijímáme v ordinační době lékaře. Objednáme vás přímo při hovoru.</p>
 </details>
 <details class="faq-item">
 <summary data-lang-cs="Jak se k vám dostanu?" data-lang-de="Wie komme ich zu Ihnen?" data-lang-en="How do I get to you?" data-lang-ru="Как до вас добраться?" data-lang-ua="Як до вас дістатися?">Jak se k vám dostanu?</summary>
-<p data-lang-cs="Adresa: U Vlečky 3086/6, 400 01 Ústí nad Labem. Přímo v areálu je velké parkoviště. Ordinace je dostupná autem i veřejnou dopravou." data-lang-de="Adresse: U Vlečky 3086/6, 400 01 Ústí nad Labem. Direkt vor Ort gibt es einen großen Parkplatz. Gut erreichbar mit dem Auto und mit öffentlichen Verkehrsmitteln." data-lang-en="Address: U Vlečky 3086/6, 400 01 Ústí nad Labem. There is a large car park on site. Easy to reach by car and public transport." data-lang-ru="Адрес: U Vlečky 3086/6, 400 01 Ústí nad Labem. Прямо на территории большая парковка. Удобно на машине и общественным транспортом." data-lang-ua="Адреса: U Vlečky 3086/6, 400 01 Ústí nad Labem. Прямо на території велика парковка. Зручно автомобілем і громадським транспортом.">Adresa: U Vlečky 3086/6, 400 01 Ústí nad Labem. Přímo v areálu je velké parkoviště. Ordinace je dostupná autem i veřejnou dopravou.</p>
+<p data-lang-cs="Adresa: &lt;strong&gt;U Vlečky 3086/6, 400 01 Ústí nad Labem&lt;/strong&gt;. Přímo v areálu je &lt;strong&gt;velké parkoviště&lt;/strong&gt;. Ordinace je dostupná autem i veřejnou dopravou." data-lang-de="Adresse: &lt;strong&gt;U Vlečky 3086/6, 400 01 Ústí nad Labem&lt;/strong&gt;. Direkt vor Ort gibt es einen &lt;strong&gt;großen Parkplatz&lt;/strong&gt;. Gut erreichbar mit dem Auto und mit öffentlichen Verkehrsmitteln." data-lang-en="Address: &lt;strong&gt;U Vlečky 3086/6, 400 01 Ústí nad Labem&lt;/strong&gt;. There is a &lt;strong&gt;large car park&lt;/strong&gt; on site. Easy to reach by car and public transport." data-lang-ru="Адрес: &lt;strong&gt;U Vlečky 3086/6, 400 01 Ústí nad Labem&lt;/strong&gt;. Прямо на территории &lt;strong&gt;большая парковка&lt;/strong&gt;. Удобно на машине и общественным транспортом." data-lang-ua="Адреса: &lt;strong&gt;U Vlečky 3086/6, 400 01 Ústí nad Labem&lt;/strong&gt;. Прямо на території &lt;strong&gt;велика парковка&lt;/strong&gt;. Зручно автомобілем і громадським транспортом.">Adresa: <strong>U Vlečky 3086/6, 400 01 Ústí nad Labem</strong>. Přímo v areálu je <strong>velké parkoviště</strong>. Ordinace je dostupná autem i veřejnou dopravou.</p>
 </details>
 </div>
 </div>
@@ -1796,7 +1780,7 @@ body.has-cart .to-top{ bottom:208px; }
 <div aria-hidden="true" class="contact-ic"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></div>
 <div>
 <h3 data-lang-cs="Telefony oddělení" data-lang-de="Telefonnummern der Praxen" data-lang-en="Department phones" data-lang-ru="Телефоны отделений" data-lang-ua="Телефони відділень">Telefony oddělení</h3>
-<p class="dept-phones"><span data-lang-cs="Praktická lékařka" data-lang-de="Hausärztin" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktická lékařka</span>: <a href="tel:+420606755784">+420 606 755 784</a><br/><span data-lang-cs="Odběry krve" data-lang-de="Blutuntersuchungen" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Odběry krve</span>: <a href="tel:+420602618024">+420 602 618 024</a><br/><span data-lang-cs="Zubní ordinace" data-lang-de="Zahnarzt" data-lang-en="Dentist" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span>: <a href="tel:+420427702821">+420 427 702 821</a><br/><span data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-de="Arbeitsmedizin (PLS)" data-lang-en="Work medicals (PLS)" data-lang-ru="Профосмотры (PLS)" data-lang-ua="Медогляди (PLS)">Zdravotní prohlídky (PLS)</span>: <a href="tel:+420732952576">+420 732 952 576</a> · <a href="mailto:medigma@medigmapls.cz">medigma@medigmapls.cz</a></p>
+<div class="dept-phones"><span class="dept-row"><span class="lbl" data-lang-cs="Praktická lékařka" data-lang-de="Hausärztin" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktická lékařka</span><a href="tel:+420606755784">606 755 784</a></span><span class="dept-row"><span class="lbl" data-lang-cs="Odběry krve" data-lang-de="Blutuntersuchungen" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Odběry krve</span><a href="tel:+420602618024">602 618 024</a></span><span class="dept-row"><span class="lbl" data-lang-cs="Zubní ordinace" data-lang-de="Zahnarzt" data-lang-en="Dentist" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span><a href="tel:+420427702821">427 702 821</a></span><span class="dept-row"><span class="lbl" data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-de="Arbeitsmedizin (PLS)" data-lang-en="Work medicals (PLS)" data-lang-ru="Профосмотры (PLS)" data-lang-ua="Медогляди (PLS)">Zdravotní prohlídky (PLS)</span><a href="tel:+420732952576">732 952 576</a></span><span class="dept-row dept-row--mail"><span class="lbl" data-lang-cs="E-mail (PLS)" data-lang-de="E-Mail (PLS)" data-lang-en="E-mail (PLS)" data-lang-ru="E-mail (PLS)" data-lang-ua="E-mail (PLS)">E-mail (PLS)</span><a href="mailto:medigma@medigmapls.cz">medigma@medigmapls.cz</a></span></div>
 </div>
 </div>
 <div class="card contact-card">
@@ -1817,19 +1801,6 @@ body.has-cart .to-top{ bottom:208px; }
 <div class="footer-brand footer-brand--col">
 <div class="footer-brand-row"><img alt="Poliklinika U Vlečky - Praktický lékař Ústí nad Labem" class="logo-footer-img" src="/logo.svg"/><div><strong class="footer-name">Poliklinika U Vlečky</strong><span class="footer-tag" data-lang-cs="Ústí nad Labem · praktický lékař, odběry, zubní, prohlídky" data-lang-de="Ústí nad Labem · Hausärztin, Bluttests, Zahnarzt, Untersuchungen" data-lang-en="Ústí nad Labem · GP, blood tests, dentist, check-ups" data-lang-ru="Усти-над-Лабем · терапевт, анализы, стоматолог, медосмотры" data-lang-ua="Усті-над-Лабем · терапевт, аналізи, стоматолог, медогляди">Ústí nad Labem · praktický lékař, odběry, zubní, prohlídky</span></div></div>
 <ul class="footer-hours"><li><span data-lang-cs="Praktická lékařka" data-lang-de="Hausärztin" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktická lékařka</span> <b><span data-lang-cs="Po–Pá 8–13" data-lang-de="Mo–Fr 8–13" data-lang-en="Mon–Fri 8–13" data-lang-ru="Пн–Пт 8–13" data-lang-ua="Пн–Пт 8–13">Po–Pá 8–13</span></b></li><li><span data-lang-cs="Odběry krve" data-lang-de="Blutabnahme" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Odběry krve</span> <b><span data-lang-cs="Po–Pá 7:00–12:00" data-lang-de="Mo–Fr 7:00–12:00" data-lang-en="Mon–Fri 7:00–12:00" data-lang-ru="Пн–Пт 7:00–12:00" data-lang-ua="Пн–Пт 7:00–12:00">Po–Pá 7:00–12:00</span></b></li></ul>
-</div>
-<div class="footer-mid">
-<p class="footer-h"><span data-lang-cs="Rychle na" data-lang-de="Schnellzugriff" data-lang-en="Quick links" data-lang-ru="Быстрые ссылки" data-lang-ua="Швидкі посилання">Rychle na</span></p>
-<nav class="footer-quick"><a href="/prakticky-lekar/"><span data-lang-cs="Praktický lékař" data-lang-de="Hausärztin" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktický lékař</span></a><a href="/odbery/"><span data-lang-cs="Odběry krve a ceník" data-lang-de="Bluttests &amp; Preise" data-lang-en="Blood tests &amp; prices" data-lang-ru="Анализы и цены" data-lang-ua="Аналізи й ціни">Odběry krve a ceník</span></a><a href="/#lekar"><span data-lang-cs="Lékaři" data-lang-de="Ärzte" data-lang-en="Doctors" data-lang-ru="Врачи" data-lang-ua="Лікарі">Lékaři</span></a><a href="/#kontakt"><span data-lang-cs="Jak k nám" data-lang-de="Anfahrt" data-lang-en="How to get here" data-lang-ru="Как добраться" data-lang-ua="Як дістатися">Jak k nám</span></a></nav>
-<p class="footer-h footer-h--app"><span data-lang-cs="Objednání v aplikaci ZORYX" data-lang-de="Termine in der App ZORYX" data-lang-en="Book in the ZORYX app" data-lang-ru="Запись в приложении ZORYX" data-lang-ua="Запис у застосунку ZORYX">Objednání v aplikaci ZORYX</span></p>
-<div class="store-badges store-badges--footer">
-<a aria-label="ZORYX v App Store" class="store-badge" href="https://apps.apple.com/app/id1478295123" rel="noopener" target="_blank" title="ZORYX — objednání na potvrzení a odběry"><svg aria-hidden="true" viewbox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" fill="currentColor"></path></svg><span class="sb-txt"><small data-lang-cs="Stáhnout v" data-lang-de="Laden im" data-lang-en="Download on the" data-lang-ru="Загрузите в" data-lang-ua="Завантажте в">Stáhnout v</small>App Store</span></a>
-<a aria-label="ZORYX na Google Play" class="store-badge" href="https://play.google.com/store/apps/details?id=org.zoryx" rel="noopener" target="_blank" title="ZORYX — objednání na potvrzení a odběry"><svg aria-hidden="true" viewbox="0 0 512 512"><path d="M48 59.5v393c0 6.3 3.6 11.8 8.9 14.4l228-228.1L56.9 45.1C51.6 47.7 48 53.2 48 59.5z" fill="#00d7fe"></path><path d="M370 153.6 99.6 2.3C93 -1.4 85.1 -.5 79.5 3.6L284.9 238.8z" fill="#00f076"></path><path d="M79.5 508.4c5.6 4.1 13.5 5 20.1 1.3L370 358.4 284.9 273.2z" fill="#ff3a44"></path><path d="m463.4 225.7-93.4-72.1-85.1 85.2 85.1 85.2 93.4-72.1c19.6-14.8 19.6-46.4 0-26.2z" fill="#ffd500"></path></svg><span class="sb-txt"><small data-lang-cs="Nyní na" data-lang-de="Jetzt bei" data-lang-en="Get it on" data-lang-ru="Доступно в" data-lang-ua="Доступно в">Nyní na</small>Google Play</span></a>
-</div>
-</div>
-<div class="footer-contact">
-<div><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.4"></circle></svg><a data-lang-cs="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-de="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-en="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-ru="U Vlečky 3086/6, 400 01 Ústí nad Labem" data-lang-ua="U Vlečky 3086/6, 400 01 Ústí nad Labem" href="https://maps.app.goo.gl/bvLedpDPebfn6AKe8" rel="noopener" target="_blank">U Vlečky 3086/6, 400 01 Ústí nad Labem</a></div>
-<div><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg><span class="dept-phones"><span class="lbl" data-lang-cs="Praktická lékařka" data-lang-de="Hausärztin" data-lang-en="GP" data-lang-ru="Терапевт" data-lang-ua="Терапевт">Praktická lékařka</span><a href="tel:+420606755784">+420 606 755 784</a><span class="lbl" data-lang-cs="Odběry krve" data-lang-de="Blutuntersuchungen" data-lang-en="Blood tests" data-lang-ru="Анализы крови" data-lang-ua="Аналізи крові">Odběry krve</span><a href="tel:+420602618024">+420 602 618 024</a><span class="lbl" data-lang-cs="Zubní ordinace" data-lang-de="Zahnarzt" data-lang-en="Dentist" data-lang-ru="Стоматология" data-lang-ua="Стоматологія">Zubní ordinace</span><a href="tel:+420427702821">+420 427 702 821</a><span class="lbl" data-lang-cs="Zdravotní prohlídky (PLS)" data-lang-de="Arbeitsmedizin (PLS)" data-lang-en="Work medicals (PLS)" data-lang-ru="Профосмотры (PLS)" data-lang-ua="Медогляди (PLS)">Zdravotní prohlídky (PLS)</span><a href="tel:+420732952576">+420 732 952 576</a><span class="lbl" data-lang-cs="E-mail (PLS)" data-lang-de="E-Mail (PLS)" data-lang-en="E-mail (PLS)" data-lang-ru="E-mail (PLS)" data-lang-ua="E-mail (PLS)">E-mail (PLS)</span><a href="mailto:medigma@medigmapls.cz">medigma@medigmapls.cz</a></span></div>
 </div>
 </div>
 <div class="footer-legal">
@@ -1865,21 +1836,21 @@ body.has-cart .to-top{ bottom:208px; }
 <!-- floating booking button (same idea as mencare.cz, in U Vlečky colours) -->
 <div class="fab" id="fab">
 <div class="fab-menu" hidden="" id="fabMenu" role="menu">
+<a class="fab-item" href="/prakticky-lekar/#registrace" role="menuitem">
+<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
+<span><strong data-lang-cs="Registrace" data-lang-de="Registrierung" data-lang-en="Registration" data-lang-ru="Регистрация" data-lang-ua="Реєстрація">Registrace</strong><small data-lang-cs="Pouze telefonicky · na pojišťovnu" data-lang-de="Nur telefonisch · über die Krankenkasse" data-lang-en="By phone only · covered by insurance" data-lang-ru="Только по телефону · по страховке" data-lang-ua="Лише телефоном · за страховкою">Pouze telefonicky · na pojišťovnu</small></span>
+</a>
 <a class="fab-item fab-blood" href="/odbery/" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"></path><path d="M7.5 14h9"></path></svg></span>
-<span><strong data-lang-cs="Odběry krve bez žádanky" data-lang-de="Blutuntersuchungen ohne Überweisung" data-lang-en="Blood tests, no referral" data-lang-ru="Анализы без направления" data-lang-ua="Аналізи без направлення">Odběry krve bez žádanky</strong><small data-lang-cs="Placené · testy dle výběru" data-lang-de="Selbstzahler · Tests nach Wahl" data-lang-en="Paid · tests of your choice" data-lang-ru="Платно · анализы на ваш выбор" data-lang-ua="Платно · аналізи на ваш вибір">Placené · testy dle výběru</small></span>
+<span><strong data-lang-cs="Odběry samoplátce" data-lang-de="Blutabnahme – Selbstzahler" data-lang-en="Blood tests – self-pay" data-lang-ru="Анализы — платно" data-lang-ua="Аналізи — платно">Odběry samoplátce</strong><small data-lang-cs="Placené · testy dle výběru" data-lang-de="Selbstzahler · Tests nach Wahl" data-lang-en="Paid · tests of your choice" data-lang-ru="Платно · анализы на ваш выбор" data-lang-ua="Платно · аналізи на ваш вибір">Placené · testy dle výběru</small></span>
 </a>
 <a class="fab-item fab-zad" data-zoryx-book="odbery_usti" data-zx-note="zadanka" href="https://zoryx.app/clinic/embed/odbery_usti" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6M9 17h4"></path></svg></span>
-<span><strong data-lang-cs="Odběr se žádankou" data-lang-de="Blutuntersuchung mit Überweisung" data-lang-en="Blood test with a referral" data-lang-ru="Анализы с направлением" data-lang-ua="Аналізи з направленням">Odběr se žádankou</strong><small data-lang-cs="Hradí pojišťovna · stejné termíny" data-lang-de="Zahlt die Krankenkasse · dieselben Termine" data-lang-en="Paid by insurance · same slots" data-lang-ru="Оплачивает страховая · те же даты" data-lang-ua="Оплачує страхова · ті самі дати">Hradí pojišťovna · stejné termíny</small></span>
+<span><strong data-lang-cs="Odběry pojišťovna" data-lang-de="Blutabnahme – Krankenkasse" data-lang-en="Blood tests – insurance" data-lang-ru="Анализы — по страховке" data-lang-ua="Аналізи — за страховкою">Odběry pojišťovna</strong><small data-lang-cs="Hradí pojišťovna · stejné termíny" data-lang-de="Zahlt die Krankenkasse · dieselben Termine" data-lang-en="Paid by insurance · same slots" data-lang-ru="Оплачивает страховая · те же даты" data-lang-ua="Оплачує страхова · ті самі дати">Hradí pojišťovna · stejné termíny</small></span>
 </a>
 <a class="fab-item fab-exam" data-zoryx-book="poliklinika_u_vlecky" href="https://zoryx.app/clinic/embed/poliklinika_u_vlecky" role="menuitem">
 <span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="4" rx="1" width="8" x="8" y="2"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span>
-<span><strong data-lang-cs="Lékařské prohlídky" data-lang-de="Ärztliche Untersuchungen" data-lang-en="Medical check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Lékařské prohlídky</strong><small data-lang-cs="Autoškola, práce, škola · od 500 Kč · online termíny" data-lang-de="Führerschein, Arbeit, Schule · ab 500 CZK · online buchen" data-lang-en="Driving, work, school · from 500 CZK · book online" data-lang-ru="Автошкола, работа, учёба · от 500 Kč · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · від 500 Kč · онлайн-запис">Autoškola, práce, škola · online termíny</small></span>
-</a>
-<a class="fab-item" href="/prakticky-lekar/#registrace" role="menuitem">
-<span class="fab-ic"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"></path></svg></span>
-<span><strong data-lang-cs="Registrace k praktickému lékaři" data-lang-de="Registrierung beim Hausarzt" data-lang-en="Register with the GP" data-lang-ru="Регистрация к практическому врачу" data-lang-ua="Реєстрація до сімейного лікаря">Registrace k praktickému lékaři</strong><small data-lang-cs="Pouze telefonicky · na pojišťovnu" data-lang-de="Nur telefonisch · über die Krankenkasse" data-lang-en="By phone only · covered by insurance" data-lang-ru="Только по телефону · по страховке" data-lang-ua="Лише телефоном · за страховкою">Pouze telefonicky · na pojišťovnu</small></span>
+<span><strong data-lang-cs="Prohlídky" data-lang-de="Untersuchungen" data-lang-en="Check-ups" data-lang-ru="Медосмотры" data-lang-ua="Медогляди">Prohlídky</strong><small data-lang-cs="Autoškola, práce, škola · od 500 Kč · online termíny" data-lang-de="Führerschein, Arbeit, Schule · ab 500 CZK · online buchen" data-lang-en="Driving, work, school · from 500 CZK · book online" data-lang-ru="Автошкола, работа, учёба · от 500 Kč · онлайн-запись" data-lang-ua="Автошкола, робота, навчання · від 500 Kč · онлайн-запис">Autoškola, práce, škola · online termíny</small></span>
 </a>
 </div>
 <button aria-controls="fabMenu" aria-expanded="false" class="fab-btn" id="fabBtn" type="button">
