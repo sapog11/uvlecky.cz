@@ -1136,13 +1136,47 @@ body.has-cart .to-top{ bottom:208px; }
     radial-gradient(38% 20% at 90% 92%, rgba(104,161,214,.32), transparent 70%),
     linear-gradient(180deg,#F4F9FD 0%,#EDF4FA 50%,#EAF2EE 100%);
 }
-#vyhody,#registrace,#lekar,#informace,#kontakt,#region,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+#vyhody,#registrace,#lekar,#informace,#kontakt,#partneri,#faq,#cizinci,#odbery-promo{ background:transparent; }
+
+/* ---- jeden tmavy predel: sekce Usteckeho kraje ---- */
+#region{
+  background:linear-gradient(170deg, var(--navy) 0%, #16233D 100%);
+  color:var(--white);
+  position:relative; overflow:hidden;
+}
+#region::before{
+  content:""; position:absolute; top:-140px; right:-90px;
+  width:420px; height:420px; border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, rgba(104,161,214,.20), transparent 70%);
+}
+#region .container{ position:relative; z-index:1; }
+#region .eyebrow{ color:var(--blue-2); }
+#region h2{ color:var(--white); }
+#region h2 em{ color:var(--blue-pale); }
+#region .ornament{ opacity:.45; }
+#region .region-intro,
+#region .region-note{ color:rgba(255,255,255,.74); }
+#region .region-towns li{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.92);
+}
+#region .reg-list li{ color:rgba(255,255,255,.88); }
+#region .reg-check{ background:rgba(104,161,214,.26); color:var(--blue-2); }
+/* karta s telefonem uz tmava je - uvnitr tmave sekce se odlisi sklem */
+#region .reg-card{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:none;
+}
+#region .reg-card::before{ opacity:.5; }
+
 .card,.doc-card,.faq-item,.sub-fact,.why-card,.topic{
-  background:rgba(255,255,255,.58);
-  -webkit-backdrop-filter:blur(18px) saturate(1.5);
-  backdrop-filter:blur(18px) saturate(1.5);
-  border:1px solid rgba(255,255,255,.85);
-  box-shadow:0 16px 40px -26px rgba(28,43,74,.45), inset 0 1px 0 rgba(255,255,255,.9);
+  background:rgba(255,255,255,.88);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);
+  backdrop-filter:blur(18px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 34px -22px rgba(28,43,74,.5), inset 0 1px 0 rgba(255,255,255,.95);
 }
 .topic[aria-pressed="true"]{ background:rgba(220,234,247,.8); border-color:var(--navy); }
 .faq-item summary:hover{ background:rgba(220,234,247,.55); }
