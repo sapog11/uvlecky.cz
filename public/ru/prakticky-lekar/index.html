@@ -439,9 +439,9 @@
   --white:      #FFFFFF;
   --paper:      #F6FAFD;
 
-  --green:      #6F9A85;
-  --green-pale: #CFE0D6;
-  --green-mist: #E4EEE7;
+  --green:      var(--blue);
+  --green-pale: var(--blue-mist);
+  --green-mist: var(--blue-mist2);
 
   --ink:        #1C2B4A;
   --ink-soft:   #47576F;
@@ -699,8 +699,8 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 #registrace{ background:linear-gradient(180deg,#EDF4FB 0%,#F4F9FD 100%); }
 #sluzby{ background:linear-gradient(180deg,#EAF3FB 0%,#E0ECF7 100%); }
 #lekar{ background:#FFFFFF; }
-#informace{ background:linear-gradient(180deg,#FFFFFF 0%,#EAF2EE 100%); }
-#kontakt{ background:linear-gradient(180deg,#EAF2EE 0%,#DDE9DF 100%); }
+#informace{ background:linear-gradient(180deg,#FFFFFF 0%,#EAF3FB 100%); }
+#kontakt{ background:linear-gradient(180deg,#EAF3FB 0%,#DCEAF7 100%); }
 .section{ padding:56px 0; position:relative; }
 @media (max-width:760px){ .section{ padding:44px 0; } }
 
@@ -835,7 +835,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .ins-list span{ font-size:12.5px; font-weight:600; padding:8px 13px; border-radius:24px; background:var(--blue-mist); color:var(--navy); }
 .info-note{ background:var(--blue-mist2); border-color:transparent; }
 .info-note h3 svg{ color:var(--blue); }
-.info-note p{ font-size:14.5px; color:#3C5648; line-height:1.6; }
+.info-note p{ font-size:14.5px; color:var(--ink-soft); line-height:1.6; }
 @media (max-width:900px){ .info-grid{ grid-template-columns:1fr; } }
 
 /* ===================== CONTACTS ===================== */
@@ -843,7 +843,7 @@ h1,h2,h3,h4{ margin:0; font-weight:600; color:var(--navy); }
 .contact-stage{
   position:relative; border-radius:32px; overflow:hidden;
   min-height:520px; display:flex; align-items:flex-end; padding:26px;
-  background:#DDE9DF;
+  background:var(--blue-mist);
 }
 .contact-gallery{
   position:absolute; inset:0; overflow:hidden;
@@ -1232,7 +1232,7 @@ body.has-cart .to-top{ bottom:208px; }
 /* ===================== MORE COLOUR: violet glass accents =====================
    The ZORYX violet as light and glow, so the page is not grey; icons sit in
    colour bubbles; blood tests stay the one red thing. */
-:root{ --violet:#7C3AED; --violet-2:#622ADA; --sky:#38BDF8; }
+:root{ --violet:var(--blue); --violet-2:var(--navy); --sky:var(--blue-2); }
 .page{
   background:
     radial-gradient(34% 18% at 92% 3%, rgba(124,58,237,.30), transparent 70%),
@@ -1270,14 +1270,14 @@ body.has-cart .to-top{ bottom:208px; }
 .fab-item.fab-zad:hover{ background:#FFE4EA; }
 .btn-2l{ display:flex; flex-direction:column; line-height:1.2; text-align:left; }
 .btn-2l small{ font-size:12px; font-weight:500; opacity:.8; }
-.fab-item.fab-exam{ background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 60%,#3B1C8C 100%); color:#fff; border-radius:16px; }
+.fab-item.fab-exam{ background:linear-gradient(135deg,#3E6BA0 0%,#2A4D78 60%,#1C2B4A 100%); color:#fff; border-radius:16px; }
 .fab-item.fab-exam .fab-ic{ background:rgba(255,255,255,.2); color:#fff; }
 .fab-item.fab-exam small{ color:rgba(255,255,255,.85); }
 .fab-item.fab-exam:hover{ filter:brightness(1.08); }
 .fab-btn{ background:linear-gradient(135deg,#E8466B 0%,#9E1239 100%) !important; box-shadow:0 14px 30px -12px rgba(226,61,99,.8) !important; }
 .btn-app .app-sub{ display:block; font-size:10.5px; font-weight:500; opacity:.85; line-height:1.15; margin-top:1px; letter-spacing:.01em; }
 .btn-app{ flex-direction:column; line-height:1.15; }
-.btn-app{ background:linear-gradient(135deg,#622ADA 0%,#0070BB 100%) !important; color:#fff !important; }
+.btn-app{ background:linear-gradient(135deg,#24365A 0%,#3E6BA0 100%) !important; color:#fff !important; }
 /* App Store / Google Play — two store badges instead of one long button that overflowed the header */
 .store-badges{ display:flex; gap:8px; flex-shrink:0; }
 .store-badge{ display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 13px 0 11px; border-radius:11px; background:#000; color:#fff; text-decoration:none; border:1px solid #3c3c3c; box-shadow:0 6px 16px -10px rgba(0,0,0,.55); transition:transform .15s, box-shadow .15s; }
@@ -1373,7 +1373,7 @@ body.has-cart .to-top{ bottom:208px; }
 .svc-card .btn{ align-self:flex-start; }
 @media (max-width:900px){ .svc-grid{ grid-template-columns:1fr; } }
 
-.btn-exam{ background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 100%); color:#fff; box-shadow:0 14px 30px -14px rgba(91,33,182,.8); }
+.btn-exam{ background:linear-gradient(135deg,#3E6BA0 0%,#1C2B4A 100%); color:#fff; box-shadow:0 14px 30px -14px rgba(91,33,182,.8); }
 .btn-exam:hover{ filter:brightness(1.08); transform:translateY(-2px); }
 .btn-exam svg, .btn-reg svg{ width:19px; height:19px; flex:none; }
 .btn-reg{ text-align:left; }
@@ -1387,8 +1387,8 @@ body.has-cart .to-top{ bottom:208px; }
 .reg-only-main .btn-primary{ background:#fff; color:var(--navy); }
 .reg-only-main .btn-primary svg{ width:18px; height:18px; }
 .reg-note{ font-size:13.5px; color:#D6E4F5; margin:0; }
-.reg-only-side{ background:linear-gradient(135deg,#F3EEFF,#EAE2FF); }
-.reg-only-side .kicker{ color:#6D28D9; }
+.reg-only-side{ background:linear-gradient(135deg,#EAF3FB,#DCEAF7); }
+.reg-only-side .kicker{ color:var(--blue); }
 .reg-only-side p{ margin:0 0 6px; color:var(--ink-soft); }
 .kicker{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
 @media (max-width:820px){ .reg-only{ grid-template-columns:1fr; } .reg-only-main h3{ font-size:28px; } }
@@ -1741,7 +1741,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </section>
 <!-- DIAGNOSTIKA — the operator of the practice and of the laboratory in the building -->
-<section class="section" style="background:linear-gradient(180deg,#EEF1FF 0%,#E6EEFB 100%);">
+<section class="section" style="background:linear-gradient(180deg,#EAF3FB 0%,#DCEAF7 100%);">
 <div class="container">
 <div class="section-head reveal">
 <span class="eyebrow" data-lang-cs="DIAGNOSTIKA s.r.o." data-lang-de="DIAGNOSTIKA s.r.o." data-lang-en="DIAGNOSTIKA s.r.o." data-lang-ru="DIAGNOSTIKA s.r.o." data-lang-ua="DIAGNOSTIKA s.r.o.">DIAGNOSTIKA s.r.o.</span>
@@ -1815,7 +1815,7 @@ body.has-cart .to-top{ bottom:208px; }
 </div>
 </section>
 <!-- FAQ -->
-<section class="section" style="background:linear-gradient(180deg,#FFFFFF 0%,#EAF2EE 100%);">
+<section class="section" style="background:linear-gradient(180deg,#FFFFFF 0%,#EAF3FB 100%);">
 <div class="container">
 <div class="section-head reveal">
 <span class="eyebrow" data-lang-cs="Časté dotazy" data-lang-de="FAQ" data-lang-en="FAQ" data-lang-ru="Частые вопросы" data-lang-ua="Часті запитання">Частые вопросы</span>
